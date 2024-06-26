@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -36,10 +37,21 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _currentState = FreeMovingState;
+        _previousState = _currentState;
     }
 
     private void Update()
     {
         _currentState = _currentState.Do(this);
+        if (_previousState != _currentState)
+        {
+            _previousState.Exit(this);
+            _currentState.Enter(this);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        _currentState.FixedDo(this);
     }
 }
