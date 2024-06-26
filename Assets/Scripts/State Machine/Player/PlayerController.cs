@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode moveLeftKey = KeyCode.A;
     [SerializeField] private KeyCode moveRightKey = KeyCode.D;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float driftFactor = 0.95f;
-    [SerializeField] private float acceleration = 2f;
+    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float driftFactor = 0.05f;
+    [SerializeField] private float acceleration = 10f;
     
     public Rigidbody2D Rigidbody2D { get; private set; }
     public KeyCode MoveUpKey => moveUpKey;
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
             _previousState.Exit(this);
             _currentState.Enter(this);
         }
+        _previousState = _currentState;
     }
 
     private void FixedUpdate()
