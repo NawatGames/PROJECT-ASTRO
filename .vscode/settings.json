@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "PROJECT ASTRO.sln"
+    "dotnet.defaultSolution": "PROJECT-ASTRO.sln"
 }
