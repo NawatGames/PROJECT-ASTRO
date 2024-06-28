@@ -4,12 +4,14 @@ public class TaskController : MonoBehaviour
 {
     private ITaskState _currentState;
     private ITaskState _previousState;
-        
-    public WaitingState WaitingState { get; private set; } = new WaitingState();
+
+    public bool NeedsToBeDone { get; } = false;
+    public UnavailableState UnavailableState { get; private set; } = new UnavailableState();
+    public AvailableState AvailableState { get; private set; } = new AvailableState();
     public BeingDoneState BeingDoneState { get; private set; } = new BeingDoneState();
     private void OnEnable()
     {
-        _currentState = WaitingState;
+        _currentState = UnavailableState;
         _previousState = _currentState;
     }
 
