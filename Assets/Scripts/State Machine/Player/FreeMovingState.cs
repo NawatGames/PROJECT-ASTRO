@@ -10,14 +10,23 @@ public class FreeMovingState : IPlayerState
         if (Input.GetKeyDown(player.InteractKey) && true /*Verificar se está na área de interação da task*/)
         {
             Debug.Log("Fazendo task");
-            player.Rigidbody2D.velocity = Vector2.zero;
             return player.DoingTasksState;
         }
-        Move(player);
         return player.FreeMovingState;
         
     }
 
+    public void FixedDo(PlayerController player)
+    {
+        Move(player);
+    }
+
+    public void Exit(PlayerController player)
+    {
+        _currentVelocity = Vector2.zero;
+        player.Rigidbody2D.velocity = Vector2.zero;
+    }
+    
     private void Move(PlayerController player)
     {
         Vector2 moveInput = Vector2.zero;

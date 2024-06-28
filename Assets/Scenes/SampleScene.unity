@@ -615,9 +615,10 @@ MonoBehaviour:
   moveDownKey: 115
   moveLeftKey: 97
   moveRightKey: 100
-  interactKey: 32
+  interactKey: 101
   moveSpeed: 10
-  driftFactor: 0.95
+  driftFactor: 0.05
+  acceleration: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
