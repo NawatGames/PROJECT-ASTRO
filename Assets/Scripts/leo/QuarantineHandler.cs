@@ -1,53 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuarantineHandler : MonoBehaviour
 {
-    [SerializeField] float timerA;
-    public List<GameObject> roomGroup;
-    public List<GameObject> roomAvailableToInvade;
-    public List<bool> isRoomOcuppied;
+    [SerializeField] float timerQuarantineDelay;
+    [SerializeField] float timerQuarantineDuration;
+    [SerializeField] private bool isButtonPressed;
+    [SerializeField] private bool canPressButton;
+
+    public UnityEvent roomQuaratined;
+    [SerializeField] private bool isRoomQuarantined = false;
+
+    // public GameObject room;
+    public SpriteRenderer roomSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        isRoomOcuppied = new List<bool>(3) { true, false, true };
+        canPressButton = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        int i = 0;
-        foreach (GameObject room in roomGroup)
+        if (canPressButton && isButtonPressed)
         {
-            // if(room.isOccupied)
-            // {
-            //     isRoomOcuppied[i] = true;
-            // }
-            // else isRoomOcuppied[i] = false;
-            // i++;
-
+            StartCoroutine(QuarantineDuration());
+            canPressButton = false;
         }
-        int j = 0;
-        foreach (bool roomState in isRoomOcuppied)
+        if(isRoomQuarantined)
         {
-            if(roomState == true)
-            {
-                foreach (GameObject room in roomAvailableToInvade)
-                {
-                    if(room.GetInstanceID() == roomAvailableToInvade[j].GetInstanceID())
-                    {
-
-                    }
-                    else
-                    {
-                    }
-                }
-                roomAvailableToInvade.Add(roomGroup[j]);
-            }
-            j++;
+            roomSprite.color = Color.red;
         }
+        else roomSprite.color = Color.white;
+    }
+
+    private IEnumerator QuarantineDuration()
+    {
+        isRoomQuarantined = true;
+        roomQuaratined.Invoke();
+        yield return new WaitForSecondsRealtime(timerQuarantineDuration);
+        StartCoroutine(QuaratineDelay());
+    }
+    private IEnumerator QuaratineDelay()
+    {
+        isRoomQuarantined = false;
+        yield return new WaitForSecondsRealtime(timerQuarantineDelay);
+        canPressButton = true;
     }
 }
