@@ -393,10 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomManager: {fileID: 993510705}
   roomsToInvade: []
-  roomManager: {fileID: 0}
   _timerAlienInvasion: 5
-  _timerInvasionDelay: 3
+  _timerInvasionDelay: 7
 --- !u!1 &852757822
 GameObject:
   m_ObjectHideFlags: 0

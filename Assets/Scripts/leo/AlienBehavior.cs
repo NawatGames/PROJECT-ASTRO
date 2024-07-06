@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AlienBehavior : MonoBehaviour
 {
@@ -10,19 +12,23 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private float _timerAlienInvasion;
     [SerializeField] private float _timerInvasionDelay;
 
-    private bool canCheckRooms;
+    public GameObject roomInvaded;
+    private bool _canCheckRooms;
+
+    public UnityEvent gameOverEvent;
+    public UnityEvent alienQuarantinedEvent;
     // Start is called before the first frame update
     void Start()
     {
-        canCheckRooms = true;
+        _canCheckRooms = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canCheckRooms)
+        if (_canCheckRooms)
         {
-            canCheckRooms = false;
+            _canCheckRooms = false;
             StartCoroutine(RoomsAvailable());
         }
 
@@ -35,7 +41,37 @@ public class AlienBehavior : MonoBehaviour
         yield return new WaitForSecondsRealtime(_timerInvasionDelay);
         Debug.Log("Alien can invade!");
         roomsToInvade = manager.roomsBeingUsed;
-        canCheckRooms = true;
+        _canCheckRooms = true;
+        StartCoroutine(InvasionStart());
+    }
+    private IEnumerator InvasionStart()
+    {
+        if (roomsToInvade.Count != 0)
+        {
+            int roomIndex = Random.Range(0, roomsToInvade.Count - 1);
+            Debug.Log(roomIndex);
+            roomInvaded = roomsToInvade[roomIndex];
+            yield return new WaitForSecondsRealtime(_timerAlienInvasion);
+            QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
+            if (roomInvadedScript.isRoomQuarantined)
+            {
+                Debug.Log("Alien Quarantined");
+                alienQuarantinedEvent.Invoke();
+
+            }
+            else
+            {
+                Debug.Log("GAME OVER");
+                gameOverEvent.Invoke();
+
+            }
+
+        }
+        else
+        {
+            Debug.Log("No room to invade");
+
+        }
     }
     void OnEnable()
     {
