@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
@@ -13,7 +12,7 @@ public class PlayerController : MonoBehaviour
     
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
-    public KeyCode InteractKey => interactKey;
+    public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
     public float Acceleration => acceleration;
@@ -28,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         _input = new AstronautInput();
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        InteractAction = _input.FindAction("Interaction");
     }
 
     private void OnEnable()
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
         MoveVector = value.ReadValue<Vector2>();
-        Debug.Log(MoveVector);
     }
     
     private void OnMovementCancelled(InputAction.CallbackContext value)

@@ -8,7 +8,7 @@ public class DoingTasksState : IPlayerState
     }
     public IPlayerState Do(PlayerController player)
     {
-        if (Input.GetKeyDown(player.InteractKey))
+        if (player.InteractAction.WasPressedThisFrame())
         {
             Debug.Log("Parando de fazer task");
             return player.FreeMovingState;

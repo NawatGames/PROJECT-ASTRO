@@ -7,7 +7,7 @@ public class FreeMovingState : IPlayerState
 
     public IPlayerState Do(PlayerController player)
     {
-        if (Input.GetKeyDown(player.InteractKey) && true /*Verificar se está na área de interação da task*/)
+        if (player.InteractAction.WasPressedThisFrame() && true /*Verificar se está na área de interação da task*/)
         {
             Debug.Log("Fazendo task");
             return player.DoingTasksState;
