@@ -29,27 +29,7 @@ public class FreeMovingState : IPlayerState
     
     private void Move(PlayerController player)
     {
-        Vector2 moveInput = Vector2.zero;
-
-        if (Input.GetKey(player.MoveUpKey))
-        {
-            moveInput.y += 1;
-        }
-        if (Input.GetKey(player.MoveDownKey))
-        {
-            moveInput.y -= 1;
-        }
-        if (Input.GetKey(player.MoveLeftKey))
-        {
-            moveInput.x -= 1;
-        }
-        if (Input.GetKey(player.MoveRightKey))
-        {
-            moveInput.x += 1;
-        }
-
-        moveInput.Normalize();
-        _velocity = moveInput * player.MoveSpeed;
+        _velocity = player.MoveVector * player.MoveSpeed;
         
         _currentVelocity = Vector2.Lerp(_currentVelocity, _velocity, player.Acceleration * Time.fixedDeltaTime);
 
