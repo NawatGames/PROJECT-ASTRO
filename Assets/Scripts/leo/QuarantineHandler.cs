@@ -12,6 +12,8 @@ public class QuarantineHandler : MonoBehaviour
     [SerializeField] private bool isButtonPressed;
     [SerializeField] public bool canPressButton;
 
+    [SerializeField] public bool isBeingUsed;
+
     public UnityEvent quarantineStarted;
     public UnityEvent quarantineEnded;
     [SerializeField] public bool isRoomQuarantined = false;

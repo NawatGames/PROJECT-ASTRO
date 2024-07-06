@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 292142849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.39, y: 2.79, z: 0}
+  m_LocalPosition: {x: -1.45, y: 2.79, z: 0}
   m_LocalScale: {x: 3.569, y: 3.6943, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -224,6 +224,7 @@ MonoBehaviour:
   timerQuarantineDuration: 5
   isButtonPressed: 0
   canPressButton: 0
+  isBeingUsed: 0
   quarantineStarted:
     m_PersistentCalls:
       m_Calls:
@@ -348,6 +349,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &615202926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615202927}
+  - component: {fileID: 615202928}
+  m_Layer: 0
+  m_Name: Alien
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615202927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615202926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.061436012, y: 0.014986454, z: 0.016584262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615202928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615202926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomsToInvade: []
+  roomManager: {fileID: 0}
+  _timerAlienInvasion: 5
+  _timerInvasionDelay: 3
 --- !u!1 &852757822
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +432,7 @@ MonoBehaviour:
   timerQuarantineDuration: 5
   isButtonPressed: 0
   canPressButton: 0
+  isBeingUsed: 0
   quarantineStarted:
     m_PersistentCalls:
       m_Calls:
@@ -531,6 +581,7 @@ MonoBehaviour:
   - {fileID: 1413436565}
   - {fileID: 852757822}
   roomsScript: []
+  roomsBeingUsed: []
 --- !u!1 &1413436565
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +617,7 @@ MonoBehaviour:
   timerQuarantineDuration: 5
   isButtonPressed: 0
   canPressButton: 0
+  isBeingUsed: 0
   quarantineStarted:
     m_PersistentCalls:
       m_Calls:
@@ -659,7 +711,7 @@ Transform:
   m_GameObject: {fileID: 1413436565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.38, y: 2.86, z: 0}
+  m_LocalPosition: {x: 3.53, y: -0.22, z: 0}
   m_LocalScale: {x: 3.569, y: 3.6943, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -674,3 +726,4 @@ SceneRoots:
   - {fileID: 1413436568}
   - {fileID: 852757825}
   - {fileID: 993510707}
+  - {fileID: 615202927}
