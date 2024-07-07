@@ -7,7 +7,7 @@ public class FreeMovingState : IPlayerState
 
     public IPlayerState Do(PlayerController player)
     {
-        if (player.InteractAction.WasPressedThisFrame() && true /*Verificar se está na área de interação da task*/)
+        if (player.InteractAction.WasPressedThisFrame() && player.IsOnTaskArea)
         {
             Debug.Log("Fazendo task");
             return player.DoingTasksState;
@@ -35,5 +35,4 @@ public class FreeMovingState : IPlayerState
 
         player.Rigidbody2D.velocity = player.Rigidbody2D.velocity * player.DriftFactor + _currentVelocity * (1 - player.DriftFactor);
     }
-    
 }

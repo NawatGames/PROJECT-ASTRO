@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
+    public bool IsOnTaskArea { get; private set; } = false;
     public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         _input = new AstronautInput();
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        InteractAction = _input.FindAction("Interaction");
+        InteractAction = _input.Default.Interaction;
     }
 
     private void OnEnable()
@@ -70,5 +71,21 @@ public class PlayerController : MonoBehaviour
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         MoveVector = Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Task"))
+        {
+            IsOnTaskArea = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Task"))
+        {
+            IsOnTaskArea = false;
+        }
     }
 }
