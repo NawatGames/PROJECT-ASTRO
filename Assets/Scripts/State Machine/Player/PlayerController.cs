@@ -1,23 +1,18 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private KeyCode moveUpKey = KeyCode.W;
-    [SerializeField] private KeyCode moveDownKey = KeyCode.S;
-    [SerializeField] private KeyCode moveLeftKey = KeyCode.A;
-    [SerializeField] private KeyCode moveRightKey = KeyCode.D;
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
+
+    private AstronautInput _input = null;
     
     public Rigidbody2D Rigidbody2D { get; private set; }
-    public KeyCode MoveUpKey => moveUpKey;
-    public KeyCode MoveDownKey => moveDownKey;
-    public KeyCode MoveLeftKey => moveLeftKey;
-    public KeyCode MoveRightKey => moveRightKey;
-    
-    public KeyCode InteractKey => interactKey;
+    public Vector2 MoveVector { get; private set; } = Vector2.zero;
+    public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
     public float Acceleration => acceleration;
@@ -30,13 +25,25 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _input = new AstronautInput();
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        InteractAction = _input.FindAction("Interaction");
     }
 
     private void OnEnable()
     {
+        _input.Enable();
+        _input.Default.Movement.performed += OnMovementPerformed;
+        _input.Default.Movement.canceled += OnMovementCancelled;
         _currentState = FreeMovingState;
         _previousState = _currentState;
+    }
+
+    private void OnDisable()
+    {
+        _input.Disable();
+        _input.Default.Movement.performed -= OnMovementPerformed;
+        _input.Default.Movement.canceled -= OnMovementCancelled;
     }
 
     private void Update()
@@ -53,5 +60,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _currentState.FixedDo(this);
+    }
+
+    private void OnMovementPerformed(InputAction.CallbackContext value)
+    {
+        MoveVector = value.ReadValue<Vector2>();
+    }
+    
+    private void OnMovementCancelled(InputAction.CallbackContext value)
+    {
+        MoveVector = Vector2.zero;
     }
 }
