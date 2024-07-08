@@ -26,6 +26,7 @@ public class AlienBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Verifica se existem salas com players dentro  
         if (_canCheckRooms)
         {
             _canCheckRooms = false;
@@ -37,19 +38,28 @@ public class AlienBehavior : MonoBehaviour
     {
 
         QuarantineManager manager = roomManager.GetComponent<QuarantineManager>();
-
         yield return new WaitForSecondsRealtime(_timerInvasionDelay);
-        Debug.Log("Alien can invade!");
+        Debug.Log("Alien is looking for rooms!");
         roomsToInvade = manager.roomsBeingUsed;
-        _canCheckRooms = true;
-        StartCoroutine(InvasionStart());
+        
+        if (roomsToInvade.Count != 0)
+        {
+            // Alien tenta invadir uma sala
+            StartCoroutine(InvasionStart());
+        }
+        else
+        {
+            Debug.Log("No room to invade");
+            _canCheckRooms = true;
+
+        }
     }
     private IEnumerator InvasionStart()
     {
-        if (roomsToInvade.Count != 0)
+        int roomIndex = Random.Range(-1, roomsToInvade.Count);
+        // Debug.Log(roomIndex);
+        if (roomIndex != -1)
         {
-            int roomIndex = Random.Range(0, roomsToInvade.Count - 1);
-            Debug.Log(roomIndex);
             roomInvaded = roomsToInvade[roomIndex];
             yield return new WaitForSecondsRealtime(_timerAlienInvasion);
             QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
@@ -65,16 +75,13 @@ public class AlienBehavior : MonoBehaviour
                 gameOverEvent.Invoke();
 
             }
-
         }
-        else
+        else if(roomIndex == -1)
         {
-            Debug.Log("No room to invade");
-
+            // Alien falhou em invadir uma sala 
+            Debug.Log("No room invaded");
         }
+        _canCheckRooms = true;
     }
-    void OnEnable()
-    {
 
-    }
 }
