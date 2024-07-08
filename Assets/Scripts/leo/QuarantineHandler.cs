@@ -8,7 +8,6 @@ public class QuarantineHandler : MonoBehaviour
 {
     public QuarantineManager manager;
     [SerializeField] float timerQuarantineDelay;
-    [SerializeField] float timerQuarantineDuration;
     [SerializeField] private bool isButtonPressed;
     [SerializeField] public bool canPressButton;
 
@@ -33,15 +32,22 @@ public class QuarantineHandler : MonoBehaviour
     {
         if (canPressButton && isButtonPressed)
         {
-            StartCoroutine(QuarantineDuration());
+            StartCoroutine(QuarantineToggle());
             canPressButton = false;
         }
-        if(isRoomQuarantined)
+
+        RoomColorDebug();
+
+    }
+
+    private void RoomColorDebug()
+    {
+        if (isRoomQuarantined)
         {
             //Sala quarentenada
             roomSprite.color = Color.red;
         }
-        else if(!canPressButton && !isRoomQuarantined)
+        else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
@@ -49,17 +55,24 @@ public class QuarantineHandler : MonoBehaviour
         else roomSprite.color = Color.white;
     }
 
-    private IEnumerator QuarantineDuration()
+    private IEnumerator QuarantineToggle()
     {
-        isRoomQuarantined = true;
-        quarantineStarted.Invoke();
-        yield return new WaitForSecondsRealtime(timerQuarantineDuration);
+        if (!isRoomQuarantined)
+        {
+            isRoomQuarantined = true;
+            quarantineStarted.Invoke();
+        }
+        else if (isRoomQuarantined)
+        {
+            isRoomQuarantined = false;
+            quarantineEnded.Invoke();
+        }
         StartCoroutine(QuaratineDelay());
+        yield return null;
     }
     private IEnumerator QuaratineDelay()
     {
-        isRoomQuarantined = false;
         yield return new WaitForSecondsRealtime(timerQuarantineDelay);
-        quarantineEnded.Invoke();
+        canPressButton = true;
     }
 }

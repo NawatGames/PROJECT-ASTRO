@@ -41,7 +41,7 @@ public class AlienBehavior : MonoBehaviour
         yield return new WaitForSecondsRealtime(_timerInvasionDelay);
         Debug.Log("Alien is looking for rooms!");
         roomsToInvade = manager.roomsBeingUsed;
-        
+
         if (roomsToInvade.Count != 0)
         {
             // Alien tenta invadir uma sala
@@ -60,6 +60,7 @@ public class AlienBehavior : MonoBehaviour
         // Debug.Log(roomIndex);
         if (roomIndex != -1)
         {
+            Debug.Log("Room found! Alien Invading...");
             roomInvaded = roomsToInvade[roomIndex];
             yield return new WaitForSecondsRealtime(_timerAlienInvasion);
             QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
@@ -76,7 +77,7 @@ public class AlienBehavior : MonoBehaviour
 
             }
         }
-        else if(roomIndex == -1)
+        else if (roomIndex == -1)
         {
             // Alien falhou em invadir uma sala 
             Debug.Log("No room invaded");
