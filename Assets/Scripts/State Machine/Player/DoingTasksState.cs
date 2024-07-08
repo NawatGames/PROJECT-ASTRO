@@ -11,6 +11,7 @@ public class DoingTasksState : IPlayerState
         if (player.InteractAction.WasPressedThisFrame())
         {
             Debug.Log("Parando de fazer task");
+            player.NearTaskScript.wasInterrupted = true;
             return player.FreeMovingState;
         }
         return player.DoingTasksState;

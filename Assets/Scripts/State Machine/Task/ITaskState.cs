@@ -1,7 +1,7 @@
 public interface ITaskState
 {
-    void Enter(TaskController player) {}
-    ITaskState Do(TaskController player);
-    void FixedDo(TaskController player) {}
-    void Exit(TaskController player) {}
+    void Enter(TaskController task) {}
+    ITaskState Do(TaskController task);
+    void FixedDo(TaskController task) {}
+    void Exit(TaskController task) {}
 }

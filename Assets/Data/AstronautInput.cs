@@ -114,6 +114,94 @@ public partial class @AstronautInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Task"",
+            ""id"": ""999ae02f-3aac-46aa-bffe-b4e76c46ee7e"",
+            ""actions"": [
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""ada8e0ca-11b6-4866-92b4-a60c32bf8af7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e09b978-6ea4-4a6e-8c0d-01f2a114690e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f504697-326c-4a75-9d02-b5614e996cad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""9fbc0cc3-b711-4e60-bb8e-07eca79e9717"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b9e16c98-1bc7-4b71-a0af-6586cec51e92"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25475476-f93d-410b-a6ab-d4a0311534d9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17da6c6c-191c-4ccb-9ed7-202d710ad5ac"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bf5391f-aaf4-4751-8705-728f4e44c1f4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -122,6 +210,12 @@ public partial class @AstronautInput: IInputActionCollection2, IDisposable
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Interaction = m_Default.FindAction("Interaction", throwIfNotFound: true);
+        // Task
+        m_Task = asset.FindActionMap("Task", throwIfNotFound: true);
+        m_Task_W = m_Task.FindAction("W", throwIfNotFound: true);
+        m_Task_A = m_Task.FindAction("A", throwIfNotFound: true);
+        m_Task_S = m_Task.FindAction("S", throwIfNotFound: true);
+        m_Task_D = m_Task.FindAction("D", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -233,9 +327,86 @@ public partial class @AstronautInput: IInputActionCollection2, IDisposable
         }
     }
     public DefaultActions @Default => new DefaultActions(this);
+
+    // Task
+    private readonly InputActionMap m_Task;
+    private List<ITaskActions> m_TaskActionsCallbackInterfaces = new List<ITaskActions>();
+    private readonly InputAction m_Task_W;
+    private readonly InputAction m_Task_A;
+    private readonly InputAction m_Task_S;
+    private readonly InputAction m_Task_D;
+    public struct TaskActions
+    {
+        private @AstronautInput m_Wrapper;
+        public TaskActions(@AstronautInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @W => m_Wrapper.m_Task_W;
+        public InputAction @A => m_Wrapper.m_Task_A;
+        public InputAction @S => m_Wrapper.m_Task_S;
+        public InputAction @D => m_Wrapper.m_Task_D;
+        public InputActionMap Get() { return m_Wrapper.m_Task; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TaskActions set) { return set.Get(); }
+        public void AddCallbacks(ITaskActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TaskActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TaskActionsCallbackInterfaces.Add(instance);
+            @W.started += instance.OnW;
+            @W.performed += instance.OnW;
+            @W.canceled += instance.OnW;
+            @A.started += instance.OnA;
+            @A.performed += instance.OnA;
+            @A.canceled += instance.OnA;
+            @S.started += instance.OnS;
+            @S.performed += instance.OnS;
+            @S.canceled += instance.OnS;
+            @D.started += instance.OnD;
+            @D.performed += instance.OnD;
+            @D.canceled += instance.OnD;
+        }
+
+        private void UnregisterCallbacks(ITaskActions instance)
+        {
+            @W.started -= instance.OnW;
+            @W.performed -= instance.OnW;
+            @W.canceled -= instance.OnW;
+            @A.started -= instance.OnA;
+            @A.performed -= instance.OnA;
+            @A.canceled -= instance.OnA;
+            @S.started -= instance.OnS;
+            @S.performed -= instance.OnS;
+            @S.canceled -= instance.OnS;
+            @D.started -= instance.OnD;
+            @D.performed -= instance.OnD;
+            @D.canceled -= instance.OnD;
+        }
+
+        public void RemoveCallbacks(ITaskActions instance)
+        {
+            if (m_Wrapper.m_TaskActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITaskActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TaskActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TaskActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TaskActions @Task => new TaskActions(this);
     public interface IDefaultActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+    }
+    public interface ITaskActions
+    {
+        void OnW(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnS(InputAction.CallbackContext context);
+        void OnD(InputAction.CallbackContext context);
     }
 }

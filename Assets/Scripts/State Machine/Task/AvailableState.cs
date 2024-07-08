@@ -2,6 +2,10 @@ public class AvailableState : ITaskState
 {
         public ITaskState Do(TaskController task)
         {
-               return task.AvailableState; 
+            if(!task.wasStarted)
+               return task.AvailableState;
+            // wasStarted == true:
+            task.wasStarted = false;
+            return task.BeingDoneState;
         }
 }

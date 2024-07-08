@@ -7,10 +7,17 @@ public class FreeMovingState : IPlayerState
 
     public IPlayerState Do(PlayerController player)
     {
-        if (player.InteractAction.WasPressedThisFrame() && player.IsOnTaskArea)
+        if (player.InteractAction.WasPressedThisFrame())
         {
-            Debug.Log("Fazendo task");
-            return player.DoingTasksState;
+            if (player.IsOnTaskArea)
+            {
+                if (player.NearTaskScript.currentState is AvailableState)
+                {
+                    Debug.Log("Fazendo task");
+                    player.NearTaskScript.wasStarted = true;
+                    return player.DoingTasksState;
+                }
+            }
         }
         return player.FreeMovingState;
         

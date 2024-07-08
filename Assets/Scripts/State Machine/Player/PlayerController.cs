@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
     public bool IsOnTaskArea { get; private set; } = false;
+    public TaskController NearTaskScript { get; private set; }
     public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Task"))
         {
             IsOnTaskArea = true;
+            NearTaskScript = other.GetComponent<TaskController>();
         }
     }
     
@@ -86,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Task"))
         {
             IsOnTaskArea = false;
+            NearTaskScript = null;
         }
     }
 }

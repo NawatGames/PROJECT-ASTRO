@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 1420075050}
   m_Layer: 0
   m_Name: Interaction Area
-  m_TagString: Untagged
+  m_TagString: Task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,11 +611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a084625049534a55a981292cdc58cacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveUpKey: 119
-  moveDownKey: 115
-  moveLeftKey: 97
-  moveRightKey: 100
-  interactKey: 101
   moveSpeed: 10
   driftFactor: 0.05
   acceleration: 10
