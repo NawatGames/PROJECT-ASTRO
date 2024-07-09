@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class TaskController : MonoBehaviour
 {
     public ITaskState currentState;
     private ITaskState _previousState;
+
+    public TaskScript taskScript;
 
     public bool NeedsToBeDone { get; set; } = false;
     public bool wasStarted;
@@ -22,7 +25,7 @@ public class TaskController : MonoBehaviour
         currentState = currentState.Do(this);
         if (_previousState != currentState)
         {
-            Debug.Log(currentState);
+            //Debug.Log(currentState);
             _previousState.Exit(this);
             currentState.Enter(this);
         }

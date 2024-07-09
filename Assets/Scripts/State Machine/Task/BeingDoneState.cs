@@ -10,4 +10,9 @@ public class BeingDoneState : ITaskState
                 // implementar: if wasFinished {}
                 return task.BeingDoneState;
         }
+
+        public void Enter(TaskController task)
+        {
+                
+        }
 }

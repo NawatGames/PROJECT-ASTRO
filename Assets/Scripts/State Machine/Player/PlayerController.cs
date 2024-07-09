@@ -1,19 +1,21 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
-
-    private AstronautInput _input = null;
     
+    public PlayerInputAsset input = null;
+    public bool isAstro = true; // true se for astronauta; false se for Alien
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
     public bool IsOnTaskArea { get; private set; } = false;
-    public TaskController NearTaskScript { get; private set; }
+    public TaskController NearTaskController { get; private set; }
     public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
@@ -25,27 +27,29 @@ public class PlayerController : MonoBehaviour
     public DoingTasksState DoingTasksState { get; private set; } = new DoingTasksState();
     public GameOverState GameOverState { get; private set; } = new GameOverState();
 
-    private void Awake()
+    private void Awake() // No awake, a variavel isAstro ainda não está setada (mas no Start sim)
     {
-        _input = new AstronautInput();
+        input = new PlayerInputAsset();
+        PlayerInput pInput = GetComponent<PlayerInput>();
+        pInput.actions = input.asset;
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        InteractAction = _input.Default.Interaction;
+        InteractAction = input.Default.Interaction;
     }
 
     private void OnEnable()
     {
-        _input.Enable();
-        _input.Default.Movement.performed += OnMovementPerformed;
-        _input.Default.Movement.canceled += OnMovementCancelled;
+        input.Enable();
+        input.Default.Movement.performed += OnMovementPerformed;
+        input.Default.Movement.canceled += OnMovementCancelled;
         _currentState = FreeMovingState;
         _previousState = _currentState;
     }
 
     private void OnDisable()
     {
-        _input.Disable();
-        _input.Default.Movement.performed -= OnMovementPerformed;
-        _input.Default.Movement.canceled -= OnMovementCancelled;
+        input.Disable();
+        input.Default.Movement.performed -= OnMovementPerformed;
+        input.Default.Movement.canceled -= OnMovementCancelled;
     }
 
     private void Update()
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Task"))
         {
             IsOnTaskArea = true;
-            NearTaskScript = other.GetComponent<TaskController>();
+            NearTaskController = other.GetComponent<TaskController>();
         }
     }
     
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Task"))
         {
             IsOnTaskArea = false;
-            NearTaskScript = null;
+            NearTaskController = null;
         }
     }
 }
