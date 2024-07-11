@@ -2,7 +2,7 @@ public class UnavailableState : ITaskState
 {
         public ITaskState Do(TaskController task)
         {
-                if (task.NeedsToBeDone)
+                if (task.needsToBeDone)
                 {
                         return task.AvailableState;
                 }
