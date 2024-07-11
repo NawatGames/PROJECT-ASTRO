@@ -4,10 +4,18 @@ public class FreeMovingState : IPlayerState
 {
     private Vector2 _velocity;
     private Vector2 _currentVelocity;
+    private bool _isInInteractiveArea;
+    private bool _isInteractingWithTask;
+
+    public void Enter(PlayerController player)
+    {
+        _isInInteractiveArea = false;
+        _isInteractingWithTask = false;
+    }
 
     public IPlayerState Do(PlayerController player)
     {
-        if (Input.GetKeyDown(player.InteractKey) && true /*Verificar se está na área de interação da task*/)
+        if (_isInteractingWithTask)
         {
             Debug.Log("Fazendo task");
             return player.DoingTasksState;
@@ -25,6 +33,20 @@ public class FreeMovingState : IPlayerState
     {
         _currentVelocity = Vector2.zero;
         player.Rigidbody2D.velocity = Vector2.zero;
+    }
+
+    public void OnTriggerEnter2D(Collider2D other, PlayerController player)
+    {
+        if (other.CompareTag("Task"))
+        {
+            _isInInteractiveArea = true;
+            //Exibir tecla de interação acima do player ou do objeto
+        }
+
+        if (other.CompareTag("QuarantineButton"))
+        {
+            _isInInteractiveArea = true;
+        }
     }
     
     private void Move(PlayerController player)

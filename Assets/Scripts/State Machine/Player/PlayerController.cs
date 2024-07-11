@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,8 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
+    [Header("Events")]
+    [SerializeField] private GameEvent onQuarantineButtonPressed;
+    [SerializeField] private GameEvent onTaskInitiated;
     
     public Rigidbody2D Rigidbody2D { get; private set; }
+    public GameEvent OnQuarantineButtonPressed => onQuarantineButtonPressed;
+    public GameEvent OnTaskInitiated => onTaskInitiated;
     public KeyCode MoveUpKey => moveUpKey;
     public KeyCode MoveDownKey => moveDownKey;
     public KeyCode MoveLeftKey => moveLeftKey;
@@ -53,5 +59,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _currentState.FixedDo(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        _currentState.OnTriggerEnter2D(other, this);
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _currentState.OnTriggerExit2D(other, this);
     }
 }
