@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Task"))
         {
             IsOnTaskArea = true;
-            NearTaskController = other.GetComponent<TaskController>();
+            NearTaskController = other.GetComponentInChildren<TaskController>();
         }
     }
     

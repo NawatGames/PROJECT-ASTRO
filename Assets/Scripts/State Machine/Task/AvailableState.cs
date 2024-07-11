@@ -4,7 +4,6 @@ public class AvailableState : ITaskState
         {
             if(!task.wasStarted)
                return task.AvailableState;
-            // wasStarted == true:
             task.wasStarted = false;
             return task.BeingDoneState;
         }

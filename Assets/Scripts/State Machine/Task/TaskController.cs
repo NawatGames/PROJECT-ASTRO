@@ -8,7 +8,7 @@ public class TaskController : MonoBehaviour
 
     public TaskScript taskScript;
 
-    public bool NeedsToBeDone { get; set; } = false;
+    public bool needsToBeDone = false;
     public bool wasStarted;
     public bool wasInterrupted;
     public UnavailableState UnavailableState { get; private set; } = new UnavailableState();
@@ -18,6 +18,10 @@ public class TaskController : MonoBehaviour
     {
         currentState = UnavailableState;
         _previousState = currentState;
+        if (taskScript is null)
+        {
+            Debug.LogWarning("Há um objeto task Sem script! Criar componente e associar no TaskController");
+        }
     }
 
     private void Update()

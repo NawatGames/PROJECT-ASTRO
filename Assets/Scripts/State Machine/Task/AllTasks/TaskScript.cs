@@ -1,42 +1,52 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TaskScript : MonoBehaviour
 {
-    private InputActionAsset _inputAsset;
-    private InputActionMap _taskInputMap;
+    protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
-    
-    public void SetupAndRun(InputActionAsset pInputAsset, bool pIsAstro)
+    private TaskController taskCtrl;
+
+    protected virtual void Awake()
     {
-        _inputAsset = pInputAsset;
+        taskCtrl = GetComponentInParent<TaskController>();
+    }
+
+    public void SetupAndRun(PlayerInputAsset pInputAsset, bool pIsAstro)
+    {
+        inputAsset = pInputAsset;
         isAstro = pIsAstro;
-        _taskInputMap = _inputAsset.FindActionMap("Task");
-        _taskInputMap.Enable();
-        _taskInputMap.FindAction("Up").performed += OnUpPerformed;
-        _taskInputMap.FindAction("Down").performed += OnDownPerformed;
-        _taskInputMap.FindAction("Left").performed += OnLeftPerformed;
-        _taskInputMap.FindAction("Right").performed += OnRightPerformed;
+        inputAsset.Task.Enable();
+        inputAsset.Task.Up.performed += OnUpPerformed;
+        inputAsset.Task.Down.performed += OnDownPerformed;
+        inputAsset.Task.Left.performed += OnLeftPerformed;
+        inputAsset.Task.Right.performed += OnRightPerformed;
         RunTask();
     }
 
-    public void RemoveInput()
+    protected virtual void TaskSuccessful()
     {
-        _taskInputMap.Disable();
-        _taskInputMap.FindAction("Up").performed -= OnUpPerformed;
-        _taskInputMap.FindAction("Down").performed -= OnDownPerformed;
-        _taskInputMap.FindAction("Left").performed -= OnLeftPerformed;
-        _taskInputMap.FindAction("Right").performed -= OnRightPerformed;
+        taskCtrl.needsToBeDone = false;
+    }
+
+    public virtual void EndTask()
+    {
+        inputAsset.Task.Disable();
+        inputAsset.Task.Up.performed -= OnUpPerformed;
+        inputAsset.Task.Down.performed -= OnDownPerformed;
+        inputAsset.Task.Left.performed -= OnLeftPerformed;
+        inputAsset.Task.Right.performed -= OnRightPerformed;
     }
 
     protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
     protected virtual void OnDownPerformed(InputAction.CallbackContext value) {}
     protected virtual void OnLeftPerformed(InputAction.CallbackContext value) {}
     protected virtual void OnRightPerformed(InputAction.CallbackContext value) {}
-    
-    
+
+
     protected virtual void RunTask()
     {
-        
+        Debug.Log("Iniciou Task: " + this);
     }
 }

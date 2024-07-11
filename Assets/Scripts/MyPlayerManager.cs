@@ -16,10 +16,4 @@ public class MyPlayerManager : MonoBehaviour
         alien.GetComponent<PlayerController>().isAstro = false;
         alien.transform.position = alienSpawn.position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

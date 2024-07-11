@@ -13,7 +13,7 @@ public class TaskManager : MonoBehaviour
     {
         try
         {
-            taskList[0].NeedsToBeDone = true;
+            taskList[0].needsToBeDone = true;
         }
         catch
         {

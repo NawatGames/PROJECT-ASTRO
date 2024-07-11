@@ -7,12 +7,16 @@ public class BeingDoneState : ITaskState
                         task.wasInterrupted = false;
                         return task.AvailableState;
                 }
-                // implementar: if wasFinished {}
+
+                if (!task.needsToBeDone)
+                {
+                        return task.UnavailableState;
+                }
                 return task.BeingDoneState;
         }
 
-        public void Enter(TaskController task)
+        public void Exit(TaskController task)
         {
-                
+                task.taskScript.EndTask();
         }
 }
