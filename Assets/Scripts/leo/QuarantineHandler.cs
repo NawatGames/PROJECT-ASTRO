@@ -8,7 +8,6 @@ public class QuarantineHandler : MonoBehaviour
 {
     public QuarantineManager manager;
     [SerializeField] float timerQuarantineDelay;
-    [SerializeField] private bool isButtonPressed;
     [SerializeField] public bool canPressButton;
 
     [SerializeField] public bool isBeingUsed;
@@ -24,18 +23,12 @@ public class QuarantineHandler : MonoBehaviour
     void Start()
     {
         canPressButton = true;
-        // roomQuaratined.AddListener();
+        // roomQuarantined.AddListener();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canPressButton && isButtonPressed)
-        {
-            StartCoroutine(QuarantineToggle());
-            canPressButton = false;
-        }
-
         RoomColorDebug();
 
     }
@@ -67,12 +60,21 @@ public class QuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
         }
-        StartCoroutine(QuaratineDelay());
+        StartCoroutine(QuarantineDelay());
         yield return null;
     }
-    private IEnumerator QuaratineDelay()
+    private IEnumerator QuarantineDelay()
     {
         yield return new WaitForSecondsRealtime(timerQuarantineDelay);
         canPressButton = true;
+    }
+
+    private void OnQuarantineStarted()
+    {
+        if (canPressButton)
+        {
+            StartCoroutine(QuarantineToggle());
+            canPressButton = false;
+        }
     }
 }

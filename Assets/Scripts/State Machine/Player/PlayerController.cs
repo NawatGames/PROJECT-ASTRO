@@ -1,8 +1,5 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +7,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
     
-    public PlayerInputAsset input = null;
+    [SerializeField] private GameEvent onQuarantineButtonPressed;
+    public PlayerInputAsset Input;
     public bool isAstro = true; // true se for astronauta; false se for Alien
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
-    public bool IsOnTaskArea { get; private set; } = false;
+    public bool IsOnTaskArea { get; private set; }
+    public bool IsOnButtonArea { get; private set; }
+    public bool GameIsOver { get; private set; }
     public TaskController NearTaskController { get; private set; }
+    public DoorButtonController NearDoorButtonController { get; private set; }
     public InputAction InteractAction { get; private set; }
     public float MoveSpeed => moveSpeed;
     public float DriftFactor => driftFactor;
@@ -27,29 +28,29 @@ public class PlayerController : MonoBehaviour
     public DoingTasksState DoingTasksState { get; private set; } = new DoingTasksState();
     public GameOverState GameOverState { get; private set; } = new GameOverState();
 
-    private void Awake() // No awake, a variavel isAstro ainda não está setada (mas no Start sim)
+    private void Awake() // No awake, a variável isAstro ainda não está setada (mas no Start sim)
     {
-        input = new PlayerInputAsset();
+        Input = new PlayerInputAsset();
         PlayerInput pInput = GetComponent<PlayerInput>();
-        pInput.actions = input.asset;
+        pInput.actions = Input.asset;
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        InteractAction = input.Default.Interaction;
+        InteractAction = Input.Default.Interaction;
     }
 
     private void OnEnable()
     {
-        input.Enable();
-        input.Default.Movement.performed += OnMovementPerformed;
-        input.Default.Movement.canceled += OnMovementCancelled;
+        Input.Enable();
+        Input.Default.Movement.performed += OnMovementPerformed;
+        Input.Default.Movement.canceled += OnMovementCancelled;
         _currentState = FreeMovingState;
         _previousState = _currentState;
     }
 
     private void OnDisable()
     {
-        input.Disable();
-        input.Default.Movement.performed -= OnMovementPerformed;
-        input.Default.Movement.canceled -= OnMovementCancelled;
+        Input.Disable();
+        Input.Default.Movement.performed -= OnMovementPerformed;
+        Input.Default.Movement.canceled -= OnMovementCancelled;
     }
 
     private void Update()
@@ -73,6 +74,14 @@ public class PlayerController : MonoBehaviour
         MoveVector = value.ReadValue<Vector2>();
     }
     
+    private void OnInteractionPerformed(InputAction.CallbackContext value)
+    {
+        if (IsOnButtonArea)
+        {
+            onQuarantineButtonPressed.Raise();
+        }
+    }
+    
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         MoveVector = Vector2.zero;
@@ -80,19 +89,42 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Task"))
+        bool isTask = other.CompareTag("Task");
+        bool isQuarantineButton = other.CompareTag("QuarantineButton");
+
+        if (isTask || isQuarantineButton)
         {
-            IsOnTaskArea = true;
-            NearTaskController = other.GetComponentInChildren<TaskController>();
+            // Botão acima do player
+
+            if (isTask)
+            {
+                IsOnTaskArea = true;
+                NearTaskController = other.GetComponentInChildren<TaskController>();
+                return;
+            }
+
+            NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+            IsOnButtonArea = true;
         }
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Task"))
+        bool isTask = other.CompareTag("Task");
+        bool isQuarantineButton = other.CompareTag("QuarantineButton");
+
+        if (isTask || isQuarantineButton)
         {
-            IsOnTaskArea = false;
-            NearTaskController = null;
+            // Botão acima do player
+
+            if (isTask)
+            {
+                IsOnTaskArea = false;
+                NearTaskController = null;
+                return;
+            }
+            NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+            IsOnButtonArea = false;
         }
     }
 }
