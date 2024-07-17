@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float driftFactor = 0.05f;
     [SerializeField] private float acceleration = 10f;
     
-    [SerializeField] private GameEvent onQuarantineButtonPressed;
     public PlayerInputAsset Input;
     public bool isAstro = true; // true se for astronauta; false se for Alien
     public Rigidbody2D Rigidbody2D { get; private set; }
@@ -74,14 +73,6 @@ public class PlayerController : MonoBehaviour
         MoveVector = value.ReadValue<Vector2>();
     }
     
-    private void OnInteractionPerformed(InputAction.CallbackContext value)
-    {
-        if (IsOnButtonArea)
-        {
-            onQuarantineButtonPressed.Raise();
-        }
-    }
-    
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         MoveVector = Vector2.zero;
@@ -126,5 +117,10 @@ public class PlayerController : MonoBehaviour
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
             IsOnButtonArea = false;
         }
+    }
+
+    public void SetGameOverState()
+    {
+        GameIsOver = true;
     }
 }

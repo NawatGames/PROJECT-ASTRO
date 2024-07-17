@@ -18,7 +18,7 @@ public class HealthManager : MonoBehaviour
         gameOverText.color = new Color(255, 255, 255, 0);
         healthText.text = "VIDA: " + health;
         //Coroutine exclusiva de testes
-        //StartCoroutine(TestGameOver());
+        StartCoroutine(TestGameOver());
     }
 
     public void DecreaseHealth()
