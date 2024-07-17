@@ -9,27 +9,22 @@ public class QuarantineManager : MonoBehaviour
     public List<GameObject> roomsBeingUsed;
 
     // public UnityEvent roomQuarantined;
-
-
-    // Start is called before the first frame update
+    
     private void Start()
     {
         foreach (GameObject room in rooms)
         {
             roomsScript.Add(room.GetComponent<QuarantineHandler>());
         }
-
-
     }
-
-    // Update is called once per frame
+    
     private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
         foreach (GameObject room in rooms)
         {
             QuarantineHandler script = room.GetComponent<QuarantineHandler>();
-            if (script.isBeingUsed && !roomsInUse.Any(x => x == room))
+            if (script.isBeingUsed && roomsInUse.All(x => x != room))
             {
                 roomsInUse.Add(room);
             }

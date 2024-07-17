@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class QuarantineHandler : MonoBehaviour
 {
     public QuarantineManager manager;
-    [SerializeField] float timerQuarantineDelay;
+    [SerializeField] private float timerQuarantineDelay;
     [SerializeField] public bool canPressButton;
 
     [SerializeField] public bool isBeingUsed;

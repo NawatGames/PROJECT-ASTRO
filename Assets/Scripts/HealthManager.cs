@@ -43,7 +43,7 @@ public class HealthManager : MonoBehaviour
         while (health != 0)
         {
             DecreaseHealth();
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSecondsRealtime(2);
         }
         yield return null;
     }
@@ -52,7 +52,8 @@ public class HealthManager : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        // Fade to black
+        yield return new WaitForSecondsRealtime(1);
+        
         while (elapsedTime < gameOverFadeDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -60,10 +61,11 @@ public class HealthManager : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        
+        yield return new WaitForSecondsRealtime(1);
 
         elapsedTime = 0f;
-
-        // Fade in "GAME OVER" text
+        
         while (elapsedTime < gameOverFadeDuration)
         {
             elapsedTime += Time.deltaTime;
