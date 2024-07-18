@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1050375014}
   progressValue: 0.05
+  decayValue: 0.003
 --- !u!1 &474660590
 GameObject:
   m_ObjectHideFlags: 0

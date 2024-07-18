@@ -20,14 +20,15 @@ public class HarvestCropTask : TaskScript
     {
         base.RunTask();
         slider.value = 0;
+        StartCoroutine(DecayProgressBar());
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
         slider.value += progressValue;
-        if(slider.value == 1)
+        if (slider.value == 1)
         {
             TaskSuccessful();
-        } 
+        }
     }
 
     protected override void TaskSuccessful()
@@ -39,6 +40,16 @@ public class HarvestCropTask : TaskScript
     {
         base.EndTask();
         StopAllCoroutines();
+    }
+
+    IEnumerator DecayProgressBar()
+    {
+        while (true)
+        {
+            yield return new WaitForFixedUpdate();
+            slider.value -= decayValue;
+
+        }
     }
 
 }
