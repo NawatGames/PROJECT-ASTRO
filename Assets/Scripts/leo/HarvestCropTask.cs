@@ -8,7 +8,8 @@ using Slider = UnityEngine.UI.Slider;
 
 public class HarvestCropTask : TaskScript
 {
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider progressSlider;
+    [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
     [SerializeField] private float decayValue;
 
@@ -19,13 +20,20 @@ public class HarvestCropTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
-        slider.value = 0;
+        progressSlider.value = 0;
+        timeSlider.value = 1;
+        if (isAstro)
+        {
+            progressValue += 0.2f * progressValue;
+        }
         StartCoroutine(DecayProgressBar());
+        StartCoroutine(DecayTimeBar());
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        slider.value += progressValue;
-        if (slider.value == 1)
+
+        progressSlider.value += progressValue;
+        if (progressSlider.value == 1)
         {
             TaskSuccessful();
         }
@@ -47,9 +55,25 @@ public class HarvestCropTask : TaskScript
         while (true)
         {
             yield return new WaitForFixedUpdate();
-            slider.value -= decayValue;
+            progressSlider.value -= decayValue;
 
         }
     }
 
+    IEnumerator DecayTimeBar()
+    {
+        while (true)
+        {
+            yield return new WaitForFixedUpdate();
+            if (timeSlider.value == 0)
+            {
+                // Falhou a task!
+            }
+            else
+            {
+                timeSlider.value -= Time.deltaTime / 5;
+            }
+
+        }
+    }
 }
