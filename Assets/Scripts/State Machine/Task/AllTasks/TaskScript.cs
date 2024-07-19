@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class TaskScript : MonoBehaviour
 {
     protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
     private TaskController taskCtrl;
+    [FormerlySerializedAs("taskManager")] [SerializeField] private TasksManager tasksManager;
 
     protected virtual void Awake()
     {
@@ -28,6 +30,7 @@ public class TaskScript : MonoBehaviour
     protected virtual void TaskSuccessful()
     {
         taskCtrl.needsToBeDone = false;
+        tasksManager.TaskDoneSuccessfully(taskCtrl);
     }
 
     public virtual void EndTask()
