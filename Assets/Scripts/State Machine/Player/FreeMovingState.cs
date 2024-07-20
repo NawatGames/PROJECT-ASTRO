@@ -9,15 +9,20 @@ public class FreeMovingState : IPlayerState
     {
         if (player.InteractAction.WasPressedThisFrame())
         {
-            if (player.IsOnTaskArea)
+            if (player.IsOnTaskArea && player.NearTaskController.currentState is AvailableState)
             {
-                if (player.NearTaskController.currentState is AvailableState)
-                {
-                    Debug.Log("Fazendo task");
-                    player.NearTaskController.wasStarted = true;
-                    return player.DoingTasksState;
-                }
+                Debug.Log("Fazendo task");
+                player.NearTaskController.wasStarted = true;
+                return player.DoingTasksState;
             }
+            if (player.IsOnButtonArea)
+            {
+                player.NearDoorButtonController.ToggleDoor();
+            }
+        }
+        if (player.GameIsOver)
+        {
+            return player.GameOverState;
         }
         return player.FreeMovingState;
         

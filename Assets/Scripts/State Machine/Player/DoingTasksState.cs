@@ -4,7 +4,7 @@ public class DoingTasksState : IPlayerState
 {
     public void Enter(PlayerController player)
     {
-        player.NearTaskController.taskScript.SetupAndRun(player.input, player.isAstro);
+        player.NearTaskController.taskScript.SetupAndRun(player.Input, player.isAstro);
     }
     public IPlayerState Do(PlayerController player)
     {
@@ -17,6 +17,10 @@ public class DoingTasksState : IPlayerState
             Debug.Log("Parando de fazer task");
             player.NearTaskController.wasInterrupted = true;
             return player.FreeMovingState;
+        }
+        if (player.GameIsOver)
+        {
+            return player.GameOverState;
         }
         return player.DoingTasksState;
     }

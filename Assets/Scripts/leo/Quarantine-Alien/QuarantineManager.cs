@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class QuarantineManager : MonoBehaviour
 {
@@ -11,39 +8,34 @@ public class QuarantineManager : MonoBehaviour
     public List<QuarantineHandler> roomsScript;
     public List<GameObject> roomsBeingUsed;
 
-    // public UnityEvent roomQuaratined;
-
-
-    // Start is called before the first frame update
-    void Start()
+    // public UnityEvent roomQuarantined;
+    
+    private void Start()
     {
         foreach (GameObject room in rooms)
         {
             roomsScript.Add(room.GetComponent<QuarantineHandler>());
         }
-
-
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
         foreach (GameObject room in rooms)
         {
             QuarantineHandler script = room.GetComponent<QuarantineHandler>();
-            if (script.isBeingUsed && !roomsInUse.Any(x => x == room))
+            if (script.isBeingUsed && roomsInUse.All(x => x != room))
             {
                 roomsInUse.Add(room);
             }
         }
         this.roomsBeingUsed = roomsInUse;
     }
-    public void DisableQuaratines(QuarantineHandler roomQuaratinedScript)
+    public void DisableQuarantines(QuarantineHandler roomQuarantinedScript)
     {
         foreach (QuarantineHandler script in roomsScript)
         {
-            if (script != roomQuaratinedScript)
+            if (script != roomQuarantinedScript)
             {
                 script.isRoomQuarantined = false;
                 script.canPressButton = false;

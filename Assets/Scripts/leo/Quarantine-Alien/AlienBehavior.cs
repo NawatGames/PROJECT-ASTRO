@@ -9,8 +9,8 @@ public class AlienBehavior : MonoBehaviour
     public GameObject roomManager;
     public List<GameObject> roomsToInvade;
 
-    [SerializeField] private float _timerAlienInvasion;
-    [SerializeField] private float _timerInvasionDelay;
+    [SerializeField] private float timerAlienInvasion;
+    [SerializeField] private float timerInvasionDelay;
 
     public GameObject roomInvaded;
     private bool _canCheckRooms;
@@ -38,7 +38,7 @@ public class AlienBehavior : MonoBehaviour
     {
 
         QuarantineManager manager = roomManager.GetComponent<QuarantineManager>();
-        yield return new WaitForSecondsRealtime(_timerInvasionDelay);
+        yield return new WaitForSecondsRealtime(timerInvasionDelay);
         Debug.Log("Alien is looking for rooms!");
         roomsToInvade = manager.roomsBeingUsed;
 
@@ -62,7 +62,7 @@ public class AlienBehavior : MonoBehaviour
         {
             Debug.Log("Room found! Alien Invading...");
             roomInvaded = roomsToInvade[roomIndex];
-            yield return new WaitForSecondsRealtime(_timerAlienInvasion);
+            yield return new WaitForSecondsRealtime(timerAlienInvasion);
             QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
             if (roomInvadedScript.isRoomQuarantined)
             {
