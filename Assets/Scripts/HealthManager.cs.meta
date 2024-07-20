@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/leo/HarvestCropTask.cs.meta
-guid: 009978429e5d448419bd951dac2f11e9
-========
 guid: 94499d0425f526f499e661b2b674f5a3
->>>>>>>> origin/develop:Assets/Scripts/HealthManager.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
