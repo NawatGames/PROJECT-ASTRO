@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8851764c73867ee46b82bc2bffa06689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTillVictory: 45
+  countdownTillVictory: 300
   onVictory: {fileID: 11400000, guid: efba9ad265577fd42a188d50b03da726, type: 2}
 --- !u!114 &65961419
 MonoBehaviour:
@@ -356,7 +356,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 44.75
-  m_fontSizeBase: 36
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -2567,14 +2567,14 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 789865644}
+  - {fileID: 806782042}
   - {fileID: 1927187339}
   - {fileID: 93406887}
-  - {fileID: 789865644}
   - {fileID: 1159285469}
   - {fileID: 752719925}
   - {fileID: 2045109254}
   - {fileID: 1319094733}
   - {fileID: 773420859}
-  - {fileID: 806782042}
   - {fileID: 1917454590}
   - {fileID: 659919458}
