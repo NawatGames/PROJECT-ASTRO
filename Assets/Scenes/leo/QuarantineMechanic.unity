@@ -221,8 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
-  timerQuarantineDuration: 5
-  isButtonPressed: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:
@@ -395,8 +393,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomManager: {fileID: 993510705}
   roomsToInvade: []
-  _timerAlienInvasion: 5
-  _timerInvasionDelay: 7
+  timerAlienInvasion: 3
+  invasionDelayPerLevel:
+  - 20
+  - 15
+  - 10
+  - 4
+  - 3
+  roomInvaded: {fileID: 0}
+  gameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  alienQuarantinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &852757822
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
-  timerQuarantineDuration: 5
-  isButtonPressed: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:
@@ -614,8 +622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
-  timerQuarantineDuration: 5
-  isButtonPressed: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:

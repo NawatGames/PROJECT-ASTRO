@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
+using Object = System.Object;
 
 public class TaskController : MonoBehaviour
 {
@@ -14,6 +17,11 @@ public class TaskController : MonoBehaviour
     public UnavailableState UnavailableState { get; private set; } = new UnavailableState();
     public AvailableState AvailableState { get; private set; } = new AvailableState();
     public BeingDoneState BeingDoneState { get; private set; } = new BeingDoneState();
+
+    [SerializeField] private int _maxMistakes = 7; // Usar um unico valor pra todas tasks? -> Usar scriptableObject
+    /*debug*/[SerializeField] private int _mistakes = 0;
+    public int Mistakes { get => _mistakes; set => _mistakes = value > _maxMistakes ? _maxMistakes : value; }
+
     private void OnEnable()
     {
         currentState = UnavailableState;
@@ -29,7 +37,7 @@ public class TaskController : MonoBehaviour
         currentState = currentState.Do(this);
         if (_previousState != currentState)
         {
-            //Debug.Log(currentState);
+            Debug.Log(currentState);
             _previousState.Exit(this);
             currentState.Enter(this);
         }
@@ -39,5 +47,10 @@ public class TaskController : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.FixedDo(this);
+    }
+
+    public void ResetMistakes() // Chamada no fim da invasão do monstro, no AlienBehavior
+    {
+        Mistakes = 0;
     }
 }

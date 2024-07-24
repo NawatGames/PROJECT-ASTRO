@@ -1,32 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TasksManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
     private List<TaskController> _tasksForThisLevel;
     private List<TaskController> _tasksNotYetSelected;
-    private Dictionary<TaskController, IEnumerator> _taskQueue;
-    [SerializeField] private int numberOfStartingTasks;
-    [SerializeField] private int totalTimeForTaskToFail;
-    [SerializeField] private int shortTimeForTaskToBeCompleted;
-    [SerializeField] private GameEvent onTaskAddedToQueue;
-    [SerializeField] private GameEvent onTaskRemovedFromQueue;
-    [SerializeField] private GameEvent onShortTimeToCompleteTask;
+    private Dictionary<TaskController, Coroutine> _taskQueue;
+    private int maxNumberOfActiveTasks;
+    [SerializeField] private int totalTimeForTaskToFail = 90;
+    [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
     [SerializeField] private GameEvent onTaskFailed;
 
     private void Start()
     {
+        _taskQueue = new Dictionary<TaskController, Coroutine>();
+        maxNumberOfActiveTasks = levelManager.getMaxNumberOfActiveTasks();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
-        _tasksNotYetSelected = _tasksForThisLevel;
+        _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
         SetupStartingTasks();
-        StartCoroutine(KeepAddingTasks());
     }
 
     private void SetupStartingTasks()
     {
-        for (var i = 0; i < numberOfStartingTasks; i++)
+        for (var i = 0; i < maxNumberOfActiveTasks; i++)
         {
             AddTaskToQueue();
         }
@@ -39,7 +38,7 @@ public class TasksManager : MonoBehaviour
         _tasksNotYetSelected.Remove(task);
         if (_tasksNotYetSelected.Count == 0)
         {
-            _tasksNotYetSelected = _tasksForThisLevel;
+            _tasksNotYetSelected = new List<TaskController>(_tasksForThisLevel);
         }
         return task;
     }
@@ -47,36 +46,42 @@ public class TasksManager : MonoBehaviour
     private void AddTaskToQueue()
     {
         var task = SelectNextTask();
-        task.needsToBeDone = true;
-        _taskQueue.Add(task, null);
-        onTaskAddedToQueue.Raise();
+        _taskQueue.Add(task, StartCoroutine(TaskTimer(task)));
     }
 
-    public void TaskDoneSuccessfully(TaskController taskCtrl)
+    public void TaskDoneSuccessfully(TaskController task)
     {
-        var coroutine = _taskQueue[taskCtrl];
-        StopCoroutine(coroutine);
-        _taskQueue.Remove(taskCtrl);
-        onTaskRemovedFromQueue.Raise();
+        task.Mistakes = 0;
+        StopCoroutine(_taskQueue[task]);
+        _taskQueue.Remove(task);
+        task.needsToBeDone = false;
+        AddTaskToQueue();
     }
 
-    private void SetTaskTimer()
+    public void KickPlayer(TaskController task)
     {
-        StartCoroutine(TaskTimer());
-    }
-
-    private IEnumerator TaskTimer()
-    {
-        yield return new WaitForSecondsRealtime(totalTimeForTaskToFail);
-        onTaskFailed.Raise();
+        StartCoroutine(KickPlayerRoutine(task));
     }
     
-    private IEnumerator KeepAddingTasks()
+    private IEnumerator KickPlayerRoutine(TaskController task)
     {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(Random.Range(25, 40));
-            AddTaskToQueue();
-        }
+        task.needsToBeDone = false;
+        yield return null;
+        task.needsToBeDone = true;
+    }
+
+    private IEnumerator TaskTimer(TaskController task)
+    {
+        yield return null; // Para dar tempo do needsToBeDone == false ser lido
+        task.needsToBeDone = true;
+        yield return new WaitForSecondsRealtime(totalTimeForTaskToFail - shortTimeForTaskToBeCompleted);
+        // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
+        Debug.Log($"{task.taskScript} is running out of time!");
+        yield return new WaitForSecondsRealtime(shortTimeForTaskToBeCompleted);
+        task.Mistakes = 0;
+        onTaskFailed.Raise();
+        _taskQueue.Remove(task);
+        task.needsToBeDone = false;
+        AddTaskToQueue();
     }
 }

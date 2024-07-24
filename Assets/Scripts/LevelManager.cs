@@ -1,57 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    private int _level;
+    private static bool _alreadyInstanced;
+    public static int level;
+    [SerializeField] private int[] maxActiveTasksPerLevel;
     private List<List<TaskController>> _allLevelTasks;
     [SerializeField] private List<TaskController> level0Tasks;
     [SerializeField] private List<TaskController> level1Tasks;
     [SerializeField] private List<TaskController> level2Tasks;
     [SerializeField] private List<TaskController> level3Tasks;
     [SerializeField] private List<TaskController> level4Tasks;
-    [SerializeField] private int countdownTillVictory;
-    [SerializeField] private GameEvent onVictory;
     
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        if (PlayerPrefs.HasKey("level"))
+        if (!_alreadyInstanced)
+        {
+            _alreadyInstanced = true;
+            level = 0;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        /*if (PlayerPrefs.HasKey("level"))
         {
             _level = PlayerPrefs.GetInt("level");
-        }
-        _allLevelTasks.Add(level0Tasks);
-        _allLevelTasks.Add(level1Tasks);
-        _allLevelTasks.Add(level2Tasks);
-        _allLevelTasks.Add(level3Tasks);
-        _allLevelTasks.Add(level4Tasks);
+        } FAZER LOAD*/
+
+        _allLevelTasks = new List<List<TaskController>>
+        {
+            level0Tasks,
+            level1Tasks,
+            level2Tasks,
+            level3Tasks,
+            level4Tasks
+        };
     }
 
-    private void Start()
+    public int getMaxNumberOfActiveTasks()
     {
-        StartCoroutine(CountdownTillVictory());
+        return maxActiveTasksPerLevel[level];
     }
-
+    
     public List<TaskController> GetTasksForThisLevel()
     {
-        return _allLevelTasks[_level];
+        Debug.Log("Level: " + level);
+        return _allLevelTasks[level];
     }
 
     public void NextLevel()
     {
-        _level += 1;
-        PlayerPrefs.SetInt("level", _level);
+        level += 1;
+        //PlayerPrefs.SetInt("level", _level); FAZER SAVE
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GameOver()
     {
-        StopCoroutine(CountdownTillVictory());
+        Debug.Log("GameOver");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }   
-
-    private IEnumerator CountdownTillVictory()
-    {
-        yield return new WaitForSecondsRealtime(countdownTillVictory);
-        onVictory.Raise();
-    }
 }
