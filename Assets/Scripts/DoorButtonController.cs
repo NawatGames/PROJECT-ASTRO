@@ -5,11 +5,6 @@ public class DoorButtonController : MonoBehaviour
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
 
-    private void Awake()
-    {
-        doorSprite = GetComponent<SpriteRenderer>();
-    }
-
     private void OnEnable()
     {
         doorCollider.enabled = false;

@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
                 NearTaskController = other.GetComponentInChildren<TaskController>();
                 return;
             }
-
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
             IsOnButtonArea = true;
         }
