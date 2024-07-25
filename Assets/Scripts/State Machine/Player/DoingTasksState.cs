@@ -8,8 +8,9 @@ public class DoingTasksState : IPlayerState
     }
     public IPlayerState Do(PlayerController player)
     {
-        if (!player.NearTaskController.needsToBeDone) // Quando é concluída
+        if (!player.NearTaskController.needsToBeDone)
         {
+            Debug.Log("Task parou");
             return player.FreeMovingState;
         }
         if (player.InteractAction.WasPressedThisFrame())

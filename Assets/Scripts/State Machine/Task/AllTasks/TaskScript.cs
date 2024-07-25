@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +6,12 @@ public class TaskScript : MonoBehaviour
 {
     protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
-    private TaskController taskCtrl;
+    private TaskController _taskController;
+    [SerializeField] private TasksManager tasksManager;
 
     protected virtual void Awake()
     {
-        taskCtrl = GetComponentInParent<TaskController>();
+        _taskController = GetComponentInParent<TaskController>();
     }
 
     public void SetupAndRun(PlayerInputAsset pInputAsset, bool pIsAstro)
@@ -27,11 +28,25 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void TaskSuccessful()
     {
-        taskCtrl.needsToBeDone = false;
+        tasksManager.TaskDoneSuccessfully(_taskController);
+    }
+
+    protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
+    {
+        Debug.Log("Task Mistake (stay)");
+        _taskController.Mistakes ++;
+    }
+
+    protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
+    {
+        Debug.Log("Task Mistake (leave)");
+        _taskController.Mistakes ++;
+        tasksManager.KickPlayer(_taskController);
     }
 
     public virtual void EndTask()
     {
+        StopAllCoroutines();
         inputAsset.Task.Disable();
         inputAsset.Task.Up.performed -= OnUpPerformed;
         inputAsset.Task.Down.performed -= OnDownPerformed;

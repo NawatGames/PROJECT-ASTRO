@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class FishingTask : TaskScript
@@ -13,6 +12,8 @@ public class FishingTask : TaskScript
     [SerializeField] private float reactionTime = 1;
     
     // fish challenge:
+    [SerializeField] private TextMeshPro timerText;
+    [SerializeField] private int timeToCatchFish = 15;
     [SerializeField] private Transform controlledBar;
     [SerializeField] private Transform fishIcon;
     [SerializeField] private Transform progressBar;
@@ -37,10 +38,10 @@ public class FishingTask : TaskScript
     private float _originalControlledBarSize;
     private float _progressBarFullHeight;
     
-    private Coroutine _currentCoroutine;
-    private bool _waitingForFish = false;
     private bool _waitingForCast = false;
+    private bool _waitingForFish = false;
     private bool _pressNow = false;
+    private Coroutine _currentCoroutine;
 
     private float _currentFishVelocity = 0;
     private float _currentBarVelocity = 0;
@@ -126,7 +127,7 @@ public class FishingTask : TaskScript
     
     private void WrongTiming()
     {
-        Debug.Log("Wrong timing");
+        TaskMistakeStay();
         _waitingForFish = false;
         // <ANIM> Rodar animação de retornar isca
         StopCoroutine(_currentCoroutine);
@@ -139,6 +140,7 @@ public class FishingTask : TaskScript
     {
         SetProgressBarSize();
         StartCoroutine(MovementManager());
+        StartCoroutine(DecreaseFishTimer());
         while (true)
         {
             MoveFishAndBar();
@@ -153,6 +155,16 @@ public class FishingTask : TaskScript
             CheckForProgress();
             yield return null;
         }
+    }
+    
+    private IEnumerator DecreaseFishTimer()
+    {
+        for (int timer = timeToCatchFish; timer > 0; timer--)
+        {
+            timerText.text = ""+timer;
+            yield return new WaitForSecondsRealtime(1);
+        }
+        TaskMistakeLeave();
     }
 
     private IEnumerator MovementManager()
@@ -228,11 +240,5 @@ public class FishingTask : TaskScript
     {
         base.TaskSuccessful();
         Debug.Log("Pesca bem sucedida");
-    }
-    
-    public override void EndTask()
-    {
-        base.EndTask();
-        StopAllCoroutines(); //StopCoroutine(_currentCoroutine);
     }
 }

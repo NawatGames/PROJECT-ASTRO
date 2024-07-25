@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,15 +7,19 @@ public class QuarantineManager : MonoBehaviour
 {
     public List<GameObject> rooms;
     public List<QuarantineHandler> roomsScript;
+    public Dictionary<GameObject, TaskController> roomToTask; // Para o 'alienBehavior' saber qual a task do quarto invadido e seus 'mistakes'
     public List<GameObject> roomsBeingUsed;
 
     // public UnityEvent roomQuarantined;
     
     private void Start()
     {
+        roomToTask = new Dictionary<GameObject, TaskController>();
         foreach (GameObject room in rooms)
         {
-            roomsScript.Add(room.GetComponent<QuarantineHandler>());
+            QuarantineHandler script = room.GetComponent<QuarantineHandler>();
+            roomsScript.Add(script);
+            roomToTask.Add(room, script.task);
         }
     }
     
