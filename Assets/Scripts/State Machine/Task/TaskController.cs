@@ -10,6 +10,7 @@ public class TaskController : MonoBehaviour
     private ITaskState _previousState;
 
     public TaskScript taskScript;
+    public string taskName; // Para ser exibido na UI
 
     public bool needsToBeDone = false;
     public bool wasStarted;

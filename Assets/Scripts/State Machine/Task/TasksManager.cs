@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class TasksManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private int totalTimeForTaskToFail = 90;
+    [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
+    [SerializeField] private GameEvent onTaskFailed;
+    [SerializeField] private GameObject taskTimerPrefab;
+    [SerializeField] private Transform taskGridLayoutTransform;
     private List<TaskController> _tasksForThisLevel;
     private List<TaskController> _tasksNotYetSelected;
     private Dictionary<TaskController, Coroutine> _taskQueue;
     private int maxNumberOfActiveTasks;
-    [SerializeField] private int totalTimeForTaskToFail = 90;
-    [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
-    [SerializeField] private GameEvent onTaskFailed;
 
     private void Start()
     {
@@ -74,6 +77,8 @@ public class TasksManager : MonoBehaviour
     {
         yield return null; // Para dar tempo do needsToBeDone == false ser lido
         task.needsToBeDone = true;
+        TextMeshProUGUI taskTimerTMP = AddTaskTimerToUI(task);
+        taskTimerTMP.text = $"{task.taskName}: {totalTimeForTaskToFail}";
         yield return new WaitForSecondsRealtime(totalTimeForTaskToFail - shortTimeForTaskToBeCompleted);
         // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
         Debug.Log($"{task.taskScript} is running out of time!");
@@ -83,5 +88,10 @@ public class TasksManager : MonoBehaviour
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
         AddTaskToQueue();
+    }
+
+    private TextMeshProUGUI AddTaskTimerToUI(TaskController task)
+    {
+        return Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
     }
 }

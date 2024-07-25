@@ -54,14 +54,14 @@ public class LevelManager : MonoBehaviour
         return _allLevelTasks[level];
     }
 
-    public void NextLevel()
+    public void NextLevel() // Chamado por evento
     {
         level += 1;
         //PlayerPrefs.SetInt("level", _level); FAZER SAVE
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void GameOver()
+    public void GameOver() // Chamado por evento
     {
         Debug.Log("GameOver");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
