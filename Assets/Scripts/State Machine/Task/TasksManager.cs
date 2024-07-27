@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class TasksManager : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class TasksManager : MonoBehaviour
     private void Start()
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
-        maxNumberOfActiveTasks = levelManager.getMaxNumberOfActiveTasks();
+        maxNumberOfActiveTasks = levelManager.GetMaxNumberOfActiveTasks();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
         SetupStartingTasks();
@@ -49,7 +48,7 @@ public class TasksManager : MonoBehaviour
     private void AddTaskToQueue()
     {
         var task = SelectNextTask();
-        _taskQueue.Add(task, StartCoroutine(TaskTimer(task)));
+        _taskQueue.Add(task, StartCoroutine(StartTaskTimer(task)));
     }
 
     public void TaskDoneSuccessfully(TaskController task)
@@ -73,25 +72,58 @@ public class TasksManager : MonoBehaviour
         task.needsToBeDone = true;
     }
 
-    private IEnumerator TaskTimer(TaskController task)
+    private IEnumerator StartTaskTimer(TaskController task)
     {
         yield return null; // Para dar tempo do needsToBeDone == false ser lido
         task.needsToBeDone = true;
-        TextMeshProUGUI taskTimerTMP = AddTaskTimerToUI(task);
-        taskTimerTMP.text = $"{task.taskName}: {totalTimeForTaskToFail}";
-        yield return new WaitForSecondsRealtime(totalTimeForTaskToFail - shortTimeForTaskToBeCompleted);
+        TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
+        int min = totalTimeForTaskToFail / 60;
+        int sec = totalTimeForTaskToFail - 60 * min;
+        int minF = shortTimeForTaskToBeCompleted / 60;
+        int secF = shortTimeForTaskToBeCompleted - 60 * min;
+        taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+        while (sec > secF || min > minF)
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sec--;
+            if (sec < 0)
+            {
+                min--;
+                sec = 59;
+            }
+            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+        }
+        StartCoroutine(TaskShortTime(task, taskTimerTMP));
+    }
+
+    private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
+    {
         // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
         Debug.Log($"{task.taskScript} is running out of time!");
-        yield return new WaitForSecondsRealtime(shortTimeForTaskToBeCompleted);
+        int min = shortTimeForTaskToBeCompleted / 60;
+        int sec = shortTimeForTaskToBeCompleted - 60 * min;
+        taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+        while (sec > 0 || min > 0)
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sec--;
+            if (sec < 0)
+            {
+                min--;
+                sec = 59;
+            }
+            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+        }
+        TaskTimedOut(task, taskTimerTMP);
+    }
+
+    private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
+    {
+        Destroy(taskTimerTMP.gameObject);
         task.Mistakes = 0;
         onTaskFailed.Raise();
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
         AddTaskToQueue();
-    }
-
-    private TextMeshProUGUI AddTaskTimerToUI(TaskController task)
-    {
-        return Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
     }
 }

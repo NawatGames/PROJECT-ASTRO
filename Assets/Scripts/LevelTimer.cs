@@ -22,8 +22,10 @@ public class LevelTimer : MonoBehaviour
 
     private IEnumerator DecreaseTimer()
     {
+        _levelTimerTMP.text = $"Level Timer: {_min,2}:{_sec:00}";
         while (_sec > 0 || _min > 0)
         {
+            yield return new WaitForSecondsRealtime(1);
             _sec--;
             if (_sec < 0)
             {
@@ -31,7 +33,6 @@ public class LevelTimer : MonoBehaviour
                 _sec = 59;
             }
             _levelTimerTMP.text = $"Level Timer: {_min,2}:{_sec:00}";
-            yield return new WaitForSecondsRealtime(1);
         }
         Debug.Log("Victory");
         onVictory.Raise();

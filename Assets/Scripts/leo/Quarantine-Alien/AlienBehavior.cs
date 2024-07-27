@@ -12,20 +12,21 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private float timerAlienInvasion;
     [SerializeField] private float[] invasionDelayPerLevel;
     private float _timerInvasionDelay;
+    [SerializeField] private int alienInsideSeconds = 15;
 
     public GameObject roomInvaded;
     private bool _canCheckRooms;
 
-    public UnityEvent gameOverEvent;
-    public UnityEvent alienQuarantinedEvent;
-    // Start is called before the first frame update
+    [SerializeField] private GameEvent gameOverEvent;
+    [SerializeField] private GameEvent alienWarningStartEvent;
+    [SerializeField] private GameEvent alienWarningEndEvent;
+    
     void Start()
     {
         _timerInvasionDelay = invasionDelayPerLevel[LevelManager.level];
         _canCheckRooms = true;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         // Verifica se existem salas com players dentro  
@@ -68,22 +69,21 @@ public class AlienBehavior : MonoBehaviour
         // Debug.Log(roomIndex);
         if (roomIndex != -1)
         {
-            Debug.Log("Room found! Alien Invading...");
             roomInvaded = roomsToInvadeWeighted[roomIndex];
-            yield return new WaitForSecondsRealtime(timerAlienInvasion);
             QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
+            alienWarningStartEvent.Raise(roomInvaded.transform);
+            yield return new WaitForSecondsRealtime(timerAlienInvasion);
+            alienWarningEndEvent.Raise(roomInvaded.transform);
             if (roomInvadedScript.isRoomQuarantined)
             {
-                Debug.Log("Alien Quarantined");
-                alienQuarantinedEvent.Invoke();
+                //Debug.Log("Alien Quarantined");
+                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(alienInsideSeconds));
                 roomInvadedScript.task.ResetMistakes();
-                // TODO Implementar tempo que o alien fica na sala e executar a linha acima quando o tempo acabar
             }
             else
             {
                 Debug.Log("GAME OVER");
-                gameOverEvent.Invoke();
-
+                gameOverEvent.Raise();
             }
         }
         else

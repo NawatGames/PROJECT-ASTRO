@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
         };
     }
 
-    public int getMaxNumberOfActiveTasks()
+    public int GetMaxNumberOfActiveTasks()
     {
         return maxActiveTasksPerLevel[level];
     }
@@ -56,14 +56,9 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel() // Chamado por evento
     {
+        Debug.Log("passou");
         level += 1;
         //PlayerPrefs.SetInt("level", _level); FAZER SAVE
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    public void GameOver() // Chamado por evento
-    {
-        Debug.Log("GameOver");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }   
 }

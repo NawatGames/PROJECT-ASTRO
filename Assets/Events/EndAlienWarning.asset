@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad2c3f4b4710375479bac296ae0b6304, type: 3}
-  m_Name: Victory
+  m_Name: EndAlienWarning
   m_EditorClassIdentifier: 
   listeners: []

@@ -19,20 +19,20 @@ public class QuarantineHandler : MonoBehaviour
     public UnityEvent quarantineEnded;
     [SerializeField] public bool isRoomQuarantined = false;
 
+    private bool _isAlienInside;
+    [SerializeField] private GameEvent gameOverEvent;
+
     // public GameObject room;
     public SpriteRenderer roomSprite;
 
     void Start()
     {
-        
         canPressButton = true;
-        // roomQuarantined.AddListener();
     }
     
     void Update()
     {
         RoomColorDebug();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -63,7 +63,11 @@ public class QuarantineHandler : MonoBehaviour
 
     private void RoomColorDebug()
     {
-        if (isRoomQuarantined)
+        if (_isAlienInside)
+        {
+            roomSprite.color = Color.black;
+        }
+        else if (isRoomQuarantined)
         {
             //Sala quarentenada
             roomSprite.color = Color.red;
@@ -76,7 +80,7 @@ public class QuarantineHandler : MonoBehaviour
         else roomSprite.color = new Color(0.75f, 1, 1 ,0.0275f);
     }
 
-    private IEnumerator QuarantineToggle()
+    private IEnumerator QuarantineToggleRoutine()
     {
         if (!isRoomQuarantined)
         {
@@ -85,6 +89,10 @@ public class QuarantineHandler : MonoBehaviour
         }
         else if (isRoomQuarantined)
         {
+            if (_isAlienInside)
+            {
+                gameOverEvent.Raise();
+            }
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
         }
@@ -97,12 +105,16 @@ public class QuarantineHandler : MonoBehaviour
         canPressButton = true;
     }
 
-    private void OnQuarantineStarted()
+    public void ToggleQuarantine()
     {
-        if (canPressButton)
-        {
-            StartCoroutine(QuarantineToggle());
-            canPressButton = false;
-        }
+        StartCoroutine(QuarantineToggleRoutine());
+        canPressButton = false;
+    }
+
+    public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
+    {
+        _isAlienInside = true;
+        yield return new WaitForSeconds(alienInsideSeconds);
+        _isAlienInside = false;
     }
 }

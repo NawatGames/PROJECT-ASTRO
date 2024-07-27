@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
@@ -31,7 +32,7 @@ public class HealthManager : MonoBehaviour
             StartGameOver();
         }
     }
-    private void StartGameOver()
+    public void StartGameOver() // Chamado por evento
     {
         StartCoroutine(FadeToBlackAndShowText());
     }
@@ -73,5 +74,11 @@ public class HealthManager : MonoBehaviour
             gameOverText.color = new Color(gameOverText.color.r, gameOverText.color.g, gameOverText.color.b, alpha);
             yield return null;
         }
+        GameOver();
+    }
+    private void GameOver()
+    {
+        Debug.Log("GameOver");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
