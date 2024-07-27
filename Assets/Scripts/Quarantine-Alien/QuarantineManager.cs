@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuarantineManager : MonoBehaviour
 {
     public List<GameObject> rooms;
-    public List<QuarantineHandler> roomsScript;
+    public List<RoomQuarantineHandler> roomsScript;
     public Dictionary<GameObject, TaskController> roomToTask; // Para o 'alienBehavior' saber qual a task do quarto invadido e seus 'mistakes'
     public List<GameObject> roomsBeingUsed;
 
@@ -17,7 +17,7 @@ public class QuarantineManager : MonoBehaviour
         roomToTask = new Dictionary<GameObject, TaskController>();
         foreach (GameObject room in rooms)
         {
-            QuarantineHandler script = room.GetComponent<QuarantineHandler>();
+            RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
             roomsScript.Add(script);
             roomToTask.Add(room, script.task);
         }
@@ -28,7 +28,7 @@ public class QuarantineManager : MonoBehaviour
         List<GameObject> roomsInUse = new List<GameObject>();
         foreach (GameObject room in rooms)
         {
-            QuarantineHandler script = room.GetComponent<QuarantineHandler>();
+            RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
             if (script.isBeingUsed && roomsInUse.All(x => x != room))
             {
                 roomsInUse.Add(room);
@@ -36,9 +36,9 @@ public class QuarantineManager : MonoBehaviour
         }
         this.roomsBeingUsed = roomsInUse;
     }
-    public void DisableQuarantines(QuarantineHandler roomQuarantinedScript)
+    public void DisableQuarantines(RoomQuarantineHandler roomQuarantinedScript)
     {
-        foreach (QuarantineHandler script in roomsScript)
+        foreach (RoomQuarantineHandler script in roomsScript)
         {
             if (script != roomQuarantinedScript)
             {
@@ -49,7 +49,7 @@ public class QuarantineManager : MonoBehaviour
     }
     public void EnableQuarantines()
     {
-        foreach (QuarantineHandler script in roomsScript)
+        foreach (RoomQuarantineHandler script in roomsScript)
         {
             script.isRoomQuarantined = false;
             script.canPressButton = true;

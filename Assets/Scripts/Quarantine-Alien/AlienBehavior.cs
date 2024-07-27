@@ -70,7 +70,7 @@ public class AlienBehavior : MonoBehaviour
         if (roomIndex != -1)
         {
             roomInvaded = roomsToInvadeWeighted[roomIndex];
-            QuarantineHandler roomInvadedScript = roomInvaded.GetComponent<QuarantineHandler>();
+            RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
             yield return new WaitForSecondsRealtime(timerAlienInvasion);
             alienWarningEndEvent.Raise(roomInvaded.transform);

@@ -4,20 +4,20 @@ public class DoorButtonController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
-    private QuarantineHandler _quarantineHandler;
+    private RoomQuarantineHandler _roomQuarantineHandler;
 
     private void OnEnable()
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
-        _quarantineHandler = GetComponentInParent<QuarantineHandler>();
+        _roomQuarantineHandler = GetComponentInParent<RoomQuarantineHandler>();
     }
 
     public void ToggleDoor()
     {
-        if(!_quarantineHandler.canPressButton)
+        if(!_roomQuarantineHandler.canPressButton)
             return;
-        _quarantineHandler.ToggleQuarantine();
+        _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
     }

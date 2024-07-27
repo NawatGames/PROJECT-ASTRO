@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class QuarantineHandler : MonoBehaviour
+public class RoomQuarantineHandler : MonoBehaviour
 {
     public TaskController task;
     

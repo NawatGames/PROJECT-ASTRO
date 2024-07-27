@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MyPlayerManager : MonoBehaviour
+public class PlayerSpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject playerPrefab;
     public Transform astroSpawn;
