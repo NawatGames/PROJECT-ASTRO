@@ -11,7 +11,7 @@ public class FreeMovingState : IPlayerState
         {
             if (player.IsOnTaskArea && player.NearTaskController.currentState is AvailableState)
             {
-                Debug.Log("Fazendo task");
+                //Debug.Log("Fazendo task");
                 player.NearTaskController.wasStarted = true;
                 return player.DoingTasksState;
             }

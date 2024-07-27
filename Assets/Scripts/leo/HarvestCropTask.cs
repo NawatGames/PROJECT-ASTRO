@@ -67,7 +67,7 @@ public class HarvestCropTask : TaskScript
             yield return new WaitForFixedUpdate();
             if (timeSlider.value == 0)
             {
-                // Falhou a task!
+                TaskMistakeLeave();
             }
             else
             {

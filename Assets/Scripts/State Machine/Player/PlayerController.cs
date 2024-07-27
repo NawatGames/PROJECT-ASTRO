@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetGameOverState()
+    public void SetGameOverState() // Chamada por evento
     {
         GameIsOver = true;
     }

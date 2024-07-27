@@ -66,7 +66,7 @@ public class GeniusTask : TaskScript
         }
         else
         {
-            EndTask();
+            TaskMistakeLeave();
         }
     }
 
@@ -81,7 +81,7 @@ public class GeniusTask : TaskScript
         }
         else
         {
-            EndTask();
+            TaskMistakeLeave();
         }
     }
 
@@ -96,7 +96,7 @@ public class GeniusTask : TaskScript
         }
         else
         {
-            EndTask();
+            TaskMistakeLeave();
         }
     }
 
@@ -111,17 +111,17 @@ public class GeniusTask : TaskScript
         }
         else
         {
-            EndTask();
+            TaskMistakeLeave();
         }
     }
 
-    public override void EndTask()
+    protected override void TaskMistakeLeave()
     {
+        base.TaskMistakeLeave();
         foreach (var button in _buttons)
         {
             StartCoroutine(button.GetComponent<Button>().Blink(errorColor, baseColor));
         }
-        base.EndTask();
     }
 
     private IEnumerator ShowComputerSequence()

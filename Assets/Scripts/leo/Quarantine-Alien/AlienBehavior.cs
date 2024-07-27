@@ -74,7 +74,7 @@ public class AlienBehavior : MonoBehaviour
             alienWarningStartEvent.Raise(roomInvaded.transform);
             yield return new WaitForSecondsRealtime(timerAlienInvasion);
             alienWarningEndEvent.Raise(roomInvaded.transform);
-            if (roomInvadedScript.isRoomQuarantined)
+            if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
                 StartCoroutine(roomInvadedScript.AlienIsInsideTimer(alienInsideSeconds));
