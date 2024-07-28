@@ -54,7 +54,7 @@ public class TasksManager : MonoBehaviour
             List<TaskController> resetList = new List<TaskController>(_tasksForThisLevel);
             foreach (TaskController t in _taskQueue.Keys)
             {
-                Debug.Log("ja na fila:  " + t);
+                //Debug.Log("ja na fila:  " + t);
                 resetList.Remove(t);
             }
             _tasksNotYetSelected = resetList;

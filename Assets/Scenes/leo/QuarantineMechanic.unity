@@ -160,7 +160,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task: {fileID: 0}
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
   canPressButton: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
+  gameOverEvent: {fileID: 0}
   roomSprite: {fileID: 292142850}
 --- !u!1 &345908256
 GameObject:
@@ -391,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomManager: {fileID: 993510705}
+  quarantineManager: {fileID: 0}
   roomsToInvade: []
   timerAlienInvasion: 3
   invasionDelayPerLevel:
@@ -400,13 +402,11 @@ MonoBehaviour:
   - 10
   - 4
   - 3
+  alienInsideSeconds: 15
   roomInvaded: {fileID: 0}
-  gameOverEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  alienQuarantinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  gameOverEvent: {fileID: 0}
+  alienWarningStartEvent: {fileID: 0}
+  alienWarningEndEvent: {fileID: 0}
 --- !u!1 &852757822
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task: {fileID: 0}
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
   canPressButton: 0
@@ -472,6 +473,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
+  gameOverEvent: {fileID: 0}
   roomSprite: {fileID: 852757824}
 --- !u!212 &852757824
 SpriteRenderer:
@@ -493,7 +495,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -620,6 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task: {fileID: 0}
   manager: {fileID: 993510708}
   timerQuarantineDelay: 2
   canPressButton: 0
@@ -655,6 +658,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
+  gameOverEvent: {fileID: 0}
   roomSprite: {fileID: 1413436567}
 --- !u!212 &1413436567
 SpriteRenderer:
@@ -676,7 +680,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
