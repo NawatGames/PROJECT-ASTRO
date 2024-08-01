@@ -87,7 +87,7 @@ public class TasksManager : MonoBehaviour
 
     private IEnumerator StartTaskTimer(TaskController task)
     {
-        yield return null; // Para dar tempo do needsToBeDone == false ser lido
+        yield return new WaitForSeconds(Random.Range(1, 4.5f)); // Tempo para habilitar nova task
         task.needsToBeDone = true;
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         int min = totalTimeForTaskToFail / 60;
