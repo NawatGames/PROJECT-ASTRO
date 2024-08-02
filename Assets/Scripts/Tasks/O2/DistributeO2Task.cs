@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; 
 
-public class DistributeO2Task : MonoBehaviour
+public class DistributeO2Task : TaskScript
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ArrowController _arrowController;
 
-    // Update is called once per frame
+    private bool _taskRunning = false;
+
     void Update()
     {
-        
+        if (Keyboard.current.eKey.wasPressedThisFrame && !_taskRunning)
+        {
+            StartMiniGame();
+        }
+    }
+
+    private void StartMiniGame()
+    {
+        _taskRunning = true;
+        _arrowController.StartRotation();
+    }
+
+    private void EndMiniGame()
+    {
+        _taskRunning = false;
+        _arrowController.StopRotation();
     }
 }
