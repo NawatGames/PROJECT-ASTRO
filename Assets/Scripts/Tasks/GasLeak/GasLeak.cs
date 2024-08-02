@@ -87,13 +87,13 @@ public class GasLeak : TaskScript
         
         // Rotate valve sprite
         Vector3 valveRotation = valveSprite.rotation.eulerAngles;
-        valveRotation.z += 15f;
+        valveRotation.z += rotationDirection == Rotation.Clockwise ? -15 : 15f;
         valveSprite.transform.rotation = Quaternion.Euler(valveRotation);
         
         // Ends task if turn count is fulfilled
         if (_taskProgress >= maxTurnCount) TaskSuccessful();
     }
-    
+   
     // Task time countdown
     IEnumerator DecayTimeBar()
     {
