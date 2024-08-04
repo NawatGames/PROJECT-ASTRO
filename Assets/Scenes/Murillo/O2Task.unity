@@ -1669,11 +1669,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1824220348983007047, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Size.x
-      value: 2.26
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 1824220348983007047, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Size.y
-      value: 1.72
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3733061188543909392, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
@@ -1737,7 +1737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: taskName
-      value: DistributeO2Task
+      value: "Distribui\xE7\xE3o de O2"
       objectReference: {fileID: 0}
     - target: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: needsToBeDone
@@ -1750,6 +1750,22 @@ PrefabInstance:
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.9866414
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.000831
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0093
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

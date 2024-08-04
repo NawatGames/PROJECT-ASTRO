@@ -83,6 +83,7 @@ public class DistributeO2Task : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
+        Debug.Log("Tarefa Completada!");
         StopRotation();
     }
 
