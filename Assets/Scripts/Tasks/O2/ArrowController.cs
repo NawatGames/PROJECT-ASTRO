@@ -7,9 +7,9 @@ public class ArrowController : MonoBehaviour
     [SerializeField] private RectTransform arrow;
     [SerializeField] private RectTransform specialZone;
     [SerializeField] private float rotationSpeed = 100f;
-    [SerializeField] private float alignmentThreshold = 10f; 
+    [SerializeField] private float alignmentThreshold = 10f;
 
-    private bool isRotating = false;
+    private bool _isRotating = false;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class ArrowController : MonoBehaviour
             StartRotation();
         }
 
-        if (isRotating)
+        if (_isRotating)
         {
             RotateArrowAroundCircle();
 
@@ -36,12 +36,12 @@ public class ArrowController : MonoBehaviour
 
     public void StartRotation()
     {
-        isRotating = true;
+        _isRotating = true;
     }
 
     public void StopRotation()
     {
-        isRotating = false;
+        _isRotating = false;
     }
 
     private void RotateArrowAroundCircle()
@@ -71,23 +71,17 @@ public class ArrowController : MonoBehaviour
         specialZone.localPosition = tangentialPosition;
 
         float angle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg;
-        specialZone.rotation = Quaternion.Euler(0, 0, angle + 90); 
+        specialZone.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
     private void TaskSuccessful()
     {
-        Debug.Log("Acertou");
         PositionSpecialZone();
-        rotationSpeed += 30f; 
+        rotationSpeed += 30f;
     }
 
     private void TaskMistakeStay()
     {
-        Debug.Log("Errou");
-    }
-
-    private void TaskMistakeLeave()
-    {
-        Debug.Log("Perdeu");
+        Debug.LogError("Errou");
     }
 }
