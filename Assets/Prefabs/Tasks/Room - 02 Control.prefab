@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 4750154866643839855}
   - component: {fileID: 6151258435034933518}
   - component: {fileID: 3139318545487454939}
+  - component: {fileID: 5508055995753774695}
   m_Layer: 0
   m_Name: Room - 02 Control
   m_TagString: Untagged
@@ -779,6 +780,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &5508055995753774695
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248439634075152876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 3.7334504, y: -2.6240425}
+  - {x: 3.7314763, y: -2.6744986}
+  - {x: -3.7056298, y: -2.7237706}
+  - {x: -3.7550807, y: 2.723382}
+  - {x: 3.7557156, y: 2.6954174}
+  - {x: 3.6828425, y: -0.46572}
+  - {x: 3.2170725, y: -0.45374978}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &8502378941750662390
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +1027,8 @@ Transform:
   m_GameObject: {fileID: 8747741018570745397}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0}
-  m_LocalScale: {x: 2.91, y: 2.86, z: 1}
+  m_LocalPosition: {x: -0.0093, y: 0.52, z: 0}
+  m_LocalScale: {x: 4.9866414, y: 4.000831, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6033445570116949700}
@@ -1082,7 +1129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.03, y: 1.07}
   m_EdgeRadius: 0
 --- !u!1 &9065270394312923770
 GameObject:
@@ -1309,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: taskName
-      value: Distribute O2
+      value: "Distribui\xE7\xE3o de O2"
       objectReference: {fileID: 0}
     - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: taskScript
@@ -1317,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 6716762474016768310}
     - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: needsToBeDone
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108637563040208199, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_SortingOrder
@@ -1325,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_Name
-      value: O2Task
+      value: DistributeO2Task
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1358,6 +1405,7 @@ MonoBehaviour:
   specialZone: {fileID: 3880697617223818538}
   rotationSpeed: 100
   alignmentThreshold: 10
+  RequiredAlignments: 5
 --- !u!4 &6033445570116949700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}

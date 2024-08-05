@@ -233,7 +233,8 @@ MonoBehaviour:
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 2142498246}
-  _tasksNotYetSelected: []
+  _tasksNotYetSelected:
+  - {fileID: 1500918053}
 --- !u!4 &238751614
 Transform:
   m_ObjectHideFlags: 0
@@ -657,64 +658,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791489260}
   m_CullTransparentMesh: 1
---- !u!1 &930451894
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 930451896}
-  - component: {fileID: 930451895}
-  m_Layer: 0
-  m_Name: Alien
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &930451895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930451894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quarantineManager: {fileID: 1518293298}
-  roomsToInvade: []
-  timerAlienInvasion: 3
-  invasionDelayPerLevel:
-  - 6
-  - 15
-  - 10
-  - 4
-  - 3
-  alienInsideSeconds: 5
-  roomInvaded: {fileID: 0}
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
-  alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
-  alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
---- !u!4 &930451896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930451894}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160562134
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,17 +801,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxActiveTasksPerLevel: 0300000003000000
+  maxActiveTasksPerLevel: 01000000
   level0Tasks:
-  - {fileID: 0}
+  - {fileID: 1500918053}
   level1Tasks:
-  - {fileID: 0}
+  - {fileID: 1500918053}
   level2Tasks:
-  - {fileID: 0}
+  - {fileID: 1500918053}
   level3Tasks:
-  - {fileID: 0}
+  - {fileID: 1500918053}
   level4Tasks:
-  - {fileID: 0}
+  - {fileID: 1500918053}
 --- !u!114 &1464373082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,6 +855,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500918053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+  m_PrefabInstance: {fileID: 44510852932806741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1518000066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,26 +1545,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1824220348983007047, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Size.x
-      value: 1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 1824220348983007047, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Size.y
-      value: 1.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 3733061188543909392, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Name
-      value: DistributeO2Task
-      objectReference: {fileID: 0}
-    - target: {fileID: 3733061188543909392, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -1663,14 +1597,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskName
-      value: "Distribui\xE7\xE3o de O2"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: needsToBeDone
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1678,22 +1604,6 @@ PrefabInstance:
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.9866414
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.000831
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0093
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157916760581553438, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1712,7 +1622,6 @@ SceneRoots:
   - {fileID: 1842976515}
   - {fileID: 44510852932806741}
   - {fileID: 1464373083}
-  - {fileID: 930451896}
   - {fileID: 482568921}
   - {fileID: 238751614}
   - {fileID: 1160562138}

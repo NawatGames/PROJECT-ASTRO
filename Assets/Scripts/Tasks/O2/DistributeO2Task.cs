@@ -9,8 +9,9 @@ public class DistributeO2Task : TaskScript
     [SerializeField] private RectTransform specialZone;
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private float alignmentThreshold = 10f;
-
+    [SerializeField] private float RequiredAlignments = 7;
     private bool _isRotating = false;
+    private int _successfulAlignments = 0;
 
     protected override void Awake()
     {
@@ -50,7 +51,16 @@ public class DistributeO2Task : TaskScript
             float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
             if (angleDifference <= alignmentThreshold)
             {
-                TaskSuccessful();
+                _successfulAlignments++;
+                rotationSpeed += 20;
+                if (_successfulAlignments >= RequiredAlignments)
+                {
+                    TaskSuccessful();
+                }
+                else
+                {
+                    PositionSpecialZone();
+                }
             }
             else
             {
@@ -85,15 +95,16 @@ public class DistributeO2Task : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
+        Debug.Log("Task Completa");
         StopRotation();
         StopAllCoroutines();
-        Debug.Log("Task bem sucedida");
+        _successfulAlignments = 0;
     }
 
     protected override void TaskMistakeStay()
     {
+        Debug.Log("ERROU");
         base.TaskMistakeStay();
-        Debug.Log("Errou");
     }
 
     public override void EndTask()
