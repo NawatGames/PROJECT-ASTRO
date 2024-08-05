@@ -198,11 +198,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74837251}
   m_CullTransparentMesh: 1
---- !u!224 &138523177 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3880697617223818538, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 44510852932806741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &238751612
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,8 +233,7 @@ MonoBehaviour:
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 2142498246}
-  _tasksNotYetSelected:
-  - {fileID: 1452115539}
+  _tasksNotYetSelected: []
 --- !u!4 &238751614
 Transform:
   m_ObjectHideFlags: 0
@@ -392,55 +386,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &486234111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 486234113}
-  - component: {fileID: 486234114}
-  m_Layer: 0
-  m_Name: ArrowController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &486234113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486234111}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 1.6, z: -0.02375631}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486234114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486234111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b794a51896c0284a975e806646164fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circle: {fileID: 1649169464}
-  arrow: {fileID: 1330905679}
-  specialZone: {fileID: 138523177}
-  rotationSpeed: 100
-  alignmentThreshold: 10
 --- !u!1 &579543577
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,22 +828,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
   m_PrefabInstance: {fileID: 44510852932806741}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1330905679 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1106065122125860448, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 44510852932806741}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1452115539 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 44510852932806741}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1464373080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,11 +1083,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1649169464 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6582382471507078164, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 44510852932806741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796347381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1607,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -1781,7 +1709,6 @@ SceneRoots:
   - {fileID: 1518000069}
   - {fileID: 311144042}
   - {fileID: 1518293299}
-  - {fileID: 486234113}
   - {fileID: 1842976515}
   - {fileID: 44510852932806741}
   - {fileID: 1464373083}

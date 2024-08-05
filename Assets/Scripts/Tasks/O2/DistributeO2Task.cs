@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,13 +15,14 @@ public class DistributeO2Task : TaskScript
     protected override void Awake()
     {
         base.Awake();
-        PositionSpecialZone();
     }
 
     protected override void RunTask()
     {
         base.RunTask();
         StartRotation();
+        PositionSpecialZone();
+        StartCoroutine(RotateArrowCoroutine());
     }
 
     private void StartRotation()
@@ -83,21 +85,30 @@ public class DistributeO2Task : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
-        Debug.Log("Tarefa Completada!");
         StopRotation();
+        StopAllCoroutines();
+        Debug.Log("Task bem sucedida");
+    }
+
+    protected override void TaskMistakeStay()
+    {
+        base.TaskMistakeStay();
+        Debug.Log("Errou");
     }
 
     public override void EndTask()
     {
         base.EndTask();
         StopRotation();
+        StopAllCoroutines();
     }
 
-    private void Update()
+    private IEnumerator RotateArrowCoroutine()
     {
-        if (_isRotating)
+        while (_isRotating)
         {
             RotateArrowAroundCircle();
+            yield return null;
         }
     }
 }
