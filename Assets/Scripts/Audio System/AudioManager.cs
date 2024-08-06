@@ -4,10 +4,22 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     public Sound[] sounds;
     // Start is called before the first frame update
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -25,6 +37,10 @@ public class AudioManager : MonoBehaviour
     public void Play(string name) 
     {
         Sound sound = Array.Find(sounds, sound => sound.name == name);
+        if(sound == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
+        }
         sound.source.Play();
     }
     public void Stop(string name)

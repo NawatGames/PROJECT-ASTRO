@@ -20,13 +20,13 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private GameEvent gameOverEvent;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
-    
+
     void Start()
     {
         _timerInvasionDelay = invasionDelayPerLevel[LevelManager.level];
         _canCheckRooms = true;
     }
-    
+
     void Update()
     {
         // Verifica se existem salas com players dentro  
@@ -88,7 +88,7 @@ public class AlienBehavior : MonoBehaviour
             }
             else
             {
-                // Debug.Log("GAME OVER");
+                FindObjectOfType<AudioManager>().Play("VentOpened");
                 gameOverEvent.Raise();
             }
         }
