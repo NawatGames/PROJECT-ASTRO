@@ -1158,7 +1158,7 @@ MonoBehaviour:
   - name: AlienCrawl
     clip: {fileID: 8300000, guid: d166fd2781501974382d54025460e1fa, type: 3}
     volume: 0.081
-    pitch: 1.53
+    pitch: 2.358
     loop: 0
     source: {fileID: 0}
   - name: Theme
@@ -1174,15 +1174,33 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: DoorClose
-    clip: {fileID: 8300000, guid: 6e36f93133794fb408ba0373b99296b9, type: 3}
-    volume: 0.804
-    pitch: 0.676
+    clip: {fileID: 8300000, guid: 734f0265162c7ee4b9ef93fdedd732bb, type: 3}
+    volume: 0.646
+    pitch: 1.605
     loop: 0
     source: {fileID: 0}
   - name: DoorOpen
     clip: {fileID: 8300000, guid: b3134ac0ac98dac40926ed699ab87134, type: 3}
     volume: 0.804
     pitch: 0.676
+    loop: 0
+    source: {fileID: 0}
+  - name: TaskSuccess
+    clip: {fileID: 8300000, guid: 188930747ee98ee488963111d08de67a, type: 3}
+    volume: 0.804
+    pitch: 0.676
+    loop: 0
+    source: {fileID: 0}
+  - name: HarvestCropButtonPress
+    clip: {fileID: 8300000, guid: 6417167c483e83343bc41fd6b4c5a119, type: 3}
+    volume: 0.987
+    pitch: 1.672
+    loop: 0
+    source: {fileID: 0}
+  - name: AlienInsideRoom
+    clip: {fileID: 8300000, guid: 83ac7128fa8f452468a3c7e2f4eca692, type: 3}
+    volume: 0.987
+    pitch: 1.672
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1116699427
