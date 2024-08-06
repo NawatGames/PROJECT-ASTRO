@@ -29,6 +29,7 @@ public class TaskScript : MonoBehaviour
     protected virtual void TaskSuccessful()
     {
         tasksManager.TaskDoneSuccessfully(_taskController);
+        FindObjectOfType<AudioManager>().Play("TaskSuccess");
     }
 
     protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
