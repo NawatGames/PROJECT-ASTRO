@@ -63,5 +63,7 @@ public class TaskScript : MonoBehaviour
     protected virtual void RunTask()
     {
         //Debug.Log("Iniciou Task: " + this);
+        FindObjectOfType<AudioManager>().Play("TaskStarted");
+
     }
 }
