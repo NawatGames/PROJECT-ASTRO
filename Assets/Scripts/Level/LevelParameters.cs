@@ -7,6 +7,7 @@ public class LevelParameters : ScriptableObject
 {
     #region Tasks
     
+    [Header("Tasks")]
     public int maxActiveTasks;
     // timeForTaskToFail  (Ou colocar pra cada task)
 
@@ -14,6 +15,7 @@ public class LevelParameters : ScriptableObject
 
     #region Alien
 
+    [Header("Alien")]
     public int alienInactiveAtStartSeconds;
     public float invasionDelaySeconds;
     public float invasionWarningSeconds;
