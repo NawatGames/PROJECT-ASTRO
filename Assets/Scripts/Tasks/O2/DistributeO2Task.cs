@@ -38,50 +38,41 @@ public class DistributeO2Task : TaskScript
 
     private void RotateArrowAroundCircle()
     {
-        if (arrow != null && circle != null)
-        {
-            arrow.RotateAround(circle.position, Vector3.forward, rotationSpeed * Time.deltaTime);
-        }
+        arrow.RotateAround(circle.position, Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     private void CheckAlignment()
     {
-        if (arrow != null && specialZone != null && circle != null)
+        float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
+        if (angleDifference <= alignmentThreshold)
         {
-            float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
-            if (angleDifference <= alignmentThreshold)
+            _successfulAlignments++;
+            rotationSpeed += 20;
+            if (_successfulAlignments >= RequiredAlignments)
             {
-                _successfulAlignments++;
-                rotationSpeed += 20;
-                if (_successfulAlignments >= RequiredAlignments)
-                {
-                    TaskSuccessful();
-                }
-                else
-                {
-                    PositionSpecialZone();
-                }
+                TaskSuccessful();
             }
             else
             {
-                TaskMistakeStay();
+                PositionSpecialZone();
             }
+        }
+        else
+        {
+            TaskMistakeStay();
         }
     }
 
     private void PositionSpecialZone()
     {
-        if (circle != null && specialZone != null)
-        {
-            float radius = circle.rect.width / 2;
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
-            Vector2 tangentialPosition = randomDirection * radius;
+        float radius = circle.rect.width / 2;
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        Vector2 tangentialPosition = randomDirection * radius;
 
-            specialZone.localPosition = tangentialPosition;
+        specialZone.localPosition = tangentialPosition;
 
-            float angle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg;
-            specialZone.rotation = Quaternion.Euler(0, 0, angle + 90);
-        }
+        float angle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg;
+        specialZone.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
@@ -95,7 +86,6 @@ public class DistributeO2Task : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
-        Debug.Log("Task Completa");
         StopRotation();
         StopAllCoroutines();
         _successfulAlignments = 0;
@@ -103,7 +93,6 @@ public class DistributeO2Task : TaskScript
 
     protected override void TaskMistakeStay()
     {
-        Debug.Log("ERROU");
         base.TaskMistakeStay();
     }
 
