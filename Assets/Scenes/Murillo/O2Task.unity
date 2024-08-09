@@ -1601,6 +1601,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 238751613}
+    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: RequiredAlignments
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control

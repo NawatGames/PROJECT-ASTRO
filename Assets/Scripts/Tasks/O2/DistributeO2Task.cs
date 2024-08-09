@@ -46,11 +46,19 @@ public class DistributeO2Task : TaskScript
         float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
         if (angleDifference <= alignmentThreshold)
         {
-            _successfulAlignments++;
-            rotationSpeed += 20;
+            if (isAstro)
+            {
+                _successfulAlignments+=2;
+            }
+            else
+            {
+                _successfulAlignments ++;
+            }
+
             if (_successfulAlignments >= RequiredAlignments)
             {
                 TaskSuccessful();
+                rotationSpeed += 20;
             }
             else
             {
@@ -62,6 +70,7 @@ public class DistributeO2Task : TaskScript
             TaskMistakeStay();
         }
     }
+
 
     private void PositionSpecialZone()
     {
