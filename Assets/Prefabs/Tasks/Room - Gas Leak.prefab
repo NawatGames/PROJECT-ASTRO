@@ -224,6 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7752948905543903856}
   - component: {fileID: 7844112702051320153}
+  - component: {fileID: 4915024806351646905}
   m_Layer: 0
   m_Name: Room - Gas Leak
   m_TagString: Untagged
@@ -301,6 +302,51 @@ MonoBehaviour:
   isRoomQuarantined: 0
   gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   roomSprite: {fileID: 4796052056505781646}
+--- !u!68 &4915024806351646905
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943977172684552857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 3.45, y: -1.4238756}
+  - {x: 3.4984384, y: -2.5076497}
+  - {x: -3.5048962, y: -2.5057266}
+  - {x: -3.5020761, y: 2.5051024}
+  - {x: 3.499301, y: 2.5000622}
+  - {x: 3.5006642, y: 0.88944364}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &4274199678137213450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1382,5 @@ MonoBehaviour:
   taskTime: 5
   maxTurnCount: 10
   mistakePenalty: 5
-  keyOrder: 02000000000000000300000001000000
+  rotationDirection: 0
   valveSprite: {fileID: 4764838646847974075}
-  _taskProgress: 0
