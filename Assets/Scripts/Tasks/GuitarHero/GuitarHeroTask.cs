@@ -11,7 +11,10 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private int gameRounds;
     [SerializeField] private float gameSpeed;
     [SerializeField] private List<GameObject> targets;
+    [SerializeField] private List<TargetBehavior> targetsScript;
+
     [SerializeField] private List<SpriteRenderer> inputSymbolsBuffer;
+    public float _isButtonPressed;
 
     protected override void Awake()
     {
@@ -26,19 +29,19 @@ public class GuitarHeroTask : TaskScript
         base.RunTask();
 
         StartCoroutine(Delay());
-
-
+        
 
     }
     private IEnumerator Delay()
     {
-        for (int i = 0; i < gameRounds; i++)
+        for (int i = 0; i <= gameRounds; i++)
         {
             //tem quadrado na lista?
             if (targets.Count > 0)
             {
-                Debug.Log("removendo");
+                // Debug.Log("removendo");
                 yield return new WaitForSecondsRealtime(2f);
+                targets[0].SetActive(true);
                 targets.Remove(targets[0]);
             }
         }
@@ -47,16 +50,37 @@ public class GuitarHeroTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
+        if (value.performed)
+        {
+            foreach (TargetBehavior script in targetsScript)
+            {
+                _isButtonPressed = value.ReadValue<float>();
+            }
+
+        }
+        if (value.canceled)
+        {
+            foreach (TargetBehavior script in targetsScript)
+            {
+                _isButtonPressed = value.ReadValue<float>();
+            }
+
+        }
     }
 
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
-        Debug.Log("Colheita bem sucedida");
+        Debug.Log("GuitarHero bem sucedida");
     }
     public override void EndTask()
     {
         base.EndTask();
         StopAllCoroutines();
+    }
+
+    public float GetGameSpeed()
+    {
+        return gameSpeed;
     }
 }
