@@ -9,7 +9,7 @@ public class TargetBehavior : MonoBehaviour
     [SerializeField] private Rigidbody2D body;
     private float speed;
     [SerializeField] private GuitarHeroTask task;
-    private bool _canBePressed;
+    public bool _pressNow;
 
     public float _isButtonPressed;
     // Start is called before the first frame update
@@ -21,17 +21,7 @@ public class TargetBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_canBePressed && _isButtonPressed>0)
-        {
-            Debug.Log("Acertou!");
-            // this.gameObject.SetActive(false);
-        }
-        else if(_isButtonPressed>0 && !_canBePressed)
-        {
-            Debug.Log("Errou!");
-            
-            // this.gameObject.SetActive(false);
-        }
+        
     }
     
     void FixedUpdate()
@@ -45,15 +35,15 @@ public class TargetBehavior : MonoBehaviour
     void OnEnable()
     {
         speed = task.GetGameSpeed();
-        _canBePressed = false;
+        _pressNow = false;
         gameObject.transform.position = pos.position;
     }
     void OnTriggerEnter2D()
     {
-        _canBePressed = true;
+        _pressNow = true;
     }
     void OnTriggerExit2D()
     {
-        _canBePressed = false;
+        _pressNow = false;
     }
 }
