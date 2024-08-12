@@ -29,7 +29,7 @@ public class GuitarHeroTask : TaskScript
         base.RunTask();
 
         StartCoroutine(Delay());
-        
+
 
     }
     private IEnumerator Delay()
@@ -50,21 +50,16 @@ public class GuitarHeroTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        if (value.performed)
+        foreach (TargetBehavior script in targetsScript)
         {
-            foreach (TargetBehavior script in targetsScript)
-            {
-                _isButtonPressed = value.ReadValue<float>();
-            }
-
+            _isButtonPressed = value.ReadValue<float>();
         }
-        if (value.canceled)
+    }
+    protected override void OnUpCancelled(InputAction.CallbackContext value)
+    {
+        foreach (TargetBehavior script in targetsScript)
         {
-            foreach (TargetBehavior script in targetsScript)
-            {
-                _isButtonPressed = value.ReadValue<float>();
-            }
-
+            _isButtonPressed = value.ReadValue<float>();
         }
     }
 
