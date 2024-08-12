@@ -33,10 +33,24 @@ public class GuitarHeroTask : TaskScript
 
 
     }
+    void Update()
+    {
+        if (_isButtonPressed > 0)
+        {
+            if (targetsActive.Count > 0)
+            {
+                Debug.Log("toggle");
+                targetsBuffer.Add(targetsActive[0]);
+                targetsActive[0].SetActive(false);
+                targetsActive.Remove(targetsActive[0]);
+
+            }
+        }
+    }
     protected override void TaskMistakeStay()
     {
         base.TaskMistakeStay();
-        
+
     }
     private IEnumerator Delay()
     {
@@ -57,17 +71,20 @@ public class GuitarHeroTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        // Debug.Log("asd");
-        foreach (TargetBehavior script in targetsScript)
-        {
             _isButtonPressed = value.ReadValue<float>();
+        if (targetsActive.Count > 0 && value.duration < 0.5f && value.duration > 0.02f)
+        {
+            targetsActive[0].GetComponent<TargetBehavior>()._isButtonPressed = _isButtonPressed;
         }
+
     }
     protected override void OnUpCancelled(InputAction.CallbackContext value)
     {
-        foreach (TargetBehavior script in targetsScript)
+        _isButtonPressed = value.ReadValue<float>();
+        if (targetsActive.Count > 0)
         {
-            _isButtonPressed = value.ReadValue<float>();
+
+            targetsActive[0].GetComponent<TargetBehavior>()._isButtonPressed = _isButtonPressed;
         }
     }
 

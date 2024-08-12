@@ -227,7 +227,7 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""2b1dc10e-bf23-43f3-9f11-b90ecbbae094"",
                     ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": ""LeftKeyboard"",
                     ""action"": ""Up"",

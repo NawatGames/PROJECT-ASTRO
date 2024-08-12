@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TargetBehavior : MonoBehaviour
 {
+    public Transform pos;
     [SerializeField] private Rigidbody2D body;
     private float speed;
     [SerializeField] private GuitarHeroTask task;
@@ -14,23 +15,22 @@ public class TargetBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pos = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _isButtonPressed = task._isButtonPressed;
         if(_canBePressed && _isButtonPressed>0)
         {
             Debug.Log("Acertou!");
-            this.gameObject.SetActive(false);
+            // this.gameObject.SetActive(false);
         }
         else if(_isButtonPressed>0 && !_canBePressed)
         {
             Debug.Log("Errou!");
             
-            this.gameObject.SetActive(false);
+            // this.gameObject.SetActive(false);
         }
     }
     
@@ -46,6 +46,7 @@ public class TargetBehavior : MonoBehaviour
     {
         speed = task.GetGameSpeed();
         _canBePressed = false;
+        gameObject.transform.position = pos.position;
     }
     void OnTriggerEnter2D()
     {

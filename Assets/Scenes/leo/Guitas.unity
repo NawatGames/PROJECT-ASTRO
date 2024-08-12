@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1392fcbf45c555479cbf76430a2f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 282185203}
   body: {fileID: 282185200}
   task: {fileID: 1667103700}
   _isButtonPressed: 0
@@ -604,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 282185198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.7, y: 33.6, z: -2493}
+  m_LocalPosition: {x: -17, y: 61.8, z: -2493}
   m_LocalScale: {x: 20.87747, y: 21.70464, z: 27.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1703,6 +1704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1392fcbf45c555479cbf76430a2f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 1207794257}
   body: {fileID: 1207794256}
   task: {fileID: 1667103700}
   _isButtonPressed: 0
@@ -1742,7 +1744,7 @@ Transform:
   m_GameObject: {fileID: 1207794254}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.9, y: 61.3, z: -2493}
+  m_LocalPosition: {x: -24.3, y: 62.7, z: -2493}
   m_LocalScale: {x: 20.87747, y: 21.70464, z: 27.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1987,7 +1989,7 @@ Transform:
   m_GameObject: {fileID: 1342278974}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.1, y: 111.6, z: -2493}
+  m_LocalPosition: {x: -30.4, y: 63.5, z: -2493}
   m_LocalScale: {x: 20.87747, y: 21.70464, z: 27.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2084,6 +2086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1392fcbf45c555479cbf76430a2f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 1342278975}
   body: {fileID: 1342278977}
   task: {fileID: 1667103700}
   _isButtonPressed: 0
@@ -2199,6 +2202,14 @@ PrefabInstance:
     - target: {fileID: 2930328078244354091, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519460977232579089, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519460977232579089, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.573
       objectReference: {fileID: 0}
     - target: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_Name
@@ -2383,6 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1392fcbf45c555479cbf76430a2f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 1601642027}
   body: {fileID: 1601642026}
   task: {fileID: 1667103700}
   _isButtonPressed: 0
@@ -2422,7 +2434,7 @@ Transform:
   m_GameObject: {fileID: 1601642024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.8, y: 86.5, z: -2493}
+  m_LocalPosition: {x: -19, y: 62.1, z: -2493}
   m_LocalScale: {x: 20.87747, y: 21.70464, z: 27.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2555,13 +2567,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksManager: {fileID: 752719924}
   inputBar: {fileID: 411234659}
-  gameRounds: 3
+  gameRounds: 7
   gameSpeed: 1
-  targets:
+  targetsBuffer:
   - {fileID: 1342278974}
   - {fileID: 1207794254}
   - {fileID: 1601642024}
   - {fileID: 282185198}
+  targetsActive: []
   targetsScript:
   - {fileID: 1342278978}
   - {fileID: 1207794255}
