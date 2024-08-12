@@ -26,7 +26,14 @@ public class TargetBehavior : MonoBehaviour
             Debug.Log("Acertou!");
             this.gameObject.SetActive(false);
         }
+        else if(_isButtonPressed>0 && !_canBePressed)
+        {
+            Debug.Log("Errou!");
+            
+            this.gameObject.SetActive(false);
+        }
     }
+    
     void FixedUpdate()
     {
         if (this.gameObject.activeSelf)
