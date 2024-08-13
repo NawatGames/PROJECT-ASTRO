@@ -11,10 +11,8 @@ public class TargetBehavior : MonoBehaviour
     [SerializeField] private GuitarHeroTask task;
     public bool _pressNow;
     public int symbol;
-
     public bool _passedBeyondTrigger = false;
 
-    public float _isButtonPressed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,8 +59,12 @@ public class TargetBehavior : MonoBehaviour
         speed = task.GetGameSpeed();
         _pressNow = false;
         gameObject.transform.position = pos.position;
-        symbol = Random.Range(0, 3);
+        symbol = Random.Range(0, 4);
 
+    }
+    void OnDisable()
+    {
+        gameObject.transform.position = pos.position;
     }
     void OnTriggerEnter2D()
     {
@@ -71,6 +73,10 @@ public class TargetBehavior : MonoBehaviour
     void OnTriggerExit2D()
     {
         _pressNow = false;
-        task.InsertTargetInBuffer();
+        if (gameObject.activeSelf)
+        {
+            task.InsertTargetInBuffer();
+
+        }
     }
 }

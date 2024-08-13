@@ -11,8 +11,9 @@ using UnityEngine.UIElements;
 public class GuitarHeroTask : TaskScript
 {
     [SerializeField] private GameObject inputBar;
-    [SerializeField] private int gameRounds;
-    [SerializeField] private float gameSpeed;
+    [SerializeField] private int maxBlockPoints;
+    [SerializeField] private float blockSpeed;
+    private float _blockSpace = 2f;
     [Range(0.5f, 1f)][SerializeField] private float percentToWin;
     private int pointsToWin;
     private int pointsMade;
@@ -23,7 +24,7 @@ public class GuitarHeroTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
-        pointsToWin = (int)Math.Round(gameRounds * percentToWin);
+        pointsToWin = (int)Math.Round(maxBlockPoints * percentToWin);
         pointsMade = 0;
         foreach (GameObject target in targetsBuffer)
         {
@@ -33,45 +34,38 @@ public class GuitarHeroTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
-        StartCoroutine(Delay());
-        // StartCoroutine(VerifyCollision());
-        if (pointsToWin == 0)
-        {
-            TaskSuccessful();
-        }
+
+        StartCoroutine(GameRound());
 
     }
-
-    // private IEnumerator VerifyCollision()
-    // {
-    //     if (targetsActive.Count > 0)
-    //     {
-    //         foreach (GameObject target in targetsActive)
-    //         {
-    //             if (target.GetComponent<TargetBehavior>()._passedBeyondTrigger)
-    //             {
-    //                 InsertTargetInBuffer();
-    //                 yield return null;
-    //             }
-    //         }
-    //     }
-    // }
 
     protected override void TaskMistakeStay()
     {
         base.TaskMistakeStay();
 
     }
-    private IEnumerator Delay()
+    private IEnumerator GameRound()
     {
         if (targetsBuffer.Count > 0)
         {
-            for (int i = 0; i <= gameRounds; i++)
+            for (int i = 1; i <= maxBlockPoints; i++)
             {
 
                 // Debug.Log("removendo");
-                yield return new WaitForSecondsRealtime(2f);
+                yield return new WaitForSecondsRealtime(_blockSpace);
                 RemoveTargetInBuffer();
+            }
+            while (targetsActive.Count > 0)
+            {
+                yield return null;
+            }
+            if (pointsMade >= pointsToWin)
+            {
+                TaskSuccessful();
+            }
+            else
+            {
+                TaskMistakeLeave();
             }
         }
     }
@@ -80,17 +74,9 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 0; // simbolo de seta pra cima
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow && inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
+            if (inputAsset.Task.Up.WasPressedThisFrame())
             {
-                Debug.Log("good timing");
-                InsertTargetInBuffer();
-                pointsMade++;
-            }
-            else
-            {
-                Debug.Log("failed");
-                InsertTargetInBuffer();
-                pointsMade--;
+                VerifyPoint(symbolPressed);
             }
         }
 
@@ -100,17 +86,9 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 1; // simbolo de seta pra baixo
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow && inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
+            if (inputAsset.Task.Down.WasPressedThisFrame())
             {
-                Debug.Log("good timing");
-                InsertTargetInBuffer();
-                pointsMade++;
-            }
-            else
-            {
-                Debug.Log("failed");
-                InsertTargetInBuffer();
-                pointsMade--;
+                VerifyPoint(symbolPressed);
             }
         }
 
@@ -121,17 +99,9 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 2; // simbolo de seta pra esquerda
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow && inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
+            if (inputAsset.Task.Left.WasPressedThisFrame())
             {
-                Debug.Log("good timing");
-                InsertTargetInBuffer();
-                pointsMade++;
-            }
-            else
-            {
-                Debug.Log("failed");
-                InsertTargetInBuffer();
-                pointsMade--;
+                VerifyPoint(symbolPressed);
             }
         }
     }
@@ -141,22 +111,55 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 3; // simbolo de seta pra esquerda
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow && inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
+            if (inputAsset.Task.Right.WasPressedThisFrame())
+            {
+                VerifyPoint(symbolPressed);
+            }
+            // if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow &&
+            //  inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
+            // {
+            //     Debug.Log("good timing");
+            //     InsertTargetInBuffer();
+            //     pointsMade++;
+            // }
+            // else
+            // {
+            //     Debug.Log("failed");
+            //     InsertTargetInBuffer();
+            //     pointsMade--;
+            // }
+        }
+    }
+
+    private void VerifyPoint(int symbolPressed)
+    {
+
+        if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
+        {
+            if (targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed)
             {
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
                 pointsMade++;
             }
-            else
+            else if (targetsActive[0].GetComponent<TargetBehavior>().symbol != symbolPressed)
             {
                 Debug.Log("failed");
                 InsertTargetInBuffer();
                 pointsMade--;
             }
         }
+        else if (!targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
+        {
+            Debug.Log("failed");
+            InsertTargetInBuffer();
+            pointsMade--;
+        }
     }
+
     public void InsertTargetInBuffer()
     {
+        Debug.Log(targetsActive[0]);
         targetsActive[0].GetComponent<TargetBehavior>()._pressNow = false;
         targetsBuffer.Add(targetsActive[0]);
         targetsActive[0].SetActive(false);
@@ -181,6 +184,6 @@ public class GuitarHeroTask : TaskScript
 
     public float GetGameSpeed()
     {
-        return gameSpeed;
+        return blockSpeed;
     }
 }
