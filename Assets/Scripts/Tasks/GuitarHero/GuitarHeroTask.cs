@@ -71,6 +71,7 @@ public class GuitarHeroTask : TaskScript
             if (pointsMade >= pointsToWin)
             {
                 TaskSuccessful();
+                
             }
             else
             {
@@ -119,7 +120,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
         base.OnLeftPerformed(value);
-        int symbolPressed = 3; // simbolo de seta pra esquerda
+        int symbolPressed = 3; // simbolo de seta pra direita
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
             if (inputAsset.Task.Right.WasPressedThisFrame())
@@ -153,6 +154,13 @@ public class GuitarHeroTask : TaskScript
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
                 pointsMade++;
+                //Arthur
+                if(pointsMade == pointsToWin)
+                {
+                    
+                    TaskSuccessful();
+                    EndTask();
+                }
                 
             }
             else if (targetsActive[0].GetComponent<TargetBehavior>().symbol != symbolPressed)
@@ -187,12 +195,16 @@ public class GuitarHeroTask : TaskScript
     }
     protected override void TaskSuccessful()
     {
+        
         base.TaskSuccessful();
         Debug.Log("GuitarHero bem sucedida");
     }
     public override void EndTask()
     {
+        pointsToWinText.text = "task bem sucedida!";
         base.EndTask();
+        //Por algum motivo um deles continua ativo
+        targetsActive[0].SetActive(false);
         StopAllCoroutines();
     }
 
