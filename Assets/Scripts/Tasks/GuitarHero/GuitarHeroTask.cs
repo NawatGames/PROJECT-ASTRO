@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using TMPro;
+using Color = UnityEngine.Color;
+using Random = UnityEngine.Random;
 
 public class GuitarHeroTask : TaskScript
 {
@@ -15,16 +18,21 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private float blockSpeed;
     private float _blockSpace = 2f;
     [Range(0.5f, 1f)][SerializeField] private float percentToWin;
-    private int pointsToWin;
-    private int pointsMade;
+    [SerializeField] private int pointsToWin;
+    [SerializeField] private int pointsMade;
     [SerializeField] private List<GameObject> targetsBuffer;
     [SerializeField] private List<GameObject> targetsActive;
     [SerializeField] private List<SpriteRenderer> inputSymbols;
+    
+    [SerializeField] private TMP_Text pointsToWinText;
+    [SerializeField] private TMP_Text checkText;
 
     protected override void Awake()
     {
         base.Awake();
         pointsToWin = (int)Math.Round(maxBlockPoints * percentToWin);
+        pointsToWinText.text = "";
+        checkText.text = "";
         pointsMade = 0;
         foreach (GameObject target in targetsBuffer)
         {
@@ -36,6 +44,7 @@ public class GuitarHeroTask : TaskScript
         base.RunTask();
 
         StartCoroutine(GameRound());
+        PointDisplay();
 
     }
 
@@ -79,6 +88,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
+        
 
     }
     protected override void OnDownPerformed(InputAction.CallbackContext value)
@@ -91,7 +101,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
-
+        
     }
     protected override void OnLeftPerformed(InputAction.CallbackContext value)
     {
@@ -104,6 +114,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
+        
     }
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
@@ -129,11 +140,12 @@ public class GuitarHeroTask : TaskScript
             //     pointsMade--;
             // }
         }
+        
     }
 
     private void VerifyPoint(int symbolPressed)
-    {
-
+    {   
+        
         if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
         {
             if (targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed)
@@ -141,20 +153,22 @@ public class GuitarHeroTask : TaskScript
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
                 pointsMade++;
+                
             }
             else if (targetsActive[0].GetComponent<TargetBehavior>().symbol != symbolPressed)
             {
                 Debug.Log("failed");
                 InsertTargetInBuffer();
-                pointsMade--;
+                // pointsMade--;
             }
         }
         else if (!targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
         {
             Debug.Log("failed");
             InsertTargetInBuffer();
-            pointsMade--;
+            // pointsMade--;
         }
+        PointDisplay();
     }
 
     public void InsertTargetInBuffer()
@@ -185,5 +199,17 @@ public class GuitarHeroTask : TaskScript
     public float GetGameSpeed()
     {
         return blockSpeed;
+    }
+
+    public void PointDisplay()
+    {
+        pointsToWinText.text = (pointsToWin-pointsMade).ToString() ;
+    }
+    
+    public void CheckDisplay()
+    {   
+        
+        checkText.text = "Good Timing!";
+        
     }
 }
