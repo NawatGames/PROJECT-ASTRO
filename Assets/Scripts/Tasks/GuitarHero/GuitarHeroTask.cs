@@ -26,11 +26,13 @@ public class GuitarHeroTask : TaskScript
     
     [SerializeField] private TMP_Text pointsToWinText;
     [SerializeField] private TMP_Text checkText;
+    [SerializeField]private int auxPointsToWin;
 
     protected override void Awake()
     {
         base.Awake();
         pointsToWin = (int)Math.Round(maxBlockPoints * percentToWin);
+        auxPointsToWin = pointsToWin;
         pointsToWinText.text = "";
         checkText.text = "";
         pointsMade = 0;
@@ -42,7 +44,9 @@ public class GuitarHeroTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
-
+        pointsToWin = auxPointsToWin;
+        pointsMade = 0;
+        PointDisplay();
         StartCoroutine(GameRound());
         PointDisplay();
 
@@ -152,6 +156,7 @@ public class GuitarHeroTask : TaskScript
             if (targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed)
             {
                 Debug.Log("good timing");
+                CheckDisplay();
                 InsertTargetInBuffer();
                 pointsMade++;
                 //Arthur
@@ -211,7 +216,7 @@ public class GuitarHeroTask : TaskScript
         if (pointsMade == pointsToWin)
         {
             pointsToWinText.text = "task concluida com sucesso!";
-            targetsActive[0].SetActive(false);
+          
         }
         else
         {
@@ -237,10 +242,16 @@ public class GuitarHeroTask : TaskScript
         pointsToWinText.text = "";
     }
     
+    public void DisapearCheck()
+    {
+        checkText.text = "";
+    }
+    
     public void CheckDisplay()
     {   
         
         checkText.text = "Good Timing!";
+        Invoke("DisapearCheck",1);
         
     }
 }
