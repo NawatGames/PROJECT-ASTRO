@@ -16,7 +16,7 @@ public class SaveManager : MonoBehaviour
     public void SaveData(int difficulty)
     {
         DataSaver dataSaver = new DataSaver();
-        dataSaver.setData(difficulty);
+        dataSaver.data = difficulty;
         File.WriteAllText(_filePath, JsonUtility.ToJson(dataSaver));
         Debug.Log("Value saved: " + difficulty);
     }
@@ -26,8 +26,8 @@ public class SaveManager : MonoBehaviour
         if(File.Exists(_filePath))
         {
             DataSaver dataSaver = JsonUtility.FromJson<DataSaver>(File.ReadAllText(_filePath));
-            Debug.Log("Value loaded: " + dataSaver.getData());
-            return dataSaver.getData();
+            Debug.Log("Value loaded: " + dataSaver.data);
+            return dataSaver.data;
         }
 
         else
