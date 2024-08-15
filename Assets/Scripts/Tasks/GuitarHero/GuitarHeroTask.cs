@@ -207,17 +207,19 @@ public class GuitarHeroTask : TaskScript
         
         base.EndTask();
         //Por algum motivo um deles continua ativo
-        targetsActive[0].SetActive(false);
-        // if (pointsMade == 0)
-        // {
-        //     pointsToWinText.text = "task concluida com sucesso!";
-        // }
-        // else
-        // {
-        //     pointsToWinText.text = "task falhou!";
-        // }
+        
+        if (pointsMade == pointsToWin)
+        {
+            pointsToWinText.text = "task concluida com sucesso!";
+            targetsActive[0].SetActive(false);
+        }
+        else
+        {
+            pointsToWinText.text = "task falhou!";
+        }
+        
         StopAllCoroutines();
-        // Invoke("DisapearDisplay",2);
+        Invoke("DisapearDisplay",2);
     }
 
     public float GetGameSpeed()
