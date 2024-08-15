@@ -30,7 +30,7 @@ public class StartMenuButton : MonoBehaviour
             
             case 2:
                 _counter = SaveManager.LoadData();
-                Debug.Log(_counter);
+                //Debug.Log(_counter);
                 break;
             
             case 3:
