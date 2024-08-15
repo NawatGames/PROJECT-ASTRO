@@ -198,14 +198,26 @@ public class GuitarHeroTask : TaskScript
         
         base.TaskSuccessful();
         Debug.Log("GuitarHero bem sucedida");
+        
+        pointsToWinText.text = "task bem sucedida!";
+        Invoke("DisapearDisplay",2);
     }
     public override void EndTask()
     {
-        pointsToWinText.text = "task bem sucedida!";
+        
         base.EndTask();
         //Por algum motivo um deles continua ativo
         targetsActive[0].SetActive(false);
+        // if (pointsMade == 0)
+        // {
+        //     pointsToWinText.text = "task concluida com sucesso!";
+        // }
+        // else
+        // {
+        //     pointsToWinText.text = "task falhou!";
+        // }
         StopAllCoroutines();
+        // Invoke("DisapearDisplay",2);
     }
 
     public float GetGameSpeed()
@@ -216,6 +228,11 @@ public class GuitarHeroTask : TaskScript
     public void PointDisplay()
     {
         pointsToWinText.text = (pointsToWin-pointsMade).ToString() ;
+    }
+    
+    public void DisapearDisplay()
+    {
+        pointsToWinText.text = "";
     }
     
     public void CheckDisplay()
