@@ -24,6 +24,13 @@ public class BrokenWindowTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
+        _arrowsMapping = new Dictionary<DirectionEnum, char>()
+        {
+            { DirectionEnum.Up, '↑' },
+            { DirectionEnum.Down, '↓' },
+            { DirectionEnum.Left, '←' },
+            { DirectionEnum.Right, '→' }
+        };
         _sequence = new List<DirectionEnum>();
         timerBarScript.timeOutEvent.AddListener(TaskMistakeLeave);
     }
@@ -34,13 +41,7 @@ public class BrokenWindowTask : TaskScript
         timerBarScript.ResetTimerBarSize();
         CreateNewSequence();
         StartCoroutine(timerBarScript.StartTimer());
-        _arrowsMapping = new Dictionary<DirectionEnum, char>()
-        {
-            { DirectionEnum.Up, '↑' },
-            { DirectionEnum.Down, '↓' },
-            { DirectionEnum.Left, '←' },
-            { DirectionEnum.Right, '→' }
-        };
+        
         Debug.Log(GetSequenceString());
     }
 
