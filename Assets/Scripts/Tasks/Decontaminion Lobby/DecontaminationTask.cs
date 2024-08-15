@@ -128,14 +128,4 @@ public class DecontaminationTask : MonoBehaviour
         countdownText.gameObject.SetActive(false);
         Debug.Log("Game Over! A tarefa de descontaminação falhou.");
     }
-
-    public void EndTask()
-    {
-        playersInLobby = 0;
-        _taskCompleted = false;
-        player1Pressed = false;
-        player2Pressed = false;
-        countdownText.gameObject.SetActive(false);
-        StopAllCoroutines();
-    }
 }
