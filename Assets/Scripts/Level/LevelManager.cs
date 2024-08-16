@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     private static bool _alreadyInstanced;
     public static int level;
-    [SerializeField] private int[] maxActiveTasksPerLevel;
+    [SerializeField] private LevelParameters[] levelParams;
     private List<List<TaskController>> _allLevelTasks;
     [SerializeField] private List<TaskController> level0Tasks;
     [SerializeField] private List<TaskController> level1Tasks;
@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
 
     public int GetMaxNumberOfActiveTasks()
     {
-        return maxActiveTasksPerLevel[level];
+        return levelParams[level].maxActiveTasks;
     }
     
     public List<TaskController> GetTasksForThisLevel()
