@@ -18,13 +18,13 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private GameEvent gameOverEvent;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
-    
+
     void Start()
     {
         _timerInvasionDelay = levelParams[LevelManager.level].invasionDelaySeconds;
         StartCoroutine(WaitAndActivateAlien());
     }
-    
+
     void Update()
     {
         // Verifica se existem salas com players dentro  
@@ -78,8 +78,12 @@ public class AlienBehavior : MonoBehaviour
             roomInvaded = roomsToInvadeWeighted[roomIndex];
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
+            FindObjectOfType<AudioManager>().Play("AlienCrawl");
             yield return new WaitForSecondsRealtime(levelParams[LevelManager.level].invasionWarningSeconds);
             alienWarningEndEvent.Raise(roomInvaded.transform);
+
+            FindObjectOfType<AudioManager>().Stop("AlienCrawl");
+
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
@@ -88,7 +92,7 @@ public class AlienBehavior : MonoBehaviour
             }
             else
             {
-                Debug.Log("GAME OVER");
+                FindObjectOfType<AudioManager>().Play("VentOpened");
                 gameOverEvent.Raise();
             }
         }
