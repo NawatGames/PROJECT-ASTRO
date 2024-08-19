@@ -60,6 +60,7 @@ public class TargetBehavior : MonoBehaviour
         _pressNow = false;
         gameObject.transform.position = pos.position;
         symbol = Random.Range(0, 4);
+        
 
     }
     void OnDisable()
@@ -76,7 +77,8 @@ public class TargetBehavior : MonoBehaviour
         if (gameObject.activeSelf)
         {
             task.InsertTargetInBuffer();
-
+            // método para aumentar os erros
+            task.IncrementMistake(); 
         }
     }
 }

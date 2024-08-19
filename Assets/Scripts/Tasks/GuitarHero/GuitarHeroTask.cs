@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
+using UnityEngine.Serialization;
 using Color = UnityEngine.Color;
 using Random = UnityEngine.Random;
 
@@ -17,25 +18,26 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private int maxBlockPoints;
     [SerializeField] private float blockSpeed;
     private float _blockSpace = 2f;
-    [Range(0.5f, 1f)][SerializeField] private float percentToWin;
-    [SerializeField] private int pointsToWin;
+
+    [SerializeField] private int mistakes;
+    [SerializeField] private int numberOfPossibleMistakes;
+    
     [SerializeField] private int pointsMade;
     [SerializeField] private List<GameObject> targetsBuffer;
     [SerializeField] private List<GameObject> targetsActive;
     [SerializeField] private List<SpriteRenderer> inputSymbols;
     
-    [SerializeField] private TMP_Text pointsToWinText;
-    [SerializeField] private TMP_Text checkText;
+    [FormerlySerializedAs("pointsToWinText")] [SerializeField] private TMP_Text SucessText;
     [SerializeField]private int auxPointsToWin;
 
     protected override void Awake()
     {
         base.Awake();
-        pointsToWin = (int)Math.Round(maxBlockPoints * percentToWin);
-        auxPointsToWin = pointsToWin;
-        pointsToWinText.text = "";
-        checkText.text = "";
+        
+        auxPointsToWin = numberOfPossibleMistakes;
+        SucessText.text = "";
         pointsMade = 0;
+        mistakes = 0;
         foreach (GameObject target in targetsBuffer)
         {
             target.SetActive(false);
@@ -44,11 +46,12 @@ public class GuitarHeroTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
-        pointsToWin = auxPointsToWin;
+        numberOfPossibleMistakes = auxPointsToWin;
         pointsMade = 0;
-        PointDisplay();
+        mistakes = 0;
+       
         StartCoroutine(GameRound());
-        PointDisplay();
+      
 
     }
 
@@ -72,7 +75,7 @@ public class GuitarHeroTask : TaskScript
             {
                 yield return null;
             }
-            if (pointsMade >= pointsToWin)
+            if (pointsMade >= numberOfPossibleMistakes)
             {
                 TaskSuccessful();
                 
@@ -131,19 +134,7 @@ public class GuitarHeroTask : TaskScript
             {
                 VerifyPoint(symbolPressed);
             }
-            // if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow &&
-            //  inputAsset.Task.Up.WasPressedThisFrame() && targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed) // apertei no pivo
-            // {
-            //     Debug.Log("good timing");
-            //     InsertTargetInBuffer();
-            //     pointsMade++;
-            // }
-            // else
-            // {
-            //     Debug.Log("failed");
-            //     InsertTargetInBuffer();
-            //     pointsMade--;
-            // }
+
         }
         
     }
@@ -153,18 +144,17 @@ public class GuitarHeroTask : TaskScript
         
         if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
         {
+            
             if (targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed)
             {
                 Debug.Log("good timing");
-                CheckDisplay();
                 InsertTargetInBuffer();
                 pointsMade++;
                 //Arthur
-                if(pointsMade == pointsToWin)
+                if(pointsMade == maxBlockPoints - numberOfPossibleMistakes)
                 {
                     
                     TaskSuccessful();
-                    EndTask();
                 }
                 
             }
@@ -172,16 +162,29 @@ public class GuitarHeroTask : TaskScript
             {
                 Debug.Log("failed");
                 InsertTargetInBuffer();
-                // pointsMade--;
+                mistakes++;
+                if (mistakes > numberOfPossibleMistakes)
+                {
+
+                    TaskMistakeLeave();
+
+                }
             }
         }
         else if (!targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
         {
             Debug.Log("failed");
             InsertTargetInBuffer();
-            // pointsMade--;
+            mistakes++;
+            if(mistakes > numberOfPossibleMistakes)
+            {
+                    
+                TaskMistakeLeave();
+                
+            }
+           
         }
-        PointDisplay();
+        
     }
 
     public void InsertTargetInBuffer()
@@ -203,9 +206,15 @@ public class GuitarHeroTask : TaskScript
         
         base.TaskSuccessful();
         Debug.Log("GuitarHero bem sucedida");
+        EndTask();
         
-        pointsToWinText.text = "task bem sucedida!";
-        Invoke("DisapearDisplay",2);
+    }
+    
+    protected override void TaskMistakeLeave()
+    {
+        base.TaskMistakeLeave();
+        Debug.Log("GuitarHero falhou");
+        EndTask();
     }
     public override void EndTask()
     {
@@ -213,45 +222,36 @@ public class GuitarHeroTask : TaskScript
         base.EndTask();
         //Por algum motivo um deles continua ativo
         
-        if (pointsMade == pointsToWin)
+        if (pointsMade == maxBlockPoints - numberOfPossibleMistakes)
         {
-            pointsToWinText.text = "task concluida com sucesso!";
+            SucessText.text = "task concluida com sucesso!";
           
         }
         else
         {
-            pointsToWinText.text = "task falhou!";
+            SucessText.text = "task falhou!";
         }
         
         StopAllCoroutines();
-        Invoke("DisapearDisplay",2);
+        Invoke("DisapearSucessText", 2);
     }
 
     public float GetGameSpeed()
     {
         return blockSpeed;
     }
-
-    public void PointDisplay()
+    public void IncrementMistake()
     {
-        pointsToWinText.text = (pointsToWin-pointsMade).ToString() ;
+        mistakes++;
+        if (mistakes > numberOfPossibleMistakes)
+        {
+            TaskMistakeLeave();
+        }
     }
     
-    public void DisapearDisplay()
+    public void DisapearSucessText()
     {
-        pointsToWinText.text = "";
+        SucessText.text = "";
     }
     
-    public void DisapearCheck()
-    {
-        checkText.text = "";
-    }
-    
-    public void CheckDisplay()
-    {   
-        
-        checkText.text = "Good Timing!";
-        Invoke("DisapearCheck",1);
-        
-    }
 }
