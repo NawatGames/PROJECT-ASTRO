@@ -13,6 +13,7 @@ public class DoingDecontaminationState : IPlayerState
     {
         if(player.InteractAction.WasPressedThisFrame() || !player.isDoingDecontamination)
         {
+            player.stoppedDecontaminationEvent.Raise();
             return player.FreeMovingState;
         }
         return player.DoingDecontaminationState;

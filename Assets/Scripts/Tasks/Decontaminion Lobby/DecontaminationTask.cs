@@ -1,32 +1,34 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class DecontaminationTask : MonoBehaviour
 {
-    [SerializeField] private float timeUntilDecontamination = 120f;
+    [SerializeField] private float firstDecontaminationDelay = 160f;
+
+    [SerializeField] private float minIntervalUntilDecontamination = 100f;
+    [SerializeField] private float maxIntervalUntilDecontamination = 150f;
     [SerializeField] private float decontaminationWindow = 30f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Collider2D lobbyCollider;
     [SerializeField] private GameEvent completedDecontaminationEvent;
     private float _timeRemaining;
-    private int playersInLobby = 0;
     private bool _decontaminationNeeded = false;
-    private bool _taskCompleted = false;
     private bool onePlayerPressed = false;
     private bool twoPlayersPressed = false;
 
     private void Start()
     {
         Time.timeScale = 1f;
-        _timeRemaining = timeUntilDecontamination;
+        _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
         StartCoroutine(CountdownToDecontamination());
     }
 
     private void Update()
     {
-        if (_decontaminationNeeded && playersInLobby >= 2)
+        if (_decontaminationNeeded)
         {
             if (twoPlayersPressed)
             {
@@ -48,9 +50,22 @@ public class DecontaminationTask : MonoBehaviour
         }
     }
 
+    public void PlayerEndedDecontamination()
+    {
+        if(twoPlayersPressed)
+        {
+            twoPlayersPressed = false;
+        }
+        else
+        {
+            onePlayerPressed = false;
+        }
+    }
+
+
     private IEnumerator CountdownToDecontamination()
     {
-        while (_timeRemaining > 0 && !_taskCompleted)
+        while (_timeRemaining > 0)
         {
             _timeRemaining -= Time.deltaTime;
 
@@ -74,12 +89,12 @@ public class DecontaminationTask : MonoBehaviour
 
     private IEnumerator DecontaminationWindow()
     {
-        while (_timeRemaining > 0 && !_taskCompleted)
+        while (_timeRemaining > 0)
         {
             _timeRemaining -= Time.deltaTime;
             UpdateCountdownText();
 
-            if (_timeRemaining <= 0 && !_taskCompleted)
+            if (_timeRemaining <= 0)
             {
                 GameOver();
             }
@@ -98,29 +113,15 @@ public class DecontaminationTask : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playersInLobby++;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playersInLobby--;
-        }
-    }
-
     private void CompleteTask()
     {
-        _taskCompleted = true;
         _decontaminationNeeded = false;
+        onePlayerPressed = false;
+        twoPlayersPressed = false;
         countdownText.gameObject.SetActive(false);
         StopAllCoroutines();
-        Debug.Log("Descontaminação Completa!");
+        _timeRemaining = Random.Range(minIntervalUntilDecontamination,maxIntervalUntilDecontamination);
+        StartCoroutine(CountdownToDecontamination()); 
     }
 
     private void GameOver()

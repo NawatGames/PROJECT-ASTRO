@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTaskArea { get; private set; }
     public bool IsOnLobbyArea { get; private set; }
     public bool isDoingDecontamination;
-
     public GameEvent startedDecontaminationEvent;
+    public GameEvent stoppedDecontaminationEvent;
     public bool IsOnButtonArea { get; private set; }
     public bool GameIsOver { get; private set; }
     public TaskController NearTaskController { get; private set; }
@@ -137,7 +137,6 @@ public class PlayerController : MonoBehaviour
     public void OnCompletedDecontamination()
     {
         isDoingDecontamination = false;
-        Debug.Log("False");
     }
 
     public void SetGameOverState() // Chamada por evento

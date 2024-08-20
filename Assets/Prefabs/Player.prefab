@@ -171,6 +171,7 @@ MonoBehaviour:
   isAstro: 1
   isDoingDecontamination: 0
   startedDecontaminationEvent: {fileID: 11400000, guid: 30c4be81f0f979b4182747363cb3f20a, type: 2}
+  stoppedDecontaminationEvent: {fileID: 11400000, guid: 8b6bf082ffa3def4f946a176a74260f6, type: 2}
 --- !u!114 &4550928616745858027
 MonoBehaviour:
   m_ObjectHideFlags: 0
