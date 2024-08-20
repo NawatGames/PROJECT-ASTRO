@@ -8,13 +8,13 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private float decontaminationWindow = 30f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Collider2D lobbyCollider;
-
+    [SerializeField] private GameEvent completedDecontaminationEvent;
     private float _timeRemaining;
     private int playersInLobby = 0;
     private bool _decontaminationNeeded = false;
     private bool _taskCompleted = false;
-    private bool player1Pressed = false;
-    private bool player2Pressed = false;
+    private bool onePlayerPressed = false;
+    private bool twoPlayersPressed = false;
 
     private void Start()
     {
@@ -28,22 +28,23 @@ public class DecontaminationTask : MonoBehaviour
     {
         if (_decontaminationNeeded && playersInLobby >= 2)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                player1Pressed = true;
-                Debug.Log("Player 1 pressionou E");
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightControl))
-            {
-                player2Pressed = true;
-                Debug.Log("Player 2 pressionou Ctrl direito");
-            }
-
-            if (player1Pressed && player2Pressed)
+            if (twoPlayersPressed)
             {
                 CompleteTask();
+                completedDecontaminationEvent.Raise();
             }
+        }
+    }
+
+    public void PlayerStartedDecontamination()
+    {
+        if(!onePlayerPressed)
+        {
+            onePlayerPressed = true;
+        }
+        else
+        {
+            twoPlayersPressed = true;
         }
     }
 

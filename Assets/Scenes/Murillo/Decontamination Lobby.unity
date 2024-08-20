@@ -590,9 +590,10 @@ GameObject:
   - component: {fileID: 1431746308}
   - component: {fileID: 1431746307}
   - component: {fileID: 1431746306}
+  - component: {fileID: 1431746309}
   m_Layer: 0
   m_Name: Lobby
-  m_TagString: Untagged
+  m_TagString: Lobby
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,10 +610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbd358df83aaf949a51b943ac4d7020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilDecontamination: 5
+  timeUntilDecontamination: 2
   decontaminationWindow: 20
   countdownText: {fileID: 1953996175}
   lobbyCollider: {fileID: 1431746307}
+  completedDecontaminationEvent: {fileID: 11400000, guid: 537013a95f9fcb94abc8ff97dd1d7e2f, type: 2}
 --- !u!61 &1431746307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -674,6 +676,34 @@ Transform:
   - {fileID: 2082623853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1431746309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431746305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 30c4be81f0f979b4182747363cb3f20a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1431746306}
+        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
+        m_MethodName: PlayerStartedDecontamination
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1809163503
 GameObject:
   m_ObjectHideFlags: 0
