@@ -9,8 +9,13 @@ public class BrokenWindowTask : TaskScript
 {
     [SerializeField] private int sequenceSize = 5;
     [SerializeField] private BrokenWindowTimerBar timerBarScript;
+    [SerializeField] private GameObject upArrow;
+    [SerializeField] private GameObject downArrow;
+    [SerializeField] private GameObject leftArrow;
+    [SerializeField] private GameObject rightArrow;
+    [SerializeField] private ArrowsFrameManager frameManager;
     private List<DirectionEnum> _sequence;
-    private Dictionary<DirectionEnum, char> _arrowsMapping;
+    private Dictionary<DirectionEnum, GameObject> _arrowsMapping;
     
     
     private enum DirectionEnum
@@ -24,12 +29,12 @@ public class BrokenWindowTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
-        _arrowsMapping = new Dictionary<DirectionEnum, char>()
+        _arrowsMapping = new Dictionary<DirectionEnum, GameObject>()
         {
-            { DirectionEnum.Up, '↑' },
-            { DirectionEnum.Down, '↓' },
-            { DirectionEnum.Left, '←' },
-            { DirectionEnum.Right, '→' }
+            { DirectionEnum.Up, upArrow },
+            { DirectionEnum.Down, downArrow },
+            { DirectionEnum.Left, leftArrow },
+            { DirectionEnum.Right, rightArrow }
         };
         _sequence = new List<DirectionEnum>();
         timerBarScript.timeOutEvent.AddListener(TaskMistakeLeave);
@@ -40,9 +45,9 @@ public class BrokenWindowTask : TaskScript
         base.RunTask();
         timerBarScript.ResetTimerBarSize();
         CreateNewSequence();
+        ShowNewSequence();
         StartCoroutine(timerBarScript.StartTimer());
         
-        Debug.Log(GetSequenceString());
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
@@ -74,7 +79,6 @@ public class BrokenWindowTask : TaskScript
         if (input == _sequence[0])
         {
             _sequence.RemoveAt(0);
-            Debug.Log(GetSequenceString());
             if (_sequence.Count == 0)
             {
                 TaskSuccessful();
@@ -84,26 +88,27 @@ public class BrokenWindowTask : TaskScript
         {
             TaskMistakeStay();
             CreateNewSequence();
-            Debug.Log(GetSequenceString());
+            ShowNewSequence();
         }
     }
 
     private void CreateNewSequence()
     {
         _sequence.Clear();
+        frameManager.ResetArrowFrame();
         for (int i = 0; i < sequenceSize; i++)
         {
             _sequence.Add((DirectionEnum)Random.Range(0,4));
         }
     }
 
-    private string GetSequenceString()
+    private void ShowNewSequence()
     {
-        string strSequence = "";
+        int index = 0;
         foreach (DirectionEnum d in _sequence)
         {
-            strSequence += _arrowsMapping[d];
+            frameManager.AddArrow(_arrowsMapping[d], index, sequenceSize);
+            index++;
         }
-        return strSequence;
     }
 }
