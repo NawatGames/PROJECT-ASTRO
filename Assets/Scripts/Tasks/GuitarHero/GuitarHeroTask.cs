@@ -19,7 +19,7 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private float blockSpeed;
     private float _blockSpace = 2f;
 
-    [SerializeField] private int mistakes;
+    [FormerlySerializedAs("mistakes")] [SerializeField] private int totalMistakes;
     [SerializeField] private int numberOfPossibleMistakes;
     
     [SerializeField] private int pointsMade;
@@ -37,7 +37,7 @@ public class GuitarHeroTask : TaskScript
         auxPointsToWin = numberOfPossibleMistakes;
         SucessText.text = "";
         pointsMade = 0;
-        mistakes = 0;
+        totalMistakes = 0;
         foreach (GameObject target in targetsBuffer)
         {
             target.SetActive(false);
@@ -48,7 +48,7 @@ public class GuitarHeroTask : TaskScript
         base.RunTask();
         numberOfPossibleMistakes = auxPointsToWin;
         pointsMade = 0;
-        mistakes = 0;
+        totalMistakes = 0;
        
         StartCoroutine(GameRound());
       
@@ -162,8 +162,8 @@ public class GuitarHeroTask : TaskScript
             {
                 Debug.Log("failed");
                 InsertTargetInBuffer();
-                mistakes++;
-                if (mistakes > numberOfPossibleMistakes)
+                totalMistakes++;
+                if (totalMistakes > numberOfPossibleMistakes)
                 {
 
                     TaskMistakeLeave();
@@ -175,8 +175,8 @@ public class GuitarHeroTask : TaskScript
         {
             Debug.Log("failed");
             InsertTargetInBuffer();
-            mistakes++;
-            if(mistakes > numberOfPossibleMistakes)
+            totalMistakes++;
+            if(totalMistakes > numberOfPossibleMistakes)
             {
                     
                 TaskMistakeLeave();
@@ -242,8 +242,8 @@ public class GuitarHeroTask : TaskScript
     }
     public void IncrementMistake()
     {
-        mistakes++;
-        if (mistakes > numberOfPossibleMistakes)
+        totalMistakes++;
+        if (totalMistakes > numberOfPossibleMistakes)
         {
             TaskMistakeLeave();
         }
