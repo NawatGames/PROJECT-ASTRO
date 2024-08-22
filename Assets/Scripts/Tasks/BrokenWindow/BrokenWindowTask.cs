@@ -78,6 +78,7 @@ public class BrokenWindowTask : TaskScript
     {
         if (input == _sequence[0])
         {
+            frameManager.MarkArrow();
             _sequence.RemoveAt(0);
             if (_sequence.Count == 0)
             {
