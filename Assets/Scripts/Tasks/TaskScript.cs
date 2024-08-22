@@ -6,6 +6,7 @@ public class TaskScript : MonoBehaviour
 {
     protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
+    protected bool isAstroSpecialist;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
 

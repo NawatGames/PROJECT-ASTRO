@@ -34,6 +34,7 @@ public class GeniusTask : TaskScript
         _buttons.Add(downButton);
         _buttons.Add(leftButton);
         _buttons.Add(rightButton);
+        isAstroSpecialist = true;
     }
 
     protected override void RunTask()
@@ -129,12 +130,26 @@ public class GeniusTask : TaskScript
         _computerTurn = true;
         signalLight.GetComponent<SpriteRenderer>().color = Color.red;
         
-        yield return new WaitForSeconds(2);
+        if(isAstro && isAstroSpecialist)
+        {
+            yield return new WaitForSeconds(4);
+        }
+        else
+        {
+            yield return new WaitForSeconds(2);
+        }
         
         foreach (var button in computerSequence)
         {
             StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor));
-            yield return new WaitForSeconds(1);
+            if(isAstro && isAstroSpecialist)
+            {
+                yield return new WaitForSeconds(2);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
         }
 
         _computerTurn = false;

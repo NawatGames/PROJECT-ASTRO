@@ -16,13 +16,14 @@ public class HarvestCropTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
+        isAstroSpecialist = true;
     }
     protected override void RunTask()
     {
         base.RunTask();
         progressSlider.value = 0;
         timeSlider.value = 1;
-        if (isAstro)
+        if (isAstro && isAstroSpecialist)
         {
             progressValue += 0.2f * progressValue;
         }
