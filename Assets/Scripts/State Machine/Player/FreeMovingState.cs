@@ -15,6 +15,10 @@ public class FreeMovingState : IPlayerState
                 player.NearTaskController.wasStarted = true;
                 return player.DoingTasksState;
             }
+            if (player.IsOnLobbyArea)
+            {
+                return player.DoingDecontaminationState;
+            }
             if (player.IsOnButtonArea)
             {
                 player.NearDoorButtonController.ToggleDoor();
