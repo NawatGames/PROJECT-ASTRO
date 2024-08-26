@@ -7,6 +7,8 @@ TagManager:
   - QuarantineButton
   - InteractiveArea
   - Task
+  - Undefined
+  - Lobby
   layers:
   - Default
   - TransparentFX
