@@ -130,26 +130,12 @@ public class GeniusTask : TaskScript
         _computerTurn = true;
         signalLight.GetComponent<SpriteRenderer>().color = Color.red;
         
-        if(isAstro && isAstroSpecialist)
-        {
-            yield return new WaitForSeconds(4);
-        }
-        else
-        {
-            yield return new WaitForSeconds(2);
-        }
+        yield return new WaitForSeconds(2);
         
         foreach (var button in computerSequence)
         {
             StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor));
-            if(isAstro && isAstroSpecialist)
-            {
-                yield return new WaitForSeconds(2);
-            }
-            else
-            {
-                yield return new WaitForSeconds(1);
-            }
+            yield return new WaitForSeconds(1);
         }
 
         _computerTurn = false;

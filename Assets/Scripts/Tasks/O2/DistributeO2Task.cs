@@ -47,7 +47,7 @@ public class DistributeO2Task : TaskScript
         float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
         if (angleDifference <= alignmentThreshold)
         {
-            if (isAstro && isAstroSpecialist)
+            if (isAstro == isAstroSpecialist)
             {
                 _successfulAlignments+=2;
             }

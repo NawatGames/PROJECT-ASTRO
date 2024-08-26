@@ -23,7 +23,7 @@ public class HarvestCropTask : TaskScript
         base.RunTask();
         progressSlider.value = 0;
         timeSlider.value = 1;
-        if (isAstro && isAstroSpecialist)
+        if (isAstro == isAstroSpecialist)
         {
             progressValue += 0.2f * progressValue;
         }
