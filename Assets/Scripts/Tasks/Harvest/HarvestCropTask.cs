@@ -31,7 +31,7 @@ public class HarvestCropTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        FindObjectOfType<AudioManager>().Play("HarvestCropButtonPress");
+
         progressSlider.value += progressValue;
         if (progressSlider.value == 1)
         {
