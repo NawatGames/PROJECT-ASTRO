@@ -23,24 +23,29 @@ public class TaskScript : MonoBehaviour
         inputAsset.Task.Down.performed += OnDownPerformed;
         inputAsset.Task.Left.performed += OnLeftPerformed;
         inputAsset.Task.Right.performed += OnRightPerformed;
+        inputAsset.Task.Up.canceled += OnUpCancelled;
+        inputAsset.Task.Down.canceled += OnDownCancelled;
+        inputAsset.Task.Left.canceled += OnLeftCancelled;
+        inputAsset.Task.Right.canceled += OnRightCancelled;
         RunTask();
     }
 
     protected virtual void TaskSuccessful()
     {
         tasksManager.TaskDoneSuccessfully(_taskController);
+        FindObjectOfType<AudioManager>().Play("TaskSuccess");
     }
 
     protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
     {
         Debug.Log("Task Mistake (stay)");
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
     }
 
     protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
     {
         Debug.Log("Task Mistake (leave)");
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
         tasksManager.KickPlayer(_taskController);
     }
 
@@ -52,16 +57,26 @@ public class TaskScript : MonoBehaviour
         inputAsset.Task.Down.performed -= OnDownPerformed;
         inputAsset.Task.Left.performed -= OnLeftPerformed;
         inputAsset.Task.Right.performed -= OnRightPerformed;
+        inputAsset.Task.Up.canceled -= OnUpCancelled;
+        inputAsset.Task.Down.canceled -= OnDownCancelled;
+        inputAsset.Task.Left.canceled -= OnLeftCancelled;
+        inputAsset.Task.Right.canceled -= OnRightCancelled;
     }
 
-    protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnDownPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnRightPerformed(InputAction.CallbackContext value) {}
+    protected virtual void OnUpPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnDownPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnRightPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnUpCancelled(InputAction.CallbackContext value) { }
+    protected virtual void OnDownCancelled(InputAction.CallbackContext value) { }
+    protected virtual void OnLeftCancelled(InputAction.CallbackContext value) { }
+    protected virtual void OnRightCancelled(InputAction.CallbackContext value) { }
 
 
     protected virtual void RunTask()
     {
         //Debug.Log("Iniciou Task: " + this);
+        FindObjectOfType<AudioManager>().Play("TaskStarted");
+
     }
 }
