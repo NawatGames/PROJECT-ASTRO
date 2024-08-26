@@ -12,10 +12,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rigidbody2D { get; private set; }
     public Vector2 MoveVector { get; private set; } = Vector2.zero;
     public bool IsOnTaskArea { get; private set; }
-    public bool IsOnLobbyArea { get; private set; }
-    public bool isDoingDecontamination;
-    public GameEvent startedDecontaminationEvent;
-    public GameEvent stoppedDecontaminationEvent;
     public bool IsOnButtonArea { get; private set; }
     public bool GameIsOver { get; private set; }
     public TaskController NearTaskController { get; private set; }
@@ -30,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public FreeMovingState FreeMovingState { get; private set; } = new FreeMovingState();
     public DoingTasksState DoingTasksState { get; private set; } = new DoingTasksState();
     public GameOverState GameOverState { get; private set; } = new GameOverState();
-    public DoingDecontaminationState DoingDecontaminationState { get; private set; } = new DoingDecontaminationState();
 
     private void Awake() // No awake, a variável isAstro ainda não está setada (mas no Start sim)
     {
@@ -87,16 +82,11 @@ public class PlayerController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton)
         {
-            if (isLobby)
-            {
-                IsOnLobbyArea = true;
-                return;
-            }
             // Botão acima do player
+
             if (isTask)
             {
                 IsOnTaskArea = true;
@@ -105,7 +95,6 @@ public class PlayerController : MonoBehaviour
             }
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
             IsOnButtonArea = true;
-    
         }
     }
 
@@ -113,16 +102,11 @@ public class PlayerController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton)
         {
             // Botão acima do player
-            if(isLobby)
-            {
-                IsOnLobbyArea = false;
-                return;
-            }
+
             if (isTask)
             {
                 IsOnTaskArea = false;
@@ -132,11 +116,6 @@ public class PlayerController : MonoBehaviour
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
             IsOnButtonArea = false;
         }
-    }
-
-    public void OnCompletedDecontamination()
-    {
-        isDoingDecontamination = false;
     }
 
     public void SetGameOverState() // Chamada por evento
