@@ -19,28 +19,26 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private float blockSpeed;
     private float _blockSpace = 2f;
 
-    [FormerlySerializedAs("mistakes")] [SerializeField] private int totalMistakes;
+    [FormerlySerializedAs("mistakes")][SerializeField] private int totalMistakes;
     [SerializeField] private int numberOfPossibleMistakes;
-    
+
     [SerializeField] private int pointsMade;
     [SerializeField] private List<GameObject> targetsBuffer;
     [SerializeField] private List<GameObject> targetsActive;
     [SerializeField] private List<SpriteRenderer> inputSymbols;
-    
-    [FormerlySerializedAs("pointsToWinText")] [SerializeField] private TMP_Text SucessText;
-    [SerializeField]private int auxPointsToWin;
-
+    [SerializeField] private int auxPointsToWin;
+    [SerializeField] private Transform targetsStartLocation;
     protected override void Awake()
     {
         base.Awake();
-        
+
         auxPointsToWin = numberOfPossibleMistakes;
-        SucessText.text = "";
         pointsMade = 0;
         totalMistakes = 0;
         foreach (GameObject target in targetsBuffer)
         {
             target.SetActive(false);
+            target.transform.position = targetsStartLocation.position;
         }
     }
     protected override void RunTask()
@@ -49,9 +47,9 @@ public class GuitarHeroTask : TaskScript
         numberOfPossibleMistakes = auxPointsToWin;
         pointsMade = 0;
         totalMistakes = 0;
-       
+
         StartCoroutine(GameRound());
-      
+
 
     }
 
@@ -75,10 +73,10 @@ public class GuitarHeroTask : TaskScript
             {
                 yield return null;
             }
-            if (pointsMade >= numberOfPossibleMistakes)
+            if (pointsMade >= maxBlockPoints)
             {
                 TaskSuccessful();
-                
+
             }
             else
             {
@@ -96,7 +94,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
-        
+
 
     }
     protected override void OnDownPerformed(InputAction.CallbackContext value)
@@ -109,7 +107,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
-        
+
     }
     protected override void OnLeftPerformed(InputAction.CallbackContext value)
     {
@@ -122,7 +120,7 @@ public class GuitarHeroTask : TaskScript
                 VerifyPoint(symbolPressed);
             }
         }
-        
+
     }
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
@@ -136,27 +134,27 @@ public class GuitarHeroTask : TaskScript
             }
 
         }
-        
+
     }
 
     private void VerifyPoint(int symbolPressed)
-    {   
-        
+    {
+
         if (targetsActive[0].GetComponent<TargetBehavior>()._pressNow)
         {
-            
+
             if (targetsActive[0].GetComponent<TargetBehavior>().symbol == symbolPressed)
             {
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
                 pointsMade++;
-                //Arthur
-                if(pointsMade == maxBlockPoints - numberOfPossibleMistakes)
+
+                if (pointsMade == maxBlockPoints)
                 {
-                    
+
                     TaskSuccessful();
                 }
-                
+
             }
             else if (targetsActive[0].GetComponent<TargetBehavior>().symbol != symbolPressed)
             {
@@ -176,23 +174,26 @@ public class GuitarHeroTask : TaskScript
             Debug.Log("failed");
             InsertTargetInBuffer();
             totalMistakes++;
-            if(totalMistakes > numberOfPossibleMistakes)
+            if (totalMistakes > numberOfPossibleMistakes)
             {
-                    
+
                 TaskMistakeLeave();
-                
+
             }
-           
+
         }
-        
+
     }
 
     public void InsertTargetInBuffer()
     {
-        Debug.Log(targetsActive[0]);
+        // Debug.Log(targetsActive[0]);
         targetsActive[0].GetComponent<TargetBehavior>()._pressNow = false;
         targetsBuffer.Add(targetsActive[0]);
         targetsActive[0].SetActive(false);
+        
+        targetsActive[0].transform.position = targetsStartLocation.position;
+
         targetsActive.Remove(targetsActive[0]);
     }
     private void RemoveTargetInBuffer()
@@ -203,13 +204,13 @@ public class GuitarHeroTask : TaskScript
     }
     protected override void TaskSuccessful()
     {
-        
+
         base.TaskSuccessful();
         Debug.Log("GuitarHero bem sucedida");
         EndTask();
-        
+
     }
-    
+
     protected override void TaskMistakeLeave()
     {
         base.TaskMistakeLeave();
@@ -218,22 +219,9 @@ public class GuitarHeroTask : TaskScript
     }
     public override void EndTask()
     {
-        
+
         base.EndTask();
-        //Por algum motivo um deles continua ativo
-        
-        if (pointsMade == maxBlockPoints - numberOfPossibleMistakes)
-        {
-            SucessText.text = "task concluida com sucesso!";
-          
-        }
-        else
-        {
-            SucessText.text = "task falhou!";
-        }
-        
         StopAllCoroutines();
-        Invoke("DisapearSucessText", 2);
     }
 
     public float GetGameSpeed()
@@ -248,10 +236,5 @@ public class GuitarHeroTask : TaskScript
             TaskMistakeLeave();
         }
     }
-    
-    public void DisapearSucessText()
-    {
-        SucessText.text = "";
-    }
-    
+
 }
