@@ -30,6 +30,7 @@ namespace Tasks.MemoryTask
         
         protected override void Awake()
         {
+            tilesSelector.SetActive(false);
             _tiles = tilesHolder.GetComponentsInChildren<MemoryTile>().ToList();
             // Checks if there are enough colors for task to work properly
             if (easyModeColors.Count < _tiles.Count * 2)
@@ -69,6 +70,13 @@ namespace Tasks.MemoryTask
             base.TaskSuccessful();
             onTileDisable.Invoke();
         }
+
+        public override void EndTask()
+        {
+            base.EndTask();
+            tilesSelector.SetActive(false);
+            onTileDisable.Invoke();
+        }
         
         private void RoundSetup()
         {
@@ -83,8 +91,9 @@ namespace Tasks.MemoryTask
                 Color randomColor = _colors[i];
                 // Store colors initially displayed on tiles
                 initialColors.Add(randomColor);
-                // Remove color from original list
                 _tiles[i].SetColor(randomColor);
+                // Remove color from original list
+                _colors.Remove(randomColor);
             }
 
             // Choose correct color to be memorized
@@ -98,6 +107,8 @@ namespace Tasks.MemoryTask
             // Memorization Time
             yield return new WaitForSeconds(memorizationTime);
             onTileDisable.Invoke();
+            yield return new WaitForSeconds(2f);
+            
             // Assign colors to tiles
             for (int i = 0; i < _tiles.Count; i++)
             {
@@ -105,6 +116,8 @@ namespace Tasks.MemoryTask
             }
             int randomIndex = Random.Range(0, _tiles.Count);
             _tiles[randomIndex].SetColor(_correctColor);
+            tilesSelector.SetActive(true);
+            
             // Input Time
             yield return new WaitForSeconds(inputTime);
             int selectedTileIndex = _selectorPosition.y * gridSize + _selectorPosition.x;
@@ -117,23 +130,24 @@ namespace Tasks.MemoryTask
             {
                 TaskMistakeLeave();
             }
+            tilesSelector.SetActive(false);
         }
 
         // Tile Selection
         protected override void OnUpPerformed(InputAction.CallbackContext value)
         {
-            if (_selectorPosition.y < gridSize - 1)
+            if (_selectorPosition.y > 0)
             {
-                _selectorPosition.y++;
+                _selectorPosition.y--;
                 UpdateSelection();
             }
         }
         
         protected override void OnDownPerformed(InputAction.CallbackContext value)
         {
-            if (_selectorPosition.y > 0)
+            if (_selectorPosition.y < gridSize - 1)
             {
-                _selectorPosition.y--;
+                _selectorPosition.y++;
                 UpdateSelection();
             }
         }
@@ -159,6 +173,7 @@ namespace Tasks.MemoryTask
         // Sets selector position to the selected tile
         private void UpdateSelection()
         {
+            if(!tilesSelector.activeSelf) return;
             int index = _selectorPosition.y * gridSize + _selectorPosition.x;
             Vector3 position = _tiles[index].transform.position;
             tilesSelector.transform.position = position;
