@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/felipe/LoadMenu.unity
     guid: d65195c80ee452242bdfbaba24ef29d5
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 58394b2dc6cc6d54083a9fc960de6456, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 9e9d0e04465f6e24f9160ecddeb2d6e6, type: 2}

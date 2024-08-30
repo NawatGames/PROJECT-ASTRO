@@ -1,39 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    private string _filePath;
-
-    private void Start()
+    public static int CurrentLevel { get; private set; }
+    private static string _filePath;
+    
+    private void Awake()
     {
         _filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
-        Debug.Log(_filePath);
+        Debug.Log("Caminho do arquivo:" + _filePath);
+        CurrentLevel = LoadSaveFile();
+        Debug.Log("Nível: " + CurrentLevel);
     }
 
-    public void SaveData(int difficulty)
+    public void NextLevel()
     {
-        DataSaver dataSaver = new DataSaver();
-        dataSaver.data = difficulty;
-        File.WriteAllText(_filePath, JsonUtility.ToJson(dataSaver));
-        Debug.Log("Value saved: " + difficulty);
+        CurrentLevel += 1;
+        SaveLevelData(CurrentLevel);
     }
 
-    public int LoadData()
+    public static void CreateNewSaveFile()
+    {
+        CurrentLevel = 1;
+        SaveLevelData(CurrentLevel);
+    }
+
+    private static void SaveLevelData(int level)
+    {
+        File.WriteAllText(_filePath, JsonUtility.ToJson(level));
+        Debug.Log("Value saved: " + level);
+    }
+
+    private static int LoadSaveFile()
     {
         if(File.Exists(_filePath))
         {
-            DataSaver dataSaver = JsonUtility.FromJson<DataSaver>(File.ReadAllText(_filePath));
-            Debug.Log("Value loaded: " + dataSaver.data);
-            return dataSaver.data;
+            int level = JsonUtility.FromJson<int>(File.ReadAllText(_filePath));
+            return level;
         }
-
-        else
-        {
-            Debug.Log("Save file not found");
-            return 1;
-        }
+        return 0;
     }
 }
