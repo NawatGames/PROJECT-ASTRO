@@ -8,7 +8,7 @@ namespace Menus.Game
         public void StartNewGame()
         {
             SaveManager.CreateNewSaveFile();
-            SceneManager.LoadScene("TechFinal");
+            SceneManager.LoadScene("Mapa Final");
         }
     }
 }

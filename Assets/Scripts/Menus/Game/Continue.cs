@@ -10,13 +10,13 @@ namespace Menus.Game
         {
             if (SaveManager.CurrentLevel > 0)
             {
-                gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(true);
             }
         }
 
         public void ContinueGame()
         {
-            SceneManager.LoadScene("TechFinal");
+            SceneManager.LoadScene("Mapa Final");
         }
     }
 }

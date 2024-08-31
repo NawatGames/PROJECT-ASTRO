@@ -6,8 +6,7 @@ using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    private static bool _alreadyInstanced;
-    public static int level;
+    private int _levelIndex;
     [SerializeField] private LevelParameters[] levelParams;
     private List<List<TaskController>> _allLevelTasks;
     [SerializeField] private List<TaskController> level0Tasks;
@@ -18,20 +17,7 @@ public class LevelManager : MonoBehaviour
     
     private void Awake()
     {
-        if (!_alreadyInstanced)
-        {
-            _alreadyInstanced = true;
-            level = 0;
-        }
-        else
-        {
-            // Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-        /*if (PlayerPrefs.HasKey("level"))
-        {
-            _level = PlayerPrefs.GetInt("level");
-        } FAZER LOAD*/
+        _levelIndex = SaveManager.CurrentLevel - 1;
 
         _allLevelTasks = new List<List<TaskController>>
         {
@@ -45,20 +31,18 @@ public class LevelManager : MonoBehaviour
 
     public int GetMaxNumberOfActiveTasks()
     {
-        return levelParams[level].maxActiveTasks;
+        return levelParams[_levelIndex].maxActiveTasks;
     }
     
     public List<TaskController> GetTasksForThisLevel()
     {
-        Debug.Log("Level: " + level);
-        return _allLevelTasks[level];
+        return _allLevelTasks[_levelIndex];
     }
 
     public void NextLevel() // Chamado por evento
     {
         Debug.Log("passou");
-        level += 1;
-        //PlayerPrefs.SetInt("level", _level); FAZER SAVE
+        SaveManager.IncreaseLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

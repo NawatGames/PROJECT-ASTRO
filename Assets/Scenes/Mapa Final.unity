@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -843.99994, y: 468.99997}
+  m_AnchoredPosition: {x: -832, y: 417}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7855110
@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -844, y: 519}
+  m_AnchoredPosition: {x: -832.0001, y: 467.00003}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65961418
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8851764c73867ee46b82bc2bffa06689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTillVictory: 300
+  countdownTillVictory: 30
   onVictory: {fileID: 11400000, guid: efba9ad265577fd42a188d50b03da726, type: 2}
 --- !u!114 &65961419
 MonoBehaviour:
@@ -1883,6 +1883,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1893230233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893230235}
+  - component: {fileID: 1893230234}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1893230234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893230233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097d73dad78d9e24fb28f0d904bad617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1893230235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893230233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.337214, y: -1.5099282, z: -10.078027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1917454588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1960,10 @@ MonoBehaviour:
   roomsToInvade: []
   levelParams:
   - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
+  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
+  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
+  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
+  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
   gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
@@ -2149,6 +2197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelParams:
   - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
+  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
+  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
+  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
+  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   level0Tasks:
   - {fileID: 950357266}
   - {fileID: 1295784070}
@@ -2159,12 +2211,36 @@ MonoBehaviour:
   - {fileID: 1792739618}
   level1Tasks:
   - {fileID: 950357266}
+  - {fileID: 1295784070}
+  - {fileID: 1039598208}
+  - {fileID: 641908514}
+  - {fileID: 1755467155}
+  - {fileID: 1838393662}
+  - {fileID: 1792739618}
   level2Tasks:
   - {fileID: 950357266}
+  - {fileID: 1295784070}
+  - {fileID: 1039598208}
+  - {fileID: 641908514}
+  - {fileID: 1755467155}
+  - {fileID: 1838393662}
+  - {fileID: 1792739618}
   level3Tasks:
   - {fileID: 950357266}
+  - {fileID: 1295784070}
+  - {fileID: 1039598208}
+  - {fileID: 641908514}
+  - {fileID: 1755467155}
+  - {fileID: 1838393662}
+  - {fileID: 1792739618}
   level4Tasks:
   - {fileID: 950357266}
+  - {fileID: 1295784070}
+  - {fileID: 1039598208}
+  - {fileID: 641908514}
+  - {fileID: 1755467155}
+  - {fileID: 1838393662}
+  - {fileID: 1792739618}
 --- !u!4 &2045109254
 Transform:
   m_ObjectHideFlags: 0
@@ -2492,3 +2568,4 @@ SceneRoots:
   - {fileID: 1940385030}
   - {fileID: 1619706421}
   - {fileID: 2008694019}
+  - {fileID: 1893230235}

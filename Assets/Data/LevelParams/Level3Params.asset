@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d51e85ff67a9b499ef15e9f9d0af8e, type: 3}
   m_Name: Level3Params
   m_EditorClassIdentifier: 
-  maxActiveTasks: 3
+  maxActiveTasks: 7
   alienInactiveAtStartSeconds: 5
   invasionDelaySeconds: 20
   invasionWarningSeconds: 7

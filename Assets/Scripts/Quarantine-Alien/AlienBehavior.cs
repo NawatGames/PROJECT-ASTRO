@@ -19,9 +19,12 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
 
+    private int _levelIndex;
+
     void Start()
     {
-        _timerInvasionDelay = levelParams[LevelManager.level].invasionDelaySeconds;
+        _levelIndex = SaveManager.CurrentLevel - 1;
+        _timerInvasionDelay = levelParams[_levelIndex].invasionDelaySeconds;
         StartCoroutine(WaitAndActivateAlien());
     }
 
@@ -38,7 +41,7 @@ public class AlienBehavior : MonoBehaviour
 
     private IEnumerator WaitAndActivateAlien()
     {
-        yield return new WaitForSeconds(levelParams[LevelManager.level].alienInactiveAtStartSeconds);
+        yield return new WaitForSeconds(levelParams[_levelIndex].alienInactiveAtStartSeconds);
         Debug.Log("Alien awoke");
         _canCheckRooms = true;
     }
@@ -79,7 +82,7 @@ public class AlienBehavior : MonoBehaviour
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
             FindObjectOfType<AudioManager>().Play("AlienCrawl");
-            yield return new WaitForSecondsRealtime(levelParams[LevelManager.level].invasionWarningSeconds);
+            yield return new WaitForSecondsRealtime(levelParams[_levelIndex].invasionWarningSeconds);
             alienWarningEndEvent.Raise(roomInvaded.transform);
 
             FindObjectOfType<AudioManager>().Stop("AlienCrawl");
@@ -87,7 +90,7 @@ public class AlienBehavior : MonoBehaviour
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
-                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[LevelManager.level].alienInsideSeconds));
+                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
                 roomInvadedScript.task.ResetMistakes();
             }
             else

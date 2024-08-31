@@ -2581,8 +2581,6 @@ GameObject:
   - component: {fileID: 998935418}
   - component: {fileID: 998935417}
   - component: {fileID: 998935416}
-  - component: {fileID: 998935419}
-  - component: {fileID: 998935420}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -2654,7 +2652,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 998935420}
+      - m_Target: {fileID: 2095555144}
         m_TargetAssemblyTypeName: Menus.Game.Continue, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1
@@ -2704,30 +2702,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998935414}
   m_CullTransparentMesh: 1
---- !u!114 &998935419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998935414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0057a209c190841896571a6a8d94a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &998935420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998935414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d950eb1a0fa34ba3849aeeeff6f2a56b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1050931441
 GameObject:
   m_ObjectHideFlags: 0
