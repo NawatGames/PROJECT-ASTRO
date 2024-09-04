@@ -17,7 +17,7 @@ public class AlienBehavior : MonoBehaviour
     public GameObject roomInvaded;
     private bool _canCheckRooms;
 
-    [SerializeField] private GameEvent gameOverEvent;
+    [SerializeField] private GameEvent onAlienAttack;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
     
@@ -83,7 +83,7 @@ public class AlienBehavior : MonoBehaviour
             else
             {
                 Debug.Log("GAME OVER");
-                gameOverEvent.Raise();
+                onAlienAttack.Raise();
             }
         }
         else

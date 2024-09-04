@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private int health = 3;
     [SerializeField] private float gameOverFadeDuration = 1f;
+    [SerializeField] private float jumpscareFadeDuration = 1f;
+    [SerializeField] private GameObject alien;
     [SerializeField] private GameEvent onZeroHealth;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI gameOverText;
@@ -39,8 +41,7 @@ public class HealthManager : MonoBehaviour
         healthText.text = "VIDA: " + health;
         if (health == 0)
         {
-            //onZeroHealth.Raise();
-            TriggerImmediateGameOver();
+            onZeroHealth.Raise();
         }
     }
 
@@ -49,12 +50,12 @@ public class HealthManager : MonoBehaviour
         StartCoroutine(FadeToBlackAndShowText());
     }
 
-private IEnumerator FadeToBlackAndShowText()
+    private IEnumerator FadeToBlackAndShowText()
     {
         float elapsedTime = 0f;
-
+        alien.SetActive(false);
         yield return new WaitForSecondsRealtime(1);
-
+        
         // Fade in black screen
         while (elapsedTime < gameOverFadeDuration)
         {
@@ -67,10 +68,10 @@ private IEnumerator FadeToBlackAndShowText()
         // Fade in jumpscare
         yield return new WaitForSecondsRealtime(1);
         elapsedTime = 0f;
-        while (elapsedTime < gameOverFadeDuration)
+        while (elapsedTime < jumpscareFadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Clamp01(elapsedTime / gameOverFadeDuration);
+            float alpha = Mathf.Clamp01(elapsedTime / jumpscareFadeDuration);
             preGameOverJumpscare.color = new Color(preGameOverJumpscare.color.r, preGameOverJumpscare.color.g, preGameOverJumpscare.color.b, alpha);
             yield return null;
         }
@@ -78,10 +79,10 @@ private IEnumerator FadeToBlackAndShowText()
         // Fade out jumpscare
         elapsedTime = 0f;
         yield return new WaitForSecondsRealtime(1);
-        while (elapsedTime < gameOverFadeDuration)
+        while (elapsedTime < jumpscareFadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = 1 - Mathf.Clamp01(elapsedTime / gameOverFadeDuration);
+            float alpha = 1 - Mathf.Clamp01(elapsedTime / jumpscareFadeDuration);
             preGameOverJumpscare.color = new Color(preGameOverJumpscare.color.r, preGameOverJumpscare.color.g, preGameOverJumpscare.color.b, alpha);
             yield return null;
         }
@@ -101,8 +102,9 @@ private IEnumerator FadeToBlackAndShowText()
     }
 
 
-    private void TriggerImmediateGameOver()
+    public void TriggerDelayedGameOver()
     {
+        alien.SetActive(false);
         blackScreen.color = new Color(0, 0, 0, 1); 
         float randomDelay = Random.Range(1f, 5f);
         StartCoroutine(WaitForJumpscare(randomDelay));
