@@ -799,7 +799,7 @@ MonoBehaviour:
   - 3
   alienInsideSeconds: 3
   roomInvaded: {fileID: 625512117}
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
 --- !u!4 &934023339
@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 1717616553}
   - component: {fileID: 1717616552}
   - component: {fileID: 1717616551}
+  - component: {fileID: 1717616555}
   m_Layer: 0
   m_Name: HealthManager
   m_TagString: Untagged
@@ -1579,8 +1580,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  gameOverFadeDuration: 1
-  onZeroHealth: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  gameOverFadeDuration: 3
+  jumpscareFadeDuration: 2
+  alien: {fileID: 934023337}
+  onZeroHealth: {fileID: 11400000, guid: 0b6ff208d64f9f242a524f5c8c8c3a99, type: 2}
   healthText: {fileID: 8835125}
   gameOverText: {fileID: 415836999}
   blackScreen: {fileID: 26625424}
@@ -1601,6 +1604,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717616555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717616550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0b6ff208d64f9f242a524f5c8c8c3a99, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1717616553}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: TriggerDelayedGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1839400560
 GameObject:
   m_ObjectHideFlags: 0

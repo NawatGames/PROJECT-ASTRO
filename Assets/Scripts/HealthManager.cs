@@ -30,7 +30,7 @@ public class HealthManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            TestGameOverB();
+            DecreaseHealth();
         }
     }
 
@@ -106,19 +106,16 @@ public class HealthManager : MonoBehaviour
     {
         alien.SetActive(false);
         blackScreen.color = new Color(0, 0, 0, 1); 
+        
         float randomDelay = Random.Range(1f, 5f);
-        StartCoroutine(WaitForJumpscare(randomDelay));
+        
+        StartCoroutine(WaitForJumpscareAndFade(randomDelay));
     }
 
-    private IEnumerator WaitForJumpscare(float delay)
+    private IEnumerator WaitForJumpscareAndFade(float delay)
     {
         yield return new WaitForSeconds(delay);
-        TriggerJumpscare();
-    }
-
-
-    private void TriggerJumpscare()
-    {
+        
         jumpScareImage.color = new Color(1, 1, 1, 1);
         Debug.Log("Jumpscare ativado!");
         StartCoroutine(WaitAndFadeAfterJumpscare(2f));
@@ -129,18 +126,18 @@ public class HealthManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         float elapsedTime = 0f;
-        while (elapsedTime < gameOverFadeDuration)
+        while (elapsedTime < jumpscareFadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = 1 - Mathf.Clamp01(elapsedTime / gameOverFadeDuration);
+            float alpha = 1 - Mathf.Clamp01(elapsedTime / jumpscareFadeDuration);
             jumpScareImage.color = new Color(jumpScareImage.color.r, jumpScareImage.color.g, jumpScareImage.color.b, alpha);
             yield return null;
         }
         elapsedTime = 0f;
-        while (elapsedTime < gameOverFadeDuration)
+        while (elapsedTime < jumpscareFadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Clamp01(elapsedTime / gameOverFadeDuration);
+            float alpha = Mathf.Clamp01(elapsedTime / jumpscareFadeDuration);
             gameOverText.color = new Color(gameOverText.color.r, gameOverText.color.g, gameOverText.color.b, alpha);
             yield return null;
         }
@@ -148,12 +145,6 @@ public class HealthManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
 
         GameOver();
-    }
-
-
-    private void TestGameOverB()
-    {
-        DecreaseHealth();
     }
 
 
