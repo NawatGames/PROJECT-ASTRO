@@ -59,7 +59,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         }
     }
 
-    // Adiciona controle de cooldown
+    
     private void RoomColorDebug()
     {
         if (_isAlienInside)
@@ -73,14 +73,11 @@ public class RoomQuarantineHandler : MonoBehaviour
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
-            // Sala que nao pode ser quarentenada (cooldown ou outra sala quarentenada)
+            // Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
         }
-        else
-        {
-            // Sala disponível
-            roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
-        }
+        else roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
+        
     }
 
     private IEnumerator QuarantineToggleRoutine()
@@ -88,7 +85,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         if (!isRoomQuarantined)
         {
             isRoomQuarantined = true;
-            quarantineStarted.Invoke();
+            quarantineStarted.Invoke(); // Desabilita outras salas
             manager.DisableQuarantines(this); // Desabilita outras salas
             FindObjectOfType<AudioManager>().Play("DoorClose");
         }
@@ -100,8 +97,8 @@ public class RoomQuarantineHandler : MonoBehaviour
                 gameOverEvent.Raise();
             }
             isRoomQuarantined = false;
-            quarantineEnded.Invoke();
-            manager.EnableQuarantines(); // Reabilita todas as salas
+            quarantineEnded.Invoke();  // Abilita todas as salas
+            manager.EnableQuarantines(); // Abilita todas as salas
         }
         StartCoroutine(QuarantineDelay());
         yield return null;

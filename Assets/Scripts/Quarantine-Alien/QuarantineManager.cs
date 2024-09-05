@@ -11,6 +11,7 @@ public class QuarantineManager : MonoBehaviour
     public Dictionary<GameObject, TaskController> roomToTask;
     public List<GameObject> roomsBeingUsed;
     public bool isAnyRoomInCooldown;
+    [SerializeField] public float timerQuarantineDelay;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class QuarantineManager : MonoBehaviour
             roomsScript.Add(script);
             roomToTask.Add(room, script.task);
         }
-        isAnyRoomInCooldown = false; // Variável para controlar cooldown global
+        isAnyRoomInCooldown = false; // nenhuma sala está em cooldown
     }
 
     private void Update()
@@ -35,7 +36,8 @@ public class QuarantineManager : MonoBehaviour
                 roomsInUse.Add(room);
             }
         }
-        roomsBeingUsed = roomsInUse;
+        this.roomsBeingUsed = roomsInUse;
+        
     }
 
     public void DisableQuarantines(RoomQuarantineHandler roomQuarantinedScript)
@@ -45,10 +47,11 @@ public class QuarantineManager : MonoBehaviour
             if (script != roomQuarantinedScript)
             {
                 script.isRoomQuarantined = false;
-                script.canPressButton = false; // Desativa os botões das outras salas
+                script.canPressButton = false; 
             }
         }
         isAnyRoomInCooldown = true; // Uma sala está em cooldown
+        
     }
 
     public void EnableQuarantines()
@@ -56,8 +59,42 @@ public class QuarantineManager : MonoBehaviour
         foreach (RoomQuarantineHandler script in roomsScript)
         {
             script.isRoomQuarantined = false;
-            script.canPressButton = true; // Reativa todos os botões
+            script.canPressButton = true;
         }
         isAnyRoomInCooldown = false; // Nenhuma sala está em cooldown
+       
     }
+    
+    // public void CheckAllRooms()
+    // {
+    //     int i = 0;
+    //     foreach (RoomQuarantineHandler script in roomsScript)
+    //     {
+    //         if (script.isRoomQuarantined)
+    //         {
+    //             script.roomSprite.color = Color.red;
+    //             i++;
+    //         }
+    //         else
+    //         {
+    //             script.roomSprite.color = Color.blue;
+    //         }
+    //     }
+    //
+    //     if (i > 1)
+    //     {
+    //         foreach (RoomQuarantineHandler script in roomsScript)
+    //         {   
+    //             script.isRoomQuarantined = false;
+    //             if (script.isRoomQuarantined)
+    //             {
+    //                 script.roomSprite.color = Color.red;
+    //             }
+    //             else
+    //             {
+    //                 script.roomSprite.color = Color.blue;
+    //             }
+    //         }
+    //     }
+    // }
 }
