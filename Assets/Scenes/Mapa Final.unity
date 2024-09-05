@@ -1524,6 +1524,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
   m_PrefabInstance: {fileID: 1940385030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1497657571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497657572}
+  m_Layer: 0
+  m_Name: Player Positioning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497657572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497657571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.44, y: -0.146, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4544197879662426444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1526052248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2467,6 +2498,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
   m_PrefabInstance: {fileID: 5182967668293503333}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4544197879662426444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+  m_PrefabInstance: {fileID: 5182967668293503333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4646895350017370939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8840270026049982345, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
@@ -2536,13 +2572,20 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 6768889588714193003, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: playerPositioning
+      value: 
+      objectReference: {fileID: 1497657572}
     - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497657572}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da04c0638b52fd946b87e882a967d450, type: 3}
 --- !u!1660057539 &9223372036854775807

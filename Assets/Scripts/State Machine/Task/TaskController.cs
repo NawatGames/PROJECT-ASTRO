@@ -1,8 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
-using Object = System.Object;
 
 public class TaskController : MonoBehaviour
 {
@@ -15,6 +11,7 @@ public class TaskController : MonoBehaviour
     public bool needsToBeDone = false;
     public bool wasStarted;
     public bool wasInterrupted;
+
     public UnavailableState UnavailableState { get; private set; } = new UnavailableState();
     public AvailableState AvailableState { get; private set; } = new AvailableState();
     public BeingDoneState BeingDoneState { get; private set; } = new BeingDoneState();
@@ -23,6 +20,8 @@ public class TaskController : MonoBehaviour
     /*debug*/[SerializeField] private int _mistakes = 0;
     public int Mistakes { get => _mistakes; set => _mistakes = value > _maxMistakes ? _maxMistakes : value; }
 
+    public Transform playerPositioning;
+    
     private void OnEnable()
     {
         currentState = UnavailableState;
