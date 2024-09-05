@@ -9,11 +9,10 @@ public class PlayerSpawnManager : MonoBehaviour
     
     void Awake()
     {
-        var inputManager = GetComponent<PlayerInputManager>();
-        GameObject astronauta = PlayerInput.Instantiate(playerPrefab, 0, "LeftKeyboard", default, Keyboard.current).gameObject;
-        astronauta.transform.position = astroSpawn.position;
-        GameObject alien = PlayerInput.Instantiate(playerPrefab, 1, "RightKeyboard", default, Keyboard.current).gameObject;
-        alien.GetComponent<PlayerController>().isAstro = false;
+        GameObject astro = PlayerInput.Instantiate(playerPrefab, 0, "KeyboardWASD", default, Keyboard.current).gameObject;
+        astro.transform.position = astroSpawn.position;
+        GameObject alien = PlayerInput.Instantiate(playerPrefab, 1, "KeyboardArrows", default, Keyboard.current).gameObject;
+        //alien.GetComponent<PlayerController>().isAstro = false;
         alien.transform.position = alienSpawn.position;
     }
 }
