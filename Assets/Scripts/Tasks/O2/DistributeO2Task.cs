@@ -16,7 +16,7 @@ public class DistributeO2Task : TaskScript
     protected override void Awake()
     {
         base.Awake();
-        isAstroSpecialist = true;
+        taskName = "O2 task";
     }
 
     protected override void RunTask()

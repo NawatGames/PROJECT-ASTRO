@@ -60,7 +60,7 @@ public class FishingTask : TaskScript
         _miniGameTopBound = _miniGameAreaSprite.transform.position.y + gameHeight/2;
         _miniGameBottomBound = _miniGameTopBound - gameHeight;
         _progressBarFullHeight = progressBar.localScale.y;
-        isAstroSpecialist = false;
+        taskName = "Fishing task";
     }
 
     protected override void RunTask()

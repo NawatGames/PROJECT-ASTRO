@@ -16,7 +16,7 @@ public class HarvestCropTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
-        isAstroSpecialist = true;
+        taskName = "Harvest task";
     }
     protected override void RunTask()
     {

@@ -34,7 +34,7 @@ public class GeniusTask : TaskScript
         _buttons.Add(downButton);
         _buttons.Add(leftButton);
         _buttons.Add(rightButton);
-        isAstroSpecialist = true;
+        taskName = "Genius task";
     }
 
     protected override void RunTask()

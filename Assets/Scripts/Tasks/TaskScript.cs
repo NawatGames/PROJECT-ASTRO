@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class TaskScript : MonoBehaviour
     protected bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
+    protected String taskName;
 
     protected virtual void Awake()
     {
@@ -67,25 +69,30 @@ public class TaskScript : MonoBehaviour
     protected virtual void RunTask()
     {
         //Debug.Log("Iniciou Task: " + this);
-        int specialistRng;
-        if(isTaskInProgress == false)
-        {
-            specialistRng = Random.Range(1, 100);
-            if(specialistRng >= 50)
-            {
-                Debug.Log(specialistRng);
-                isAstroSpecialist = true;
-                isTaskInProgress = true;
-                Debug.Log("Astro is the specialist of this task");
-            }
+    }
 
-            else
-            {
-                Debug.Log(specialistRng);
-                isAstroSpecialist = false;
-                isTaskInProgress = true;
-                Debug.Log("Astro is not the specialist of this task");
-            }
-        }
+    public bool IsAstroSpecialist()
+    {
+        return isAstroSpecialist;
+    }
+
+    public bool IsTaskInProgress()
+    {
+        return isTaskInProgress;
+    }
+
+    public void SetAstroSpecialist(bool isAstroSpecialist)
+    {
+        this.isAstroSpecialist = isAstroSpecialist;
+    }
+
+    public void SetTaskInProgress(bool isTaskInProgress)
+    {
+        this.isTaskInProgress = isTaskInProgress;
+    }
+
+    public String GetTaskName()
+    {
+        return taskName;
     }
 }
