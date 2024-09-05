@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Player.StateMachine.StateScripts
 {
+    /// <summary>
+    /// BaseStateScript listens to a NewPlayerState and calls functions when states are entered or left
+    /// </summary>
     public abstract class BaseStateScript : MonoBehaviour
     {
         [SerializeField] private NewPlayerState state;
