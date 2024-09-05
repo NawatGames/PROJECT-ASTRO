@@ -7,6 +7,7 @@ public class TaskScript : MonoBehaviour
     protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
     protected bool isAstroSpecialist;
+    protected bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
 
@@ -29,6 +30,7 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void TaskSuccessful()
     {
+        isTaskInProgress = false;
         tasksManager.TaskDoneSuccessfully(_taskController);
     }
 
@@ -41,6 +43,7 @@ public class TaskScript : MonoBehaviour
     protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
     {
         Debug.Log("Task Mistake (leave)");
+        isTaskInProgress = false;
         _taskController.Mistakes ++;
         tasksManager.KickPlayer(_taskController);
     }
@@ -64,5 +67,25 @@ public class TaskScript : MonoBehaviour
     protected virtual void RunTask()
     {
         //Debug.Log("Iniciou Task: " + this);
+        int specialistRng;
+        if(isTaskInProgress == false)
+        {
+            specialistRng = Random.Range(1, 100);
+            if(specialistRng >= 50)
+            {
+                Debug.Log(specialistRng);
+                isAstroSpecialist = true;
+                isTaskInProgress = true;
+                Debug.Log("Astro is the specialist of this task");
+            }
+
+            else
+            {
+                Debug.Log(specialistRng);
+                isAstroSpecialist = false;
+                isTaskInProgress = true;
+                Debug.Log("Astro is not the specialist of this task");
+            }
+        }
     }
 }
