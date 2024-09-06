@@ -24,6 +24,9 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     // public GameObject room;
     public SpriteRenderer roomSprite;
+    public SpriteRenderer wallSprite;
+    
+    [SerializeField] [Range(0,1)] private float fadeVel;
 
     void Start()
     {
@@ -63,6 +66,7 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     private void RoomColorDebug()
     {
+        Debug.Log(wallSprite.color.a);
         if (_isAlienInside)
         {
             roomSprite.color = Color.black;
@@ -71,13 +75,18 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             //Sala quarentenada
             roomSprite.color = Color.red;
+            if(wallSprite.color.a < 1) wallSprite.color = new Color(0,0,0,wallSprite.color.a+fadeVel);
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
         }
-        else roomSprite.color = new Color(0.75f, 1, 1 ,0.0275f);
+        else
+        {
+            roomSprite.color = new Color(0.75f, 1, 1 ,0.0275f);
+            if(wallSprite.color.a > 0) wallSprite.color = new Color(0,0,0,wallSprite.color.a-fadeVel);
+        }
     }
 
     private IEnumerator QuarantineToggleRoutine()
