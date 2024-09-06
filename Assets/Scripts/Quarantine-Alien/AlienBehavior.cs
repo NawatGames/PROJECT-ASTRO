@@ -9,10 +9,8 @@ public class AlienBehavior : MonoBehaviour
     public QuarantineManager quarantineManager;
     public List<GameObject> roomsToInvade;
 
-    [SerializeField] private float timerAlienInvasion;
-    [SerializeField] private float[] invasionDelayPerLevel;
+    [SerializeField] private LevelParameters[] levelParams;
     private float _timerInvasionDelay;
-    [SerializeField] private int alienInsideSeconds = 15;
 
     public GameObject roomInvaded;
     private bool _canCheckRooms;
@@ -20,13 +18,16 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private GameEvent onAlienAttack;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
-    
+
+    private int _levelIndex;
+
     void Start()
     {
-        _timerInvasionDelay = invasionDelayPerLevel[LevelManager.level];
-        _canCheckRooms = true;
+        _levelIndex = SaveManager.CurrentLevel - 1;
+        _timerInvasionDelay = levelParams[_levelIndex].invasionDelaySeconds;
+        StartCoroutine(WaitAndActivateAlien());
     }
-    
+
     void Update()
     {
         // Verifica se existem salas com players dentro  
@@ -37,6 +38,14 @@ public class AlienBehavior : MonoBehaviour
         }
 
     }
+
+    private IEnumerator WaitAndActivateAlien()
+    {
+        yield return new WaitForSeconds(levelParams[_levelIndex].alienInactiveAtStartSeconds);
+        Debug.Log("Alien awoke");
+        _canCheckRooms = true;
+    }
+    
     private IEnumerator RoomsAvailable()
     {
         yield return new WaitForSecondsRealtime(_timerInvasionDelay);
@@ -72,17 +81,21 @@ public class AlienBehavior : MonoBehaviour
             roomInvaded = roomsToInvadeWeighted[roomIndex];
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
-            yield return new WaitForSecondsRealtime(timerAlienInvasion);
+            FindObjectOfType<AudioManager>().Play("AlienCrawl");
+            yield return new WaitForSecondsRealtime(levelParams[_levelIndex].invasionWarningSeconds);
             alienWarningEndEvent.Raise(roomInvaded.transform);
+
+            FindObjectOfType<AudioManager>().Stop("AlienCrawl");
+
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
-                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(alienInsideSeconds));
+                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
                 roomInvadedScript.task.ResetMistakes();
             }
             else
             {
-                Debug.Log("GAME OVER");
+                FindObjectOfType<AudioManager>().Play("VentOpened");
                 onAlienAttack.Raise();
             }
         }

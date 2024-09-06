@@ -50,6 +50,7 @@ public class HealthManager : MonoBehaviour
         StartCoroutine(FadeToBlackAndShowText());
     }
 
+
     private IEnumerator FadeToBlackAndShowText()
     {
         float elapsedTime = 0f;
@@ -94,8 +95,11 @@ public class HealthManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float alpha = Mathf.Clamp01(elapsedTime / gameOverFadeDuration);
             gameOverText.color = new Color(gameOverText.color.r, gameOverText.color.g, gameOverText.color.b, alpha);
+
             yield return null;
         }
+        // Tocar som de derrota
+        FindObjectOfType<AudioManager>().Play("GameOver");
         yield return new WaitForSecondsRealtime(3);
 
         GameOver();
@@ -151,6 +155,7 @@ public class HealthManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("GameOver");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

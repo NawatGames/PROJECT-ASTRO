@@ -20,10 +20,9 @@ public class DoingDecontaminationState : IPlayerState
     }
     public void Exit(PlayerController player)
     {
-        
+
     }
 
 
 
 }
-

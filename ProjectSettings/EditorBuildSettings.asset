@@ -6,6 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TaskScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/felipe/StartMenu.unity
+    guid: 163c249db5eea0f448ba1e9f6c8182b8
+  - enabled: 1
+    path: Assets/Scenes/Mapa Final.unity
+    guid: bcf4622c752dfdc46bc0a70c5e08beb4
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 58394b2dc6cc6d54083a9fc960de6456, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 9e9d0e04465f6e24f9160ecddeb2d6e6, type: 2}

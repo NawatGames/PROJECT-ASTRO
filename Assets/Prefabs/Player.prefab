@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4241767935527649558}
   - component: {fileID: 4550928616745858027}
   - component: {fileID: 291777370503822330}
-  - component: {fileID: 3228288441617041285}
+  - component: {fileID: 8005258212258117724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -170,8 +170,8 @@ MonoBehaviour:
   acceleration: 10
   isAstro: 1
   isDoingDecontamination: 0
-  startedDecontaminationEvent: {fileID: 11400000, guid: 30c4be81f0f979b4182747363cb3f20a, type: 2}
-  stoppedDecontaminationEvent: {fileID: 11400000, guid: 8b6bf082ffa3def4f946a176a74260f6, type: 2}
+  startedDecontaminationEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
+  stoppedDecontaminationEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
 --- !u!114 &4550928616745858027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3228288441617041285
+--- !u!114 &8005258212258117724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 537013a95f9fcb94abc8ff97dd1d7e2f, type: 2}
+  gameEvent: {fileID: 11400000, guid: 059faf270876ee04690ede1cd6e07af6, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:

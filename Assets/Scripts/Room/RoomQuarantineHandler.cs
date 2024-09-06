@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class RoomQuarantineHandler : MonoBehaviour
 {
     public TaskController task;
-    
+
     public QuarantineManager manager;
     [SerializeField] private float timerQuarantineDelay;
     [SerializeField] public bool canPressButton;
@@ -30,7 +30,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         canPressButton = true;
     }
-    
+
     void Update()
     {
         RoomColorDebug();
@@ -40,7 +40,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(isBeingUsed)
+            if (isBeingUsed)
                 _isBeingUsedTwice = true;
             else
             {
@@ -53,7 +53,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(_isBeingUsedTwice)
+            if (_isBeingUsedTwice)
                 _isBeingUsedTwice = false;
             else
             {
@@ -78,7 +78,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             //Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
         }
-        else roomSprite.color = new Color(0.75f, 1, 1 ,0.0275f);
+        else roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
     }
 
     private IEnumerator QuarantineToggleRoutine()
@@ -87,9 +87,11 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
+            FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (isRoomQuarantined)
         {
+            FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
             {
                 onAlienAttack.Raise();
@@ -115,7 +117,9 @@ public class RoomQuarantineHandler : MonoBehaviour
     public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
     {
         _isAlienInside = true;
+        FindObjectOfType<AudioManager>().Play("AlienInsideRoom");
         yield return new WaitForSeconds(alienInsideSeconds);
+        FindObjectOfType<AudioManager>().Stop("AlienInsideRoom");
         _isAlienInside = false;
     }
 }
