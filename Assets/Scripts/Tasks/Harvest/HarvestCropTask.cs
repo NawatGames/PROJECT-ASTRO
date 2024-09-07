@@ -11,6 +11,7 @@ public class HarvestCropTask : TaskScript
     [SerializeField] private Slider progressSlider;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
+    private float _modifiedProgressValue;
     [SerializeField] private float decayValue;
 
     protected override void Awake()
@@ -24,7 +25,11 @@ public class HarvestCropTask : TaskScript
         timeSlider.value = 1;
         if (isAstro)
         {
-            progressValue += 0.2f * progressValue;
+            _modifiedProgressValue = 1.2f * progressValue;
+        }
+        else
+        {
+            _modifiedProgressValue = progressValue;
         }
         StartCoroutine(DecayProgressBar());
         StartCoroutine(DecayTimeBar());
@@ -32,7 +37,7 @@ public class HarvestCropTask : TaskScript
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
         FindObjectOfType<AudioManager>().Play("HarvestCropButtonPress");
-        progressSlider.value += progressValue;
+        progressSlider.value += _modifiedProgressValue;
         if (progressSlider.value == 1)
         {
             TaskSuccessful();
