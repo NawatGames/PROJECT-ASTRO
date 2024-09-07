@@ -9,6 +9,7 @@ public class PlayerSpawnManager : MonoBehaviour
     
     void Awake()
     {
+        Physics2D.IgnoreLayerCollision(3, 3); // Layer Mask 3 = "Player"
         var inputManager = GetComponent<PlayerInputManager>();
         GameObject astronauta = PlayerInput.Instantiate(playerPrefab, 0, "LeftKeyboard", default, Keyboard.current).gameObject;
         astronauta.transform.position = astroSpawn.position;
