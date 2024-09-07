@@ -4,7 +4,7 @@ using UnityEngine;
 public class WalkingTowardsTaskState : IPlayerState
 {
     private Coroutine _walkCoroutine;
-    private bool isWalkRoutineComplete;
+    private bool _isWalkRoutineComplete;
     private Vector2 _velocity;
     private Vector2 _currentVelocity;
     private Vector2 _targetPos;
@@ -14,10 +14,11 @@ public class WalkingTowardsTaskState : IPlayerState
     {
         if (!player.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
         {
-            isWalkRoutineComplete = true; // Causa a troca para DoingTaskState
+            _isWalkRoutineComplete = true; // Causa a troca para DoingTaskState
         }
         else
         {
+            _isWalkRoutineComplete = false;
             _walkCoroutine = player.StartCoroutine(WalkRoutine(player));
         }
     }
@@ -41,7 +42,7 @@ public class WalkingTowardsTaskState : IPlayerState
             return player.GameOverState;
         }
 
-        if (isWalkRoutineComplete)
+        if (_isWalkRoutineComplete)
         {
             Debug.Log("Doing Task");
             return player.DoingTasksState;
@@ -54,24 +55,28 @@ public class WalkingTowardsTaskState : IPlayerState
         // TODO Criar um método Walk(Vector2 direction) no PlayerController (para ser usado aqui e no freeMovingState) ?
         
         _targetPos = player.NearTaskController.playerPositioning.position;
-        _playerPos = player.transform.position;
         
         _currentVelocity = Vector2.zero;
         // Trocar linha acima pela de baixo para evitar que o player pare (Tirar vectorZero do exit do freeMovingState tb)
         //_currentVelocity = Mathf.Clamp(Vector2.Dot((_targetPos - _playerPos).normalized, player.Rigidbody2D.velocity),0,Mathf.Infinity) * player.Rigidbody2D.velocity.normalized;
         
-        while ((_velocity = _targetPos - _playerPos).magnitude > 0.01f)
+        while (!_isWalkRoutineComplete)
         {
+            _playerPos = player.transform.position;
             _velocity = (_targetPos - _playerPos).normalized * player.MoveSpeed;
 
             _currentVelocity = Vector2.Lerp(_currentVelocity, _velocity, player.Acceleration * Time.fixedDeltaTime);
             
             player.Rigidbody2D.velocity = player.Rigidbody2D.velocity * player.DriftFactor + _currentVelocity * (1 - player.DriftFactor);
             
+            if ((player.Rigidbody2D.velocity).magnitude * Time.fixedDeltaTime > (_targetPos - _playerPos).magnitude)
+            {
+                player.Rigidbody2D.velocity = Vector2.zero;
+                player.Rigidbody2D.MovePosition(_targetPos);
+                _isWalkRoutineComplete = true;
+            }
+            
             yield return new WaitForFixedUpdate();
-            _playerPos = player.transform.position; // Após yield para obter a próxima posição
         }
-        player.Rigidbody2D.velocity = Vector2.zero;
-        isWalkRoutineComplete = true;
     }
 }
