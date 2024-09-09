@@ -20,7 +20,7 @@ public class SaveManager : MonoBehaviour
     private void Awake()
     {
         _filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
-        //Debug.Log("Caminho do arquivo:" + _filePath);
+        Debug.Log("Caminho do arquivo:" + _filePath);
         CurrentLevel = LoadSaveFile();
         ////// RESETAR P LEVEL 1 :
         //CurrentLevel = 1;

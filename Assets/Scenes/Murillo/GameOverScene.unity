@@ -517,7 +517,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1080147168}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -528,7 +528,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &388550474 stripped
 MonoBehaviour:
@@ -790,14 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quarantineManager: {fileID: 619512986}
   roomsToInvade: []
-  timerAlienInvasion: 3
-  invasionDelayPerLevel:
-  - 6
-  - 15
-  - 10
-  - 4
-  - 3
-  alienInsideSeconds: 3
+  levelParams: []
   roomInvaded: {fileID: 625512117}
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
@@ -1075,6 +1068,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -1377,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxActiveTasksPerLevel: 01000000
+  levelParams: []
   level0Tasks:
   - {fileID: 388550474}
   level1Tasks:
