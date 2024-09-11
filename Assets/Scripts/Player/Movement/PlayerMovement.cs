@@ -14,25 +14,25 @@ namespace Player.Movement
         [SerializeField] private float driftFactor = 0.05f;
         [SerializeField] private float acceleration = 10f;
         
-        private NewPlayerInput _inputAsset;
+        private PlayerInputAsset _inputAsset;
         private Vector2 _direction;
         private Vector2 _currentVelocity;
         private void Awake()
         {
-            _inputAsset = new NewPlayerInput();
+            _inputAsset = new PlayerInputAsset();
             input.actions = _inputAsset.asset;
         }
 
         private void OnEnable()
         {
-            _inputAsset.Main.Movement.performed += MovementOnPerformed;
-            _inputAsset.Main.Movement.canceled += MovementOnPerformed;
+            _inputAsset.Default.Movement.performed += MovementOnPerformed;
+            _inputAsset.Default.Movement.canceled += MovementOnPerformed;
         }
         
         private void OnDisable()
         {
-            _inputAsset.Main.Movement.performed -= MovementOnPerformed;
-            _inputAsset.Main.Movement.canceled -= MovementOnPerformed;
+            _inputAsset.Default.Movement.performed -= MovementOnPerformed;
+            _inputAsset.Default.Movement.canceled -= MovementOnPerformed;
         }
 
         private void MovementOnPerformed(InputAction.CallbackContext obj)
