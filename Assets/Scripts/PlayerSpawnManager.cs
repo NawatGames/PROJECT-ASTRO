@@ -9,6 +9,7 @@ public class PlayerSpawnManager : MonoBehaviour
     
     void Awake()
     {
+        Physics2D.IgnoreLayerCollision(3, 3); // Layer Mask 3 = "Player"
         GameObject astro = PlayerInput.Instantiate(playerPrefab, 0, "KeyboardWASD", default, Keyboard.current).gameObject;
         astro.transform.position = astroSpawn.position;
         GameObject alien = PlayerInput.Instantiate(playerPrefab, 1, "KeyboardArrows", default, Keyboard.current).gameObject;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5954246827498749527}
   - component: {fileID: 291777370503822330}
   - component: {fileID: 8005258212258117724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074674696859492082}
   - component: {fileID: 6300515094712007553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,6 +4,7 @@ public class DoingTasksState : IPlayerState
 {
     public void Enter(PlayerController player)
     {
+        player.NearTaskController.wasStarted = true;
         player.NearTaskController.taskScript.SetupAndRun(player.Input, player.isAstro);
     }
     public IPlayerState Do(PlayerController player)
