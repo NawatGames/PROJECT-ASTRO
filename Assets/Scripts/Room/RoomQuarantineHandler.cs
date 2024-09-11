@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class RoomQuarantineHandler : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     [SerializeField] public bool isRoomQuarantined = false;
 
     private bool _isAlienInside;
-    [SerializeField] private GameEvent gameOverEvent;
+    [FormerlySerializedAs("gameOverEvent")][SerializeField] private GameEvent onAlienAttack;
 
     // public GameObject room;
     public SpriteRenderer roomSprite;
@@ -93,7 +94,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
             {
-                gameOverEvent.Raise();
+                onAlienAttack.Raise();
             }
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
