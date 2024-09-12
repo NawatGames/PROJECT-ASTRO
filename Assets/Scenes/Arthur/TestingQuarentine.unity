@@ -547,8 +547,6 @@ MonoBehaviour:
   - {fileID: 2103209704}
   roomsScript: []
   roomsBeingUsed: []
-  isAnyRoomInCooldown: 0
-  timerQuarantineDelay: 2
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -2448,14 +2446,6 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
-    - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: cooldownDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: timerQuarantineDelay
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

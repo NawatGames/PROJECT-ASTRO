@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-    
 
 public class QuarantineManager : MonoBehaviour
 {
@@ -13,6 +12,8 @@ public class QuarantineManager : MonoBehaviour
     public bool isAnyRoomInCooldown;
     [SerializeField] public float timerQuarantineDelay;
 
+    private RoomQuarantineHandler activeRoom; // Referência para a sala atualmente em quarentena
+
     private void Start()
     {
         roomToTask = new Dictionary<GameObject, TaskController>();
@@ -22,7 +23,8 @@ public class QuarantineManager : MonoBehaviour
             roomsScript.Add(script);
             roomToTask.Add(room, script.task);
         }
-        isAnyRoomInCooldown = false; // nenhuma sala está em cooldown
+        isAnyRoomInCooldown = false; // Nenhuma sala está em cooldown
+        activeRoom = null;
     }
 
     private void Update()
@@ -37,64 +39,43 @@ public class QuarantineManager : MonoBehaviour
             }
         }
         this.roomsBeingUsed = roomsInUse;
-        
+    }
+
+    public bool CanActivateQuarantine(RoomQuarantineHandler roomScript)
+    {
+           
+        if (activeRoom == null || activeRoom == roomScript)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void DisableQuarantines(RoomQuarantineHandler roomQuarantinedScript)
     {
+        activeRoom = roomQuarantinedScript; // Define a sala ativa
         foreach (RoomQuarantineHandler script in roomsScript)
         {
             if (script != roomQuarantinedScript)
             {
                 script.isRoomQuarantined = false;
-                script.canPressButton = false; 
+                script.canPressButton = false;
             }
         }
         isAnyRoomInCooldown = true; // Uma sala está em cooldown
-        
     }
 
     public void EnableQuarantines()
     {
+        activeRoom = null; // Reseta a sala ativa
         foreach (RoomQuarantineHandler script in roomsScript)
         {
             script.isRoomQuarantined = false;
             script.canPressButton = true;
         }
         isAnyRoomInCooldown = false; // Nenhuma sala está em cooldown
-       
     }
-    
-    // public void CheckAllRooms()
-    // {
-    //     int i = 0;
-    //     foreach (RoomQuarantineHandler script in roomsScript)
-    //     {
-    //         if (script.isRoomQuarantined)
-    //         {
-    //             script.roomSprite.color = Color.red;
-    //             i++;
-    //         }
-    //         else
-    //         {
-    //             script.roomSprite.color = Color.blue;
-    //         }
-    //     }
-    //
-    //     if (i > 1)
-    //     {
-    //         foreach (RoomQuarantineHandler script in roomsScript)
-    //         {   
-    //             script.isRoomQuarantined = false;
-    //             if (script.isRoomQuarantined)
-    //             {
-    //                 script.roomSprite.color = Color.red;
-    //             }
-    //             else
-    //             {
-    //                 script.roomSprite.color = Color.blue;
-    //             }
-    //         }
-    //     }
-    // }
 }

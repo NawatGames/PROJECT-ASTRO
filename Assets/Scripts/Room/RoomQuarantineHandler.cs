@@ -9,6 +9,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     public QuarantineManager manager;
 
     [SerializeField] private float timerQuarantineDelay;
+    [SerializeField] private float cooldownDuration = 5f;  // Duração do cooldown
     [SerializeField] public bool canPressButton;
     [SerializeField] public bool isBeingUsed;
     private bool _isBeingUsedTwice;
@@ -22,6 +23,8 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     [SerializeField] private GameEvent gameOverEvent;
     public SpriteRenderer roomSprite;
+
+    private bool isOnCooldown = false; // Cooldown estado da sala
 
     void Start()
     {
@@ -59,7 +62,6 @@ public class RoomQuarantineHandler : MonoBehaviour
         }
     }
 
-    
     private void RoomColorDebug()
     {
         if (_isAlienInside)
@@ -71,25 +73,37 @@ public class RoomQuarantineHandler : MonoBehaviour
             // Sala quarentenada
             roomSprite.color = Color.red;
         }
+        else if (isOnCooldown)
+        {
+            // Cooldown ativo, sala verde
+            roomSprite.color = Color.green;
+        }
         else if (!canPressButton && !isRoomQuarantined)
         {
             // Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
         }
-        else roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
-        
+        else
+        {
+            roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
+        }
     }
 
     private IEnumerator QuarantineToggleRoutine()
     {
-        if (!isRoomQuarantined)
+        if (!isRoomQuarantined && !isOnCooldown && manager.CanActivateQuarantine(this))
         {
             isRoomQuarantined = true;
-            quarantineStarted.Invoke(); // Desabilita outras salas
+            quarantineStarted.Invoke();
             manager.DisableQuarantines(this); // Desabilita outras salas
             FindObjectOfType<AudioManager>().Play("DoorClose");
+
+            isOnCooldown = true;  // Inicia o cooldown
+            yield return new WaitForSeconds(cooldownDuration); // Espera o tempo do cooldown
+            isOnCooldown = false; // Reseta o cooldown
+
         }
-        else
+        else if (isRoomQuarantined)
         {
             FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
@@ -97,8 +111,10 @@ public class RoomQuarantineHandler : MonoBehaviour
                 gameOverEvent.Raise();
             }
             isRoomQuarantined = false;
-            quarantineEnded.Invoke();  // Abilita todas as salas
+            quarantineEnded.Invoke();
             manager.EnableQuarantines(); // Abilita todas as salas
+
+            isOnCooldown = false; // Reseta o cooldown
         }
         StartCoroutine(QuarantineDelay());
         yield return null;
