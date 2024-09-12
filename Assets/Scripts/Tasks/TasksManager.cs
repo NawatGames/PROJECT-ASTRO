@@ -16,7 +16,6 @@ public class TasksManager : MonoBehaviour
     private Dictionary<TaskController, Coroutine> _taskQueue;
     private int maxNumberOfActiveTasks;
     private TaskController recentRemovedTask;
-    [SerializeField] private TaskScript taskScript;
     public int astroProbability;
 
     private void Start()
@@ -91,7 +90,7 @@ public class TasksManager : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(1, 4.5f)); // Tempo para habilitar nova task
         task.needsToBeDone = true;
-        DefineSpecialist(taskScript);
+        DefineSpecialist(task.taskScript);
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         int min = totalTimeForTaskToFail / 60;
         int sec = totalTimeForTaskToFail - 60 * min;
