@@ -90,6 +90,7 @@ public class HealthManager : MonoBehaviour
         jumpScareImage.gameObject.SetActive(false);
 
         yield return FadeText(gameOverText, 1f, gameOverFadeDuration);
+        FindObjectOfType<AudioManager>().Play("GameOver");
         yield return new WaitForSecondsRealtime(3);
 
         GameOver();
