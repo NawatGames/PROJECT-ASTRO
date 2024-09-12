@@ -152,24 +152,19 @@ public class TasksManager : MonoBehaviour
     private void DefineSpecialist(TaskScript taskScript)
     {
         int specialistRng;
-        if(taskScript.IsTaskInProgress() == false)
+        specialistRng = Random.Range(1, 100);
+        if(specialistRng >= astroProbability)
         {
-            specialistRng = Random.Range(1, 100);
-            if(specialistRng >= astroProbability)
-            {
-                Debug.Log(specialistRng);
-                taskScript.SetTaskInProgress(true);
-                taskScript.SetAstroSpecialist(true);
-                Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
-            }
+            Debug.Log(specialistRng);
+            Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
+            taskScript.SetAstroSpecialist(true);
+        }
 
-            else
-            {
-                Debug.Log(specialistRng);
-                taskScript.SetTaskInProgress(true);
-                taskScript.SetAstroSpecialist(false);
-                Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
-            }
+        else
+        {
+            Debug.Log(specialistRng);
+            Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
+            taskScript.SetAstroSpecialist(false);
         }
     }
 }
