@@ -97,13 +97,12 @@ public class HealthManager : MonoBehaviour
 
     private IEnumerator FadeImage(Image image, float targetAlpha, float duration)
     {
-        float startAlpha = image.color.a;
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+            float alpha = Mathf.Lerp(text.color.a, targetAlpha, elapsedTime / duration);
             image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
             yield return null;
         }
@@ -111,13 +110,12 @@ public class HealthManager : MonoBehaviour
 
     private IEnumerator FadeText(TextMeshProUGUI text, float targetAlpha, float duration)
     {
-        float startAlpha = text.color.a;
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+            float alpha = Mathf.Lerp(text.color.a, targetAlpha, elapsedTime / duration);
             text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
             yield return null;
         }
