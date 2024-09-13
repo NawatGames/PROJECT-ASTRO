@@ -16,6 +16,7 @@ public class TasksManager : MonoBehaviour
     private Dictionary<TaskController, Coroutine> _taskQueue;
     private int maxNumberOfActiveTasks;
     private TaskController recentRemovedTask;
+    public int astroProbability;
 
     private void Start()
     {
@@ -89,6 +90,7 @@ public class TasksManager : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(1, 4.5f)); // Tempo para habilitar nova task
         task.needsToBeDone = true;
+        DefineSpecialist(task.taskScript);
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         int min = totalTimeForTaskToFail / 60;
         int sec = totalTimeForTaskToFail - 60 * min;
@@ -145,5 +147,24 @@ public class TasksManager : MonoBehaviour
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
         AddTaskToQueue();
+    }
+
+    private void DefineSpecialist(TaskScript taskScript)
+    {
+        int specialistRng;
+        specialistRng = Random.Range(1, 100);
+        if(specialistRng >= astroProbability)
+        {
+            Debug.Log(specialistRng);
+            Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
+            taskScript.SetAstroSpecialist(true);
+        }
+
+        else
+        {
+            Debug.Log(specialistRng);
+            Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
+            taskScript.SetAstroSpecialist(false);
+        }
     }
 }

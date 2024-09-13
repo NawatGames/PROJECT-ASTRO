@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public DoingTasksState DoingTasksState { get; private set; } = new DoingTasksState();
     public GameOverState GameOverState { get; private set; } = new GameOverState();
     public DoingDecontaminationState DoingDecontaminationState { get; private set; } = new DoingDecontaminationState();
+    public WalkingTowardsTaskState WalkingTowardsTaskState { get; private set; } = new WalkingTowardsTaskState();
 
     private void Awake() // No awake, a variável isAstro ainda não está setada (mas no Start sim)
     {

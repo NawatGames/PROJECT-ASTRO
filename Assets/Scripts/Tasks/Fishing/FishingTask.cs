@@ -72,13 +72,22 @@ public class FishingTask : TaskScript
         _miniGameTopBound = _miniGameAreaSprite.transform.position.y + gameHeight/2;
         _miniGameBottomBound = _miniGameTopBound - gameHeight;
         _progressBarFullHeight = progressBar.localScale.y;
+        taskName = "Fishing task";
     }
 
     protected override void RunTask()
     {
         base.RunTask();
         Vector3 auxVector = controlledBar.localScale;
-        auxVector.y = _originalControlledBarSize * (isAstro ? 1 : barSizeModifier);
+        if(isAstro == isAstroSpecialist)
+        {
+            //auxVector.y = _originalControlledBarSize * (isAstro ? 1 : barSizeModifier);
+            auxVector.y = _originalControlledBarSize * 1;
+        }
+        else
+        {
+            auxVector.y = _originalControlledBarSize * barSizeModifier;
+        }
         controlledBar.localScale = auxVector;
         _barHalfHeight = _controlledBarSprite.bounds.extents.y;
         
