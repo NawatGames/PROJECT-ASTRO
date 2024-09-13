@@ -539,8 +539,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 784201140}
-  - {fileID: 1100590110}
   - {fileID: 204968862}
   m_Father: {fileID: 806782042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -606,6 +604,7 @@ MonoBehaviour:
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
   _tasksNotYetSelected: []
+  astroProbability: 0
 --- !u!4 &752719925
 Transform:
   m_ObjectHideFlags: 0
@@ -743,11 +742,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 259498851}
+  m_Father: {fileID: 806782042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0531006, y: 3.565094}
+  m_AnchoredPosition: {x: -1.0531006, y: 3.5651245}
   m_SizeDelta: {x: 12.093857, y: 21.510206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &789865641
@@ -1096,6 +1095,7 @@ RectTransform:
   - {fileID: 784201140}
   - {fileID: 1100590110}
   - {fileID: 798001904}
+  - {fileID: 259498851}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1288,7 +1288,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 259498851}
+  m_Father: {fileID: 806782042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2433,7 +2433,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelParams: []
+  levelParams:
+  - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
+  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
+  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
+  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
+  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   level0Tasks:
   - {fileID: 950357266}
   - {fileID: 1295784070}
