@@ -10,7 +10,8 @@ namespace Audio_System
     public class AudioPlayer : MonoBehaviour
     {
         [SerializeField] private AudioClip clip;
-        [SerializeField] private AnimationCurve volumeOverDistance;
+        [SerializeField] private float minDistance = 1f;
+        [SerializeField] private float maxDistance = 10f;
         [SerializeField] private bool playOnStart = false;
 
         private AudioSource _source;
@@ -35,7 +36,8 @@ namespace Audio_System
 
         private float GetVolume(float distance)
         {
-            return volumeOverDistance.Evaluate(distance);
+            if (distance <= minDistance) return 1f;
+            return 1/(distance);
         }
         
         public void PlayAudio()
