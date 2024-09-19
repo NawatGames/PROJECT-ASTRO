@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxActiveTasksPerLevel: 01000000
+  levelParams: []
   level0Tasks:
   - {fileID: 0}
   level1Tasks:
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431746305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfbd358df83aaf949a51b943ac4d7020, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7dc130d9fdf8148bce48f72c110e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstDecontaminationDelay: 2
@@ -617,7 +617,7 @@ MonoBehaviour:
   decontaminationWindow: 20
   countdownText: {fileID: 1953996175}
   lobbyCollider: {fileID: 1431746307}
-  completedDecontaminationEvent: {fileID: 11400000, guid: 537013a95f9fcb94abc8ff97dd1d7e2f, type: 2}
+  completedDecontaminationEvent: {fileID: 11400000, guid: 059faf270876ee04690ede1cd6e07af6, type: 2}
 --- !u!61 &1431746307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 30c4be81f0f979b4182747363cb3f20a, type: 2}
+  gameEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 8b6bf082ffa3def4f946a176a74260f6, type: 2}
+  gameEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:

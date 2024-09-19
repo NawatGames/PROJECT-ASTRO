@@ -256,6 +256,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &24538182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 673492108348926343, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 1377522207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65961416
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +957,16 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &920707275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4742865475448116940, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 1377522207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1015084472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9124877663249770080, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 1377522207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100590109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1414,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 673492108348926343, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: SucessText
+      value: 
+      objectReference: {fileID: 1661417007}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: tasksManager
+      value: 
+      objectReference: {fileID: 752719924}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: targetsBuffer.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: targetsBuffer.Array.data[0]
+      value: 
+      objectReference: {fileID: 1015084472}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: targetsBuffer.Array.data[1]
+      value: 
+      objectReference: {fileID: 2009819909}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: targetsBuffer.Array.data[2]
+      value: 
+      objectReference: {fileID: 24538182}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: targetsBuffer.Array.data[3]
+      value: 
+      objectReference: {fileID: 920707275}
+    - target: {fileID: 2544675156250696496, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2894772779124201009, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.52
@@ -1443,10 +1494,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - GuitarHero
       objectReference: {fileID: 0}
-    - target: {fileID: 4768293867385171713, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: tasksManager
-      value: 
-      objectReference: {fileID: 752719924}
+    - target: {fileID: 4742865475448116940, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124877663249770080, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1512,6 +1567,17 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 1
+--- !u!114 &1661417007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8931025278558005063, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 1377522207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1667103699 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4326069593658654447, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
@@ -1630,14 +1696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quarantineManager: {fileID: 773420858}
   roomsToInvade: []
-  timerAlienInvasion: 3
-  invasionDelayPerLevel:
-  - 6
-  - 15
-  - 10
-  - 4
-  - 3
-  alienInsideSeconds: 5
+  levelParams: []
   roomInvaded: {fileID: 0}
   gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
@@ -1770,6 +1829,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2009819909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2544675156250696496, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 1377522207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2045109252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxActiveTasksPerLevel: 0100000001000000010000000100000001000000
+  levelParams:
+  - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
   level0Tasks:
   - {fileID: 1667103699}
   level1Tasks:

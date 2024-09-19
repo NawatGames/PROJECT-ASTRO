@@ -1394,14 +1394,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quarantineManager: {fileID: 773420858}
   roomsToInvade: []
-  timerAlienInvasion: 3
-  invasionDelayPerLevel:
-  - 6
-  - 15
-  - 10
-  - 4
-  - 3
-  alienInsideSeconds: 5
+  levelParams:
+  - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
+  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
+  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
+  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
+  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
   gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
@@ -1564,7 +1562,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxActiveTasksPerLevel: 0300000001000000010000000100000001000000
+  levelParams:
+  - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
+  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
+  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
+  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
+  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   level0Tasks:
   - {fileID: 950357266}
   - {fileID: 1295784070}

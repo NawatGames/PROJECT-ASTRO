@@ -7,12 +7,13 @@ TagManager:
   - QuarantineButton
   - InteractiveArea
   - Task
+  - Undefined
   - Lobby
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

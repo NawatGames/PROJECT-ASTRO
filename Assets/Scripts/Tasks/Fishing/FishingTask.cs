@@ -2,51 +2,63 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class FishingTask : TaskScript
 {
+    #region Declaracao de variaveis
+        [Header("Esperando peixe")]
     [SerializeField] private SpriteRenderer gotFishWarningSprite;
-    [SerializeField] private float minFishDelay = 5;
-    [SerializeField] private float maxFishDelay = 14;
-    [SerializeField] private float reactionTime = 1;
+    [SerializeField] private float minFishWaitTime = 5;
+    [SerializeField] private float maxFishWaitTime = 14;
+    [SerializeField] private float timeToReact = 1;
+    private bool _waitingForCast = false;
+    private bool _waitingForFish = false;
+    private bool _pressNow = false;
     
-    // fish challenge:
+        [Header("Mini game")]
     [SerializeField] private TextMeshPro timerText;
+    [SerializeField] private Transform controlledBar, fishIcon, progressBar;
+    
+    [Tooltip("Se esse tempo acabar, reseta a task (falhou)")]
     [SerializeField] private int timeToCatchFish = 15;
-    [SerializeField] private Transform controlledBar;
-    [SerializeField] private Transform fishIcon;
-    [SerializeField] private Transform progressBar;
-    [SerializeField] private float minFishDecisionTime;
-    [SerializeField] private float maxFishDecisionTime;
-    [SerializeField] private int fishSlowDecisionMultiplier = 2; // Modifica a chance do peixe ficar lento
-    [SerializeField] private float fishMaxDashingVelocity = 5;
+    
+    [Tooltip("Tempo que o peixe demora para (talvez) mudar direção/velocidade")]
+    [SerializeField] private float minFishDecisionTime, maxFishDecisionTime;
+    
+    [Tooltip("Modifica a chance do peixe ficar lento")]
+    [SerializeField] private int fishSlowDecisionMultiplier = 2;
+    
     [SerializeField] private float fishMinDashingVelocity = 2.5f;
+    [SerializeField] private float fishMaxDashingVelocity = 5;
+    
+    [Tooltip("Maior velocidade que o peixe pode atingir no \"modo lento\"")]
     [SerializeField] private float fishMaxAbsSlowVelocity = 1;
-    [SerializeField] private float maxBarVelocity;
-    [SerializeField] private float barAcceleration;
-    [SerializeField] private float barSizeModifier = 1.5f; // Modificador para o Alien
+    
+    [SerializeField] private float maxControlledBarVelocity = 5f;
+    [SerializeField] private float controlledBarAcceleration = 40f;
+    
+    [Tooltip("Multiplica o tamanho da barra controlada caso o player correto esteja fazendo a task")]
+    [SerializeField] private float barSizeModifier = 1.5f;
+    
+    [Tooltip("Quanto o progresso aumenta por segundo (completando ao atingir 1)")]
     [SerializeField] private float progressSpeed = 0.125f;
 
-    private SpriteRenderer _controlledBarSprite;
-    private SpriteRenderer _fishIconSprite;
-    private SpriteRenderer _miniGameAreaSprite;
+    private SpriteRenderer _controlledBarSprite, _fishIconSprite, _miniGameAreaSprite;
     private float _miniGameTopBound;
     private float _miniGameBottomBound;
     private float _fishHalfHeight;
     private float _barHalfHeight;
     private float _originalControlledBarSize;
     private float _progressBarFullHeight;
-    
-    private bool _waitingForCast = false;
-    private bool _waitingForFish = false;
-    private bool _pressNow = false;
-    private Coroutine _currentCoroutine;
 
     private float _currentFishVelocity = 0;
     private float _currentBarVelocity = 0;
     private float _currentProgress = 0; // de 0 a 1
     
+    private Coroutine _currentCoroutine;
+    #endregion
     
     protected override void Awake()
     {
@@ -60,13 +72,22 @@ public class FishingTask : TaskScript
         _miniGameTopBound = _miniGameAreaSprite.transform.position.y + gameHeight/2;
         _miniGameBottomBound = _miniGameTopBound - gameHeight;
         _progressBarFullHeight = progressBar.localScale.y;
+        taskName = "Fishing task";
     }
 
     protected override void RunTask()
     {
         base.RunTask();
         Vector3 auxVector = controlledBar.localScale;
-        auxVector.y = _originalControlledBarSize * (isAstro ? 1 : barSizeModifier);
+        if(isAstro == isAstroSpecialist)
+        {
+            //auxVector.y = _originalControlledBarSize * (isAstro ? 1 : barSizeModifier);
+            auxVector.y = _originalControlledBarSize * 1;
+        }
+        else
+        {
+            auxVector.y = _originalControlledBarSize * barSizeModifier;
+        }
         controlledBar.localScale = auxVector;
         _barHalfHeight = _controlledBarSprite.bounds.extents.y;
         
@@ -116,10 +137,10 @@ public class FishingTask : TaskScript
         while (true)
         {
             _waitingForFish = true;
-            yield return new WaitForSeconds(Random.Range(minFishDelay, maxFishDelay));
+            yield return new WaitForSeconds(Random.Range(minFishWaitTime, maxFishWaitTime));
             _pressNow = true;
             gotFishWarningSprite.enabled = true;
-            yield return new WaitForSeconds(reactionTime);
+            yield return new WaitForSeconds(timeToReact);
             gotFishWarningSprite.enabled = false;
             _pressNow = false;
         }
@@ -146,11 +167,11 @@ public class FishingTask : TaskScript
             MoveFishAndBar();
             if (inputAsset.Task.Up.IsPressed())
             {
-                _currentBarVelocity = Mathf.Clamp(_currentBarVelocity + barAcceleration * Time.deltaTime, -maxBarVelocity, maxBarVelocity);
+                _currentBarVelocity = Mathf.Clamp(_currentBarVelocity + controlledBarAcceleration * Time.deltaTime, -maxControlledBarVelocity, maxControlledBarVelocity);
             }
             else
             {
-                _currentBarVelocity = Mathf.Clamp(_currentBarVelocity - barAcceleration * Time.deltaTime, -maxBarVelocity, maxBarVelocity);
+                _currentBarVelocity = Mathf.Clamp(_currentBarVelocity - controlledBarAcceleration * Time.deltaTime, -maxControlledBarVelocity, maxControlledBarVelocity);
             }
             CheckForProgress();
             yield return null;

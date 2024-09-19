@@ -16,14 +16,17 @@ public class DoingDecontaminationState : IPlayerState
             player.stoppedDecontaminationEvent.Raise();
             return player.FreeMovingState;
         }
+        if (player.GameIsOver)
+        {
+            return player.GameOverState;
+        }
         return player.DoingDecontaminationState;
     }
     public void Exit(PlayerController player)
     {
-        
+
     }
 
 
 
 }
-
