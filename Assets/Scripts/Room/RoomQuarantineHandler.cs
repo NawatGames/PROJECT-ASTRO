@@ -21,7 +21,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     [SerializeField] public bool isRoomQuarantined = false;
 
     private bool _isAlienInside;
-    [FormerlySerializedAs("gameOverEvent")][SerializeField] private GameEvent onAlienAttack;
+    [SerializeField] private GameEvent onAlienAttack;
 
     // public GameObject room;
     public SpriteRenderer roomSprite;
@@ -67,7 +67,6 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     private void RoomColorDebug()
     {
-        Debug.Log(wallSprite.color.a);
         if (_isAlienInside)
         {
             roomSprite.color = Color.black;

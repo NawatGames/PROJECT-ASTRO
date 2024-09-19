@@ -38,6 +38,7 @@ Transform:
   - {fileID: 5993273922309140316}
   - {fileID: 8567139825183368715}
   - {fileID: 3015349071074526152}
+  - {fileID: 5318664109823662534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3144316229404686137
@@ -117,7 +118,7 @@ MonoBehaviour:
         m_MethodName: DisableQuarantines
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6702794630500239338}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: RoomQuarantineHandler, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -140,10 +141,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   roomSprite: {fileID: 3144316229404686137}
-  wallSprite: {fileID: 0}
-  fadeVel: 0
+  wallSprite: {fileID: 4940701507381171919}
+  fadeVel: 0.03
 --- !u!61 &2635999345971087460
 BoxCollider2D:
   m_ObjectHideFlags: 0

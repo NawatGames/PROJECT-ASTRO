@@ -377,10 +377,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   roomSprite: {fileID: 3577032269699827205}
-  wallSprite: {fileID: 0}
-  fadeVel: 0.00001
+  wallSprite: {fileID: 8765983169889538915}
+  fadeVel: 0.03
 --- !u!61 &888296020675465831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1911,21 +1911,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksManager: {fileID: 0}
   gotFishWarningSprite: {fileID: 5887583891517017804}
-  minFishDelay: 0.5
-  maxFishDelay: 0.5
-  reactionTime: 2
+  minFishWaitTime: 2
+  maxFishWaitTime: 5
+  timeToReact: 1
   timerText: {fileID: 9172184856943355227}
-  timeToCatchFish: 12
   controlledBar: {fileID: 5510206044710518585}
   fishIcon: {fileID: 10241355329624782}
   progressBar: {fileID: 6775226646511076040}
+  timeToCatchFish: 12
   minFishDecisionTime: 0.3
   maxFishDecisionTime: 2
   fishSlowDecisionMultiplier: 2
-  fishMaxDashingVelocity: 4
   fishMinDashingVelocity: 2.5
+  fishMaxDashingVelocity: 4
   fishMaxAbsSlowVelocity: 1
-  maxBarVelocity: 5
-  barAcceleration: 40
+  maxControlledBarVelocity: 5
+  controlledBarAcceleration: 40
   barSizeModifier: 1.5
   progressSpeed: 1

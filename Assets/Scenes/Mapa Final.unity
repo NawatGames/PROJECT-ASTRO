@@ -563,6 +563,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
   m_PrefabInstance: {fileID: 2717097818120226247}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &659919459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659919455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &667369338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4713397733649990244, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
@@ -1178,6 +1189,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 659919459}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1754,78 +1769,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 123832142095355701, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139318545487454939, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3879910955526791388, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 659919459}
     - target: {fileID: 6174938894986000342, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.35
@@ -1952,9 +1903,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 50326912740799339, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 659919459}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.36
@@ -2002,10 +1953,6 @@ PrefabInstance:
     - target: {fileID: 4713397733649990244, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Name
       value: Room - BrokenWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4873410090983601278, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: m_Name
-      value: BrokenWindowTask
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2313,9 +2260,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 659919459}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2563,6 +2510,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 659919459}
     - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: tasksManager
       value: 
@@ -2628,10 +2579,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
-    - target: {fileID: 2899127238131800881, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
@@ -2676,10 +2623,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8352018519549502760, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: manager
       value: 
@@ -2774,6 +2717,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 659919459}
     - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: tasksManager
       value: 

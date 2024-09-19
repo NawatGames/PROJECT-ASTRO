@@ -558,6 +558,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorCollider: {fileID: 6459472751067163828}
   doorSprite: {fileID: 7108816052680452877}
+--- !u!1 &2518328597437083955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3201112812233502447}
+  - component: {fileID: 5679639229460658505}
+  m_Layer: 0
+  m_Name: Blur
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3201112812233502447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518328597437083955}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2894772779124201009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5679639229460658505
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518328597437083955}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2544675156250696496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1223,7 @@ Transform:
   - {fileID: 6146854779333832757}
   - {fileID: 848408378913234289}
   - {fileID: 3726867292901969259}
+  - {fileID: 3201112812233502447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8397771273258022846
@@ -1218,7 +1303,7 @@ MonoBehaviour:
         m_MethodName: DisableQuarantines
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 361451851442497156}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: RoomQuarantineHandler, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1241,8 +1326,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isRoomQuarantined: 0
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   roomSprite: {fileID: 8397771273258022846}
+  wallSprite: {fileID: 5679639229460658505}
+  fadeVel: 0.03
 --- !u!61 &1948256379740121026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1690,6 +1777,7 @@ MonoBehaviour:
   wasInterrupted: 0
   _maxMistakes: 7
   _mistakes: 0
+  playerPositioning: {fileID: 0}
 --- !u!114 &1338657572392848228
 MonoBehaviour:
   m_ObjectHideFlags: 0

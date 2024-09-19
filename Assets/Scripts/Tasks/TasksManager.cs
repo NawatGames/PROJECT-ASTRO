@@ -155,15 +155,15 @@ public class TasksManager : MonoBehaviour
         specialistRng = Random.Range(1, 100);
         if(specialistRng >= astroProbability)
         {
-            Debug.Log(specialistRng);
-            Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
+            //Debug.Log(specialistRng);
+            //Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(true);
         }
 
         else
         {
-            Debug.Log(specialistRng);
-            Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
+            //Debug.Log(specialistRng);
+            //Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(false);
         }
     }
