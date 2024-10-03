@@ -23,17 +23,17 @@ public class DoorButtonController : MonoBehaviour
     }
     public bool IsDoorOpen()
     {
-        return doorCollider.enabled;
+        return !doorCollider.enabled;
     }
 
     public void OpenDoor()
     {
-        doorCollider.enabled = true;
+        doorCollider.enabled = false;
         doorSprite.color = Color.green;
     }
     public void CloseDoor()
     {
-        doorCollider.enabled = false;
+        doorCollider.enabled = true;
         doorSprite.color = Color.red;
     }
     

@@ -76,11 +76,11 @@ public class RoomQuarantineHandler : MonoBehaviour
             // Sala quarentenada
             roomSprite.color = Color.red;
         }
-        else if (isOnCooldown)
-        {
-            // Cooldown ativo, sala verde
-            roomSprite.color = Color.green;
-        }
+        // else if (isOnCooldown)
+        // {
+        //     // Cooldown ativo, sala verde
+        //     roomSprite.color = Color.green;
+        // }
         else if (!canPressButton && !isRoomQuarantined)
         {
             // Sala que nao pode ser quarentenada
@@ -94,12 +94,12 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     private IEnumerator QuarantineToggleRoutine()
     {
-        if (!isRoomQuarantined && !isOnCooldown && manager.CanActivateQuarantine(this))
+        if (!isRoomQuarantined && !isOnCooldown )
         {   
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
             manager.DisableQuarantines(this); // Desabilita outras salas
-            //doorButtonController.CloseDoor();
+           
             FindObjectOfType<AudioManager>().Play("DoorClose");
 
             isOnCooldown = true;  // Inicia o cooldown
@@ -117,7 +117,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
             manager.EnableQuarantines(); // Abilita todas as salas
-            //doorButtonController.OpenDoor();
+            
 
             isOnCooldown = false; // Reseta o cooldown
         }
