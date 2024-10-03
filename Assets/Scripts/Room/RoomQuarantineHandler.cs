@@ -117,8 +117,6 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
             manager.EnableQuarantines(); // Abilita todas as salas
-            
-
             isOnCooldown = false; // Reseta o cooldown
         }
         StartCoroutine(QuarantineDelay());

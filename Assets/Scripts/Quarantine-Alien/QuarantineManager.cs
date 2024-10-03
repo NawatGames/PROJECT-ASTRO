@@ -13,7 +13,7 @@ public class QuarantineManager : MonoBehaviour
     //[SerializeField] public float timerQuarantineDelay;
     private List<RoomQuarantineHandler> closedDoorsRooms = new List<RoomQuarantineHandler>();
 
-
+    private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
 
     private RoomQuarantineHandler activeRoom; // Referência para a sala atualmente em quarentena
 
@@ -34,6 +34,10 @@ public class QuarantineManager : MonoBehaviour
     {
         List<GameObject> roomsInUse = new List<GameObject>();
         int closedDoors = 0;
+        int count = 0;
+        
+     
+        DoorButtonController previousDoorButton = null;
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
@@ -42,10 +46,17 @@ public class QuarantineManager : MonoBehaviour
             {
                 roomsInUse.Add(room);
             }
-
+            
             if (!doorButton.IsDoorOpen())
             {
                 closedDoors++;
+                script.isRoomQuarantined = true;
+                
+            }
+            
+            if (doorButton.IsDoorOpen())
+            {
+                roomNotQuarantinable.Add(script);
             }
 
             
@@ -53,13 +64,27 @@ public class QuarantineManager : MonoBehaviour
             {
                 
                  doorButton.OpenDoor();  // Reabrir esta porta para garantir que apenas uma esteja fechada
-                 closedDoors = 1;
                  script.isRoomQuarantined = false;
-            }
+                 script.canPressButton = false;
+                 script.quarantineEnded.Invoke();
+                 
+                 
+                 closedDoors = 1;
+            } 
             
         }
 
-        
+        if (closedDoors >= 1)
+        {
+            foreach (RoomQuarantineHandler rooms1 in roomNotQuarantinable)
+            {
+                rooms1.isRoomQuarantined = false;
+                rooms1.canPressButton = false;
+            }
+
+        }
+        roomNotQuarantinable.Clear();
+
         this.roomsBeingUsed = roomsInUse;
     }
     
