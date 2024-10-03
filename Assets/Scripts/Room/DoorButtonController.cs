@@ -13,12 +13,28 @@ public class DoorButtonController : MonoBehaviour
         _roomQuarantineHandler = GetComponentInParent<RoomQuarantineHandler>();
     }
 
-    public void ToggleDoor()
+     public void ToggleDoor()
     {
         if(!_roomQuarantineHandler.canPressButton)
-            return;
+             return;
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
     }
+    public bool IsDoorOpen()
+    {
+        return doorCollider.enabled;
+    }
+
+    public void OpenDoor()
+    {
+        doorCollider.enabled = true;
+        doorSprite.color = Color.green;
+    }
+    public void CloseDoor()
+    {
+        doorCollider.enabled = false;
+        doorSprite.color = Color.red;
+    }
+    
 }

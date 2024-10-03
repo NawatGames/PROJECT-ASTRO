@@ -10,7 +10,10 @@ public class QuarantineManager : MonoBehaviour
     public Dictionary<GameObject, TaskController> roomToTask;
     public List<GameObject> roomsBeingUsed;
     public bool isAnyRoomInCooldown;
-    [SerializeField] public float timerQuarantineDelay;
+    //[SerializeField] public float timerQuarantineDelay;
+    private List<RoomQuarantineHandler> closedDoorsRooms = new List<RoomQuarantineHandler>();
+
+
 
     private RoomQuarantineHandler activeRoom; // Referência para a sala atualmente em quarentena
 
@@ -30,14 +33,29 @@ public class QuarantineManager : MonoBehaviour
     private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
+        int doorOpened = 0;
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
+            DoorButtonController doorButton = room.GetComponentInChildren<DoorButtonController>();
             if (script.isBeingUsed && !roomsInUse.Contains(room))
             {
                 roomsInUse.Add(room);
             }
+
+            if (!doorButton.IsDoorOpen())
+            {
+                doorOpened++;
+            }
+
+            if (doorOpened > 2)
+            {
+                doorButton.OpenDoor();
+            }
+            
         }
+
+        
         this.roomsBeingUsed = roomsInUse;
     }
 

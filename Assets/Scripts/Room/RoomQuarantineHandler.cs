@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,8 @@ public class RoomQuarantineHandler : MonoBehaviour
     [SerializeField] public bool canPressButton;
     [SerializeField] public bool isBeingUsed;
     private bool _isBeingUsedTwice;
+    
+    [SerializeField] private DoorButtonController doorButtonController;
 
     private UnityEvent<bool> _onIsUsingRoomChanged;
     public UnityEvent quarantineStarted;
@@ -92,10 +95,11 @@ public class RoomQuarantineHandler : MonoBehaviour
     private IEnumerator QuarantineToggleRoutine()
     {
         if (!isRoomQuarantined && !isOnCooldown && manager.CanActivateQuarantine(this))
-        {
+        {   
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
             manager.DisableQuarantines(this); // Desabilita outras salas
+            //doorButtonController.CloseDoor();
             FindObjectOfType<AudioManager>().Play("DoorClose");
 
             isOnCooldown = true;  // Inicia o cooldown
@@ -113,6 +117,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
             manager.EnableQuarantines(); // Abilita todas as salas
+            //doorButtonController.OpenDoor();
 
             isOnCooldown = false; // Reseta o cooldown
         }
