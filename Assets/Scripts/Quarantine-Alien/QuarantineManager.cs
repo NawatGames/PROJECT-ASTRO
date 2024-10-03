@@ -63,7 +63,7 @@ public class QuarantineManager : MonoBehaviour
             if (closedDoors > 1)
             {
                 
-                 doorButton.OpenDoor();  // Reabrir esta porta para garantir que apenas uma esteja fechada
+                 doorButton.OpenDoor();  
                  script.isRoomQuarantined = false;
                  script.canPressButton = false;
                  script.quarantineEnded.Invoke();
