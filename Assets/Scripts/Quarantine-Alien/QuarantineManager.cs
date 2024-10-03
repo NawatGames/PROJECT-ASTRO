@@ -17,6 +17,8 @@ public class QuarantineManager : MonoBehaviour
 
     private RoomQuarantineHandler activeRoom; // Referência para a sala atualmente em quarentena
 
+    private int closedDoors;
+
     private void Start()
     {
         roomToTask = new Dictionary<GameObject, TaskController>();
@@ -33,11 +35,9 @@ public class QuarantineManager : MonoBehaviour
     private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
-        int closedDoors = 0;
-        int count = 0;
-        
-     
+        closedDoors = 0;
         DoorButtonController previousDoorButton = null;
+        
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
@@ -67,8 +67,6 @@ public class QuarantineManager : MonoBehaviour
                  script.isRoomQuarantined = false;
                  script.canPressButton = false;
                  script.quarantineEnded.Invoke();
-                 
-                 
                  closedDoors = 1;
             } 
             
