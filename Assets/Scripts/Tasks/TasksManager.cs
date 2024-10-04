@@ -8,14 +8,12 @@ public class TasksManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private int totalTimeForTaskToFail = 90;
     [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
-    [SerializeField] private float cooldownTime = 10f; 
     [SerializeField] private GameEvent onTaskFailed;
     [SerializeField] private GameObject taskTimerPrefab;
     [SerializeField] private Transform taskGridLayoutTransform;
     private List<TaskController> _tasksForThisLevel;
     [SerializeField] private List<TaskController> _tasksNotYetSelected;
     private Dictionary<TaskController, Coroutine> _taskQueue;
-    private Queue<TaskController> _cooldownQueue;
     private int maxNumberOfActiveTasks;
     private TaskController recentRemovedTask;
     public int astroProbability;
@@ -23,10 +21,9 @@ public class TasksManager : MonoBehaviour
     private void Start()
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
-        _cooldownQueue = new Queue<TaskController>();
         maxNumberOfActiveTasks = levelManager.GetMaxNumberOfActiveTasks();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
-        _tasksNotYetSelected = new List<TaskController>(_tasksForThisLevel);
+        _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
         SetupStartingTasks();
     }
 
@@ -65,7 +62,6 @@ public class TasksManager : MonoBehaviour
         }
         return task;
     }
-    
 
     private void AddTaskToQueue()
     {
@@ -76,7 +72,6 @@ public class TasksManager : MonoBehaviour
     {
         StopCoroutine(_taskQueue[task]);
         RemoveTaskFromQueue(task);
-        AddToCooldownQueue(task); 
     }
 
     public void KickPlayer(TaskController task)
@@ -151,10 +146,7 @@ public class TasksManager : MonoBehaviour
         task.Mistakes = 0;
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
-        if (_cooldownQueue.Count == 0)
-        {
-            AddTaskToQueue(); 
-        }
+        AddTaskToQueue();
     }
 
     private void DefineSpecialist(TaskScript taskScript)
@@ -163,29 +155,16 @@ public class TasksManager : MonoBehaviour
         specialistRng = Random.Range(1, 100);
         if(specialistRng >= astroProbability)
         {
-            Debug.Log(specialistRng);
-            Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
+            //Debug.Log(specialistRng);
+            //Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(true);
         }
 
         else
         {
-            Debug.Log(specialistRng);
-            Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
+            //Debug.Log(specialistRng);
+            //Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(false);
         }
     }
-
-    private void AddToCooldownQueue(TaskController task)
-    {
-        _cooldownQueue.Enqueue(task);
-        StartCoroutine(CooldownTask(task));
-    }
-
-    private IEnumerator CooldownTask(TaskController task)
-    {
-        yield return new WaitForSeconds(cooldownTime); 
-        _tasksNotYetSelected.Add(task); 
-    }
-
 }
