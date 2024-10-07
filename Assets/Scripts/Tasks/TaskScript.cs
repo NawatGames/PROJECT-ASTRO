@@ -11,7 +11,7 @@ public class TaskScript : MonoBehaviour
     protected bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
-    [SerializeField] private float cooldownTime = 5f;
+    [SerializeField] private float cooldownTime = 2f;
     protected String taskName;
 
     protected virtual void Awake()
