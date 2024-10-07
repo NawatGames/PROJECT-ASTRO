@@ -19,7 +19,7 @@ public class HarvestCropTask : TaskScript
         base.Awake();
         taskName = "Harvest task";
     }
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         progressSlider.value = 0;
@@ -34,6 +34,7 @@ public class HarvestCropTask : TaskScript
         }
         StartCoroutine(DecayProgressBar());
         StartCoroutine(DecayTimeBar());
+        yield return null;
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {

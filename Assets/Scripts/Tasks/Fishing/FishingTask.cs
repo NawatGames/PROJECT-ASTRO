@@ -75,7 +75,7 @@ public class FishingTask : TaskScript
         taskName = "Fishing task";
     }
 
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         Vector3 auxVector = controlledBar.localScale;
@@ -104,6 +104,7 @@ public class FishingTask : TaskScript
         
         // <ANIM> Iniciar animação de posicionando para pesca
         _waitingForCast = true; // Realizar apenas após animacao (animationEvent) ?
+        yield return null;
     }
 
     #region SimpleFishing (Code Region)

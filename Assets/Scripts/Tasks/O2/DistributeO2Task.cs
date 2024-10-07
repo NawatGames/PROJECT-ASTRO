@@ -19,12 +19,13 @@ public class DistributeO2Task : TaskScript
         taskName = "O2 task";
     }
 
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         StartRotation();
         PositionSpecialZone();
         StartCoroutine(RotateArrowCoroutine());
+        yield return null;
     }
 
     private void StartRotation()

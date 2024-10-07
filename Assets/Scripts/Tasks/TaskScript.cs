@@ -11,6 +11,7 @@ public class TaskScript : MonoBehaviour
     protected bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
+    [SerializeField] private float cooldownTime = 5f;
     protected String taskName;
 
     protected virtual void Awake()
@@ -27,7 +28,7 @@ public class TaskScript : MonoBehaviour
         inputAsset.Task.Down.performed += OnDownPerformed;
         inputAsset.Task.Left.performed += OnLeftPerformed;
         inputAsset.Task.Right.performed += OnRightPerformed;
-        RunTask();
+        StartCoroutine(RunTask());
     }
 
     protected virtual void TaskSuccessful()
@@ -67,11 +68,10 @@ public class TaskScript : MonoBehaviour
     protected virtual void OnRightPerformed(InputAction.CallbackContext value) {}
 
 
-    protected virtual void RunTask()
+    protected virtual IEnumerator RunTask()
     {
-        //Debug.Log("Iniciou Task: " + this);
         FindObjectOfType<AudioManager>().Play("TaskStarted");
-
+        yield return new WaitForSeconds(cooldownTime);
     }
 
     public bool IsAstroSpecialist()

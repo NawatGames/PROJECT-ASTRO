@@ -41,7 +41,7 @@ public class GuitarHeroTask : TaskScript
             target.transform.position = targetsStartLocation.position;
         }
     }
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         numberOfPossibleMistakes = auxPointsToWin;
@@ -49,7 +49,7 @@ public class GuitarHeroTask : TaskScript
         totalMistakes = 0;
 
         StartCoroutine(GameRound());
-
+        yield return null;
 
     }
 

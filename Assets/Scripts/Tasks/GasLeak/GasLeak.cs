@@ -49,7 +49,7 @@ public class GasLeak : TaskScript
         if (rotationDirection == Rotation.Counterclockwise) Array.Reverse(_keyOrder);
     }
     
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         _taskProgress = 0;
@@ -57,6 +57,7 @@ public class GasLeak : TaskScript
         _timeLeft = taskTime;
         _resetSequence = true;
         StartCoroutine(DecayTimeBar());
+        yield return null;
     }
     
     private void TurnValve(KeyDirection key)

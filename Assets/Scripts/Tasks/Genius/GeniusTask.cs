@@ -37,12 +37,13 @@ public class GeniusTask : TaskScript
         taskName = "Genius task";
     }
 
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         playerTurn = 0;
         computerSequence.Clear();
         NextLevel();
+        yield return null;
     }
 
     private void NextLevel()

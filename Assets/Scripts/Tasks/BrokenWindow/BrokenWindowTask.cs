@@ -40,14 +40,14 @@ public class BrokenWindowTask : TaskScript
         timerBarScript.timeOutEvent.AddListener(TaskMistakeLeave);
     }
 
-    protected override void RunTask()
+    protected override IEnumerator RunTask()
     {
         base.RunTask();
         timerBarScript.ResetTimerBarSize();
         CreateNewSequence();
         ShowNewSequence();
         StartCoroutine(timerBarScript.StartTimer());
-        
+        yield return null;
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
