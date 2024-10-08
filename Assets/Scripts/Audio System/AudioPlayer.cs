@@ -11,7 +11,7 @@ namespace Audio_System
     {
         [SerializeField] private AudioClip clip;
         [SerializeField] private float minDistance = 1f;
-        [SerializeField] private float maxDistance = 10f;
+        //[SerializeField] private float maxDistance = 10f;
         [SerializeField] private bool playOnStart = false;
 
         private AudioSource _source;
