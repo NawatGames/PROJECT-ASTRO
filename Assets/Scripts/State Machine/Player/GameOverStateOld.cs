@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameOverState : IPlayerState
+public class GameOverStateOld : IPlayerState
 {
     public IPlayerState Do(PlayerController player)
     {
-        return player.GameOverState;
+        return player.GameOverStateOld;
     }
 }

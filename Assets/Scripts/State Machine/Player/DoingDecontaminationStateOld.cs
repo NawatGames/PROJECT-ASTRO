@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoingDecontaminationState : IPlayerState
+public class DoingDecontaminationStateOld : IPlayerState
 {
     public void Enter(PlayerController player) 
     {
@@ -14,13 +14,13 @@ public class DoingDecontaminationState : IPlayerState
         if(player.InteractAction.WasPressedThisFrame() || !player.isDoingDecontamination)
         {
             player.stoppedDecontaminationEvent.Raise();
-            return player.FreeMovingState;
+            return player.FreeMovingStateOld;
         }
         if (player.GameIsOver)
         {
-            return player.GameOverState;
+            return player.GameOverStateOld;
         }
-        return player.DoingDecontaminationState;
+        return player.DoingDecontaminationStateOld;
     }
     public void Exit(PlayerController player)
     {

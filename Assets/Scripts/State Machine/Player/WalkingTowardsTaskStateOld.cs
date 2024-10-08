@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class WalkingTowardsTaskState : IPlayerState
+public class WalkingTowardsTaskStateOld : IPlayerState
 {
     private Coroutine _walkCoroutine;
     private bool _isWalkRoutineComplete;
@@ -29,25 +29,25 @@ public class WalkingTowardsTaskState : IPlayerState
         if (!player.NearTaskController.needsToBeDone)
         {
             Debug.Log("(walk to) Task interrupted");
-            return player.FreeMovingState;
+            return player.FreeMovingStateOld;
         }
         if (player.InteractAction.WasPressedThisFrame())
         {
             Debug.Log("(walk to) Task cancelled");
             player.StopCoroutine(_walkCoroutine);
-            return player.FreeMovingState;
+            return player.FreeMovingStateOld;
         }
         if (player.GameIsOver)
         {
-            return player.GameOverState;
+            return player.GameOverStateOld;
         }
 
         if (_isWalkRoutineComplete)
         {
             Debug.Log("Doing Task");
-            return player.DoingTasksState;
+            return player.DoingTasksStateOld;
         }
-        return player.WalkingTowardsTaskState;
+        return player.WalkingTowardsTaskStateOld;
     }
 
     private IEnumerator WalkRoutine(PlayerController player)
