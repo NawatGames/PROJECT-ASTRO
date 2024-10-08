@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
 
     private IPlayerState _currentState;
     private IPlayerState _previousState;
-    public FreeMovingState FreeMovingState { get; private set; } = new FreeMovingState();
-    public DoingTasksState DoingTasksState { get; private set; } = new DoingTasksState();
-    public GameOverState GameOverState { get; private set; } = new GameOverState();
-    public DoingDecontaminationState DoingDecontaminationState { get; private set; } = new DoingDecontaminationState();
-    public WalkingTowardsTaskState WalkingTowardsTaskState { get; private set; } = new WalkingTowardsTaskState();
+    public FreeMovingStateOld FreeMovingStateOld { get; private set; } = new FreeMovingStateOld();
+    public DoingTasksStateOld DoingTasksStateOld { get; private set; } = new DoingTasksStateOld();
+    public GameOverStateOld GameOverStateOld { get; private set; } = new GameOverStateOld();
+    public DoingDecontaminationStateOld DoingDecontaminationStateOld { get; private set; } = new DoingDecontaminationStateOld();
+    public WalkingTowardsTaskStateOld WalkingTowardsTaskStateOld { get; private set; } = new WalkingTowardsTaskStateOld();
 
     private void Awake() // No awake, a variável isAstro ainda não está setada (mas no Start sim)
     {
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         Input.Enable();
         Input.Default.Movement.performed += OnMovementPerformed;
         Input.Default.Movement.canceled += OnMovementCancelled;
-        _currentState = FreeMovingState;
+        _currentState = FreeMovingStateOld;
         _previousState = _currentState;
     }
 

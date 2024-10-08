@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FreeMovingState : IPlayerState
+public class FreeMovingStateOld : IPlayerState
 {
     private Vector2 _velocity;
     private Vector2 _currentVelocity;
@@ -12,11 +12,11 @@ public class FreeMovingState : IPlayerState
             if (player.IsOnTaskArea && player.NearTaskController.currentState is AvailableState)
             {
                 //Debug.Log("(walk)Started task");
-                return player.WalkingTowardsTaskState;
+                return player.WalkingTowardsTaskStateOld;
             }
             if (player.IsOnLobbyArea)
             {
-                return player.DoingDecontaminationState;
+                return player.DoingDecontaminationStateOld;
             }
             if (player.IsOnButtonArea)
             {
@@ -25,9 +25,9 @@ public class FreeMovingState : IPlayerState
         }
         if (player.GameIsOver)
         {
-            return player.GameOverState;
+            return player.GameOverStateOld;
         }
-        return player.FreeMovingState;
+        return player.FreeMovingStateOld;
 
     }
 
