@@ -1819,6 +1819,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: cooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
