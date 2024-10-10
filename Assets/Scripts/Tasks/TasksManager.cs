@@ -99,6 +99,7 @@ public class TasksManager : MonoBehaviour
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
         while (sec > secF || min > minF)
         {
+            yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
             yield return new WaitForSecondsRealtime(1);
             sec--;
             if (sec < 0)
