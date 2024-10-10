@@ -6,7 +6,7 @@ using System.Collections;
 public class TaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
-    private float cooldownTime = 2f; 
+    [SerializeField] private float cooldownTime = 2f; 
     private bool isOnCooldown = false;
 
     public override void EnterState()

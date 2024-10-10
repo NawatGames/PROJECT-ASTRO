@@ -526,6 +526,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
+  cooldownTime: 1
 --- !u!1 &5486488219206621739
 GameObject:
   m_ObjectHideFlags: 0
