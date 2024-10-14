@@ -21,6 +21,7 @@ public class TaskController : MonoBehaviour
     public int Mistakes { get => _mistakes; set => _mistakes = value > _maxMistakes ? _maxMistakes : value; }
 
     public Transform playerPositioning;
+    public StatusLight statusLight;
     
     private void OnEnable()
     {

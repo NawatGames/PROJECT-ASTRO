@@ -1778,6 +1778,7 @@ MonoBehaviour:
   _maxMistakes: 7
   _mistakes: 0
   playerPositioning: {fileID: 0}
+  statusLight: {fileID: 0}
 --- !u!114 &1338657572392848228
 MonoBehaviour:
   m_ObjectHideFlags: 0

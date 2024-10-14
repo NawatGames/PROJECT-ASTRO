@@ -92,11 +92,14 @@ public class TasksManager : MonoBehaviour
         task.needsToBeDone = true;
         DefineSpecialist(task.taskScript);
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
+        task.statusLight.ChangeColor(task.taskScript.IsAstroSpecialist() ? Color.blue : new Color(254, 93, 0));
+
         int min = totalTimeForTaskToFail / 60;
         int sec = totalTimeForTaskToFail - 60 * min;
         int minF = shortTimeForTaskToBeCompleted / 60;
         int secF = shortTimeForTaskToBeCompleted - 60 * min;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+
         while (sec > secF || min > minF)
         {
             yield return new WaitForSecondsRealtime(1);
@@ -115,6 +118,8 @@ public class TasksManager : MonoBehaviour
     {
         // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
         //Debug.Log($"{task.taskScript} is running out of time!");
+        task.statusLight.ChangeColor(Color.red);
+
         int min = shortTimeForTaskToBeCompleted / 60;
         int sec = shortTimeForTaskToBeCompleted - 60 * min;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
@@ -134,10 +139,10 @@ public class TasksManager : MonoBehaviour
 
     private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
+        StartCoroutine(task.statusLight.Blink(Color.red, 4, 0.2f));
         Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);
-        
     }
 
     private void RemoveTaskFromQueue(TaskController task)

@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 8485000832145025382}
   - component: {fileID: 4178911311173893991}
   - component: {fileID: 3019911804098679627}
+  - component: {fileID: 1200913775933264875}
+  - component: {fileID: 3204802929874714246}
+  - component: {fileID: 1156254960238137428}
+  - component: {fileID: 1697693211476154420}
   m_Layer: 0
   m_Name: Task
   m_TagString: Untagged
@@ -28,9 +32,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5054702362481714705}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.27272728, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.45454547, z: 1}
+  m_LocalScale: {x: 0.5819057, y: 0.35470447, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -171,10 +175,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskScript: {fileID: 0}
-  taskName: 
+  taskScript: {fileID: 1697693211476154420}
+  taskName: "Distribui\xE7\xE3o de O2"
   needsToBeDone: 0
   wasStarted: 0
   wasInterrupted: 0
   _maxMistakes: 7
   _mistakes: 0
+  playerPositioning: {fileID: 0}
+  statusLight: {fileID: 0}
+--- !u!114 &1200913775933264875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054702362481714705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e925c2c9cac57774dbb4089ff41a1aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  gotFishWarningSprite: {fileID: 0}
+  minFishWaitTime: 2
+  maxFishWaitTime: 5
+  timeToReact: 1
+  timerText: {fileID: 0}
+  controlledBar: {fileID: 0}
+  fishIcon: {fileID: 0}
+  progressBar: {fileID: 0}
+  timeToCatchFish: 12
+  minFishDecisionTime: 0.3
+  maxFishDecisionTime: 2
+  fishSlowDecisionMultiplier: 2
+  fishMinDashingVelocity: 2.5
+  fishMaxDashingVelocity: 4
+  fishMaxAbsSlowVelocity: 1
+  maxControlledBarVelocity: 5
+  controlledBarAcceleration: 40
+  barSizeModifier: 1.5
+  progressSpeed: 1
+--- !u!114 &3204802929874714246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054702362481714705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63014eaf26b03394ab9fe7da5b8bb774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  progressSlider: {fileID: 0}
+  timeSlider: {fileID: 0}
+  progressValue: 0.05
+  decayValue: 0.003
+--- !u!114 &1156254960238137428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054702362481714705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a159046e9ce0f9143b085a93a32a8571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  playerColor: {r: 0, g: 0.23503351, b: 1, a: 1}
+  computerColor: {r: 0, g: 1, b: 0.038882256, a: 1}
+  errorColor: {r: 1, g: 0, b: 0, a: 1}
+  upButton: {fileID: 0}
+  downButton: {fileID: 0}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  signalLight: {fileID: 0}
+  computerSequence: []
+  levels: 2
+--- !u!114 &1697693211476154420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054702362481714705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75585e47975fe34aa75ff7723b5f037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  circle: {fileID: 0}
+  arrow: {fileID: 0}
+  specialZone: {fileID: 0}
+  rotationSpeed: 100
+  alignmentThreshold: 10
+  RequiredAlignments: 5

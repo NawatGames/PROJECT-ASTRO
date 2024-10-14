@@ -1549,14 +1549,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1300386241966378613}
     m_Modifications:
-    - target: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.23855181
-      objectReference: {fileID: 0}
-    - target: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11047689
-      objectReference: {fileID: 0}
+    - target: {fileID: 1156254960238137428, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: upButton
+      value: 
+      objectReference: {fileID: 8336748039312156968}
+    - target: {fileID: 1156254960238137428, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: downButton
+      value: 
+      objectReference: {fileID: 8661839609588618066}
+    - target: {fileID: 1156254960238137428, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 9140403420951496933}
+    - target: {fileID: 1156254960238137428, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 3497972178227557283}
+    - target: {fileID: 1156254960238137428, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: signalLight
+      value: 
+      objectReference: {fileID: 1340871626526778084}
     - target: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.35501
@@ -1598,18 +1610,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskName
-      value: Genius
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskScript
-      value: 
-      objectReference: {fileID: 8431873511240347862}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: needsToBeDone
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: playerPositioning
       value: 
       objectReference: {fileID: 3015349071074526152}
@@ -1620,40 +1620,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8431873511240347862}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
---- !u!1 &3612702714794161457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-  m_PrefabInstance: {fileID: 8360665522113205024}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8431873511240347862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612702714794161457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a159046e9ce0f9143b085a93a32a8571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  playerColor: {r: 0, g: 0.23503351, b: 1, a: 1}
-  computerColor: {r: 0, g: 1, b: 0.038882256, a: 1}
-  errorColor: {r: 1, g: 0, b: 0, a: 1}
-  upButton: {fileID: 8336748039312156968}
-  downButton: {fileID: 8661839609588618066}
-  leftButton: {fileID: 9140403420951496933}
-  rightButton: {fileID: 3497972178227557283}
-  signalLight: {fileID: 1340871626526778084}
-  computerSequence: []
-  levels: 2
 --- !u!4 &5933352195497504229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1664,7 +1632,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 8360665522113205024}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612702714794161457}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}

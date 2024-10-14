@@ -1571,18 +1571,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskName
-      value: Colheita
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskScript
+    - target: {fileID: 3204802929874714246, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: timeSlider
       value: 
-      objectReference: {fileID: 2355918297153082638}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: needsToBeDone
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8837110129456744922}
+    - target: {fileID: 3204802929874714246, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: progressSlider
+      value: 
+      objectReference: {fileID: 8394016416870340647}
     - target: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_Name
       value: HarvestTask
@@ -1590,17 +1586,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2355918297153082638}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
 --- !u!114 &2774363230452123413 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 1110248777803797598}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282032303466508879}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
@@ -1611,25 +1604,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 1110248777803797598}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5282032303466508879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-  m_PrefabInstance: {fileID: 1110248777803797598}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2355918297153082638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282032303466508879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63014eaf26b03394ab9fe7da5b8bb774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
-  progressSlider: {fileID: 8394016416870340647}
-  timeSlider: {fileID: 8837110129456744922}
-  progressValue: 0.05
-  decayValue: 0.003

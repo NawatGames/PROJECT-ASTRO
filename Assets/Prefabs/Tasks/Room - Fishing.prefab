@@ -1816,6 +1816,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1997200293721366465}
     m_Modifications:
+    - target: {fileID: 1200913775933264875, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: fishIcon
+      value: 
+      objectReference: {fileID: 10241355329624782}
+    - target: {fileID: 1200913775933264875, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 9172184856943355227}
+    - target: {fileID: 1200913775933264875, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 6775226646511076040}
+    - target: {fileID: 1200913775933264875, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: controlledBar
+      value: 
+      objectReference: {fileID: 5510206044710518585}
+    - target: {fileID: 1200913775933264875, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: gotFishWarningSprite
+      value: 
+      objectReference: {fileID: 5887583891517017804}
     - target: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1856,14 +1876,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskName
-      value: Pesca
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      propertyPath: taskScript
-      value: 
-      objectReference: {fileID: 6448475316502947355}
     - target: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_Name
       value: FishingTask
@@ -1871,10 +1883,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6448475316502947355}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
 --- !u!4 &1653430237926059673 stripped
 Transform:
@@ -1886,46 +1895,9 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 3504546626863140956}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8540882708190230093}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8540882708190230093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
-  m_PrefabInstance: {fileID: 3504546626863140956}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6448475316502947355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8540882708190230093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e925c2c9cac57774dbb4089ff41a1aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
-  gotFishWarningSprite: {fileID: 5887583891517017804}
-  minFishWaitTime: 2
-  maxFishWaitTime: 5
-  timeToReact: 1
-  timerText: {fileID: 9172184856943355227}
-  controlledBar: {fileID: 5510206044710518585}
-  fishIcon: {fileID: 10241355329624782}
-  progressBar: {fileID: 6775226646511076040}
-  timeToCatchFish: 12
-  minFishDecisionTime: 0.3
-  maxFishDecisionTime: 2
-  fishSlowDecisionMultiplier: 2
-  fishMinDashingVelocity: 2.5
-  fishMaxDashingVelocity: 4
-  fishMaxAbsSlowVelocity: 1
-  maxControlledBarVelocity: 5
-  controlledBarAcceleration: 40
-  barSizeModifier: 1.5
-  progressSpeed: 1
