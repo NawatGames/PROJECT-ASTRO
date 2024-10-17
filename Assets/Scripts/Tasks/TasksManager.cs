@@ -96,18 +96,29 @@ public class TasksManager : MonoBehaviour
         int sec = totalTimeForTaskToFail - 60 * min;
         int minF = shortTimeForTaskToBeCompleted / 60;
         int secF = shortTimeForTaskToBeCompleted - 60 * min;
+        float timeLeft = totalTimeForTaskToFail;
+        float shortTime =  shortTimeForTaskToBeCompleted;
+        float minutes;
+        float seconds;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
         while (sec > secF || min > minF)
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
-            yield return new WaitForSecondsRealtime(1);
-            sec--;
-            if (sec < 0)
+            // timer velho:
+            // yield return new WaitForSecondsRealtime(1);
+            // sec--;
+            // if (sec < 0)
+            // {
+            //     min--;
+            //     sec = 59;
+            // }
+            if(timeLeft > shortTime)
             {
-                min--;
-                sec = 59;
+                timeLeft -= Time.deltaTime;
+                minutes = Mathf.FloorToInt(timeLeft/60);
+                seconds = Mathf.FloorToInt(timeLeft%60);
+                taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
             }
-            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
         }
         StartCoroutine(TaskShortTime(task, taskTimerTMP));
     }
@@ -118,18 +129,28 @@ public class TasksManager : MonoBehaviour
         //Debug.Log($"{task.taskScript} is running out of time!");
         int min = shortTimeForTaskToBeCompleted / 60;
         int sec = shortTimeForTaskToBeCompleted - 60 * min;
+        float timeLeft = shortTimeForTaskToBeCompleted;
+        float minutes;
+        float seconds;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
         while (sec > 0 || min > 0)
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
-            yield return new WaitForSecondsRealtime(1);
-            sec--;
-            if (sec < 0)
+            // timer velho:
+            // yield return new WaitForSecondsRealtime(1);
+            // sec--;
+            // if (sec < 0)
+            // {
+            //     min--;
+            //     sec = 59;
+            // }
+            if(timeLeft > 0)
             {
-                min--;
-                sec = 59;
+                timeLeft -= Time.deltaTime;
+                minutes = Mathf.FloorToInt(timeLeft/60);
+                seconds = Mathf.FloorToInt(timeLeft%60);
+                taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
             }
-            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
         }
         TaskTimedOut(task, taskTimerTMP);
     }
