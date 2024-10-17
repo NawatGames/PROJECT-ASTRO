@@ -18,6 +18,8 @@ public class QuarantineManager : MonoBehaviour
     private RoomQuarantineHandler activeRoom; // Referência para a sala atualmente em quarentena
 
     private int closedDoors;
+    
+    [SerializeField] private float timeQuarantineDelay;
 
     private void Start()
     {
@@ -110,5 +112,10 @@ public class QuarantineManager : MonoBehaviour
             script.canPressButton = true;
         }
         isAnyRoomInCooldown = false; // Nenhuma sala está em cooldown
+    }
+    
+    public float getTimeQuarantineDelay()
+    {
+        return timeQuarantineDelay;
     }
 }

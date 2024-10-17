@@ -8,8 +8,6 @@ public class RoomQuarantineHandler : MonoBehaviour
 {
     public TaskController task;
     public QuarantineManager manager;
-
-    [SerializeField] private float timerQuarantineDelay;
     [SerializeField] public bool canPressButton;
     [SerializeField] public bool isBeingUsed;
     private bool _isBeingUsedTwice;
@@ -116,7 +114,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     private IEnumerator QuarantineDelay()
     {   
         isOnCooldown = true;
-        yield return new WaitForSecondsRealtime(timerQuarantineDelay);
+        yield return new WaitForSecondsRealtime(manager.getTimeQuarantineDelay());
         isOnCooldown = false;
         canPressButton = true;
     }
