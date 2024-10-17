@@ -59,6 +59,7 @@ public class TaskScript : MonoBehaviour
         inputAsset.Task.Down.performed -= OnDownPerformed;
         inputAsset.Task.Left.performed -= OnLeftPerformed;
         inputAsset.Task.Right.performed -= OnRightPerformed;
+        isTaskInProgress = false;
     }
 
     protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
@@ -71,7 +72,7 @@ public class TaskScript : MonoBehaviour
     {
         //Debug.Log("Iniciou Task: " + this);
         FindObjectOfType<AudioManager>().Play("TaskStarted");
-
+        isTaskInProgress = true;
     }
 
     public bool IsAstroSpecialist()
