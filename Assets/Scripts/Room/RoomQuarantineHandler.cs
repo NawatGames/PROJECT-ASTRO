@@ -94,6 +94,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             quarantineStarted.Invoke();
             manager.DisableQuarantines(this); // Desabilita outras salas
             FindObjectOfType<AudioManager>().Play("DoorClose");
+            StartCoroutine(QuarantineDelay());
 
         }
         else if (isRoomQuarantined)
@@ -106,9 +107,9 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
             manager.EnableQuarantines(); // Abilita todas as salas
-   
+            StartCoroutine(QuarantineDelay());
         }
-        StartCoroutine(QuarantineDelay());
+        
         yield return null;
     }
 
