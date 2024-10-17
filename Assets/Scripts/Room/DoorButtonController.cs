@@ -21,4 +21,20 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
     }
+    public bool IsDoorOpen()
+    {
+        return !doorCollider.enabled;
+    }
+
+    public void OpenDoor()
+    {
+        doorCollider.enabled = false;
+        doorSprite.color = Color.green;
+    }
+    public void CloseDoor()
+    {
+        doorCollider.enabled = true;
+        doorSprite.color = Color.red;
+    }
+    
 }
