@@ -92,49 +92,46 @@ public class TasksManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1, 4.5f)); // Tempo para habilitar nova task
         task.needsToBeDone = true;
         DefineSpecialist(task.taskScript);
+        
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
+        float timeLeft = totalTimeForTaskToFail;
+        int minutes = totalTimeForTaskToFail / 60;
+        int seconds = totalTimeForTaskToFail - 60 * minutes;
+        taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
+        
         if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
         else task.StatusLight.TurnOnAlien();
-
-        int min = totalTimeForTaskToFail / 60;
-        int sec = totalTimeForTaskToFail - 60 * min;
-        int minF = shortTimeForTaskToBeCompleted / 60;
-        int secF = shortTimeForTaskToBeCompleted - 60 * min;
-        taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
-
-        while (sec > secF || min > minF)
+        
+        while (timeLeft > shortTimeForTaskToBeCompleted)
         {
-            yield return new WaitForSecondsRealtime(1);
-            sec--;
-            if (sec < 0)
-            {
-                min--;
-                sec = 59;
-            }
-            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+            yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
+            
+            timeLeft -= Time.deltaTime;
+            minutes = Mathf.FloorToInt(timeLeft/60);
+            seconds = Mathf.FloorToInt(timeLeft%60);
+            taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         }
         StartCoroutine(TaskShortTime(task, taskTimerTMP));
     }
 
     private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
-        Debug.Log($"{task.taskScript} is running out of time!");
+        // Debug.Log($"{task.taskScript} is running out of time!");
+        float timeLeft = shortTimeForTaskToBeCompleted;
+        int minutes = shortTimeForTaskToBeCompleted / 60;
+        int seconds = shortTimeForTaskToBeCompleted - 60 * minutes;
+        taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
+        
         task.StatusLight.TurnOnWarning();
-
-        int min = shortTimeForTaskToBeCompleted / 60;
-        int sec = shortTimeForTaskToBeCompleted - 60 * min;
-        taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
-        while (sec > 0 || min > 0)
+        
+        while (timeLeft > 0)
         {
-            yield return new WaitForSecondsRealtime(1);
-            sec--;
-            if (sec < 0)
-            {
-                min--;
-                sec = 59;
-            }
-            taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+            yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
+            
+            timeLeft -= Time.deltaTime;
+            minutes = Mathf.FloorToInt(timeLeft/60);
+            seconds = Mathf.FloorToInt(timeLeft%60);
+            taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         }
         TaskTimedOut(task, taskTimerTMP);
     }
