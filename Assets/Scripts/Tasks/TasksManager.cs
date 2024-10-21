@@ -16,7 +16,7 @@ public class TasksManager : MonoBehaviour
     private Dictionary<TaskController, Coroutine> _taskQueue;
     private int maxNumberOfActiveTasks;
     private TaskController recentRemovedTask;
-    public int astroProbability;
+    [SerializeField] private int astroProbability = 50;
 
     private void Start()
     {
@@ -70,6 +70,7 @@ public class TasksManager : MonoBehaviour
 
     public void TaskDoneSuccessfully(TaskController task)
     {
+        task.StatusLight.TurnOff();
         StopCoroutine(_taskQueue[task]);
         RemoveTaskFromQueue(task);
     }
@@ -92,11 +93,15 @@ public class TasksManager : MonoBehaviour
         task.needsToBeDone = true;
         DefineSpecialist(task.taskScript);
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
+        if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
+        else task.StatusLight.TurnOnAlien();
+
         int min = totalTimeForTaskToFail / 60;
         int sec = totalTimeForTaskToFail - 60 * min;
         int minF = shortTimeForTaskToBeCompleted / 60;
         int secF = shortTimeForTaskToBeCompleted - 60 * min;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
+
         while (sec > secF || min > minF)
         {
             yield return new WaitForSecondsRealtime(1);
@@ -114,7 +119,9 @@ public class TasksManager : MonoBehaviour
     private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
         // MOSTRAR AVISO DE TEMPO ACABANDO AQUI
-        //Debug.Log($"{task.taskScript} is running out of time!");
+        Debug.Log($"{task.taskScript} is running out of time!");
+        task.StatusLight.TurnOnWarning();
+
         int min = shortTimeForTaskToBeCompleted / 60;
         int sec = shortTimeForTaskToBeCompleted - 60 * min;
         taskTimerTMP.text = $"{task.taskName}: {min,2}:{sec:00}";
@@ -134,10 +141,10 @@ public class TasksManager : MonoBehaviour
 
     private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
+        StartCoroutine(task.StatusLight.Blink(Color.red, 4, 0.2f));
         Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);
-        
     }
 
     private void RemoveTaskFromQueue(TaskController task)
@@ -152,7 +159,7 @@ public class TasksManager : MonoBehaviour
     private void DefineSpecialist(TaskScript taskScript)
     {
         int specialistRng;
-        specialistRng = Random.Range(1, 100);
+        specialistRng = Random.Range(1, 101);
         if(specialistRng >= astroProbability)
         {
             //Debug.Log(specialistRng);
