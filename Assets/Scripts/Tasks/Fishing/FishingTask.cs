@@ -79,9 +79,8 @@ public class FishingTask : TaskScript
     {
         base.RunTask();
         Vector3 auxVector = controlledBar.localScale;
-        if(isAstro == isAstroSpecialist)
+        if(isAstro != isAstroSpecialist)
         {
-            //auxVector.y = _originalControlledBarSize * (isAstro ? 1 : barSizeModifier);
             auxVector.y = _originalControlledBarSize * 1;
         }
         else
