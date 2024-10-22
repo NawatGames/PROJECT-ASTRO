@@ -112,7 +112,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     }
     private IEnumerator QuarantineDelay()
     {
-        yield return new WaitForSecondsRealtime(timerQuarantineDelay);
+        yield return new WaitForSeconds(timerQuarantineDelay);
         canPressButton = true;
     }
 
