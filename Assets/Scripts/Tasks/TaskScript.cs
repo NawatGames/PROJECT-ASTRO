@@ -11,6 +11,7 @@ public class TaskScript : MonoBehaviour
     protected bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
+    [SerializeField] private float cooldownTime = 5f;
     protected String taskName;
 
     protected virtual void Awake()
@@ -70,7 +71,6 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void RunTask()
     {
-        //Debug.Log("Iniciou Task: " + this);
         FindObjectOfType<AudioManager>().Play("TaskStarted");
         isTaskInProgress = true;
     }
