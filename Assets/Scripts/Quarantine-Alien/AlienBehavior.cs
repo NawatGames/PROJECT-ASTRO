@@ -106,4 +106,9 @@ public class AlienBehavior : MonoBehaviour
         }
         _canCheckRooms = true;
     }
+    
+    public int getAlienInsideSeconds()
+    {
+        return levelParams[_levelIndex].alienInsideSeconds;
+    }
 }
