@@ -1,14 +1,20 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
+    [Header("Customization")] 
+    [SerializeField] private Color astroSpawnIconColor;
+    [SerializeField] private Color alienSpawnIconColor;
     [SerializeField] private GameObject playerPrefab;
+    [Header("Config")]
     public Vector2 astroSpawn;
     public Vector2 alienSpawn;
     private const string AstroControlScheme = "LeftKeyBoard";
     private const string AlienControlScheme = "RightKeyBoard";
+    
     
     private void Awake()
     {
@@ -22,7 +28,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawIcon(astroSpawn, "Astro Spawn");
-        Gizmos.DrawIcon(alienSpawn, "Alien Spawn");
+        Gizmos.DrawIcon(astroSpawn, "d_AvatarSelector", true, astroSpawnIconColor);
+        Gizmos.DrawIcon(alienSpawn, "d_AvatarSelector", true, alienSpawnIconColor);
     }
 }
