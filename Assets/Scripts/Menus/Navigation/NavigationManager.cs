@@ -8,55 +8,67 @@ namespace Menus.Navigation
     {
         [SerializeField] private PlayerInput input;
         [SerializeField] private ButtonNavigation initialButton;
-        private ButtonNavigation currentButton;
+        private ButtonNavigation _currentButton;
+
+        private MenuNavigation _inputAsset;
 
         private void Awake()
         {
-            currentButton = initialButton;
-            if(initialButton) currentButton.SelectButton();
+            if(initialButton) SetButton(initialButton);
+            
+            _inputAsset = new MenuNavigation();
+            input.actions = _inputAsset.asset;
         }
 
         private void OnEnable()
         {
-            
+            _inputAsset.Default.Up.performed += MoveUp;
+            _inputAsset.Default.Down.performed += MoveDown;
+            _inputAsset.Default.Left.performed += MoveLeft;
+            _inputAsset.Default.Right.performed += MoveRight;
+            _inputAsset.Default.Enter.performed += PressButton;
         }
 
         private void OnDisable()
         {
-            throw new NotImplementedException();
+            _inputAsset.Default.Up.performed -= MoveUp;
+            _inputAsset.Default.Down.performed -= MoveDown;
+            _inputAsset.Default.Left.performed -= MoveLeft;
+            _inputAsset.Default.Right.performed -= MoveRight;
+            _inputAsset.Default.Enter.performed -= PressButton;
         }
 
         private void SetButton(ButtonNavigation newButton)
         {
             if (!newButton) return;
-            currentButton.DeselectButton();
-            currentButton = newButton;
-            currentButton.SelectButton();
+            if(_currentButton) _currentButton.DeselectButton();
+            _currentButton = newButton;
+            _currentButton.SelectButton();
         }
 
-        private void MoveLeft()
+        private void MoveLeft(InputAction.CallbackContext ctx)
         {
-            SetButton(currentButton.Left);
+            SetButton(_currentButton.Left);
         }
 
-        private void MoveRight()
+        private void MoveRight(InputAction.CallbackContext ctx)
         {
-            SetButton(currentButton.Right);
+            SetButton(_currentButton.Right);
         }
 
-        private void MoveUp()
+        private void MoveUp(InputAction.CallbackContext ctx)
         {
-            SetButton(currentButton.Up);
+            SetButton(_currentButton.Up);
         }
 
-        private void MoveDown()
+        private void MoveDown(InputAction.CallbackContext ctx)
         {
-            SetButton(currentButton.Down);
+            SetButton(_currentButton.Down);
         }
 
-        private void PressButton()
+        private void PressButton(InputAction.CallbackContext ctx)
         {
-            currentButton.PressButton();
+            _currentButton.PressButton();
         }
     }
 }
