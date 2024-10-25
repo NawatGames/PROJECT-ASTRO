@@ -30,6 +30,7 @@ namespace Tasks.MemoryTask
         
         protected override void Awake()
         {
+            base.Awake();
             tilesSelector.SetActive(false);
             _tiles = tilesHolder.GetComponentsInChildren<MemoryTile>().ToList();
             // Checks if there are enough colors for task to work properly
