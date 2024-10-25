@@ -22,6 +22,7 @@ namespace Player.StateMachine
         {
             stateEnterEvent.Invoke();
             playerInputController.interactionInputAction.performed += OnInteractHandler;
+            
         }
 
         public virtual void LeaveState()

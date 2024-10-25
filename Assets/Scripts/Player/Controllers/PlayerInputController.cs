@@ -7,6 +7,7 @@ public class PlayerInputController : MonoBehaviour
     [HideInInspector] public PlayerInputAsset inputAsset; //TODO: Manter apenas este ou os dois debaixo
     [HideInInspector] public InputAction movementInputAction;
     [HideInInspector] public InputAction interactionInputAction;
+    [HideInInspector] public InputAction pauseInputAction;
     
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class PlayerInputController : MonoBehaviour
         input.actions = inputAsset.asset;
         movementInputAction = inputAsset.Default.Movement;
         interactionInputAction = inputAsset.Default.Interaction;
+        pauseInputAction = inputAsset.Default.Pause;
     }
     
     

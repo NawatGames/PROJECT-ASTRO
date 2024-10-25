@@ -477,6 +477,7 @@ MonoBehaviour:
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
   _tasksNotYetSelected: []
+  astroProbability: 50
 --- !u!4 &752719925
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,7 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97270f7f9288def44a6fef0bc65ac7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 205392759199000823, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+  astroPrefab: {fileID: 0}
+  alienPrefab: {fileID: 0}
   astroSpawn: {fileID: 93406887}
   alienSpawn: {fileID: 1927187339}
 --- !u!114 &1159285468
@@ -1103,37 +1105,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.4850032, y: 0.12675728, z: 0.048898723}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1207499359
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1207499360}
-  m_Layer: 0
-  m_Name: GlobalPouse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1207499360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207499359}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.6, y: -4.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1211,10 +1182,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   gameOverFadeDuration: 1
+  jumpscareFadeDuration: 1
+  alien: {fileID: 0}
   onZeroHealth: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   healthText: {fileID: 7855111}
   gameOverText: {fileID: 1100590112}
   blackScreen: {fileID: 784201138}
+  preGameOverJumpscare: {fileID: 0}
+  jumpScareImage: {fileID: 0}
 --- !u!4 &1319094733
 Transform:
   m_ObjectHideFlags: 0
@@ -1432,7 +1407,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
   - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 0}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
 --- !u!4 &1917454590
@@ -1818,7 +1793,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3145734465130625258, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
 --- !u!1 &4544197879662426443 stripped
 GameObject:
@@ -1921,4 +1899,3 @@ SceneRoots:
   - {fileID: 1517004639053767459}
   - {fileID: 5182967668293503333}
   - {fileID: 2008694019}
-  - {fileID: 1207499360}
