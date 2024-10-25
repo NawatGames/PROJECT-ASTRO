@@ -26,7 +26,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     public SpriteRenderer roomSprite;
     public SpriteRenderer wallSprite;
     
-    [SerializeField] [Range(0,1)] private float fadeVel;
+    [SerializeField] [Range(0,1)] private float fadeVel = 0.03f;
     
     // pegar o tempo do alien para a quarentena
  
