@@ -10,7 +10,6 @@ public class QuarantineManager : MonoBehaviour
     public Dictionary<GameObject, TaskController> roomToTask; // Para o 'alienBehavior' saber qual a task do quarto invadido e seus 'mistakes'
     public List<GameObject> roomsBeingUsed;
     [SerializeField] private int timerQuarantineDelay;
-    private List<RoomQuarantineHandler> closedDoorsRooms = new List<RoomQuarantineHandler>();
 
     private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
     
@@ -35,7 +34,6 @@ public class QuarantineManager : MonoBehaviour
     {
         List<GameObject> roomsInUse = new List<GameObject>();
         closedDoors = 0;
-        DoorButtonController previousDoorButton = null;
         
         foreach (GameObject room in rooms)
         {
