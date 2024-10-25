@@ -9,7 +9,7 @@ namespace Player.StateMachine.StateScripts
     /// </summary>
     public abstract class BaseStateScript : MonoBehaviour
     {
-        [SerializeField] private NewPlayerState state;
+        [SerializeField] private PlayerState state;
 
         protected virtual void OnEnable()
         {

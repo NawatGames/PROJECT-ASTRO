@@ -17,7 +17,7 @@ namespace Tasks.MemoryTask
 
         [Header("Task Config")] 
         [SerializeField] private int gridSize = 2;
-        [SerializeField] private int roundCount = 1;
+        //[SerializeField] private int roundCount = 1;
         [SerializeField] private float memorizationTime = 2f;
         [SerializeField] private float inputTime = 2f;
         

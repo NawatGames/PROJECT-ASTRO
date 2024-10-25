@@ -45,7 +45,7 @@ public class AlienBehavior : MonoBehaviour
         Debug.Log("Alien awoke");
         _canCheckRooms = true;
     }
-    
+
     private IEnumerator RoomsAvailable()
     {
         yield return new WaitForSecondsRealtime(_timerInvasionDelay);
@@ -64,6 +64,7 @@ public class AlienBehavior : MonoBehaviour
 
         }
     }
+
     private IEnumerator InvasionStart()
     {
         List<GameObject> roomsToInvadeWeighted = new List<GameObject>(roomsToInvade);
@@ -74,6 +75,7 @@ public class AlienBehavior : MonoBehaviour
                 roomsToInvadeWeighted.Add(room);
             }
         }
+
         int roomIndex = Random.Range(-1, roomsToInvadeWeighted.Count);
         // Debug.Log(roomIndex);
         if (roomIndex != -1)
@@ -104,6 +106,8 @@ public class AlienBehavior : MonoBehaviour
             // Alien falhou em invadir uma sala 
             Debug.Log("No room invaded");
         }
+
         _canCheckRooms = true;
     }
+
 }

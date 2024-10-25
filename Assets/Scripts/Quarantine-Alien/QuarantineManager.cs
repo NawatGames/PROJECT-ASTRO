@@ -9,8 +9,15 @@ public class QuarantineManager : MonoBehaviour
     public List<RoomQuarantineHandler> roomsScript;
     public Dictionary<GameObject, TaskController> roomToTask; // Para o 'alienBehavior' saber qual a task do quarto invadido e seus 'mistakes'
     public List<GameObject> roomsBeingUsed;
+    [SerializeField] private int timerQuarantineDelay;
+
+    private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
+    
+    private int closedDoors;
 
     // public UnityEvent roomQuarantined;
+    
+   
     
     private void Start()
     {
@@ -26,16 +33,56 @@ public class QuarantineManager : MonoBehaviour
     private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
+        closedDoors = 0;
+        
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
-            if (script.isBeingUsed && roomsInUse.All(x => x != room))
+            DoorButtonController doorButton = room.GetComponentInChildren<DoorButtonController>();
+            if (script.isBeingUsed && !roomsInUse.Contains(room))
             {
                 roomsInUse.Add(room);
             }
+            
+            if (!doorButton.IsDoorOpen())
+            {
+                closedDoors++;
+                script.isRoomQuarantined = true;
+                
+            }
+            
+            if (doorButton.IsDoorOpen())
+            {
+                roomNotQuarantinable.Add(script);
+            }
+
+            
+            if (closedDoors > 1)
+            {
+                
+                doorButton.OpenDoor();  
+                script.isRoomQuarantined = false;
+                script.canPressButton = false;
+                script.quarantineEnded.Invoke();
+                closedDoors = 1;
+            } 
+            
         }
+
+        if (closedDoors >= 1)
+        {
+            foreach (RoomQuarantineHandler rooms1 in roomNotQuarantinable)
+            {
+                rooms1.isRoomQuarantined = false;
+                rooms1.canPressButton = false;
+            }
+
+        }
+        roomNotQuarantinable.Clear();
+
         this.roomsBeingUsed = roomsInUse;
     }
+
     public void DisableQuarantines(RoomQuarantineHandler roomQuarantinedScript)
     {
         foreach (RoomQuarantineHandler script in roomsScript)
@@ -55,4 +102,10 @@ public class QuarantineManager : MonoBehaviour
             script.canPressButton = true;
         }
     }
+    
+    public float getTimerQuarantineDelay()
+    {
+        return timerQuarantineDelay;
+    }
+    
 }

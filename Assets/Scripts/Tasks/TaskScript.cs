@@ -8,7 +8,7 @@ public class TaskScript : MonoBehaviour
     protected PlayerInputAsset inputAsset;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
     protected bool isAstroSpecialist;
-    protected bool isTaskInProgress = false;
+    private bool isTaskInProgress = false;
     private TaskController _taskController;
     [SerializeField] private TasksManager tasksManager;
     protected String taskName;
@@ -59,6 +59,7 @@ public class TaskScript : MonoBehaviour
         inputAsset.Task.Down.performed -= OnDownPerformed;
         inputAsset.Task.Left.performed -= OnLeftPerformed;
         inputAsset.Task.Right.performed -= OnRightPerformed;
+        isTaskInProgress = false;
     }
 
     protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
@@ -69,9 +70,8 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void RunTask()
     {
-        //Debug.Log("Iniciou Task: " + this);
         FindObjectOfType<AudioManager>().Play("TaskStarted");
-
+        isTaskInProgress = true;
     }
 
     public bool IsAstroSpecialist()
