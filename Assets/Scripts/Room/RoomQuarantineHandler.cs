@@ -9,7 +9,6 @@ public class RoomQuarantineHandler : MonoBehaviour
     public TaskController task;
 
     public QuarantineManager manager;
-    [SerializeField] private float timerQuarantineDelay;
     [SerializeField] public bool canPressButton;
 
     [SerializeField] public bool isBeingUsed;
@@ -28,6 +27,9 @@ public class RoomQuarantineHandler : MonoBehaviour
     public SpriteRenderer wallSprite;
     
     [SerializeField] [Range(0,1)] private float fadeVel;
+    
+    // pegar o tempo do alien para a quarentena
+ 
 
     void Start()
     {
@@ -81,6 +83,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             //Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
+            if(wallSprite.color.a > 0) wallSprite.color = new Color(0,0,0,wallSprite.color.a-fadeVel);
         }
         else
         {
@@ -95,6 +98,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
+            manager.DisableQuarantines(this);
             FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (isRoomQuarantined)
@@ -106,13 +110,16 @@ public class RoomQuarantineHandler : MonoBehaviour
             }
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
+            manager.EnableQuarantines();
+            
+            
         }
         StartCoroutine(QuarantineDelay());
         yield return null;
     }
     private IEnumerator QuarantineDelay()
     {
-        yield return new WaitForSecondsRealtime(timerQuarantineDelay);
+        yield return new WaitForSecondsRealtime(manager.getTimerQuarantineDelay());
         canPressButton = true;
     }
 
