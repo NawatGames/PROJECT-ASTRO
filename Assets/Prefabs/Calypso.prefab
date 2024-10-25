@@ -590,6 +590,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  pauseInputAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7d2938d9-9cdd-41c3-995d-a9fc4dd48ec1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &5838084686173757213
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +772,7 @@ GameObject:
   - component: {fileID: 6980675924244276331}
   m_Layer: 3
   m_Name: CollisionController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
