@@ -83,7 +83,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             //Sala que nao pode ser quarentenada
             roomSprite.color = Color.blue;
-            
+            if(wallSprite.color.a > 0) wallSprite.color = new Color(0,0,0,wallSprite.color.a-fadeVel);
         }
         else
         {
@@ -111,6 +111,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = false;
             quarantineEnded.Invoke();
             manager.EnableQuarantines();
+            
             
         }
         StartCoroutine(QuarantineDelay());

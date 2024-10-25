@@ -18,8 +18,7 @@ public class QuarantineManager : MonoBehaviour
 
     // public UnityEvent roomQuarantined;
     
-    // pegar o tempo que o alien fica na sala para que a quarentena não acabe antes do alien sair da sala 
-    [SerializeField] private AlienBehavior alienBehavior;
+   
     
     private void Start()
     {
@@ -111,8 +110,4 @@ public class QuarantineManager : MonoBehaviour
         return timerQuarantineDelay;
     }
     
-    public AlienBehavior getAlienBehavior()
-    {
-        return alienBehavior;
-    }
 }
