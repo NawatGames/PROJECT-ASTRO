@@ -55,16 +55,16 @@ public class HealthManager : MonoBehaviour
         alien.SetActive(false);
         yield return FadeImage(blackScreen, 1f, gameOverFadeDuration); // Fade in black screen
 
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSeconds(1);
         yield return FadeImage(preGameOverJumpscare, 1f, jumpscareFadeDuration); // Fade in pre-game over jumpscare
 
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSeconds(1);
         yield return FadeImage(preGameOverJumpscare, 0f, jumpscareFadeDuration); // Fade out jumpscare
 
         yield return FadeText(gameOverText, 1f, gameOverFadeDuration); // Fade in game over text
         FindObjectOfType<AudioManager>().Play("GameOver");
 
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(3);
         GameOver();
     }
 
@@ -79,19 +79,19 @@ public class HealthManager : MonoBehaviour
 
     private IEnumerator WaitForJumpscareAndFade(float delay)
     {
-        yield return new WaitForSecondsRealtime(delay);
+        yield return new WaitForSeconds(delay);
 
         jumpScareImage.gameObject.SetActive(true);
         jumpScareImage.color = new Color(1, 1, 1, 1);
 
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSeconds(2);
 
         yield return FadeImage(jumpScareImage, 0f, jumpscareFadeDuration);
         jumpScareImage.gameObject.SetActive(false);
 
         yield return FadeText(gameOverText, 1f, gameOverFadeDuration);
         FindObjectOfType<AudioManager>().Play("GameOver");
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(3);
 
         GameOver();
     }

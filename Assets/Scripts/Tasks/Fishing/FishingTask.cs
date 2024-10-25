@@ -182,7 +182,7 @@ public class FishingTask : TaskScript
         for (int timer = timeToCatchFish; timer > 0; timer--)
         {
             timerText.text = ""+timer;
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSeconds(1);
         }
         TaskMistakeLeave();
     }

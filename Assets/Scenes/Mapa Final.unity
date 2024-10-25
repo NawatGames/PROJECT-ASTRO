@@ -1605,6 +1605,60 @@ MonoBehaviour:
   alienPrefab: {fileID: 8160291187195557868, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
   astroSpawn: {fileID: 93406887}
   alienSpawn: {fileID: 1927187339}
+--- !u!1 &1191715179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191715181}
+  - component: {fileID: 1191715182}
+  m_Layer: 0
+  m_Name: GlobalPause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1191715181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191715179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.467159, y: -3.9989886, z: -0.012941334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191715182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191715179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f07b80717e5da340bd5b66eb2be0727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputController: {fileID: 0}
+  _pauseAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: db38c545-2437-4be2-a5f1-df4836b72579
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1295784070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2774363230452123413, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
@@ -2767,3 +2821,4 @@ SceneRoots:
   - {fileID: 1619706421}
   - {fileID: 2008694019}
   - {fileID: 1893230235}
+  - {fileID: 1191715181}

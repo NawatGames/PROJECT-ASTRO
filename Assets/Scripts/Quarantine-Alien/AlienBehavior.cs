@@ -48,7 +48,7 @@ public class AlienBehavior : MonoBehaviour
 
     private IEnumerator RoomsAvailable()
     {
-        yield return new WaitForSecondsRealtime(_timerInvasionDelay);
+        yield return new WaitForSeconds(_timerInvasionDelay);
         Debug.Log("Alien is looking for rooms!");
         roomsToInvade = quarantineManager.roomsBeingUsed;
 
@@ -84,7 +84,7 @@ public class AlienBehavior : MonoBehaviour
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
             FindObjectOfType<AudioManager>().Play("AlienCrawl");
-            yield return new WaitForSecondsRealtime(levelParams[_levelIndex].invasionWarningSeconds);
+            yield return new WaitForSeconds(levelParams[_levelIndex].invasionWarningSeconds);
             alienWarningEndEvent.Raise(roomInvaded.transform);
 
             FindObjectOfType<AudioManager>().Stop("AlienCrawl");
