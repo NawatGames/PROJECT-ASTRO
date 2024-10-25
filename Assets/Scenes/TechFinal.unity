@@ -477,6 +477,7 @@ MonoBehaviour:
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
   _tasksNotYetSelected: []
+  astroProbability: 50
 --- !u!4 &752719925
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,7 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97270f7f9288def44a6fef0bc65ac7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 205392759199000823, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+  astroPrefab: {fileID: 0}
+  alienPrefab: {fileID: 0}
   astroSpawn: {fileID: 93406887}
   alienSpawn: {fileID: 1927187339}
 --- !u!114 &1159285468
@@ -1180,10 +1182,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   gameOverFadeDuration: 1
+  jumpscareFadeDuration: 1
+  alien: {fileID: 0}
   onZeroHealth: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   healthText: {fileID: 7855111}
   gameOverText: {fileID: 1100590112}
   blackScreen: {fileID: 784201138}
+  preGameOverJumpscare: {fileID: 0}
+  jumpScareImage: {fileID: 0}
 --- !u!4 &1319094733
 Transform:
   m_ObjectHideFlags: 0
@@ -1401,7 +1407,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
   - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
-  gameOverEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  onAlienAttack: {fileID: 0}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
 --- !u!4 &1917454590

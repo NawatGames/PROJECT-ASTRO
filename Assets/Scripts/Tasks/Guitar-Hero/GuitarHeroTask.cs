@@ -66,7 +66,7 @@ public class GuitarHeroTask : TaskScript
             {
 
                 // Debug.Log("removendo");
-                yield return new WaitForSecondsRealtime(_blockSpace);
+                yield return new WaitForSeconds(_blockSpace);
                 RemoveTargetInBuffer();
             }
             while (targetsActive.Count > 0)

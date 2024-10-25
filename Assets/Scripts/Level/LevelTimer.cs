@@ -25,7 +25,7 @@ public class LevelTimer : MonoBehaviour
         _levelTimerTMP.text = $"Level Timer: {_min,2}:{_sec:00}";
         while (_sec > 0 || _min > 0)
         {
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSeconds(1);
             _sec--;
             if (_sec < 0)
             {
