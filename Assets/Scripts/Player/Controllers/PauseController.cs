@@ -10,12 +10,11 @@ public class PauseController : MonoBehaviour
     [SerializeField] private PlayerInputController playerInputController;
     
     
-    [SerializeField] private InputAction _pauseAction;
+    private InputAction _pauseAction;
     private bool _isPaused;
 
     private void Start()
     {
-        playerInputController = FindObjectOfType<PlayerInputController>();
         _pauseAction = playerInputController.pauseInputAction;
         _pauseAction.performed += Pause;
     }

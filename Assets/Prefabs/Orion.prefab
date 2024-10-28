@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5954246827498749527, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: RightKeyboard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
