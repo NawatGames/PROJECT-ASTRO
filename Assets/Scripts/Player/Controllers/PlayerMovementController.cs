@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
         [Header("Setup")]
         [SerializeField] private PlayerInputController playerInputController;
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private PlayerAnimationController playerAnimationController;
         [Header("Settings")]
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float driftFactor = 0.05f;
@@ -20,16 +21,16 @@ using UnityEngine.InputSystem;
         private void Start()
         {
             _movementAction = playerInputController.movementInputAction;
-            _movementAction.performed += MovementOnPerformed;
-            _movementAction.canceled += MovementOnPerformed;
+            _movementAction.performed += OnMovement;
+            _movementAction.canceled += OnMovement;
         }
 
         private void OnEnable()
         {
             if (_movementAction != null)
             {
-                _movementAction.performed += MovementOnPerformed;
-                _movementAction.canceled += MovementOnPerformed;
+                _movementAction.performed += OnMovement;
+                _movementAction.canceled += OnMovement;
             }
         }
 
@@ -38,13 +39,14 @@ using UnityEngine.InputSystem;
             rb.velocity = Vector2.zero;
             _inputDirection = Vector2.zero;
             _currentVelocity = Vector2.zero;
-            _movementAction.performed -= MovementOnPerformed;
-            _movementAction.canceled -= MovementOnPerformed;
+            _movementAction.performed -= OnMovement;
+            _movementAction.canceled -= OnMovement;
         }
 
-        private void MovementOnPerformed(InputAction.CallbackContext obj)
+        private void OnMovement(InputAction.CallbackContext obj)
         {
             _inputDirection = obj.ReadValue<Vector2>();
+            playerAnimationController.SetMovimentAnimation(_inputDirection);
         }
 
         private void SetVelocity(Vector2 direction)

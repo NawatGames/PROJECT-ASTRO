@@ -670,6 +670,7 @@ MonoBehaviour:
   - {fileID: 2103209704}
   roomsScript: []
   roomsBeingUsed: []
+  timerQuarantineDelay: 0
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -757,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0531006, y: 3.5651245}
+  m_AnchoredPosition: {x: -1.0529785, y: 3.5651855}
   m_SizeDelta: {x: 12.093857, y: 21.510206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &789865641
@@ -1601,10 +1602,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97270f7f9288def44a6fef0bc65ac7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  astroSpawnIconColor: {r: 0, g: 0, b: 0, a: 0}
+  alienSpawnIconColor: {r: 0, g: 0, b: 0, a: 0}
+  astroSpawn: {x: 0, y: 0}
+  alienSpawn: {x: 0, y: 0}
   astroPrefab: {fileID: 205392759199000823, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
   alienPrefab: {fileID: 8160291187195557868, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
-  astroSpawn: {fileID: 93406887}
-  alienSpawn: {fileID: 1927187339}
 --- !u!1 &1191715179
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8669376623493524591}
   - component: {fileID: 5954246827498749527}
   - component: {fileID: 291777370503822330}
+  - component: {fileID: 1158122258224959929}
   m_Layer: 3
   m_Name: Calypso
   m_TagString: Player
@@ -82,12 +83,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.5637349, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 226c67c4bb31f1f4c88b29f8043d4991, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -178,6 +179,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1158122258224959929
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205392759199000823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: ba43e7131027add4c81fb8adacbb3646, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &305966305664899492
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,9 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870adc9f04d40f543b9f98b0ade65f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  astroAnimator: {fileID: 0}
-  alienAnimator: {fileID: 0}
+  animator: {fileID: 1158122258224959929}
 --- !u!1 &1986840414879350145
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputController: {fileID: 3919350631093693447}
   rb: {fileID: 8669376623493524591}
+  playerAnimationController: {fileID: 4266758921371716804}
   moveSpeed: 10
   driftFactor: 0.05
   acceleration: 10
