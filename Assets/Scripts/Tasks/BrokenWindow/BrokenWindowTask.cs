@@ -7,7 +7,9 @@ using Random = UnityEngine.Random;
 
 public class BrokenWindowTask : TaskScript
 {
-    [SerializeField] private int sequenceSize = 5;
+    [SerializeField] private int sequenceSize;
+    [SerializeField] private int normalSequenceSize = 5;
+    [SerializeField] private int sequenceSizeSpecialist = 3;
     [SerializeField] private BrokenWindowTimerBar timerBarScript;
     [SerializeField] private GameObject upArrow;
     [SerializeField] private GameObject downArrow;
@@ -44,11 +46,15 @@ public class BrokenWindowTask : TaskScript
     {
         base.RunTask();
         timerBarScript.ResetTimerBarSize();
+        
+        if (isAstro == isAstroSpecialist) sequenceSize = sequenceSizeSpecialist;
+        else  sequenceSize = normalSequenceSize;
+
         CreateNewSequence();
         ShowNewSequence();
         StartCoroutine(timerBarScript.StartTimer());
-        
     }
+
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {

@@ -670,6 +670,7 @@ MonoBehaviour:
   - {fileID: 2103209704}
   roomsScript: []
   roomsBeingUsed: []
+  timerQuarantineDelay: 0
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,6 +1198,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: numberOfPossibleMistakesSpecialist
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2894772779124201009, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.25
@@ -1601,10 +1606,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97270f7f9288def44a6fef0bc65ac7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  astroSpawnIconColor: {r: 0, g: 0, b: 0, a: 0}
+  alienSpawnIconColor: {r: 0, g: 0, b: 0, a: 0}
+  astroSpawn: {x: 0, y: 0}
+  alienSpawn: {x: 0, y: 0}
   astroPrefab: {fileID: 205392759199000823, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
   alienPrefab: {fileID: 8160291187195557868, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
-  astroSpawn: {fileID: 93406887}
-  alienSpawn: {fileID: 1927187339}
 --- !u!1 &1191715179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,7 +1658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputController: {fileID: 0}
   _pauseAction:
-    m_Name: 
+    m_Name: Pause
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: db38c545-2437-4be2-a5f1-df4836b72579
@@ -2789,9 +2796,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 659919459}
     - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: levels
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: levelsSpecialist
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

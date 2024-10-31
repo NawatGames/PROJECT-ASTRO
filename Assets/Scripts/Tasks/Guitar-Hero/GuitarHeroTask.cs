@@ -147,9 +147,10 @@ public class GuitarHeroTask : TaskScript
             {
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
-                pointsMade++;
+                if (isAstro == isAstroSpecialist) pointsMade+=2;
+                else pointsMade++;
 
-                if (pointsMade == maxBlockPoints)
+                if (pointsMade == maxBlockPoints || pointsMade >= maxBlockPoints)
                 {
 
                     TaskSuccessful();
