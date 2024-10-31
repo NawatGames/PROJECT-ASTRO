@@ -15,7 +15,7 @@ public class PlayerDeviceManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerLayerMask, playerLayerMask);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         astroPlayerInput.SwitchCurrentControlScheme(AstroControlScheme, Keyboard.current);
         alienPlayerInput.SwitchCurrentControlScheme(AlienControlScheme, Keyboard.current);
