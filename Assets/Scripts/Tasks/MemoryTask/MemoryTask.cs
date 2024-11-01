@@ -47,16 +47,15 @@ namespace Tasks.MemoryTask
         protected override void RunTask()
         {
             base.RunTask();
-            _colors = easyModeColors;
-            // TODO: Choose difficulty
-            //if ()
-            //{
-            //    _colors = easyModeColors;
-            //}
-            //else
-            //{
-            //    _colors = hardModeColors;
-            //}
+            
+            if (isAstroSpecialist == isAstro)
+            {
+                _colors = easyModeColors;
+            }
+            else
+            {
+                _colors = hardModeColors;
+            }
             RoundSetup();
         }
 
