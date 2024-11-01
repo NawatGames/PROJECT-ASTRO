@@ -26,6 +26,7 @@ public class GeniusTask : TaskScript
     private bool _computerTurn;
     
     [SerializeField] private int levels;
+    [SerializeField] private int levelsSpecialist;
     private int playerTurn;
 
     private void Start()
@@ -48,11 +49,23 @@ public class GeniusTask : TaskScript
     private void NextLevel()
     {
         playerTurn = 0;
-        if (computerSequence.Count >= levels) base.TaskSuccessful();
+        if (isAstro == isAstroSpecialist) 
+        {
+            if (computerSequence.Count >= levelsSpecialist) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
+        }
         else
         {
-            computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
-            StartCoroutine(ShowComputerSequence());
+            if (computerSequence.Count >= levels) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
         }
     }
 
