@@ -6,8 +6,15 @@ using UnityEngine;
 public class TasksManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
+
+    [Space]
     [SerializeField] private int totalTimeForTaskToFail = 90;
     [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
+    [SerializeField] private int nextTaskMinDelay = 5;
+    [SerializeField] private int nextTaskMaxDelay = 10;
+    [SerializeField] private int startingTasks = 3;
+
+    [Space]
     [SerializeField] private GameEvent onTaskFailed;
     [SerializeField] private GameObject taskTimerPrefab;
     [SerializeField] private Transform taskGridLayoutTransform;
@@ -29,10 +36,14 @@ public class TasksManager : MonoBehaviour
 
     private void SetupStartingTasks()
     {
-        for (var i = 0; i < maxNumberOfActiveTasks; i++)
+        // Adiciona as primeiras tasks
+        for (var i = 0; i < startingTasks; i++)
         {
             AddTaskToQueue();
         }
+
+        // Adiciona as próximas tasks
+        StartCoroutine(WaitAndAddTaskToQueue(maxNumberOfActiveTasks - startingTasks));
     }
 
     private TaskController SelectNextTask()
@@ -50,12 +61,12 @@ public class TasksManager : MonoBehaviour
         
         _tasksNotYetSelected.Remove(task);
         _taskQueue.Add(task, StartCoroutine(StartTaskTimer(task)));
+
         if (_tasksNotYetSelected.Count == 0)
         {
             List<TaskController> resetList = new List<TaskController>(_tasksForThisLevel);
             foreach (TaskController t in _taskQueue.Keys)
             {
-                //Debug.Log("ja na fila:  " + t);
                 resetList.Remove(t);
             }
             _tasksNotYetSelected = resetList;
@@ -66,6 +77,20 @@ public class TasksManager : MonoBehaviour
     private void AddTaskToQueue()
     {
         var task = SelectNextTask();
+    }
+
+    private IEnumerator WaitAndAddTaskToQueue()
+    {
+        yield return new WaitForSeconds(Random.Range(nextTaskMinDelay, nextTaskMaxDelay));
+        AddTaskToQueue();
+    }
+
+    private IEnumerator WaitAndAddTaskToQueue(int tasks)
+    {
+        if (tasks == 0) yield break;
+        yield return new WaitForSeconds(Random.Range(nextTaskMinDelay, nextTaskMaxDelay));
+        AddTaskToQueue();
+        StartCoroutine(WaitAndAddTaskToQueue(tasks - 1));
     }
 
     public void TaskDoneSuccessfully(TaskController task)
@@ -89,7 +114,6 @@ public class TasksManager : MonoBehaviour
 
     private IEnumerator StartTaskTimer(TaskController task)
     {
-        yield return new WaitForSeconds(Random.Range(1, 4.5f)); // Tempo para habilitar nova task
         task.needsToBeDone = true;
         DefineSpecialist(task.taskScript);
         
@@ -116,7 +140,6 @@ public class TasksManager : MonoBehaviour
 
     private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        // Debug.Log($"{task.taskScript} is running out of time!");
         float timeLeft = shortTimeForTaskToBeCompleted;
         int minutes = shortTimeForTaskToBeCompleted / 60;
         int seconds = shortTimeForTaskToBeCompleted - 60 * minutes;
@@ -150,7 +173,7 @@ public class TasksManager : MonoBehaviour
         task.Mistakes = 0;
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
-        AddTaskToQueue();
+        StartCoroutine(WaitAndAddTaskToQueue());
     }
 
     private void DefineSpecialist(TaskScript taskScript)
@@ -159,15 +182,11 @@ public class TasksManager : MonoBehaviour
         specialistRng = Random.Range(1, 101);
         if(specialistRng >= astroProbability)
         {
-            //Debug.Log(specialistRng);
-            //Debug.Log("Astro is the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(true);
         }
 
         else
         {
-            //Debug.Log(specialistRng);
-            //Debug.Log("Astro is not the specialist of the " + taskScript.GetTaskName());
             taskScript.SetAstroSpecialist(false);
         }
     }
