@@ -8,10 +8,12 @@ using UnityEngine.InputSystem;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private GameObject pauseMenuGameObject;
     
     
     [SerializeField] private InputAction _pauseAction;
     private bool _isPaused;
+    
 
     private void Start()
     {
@@ -37,6 +39,16 @@ public class PauseController : MonoBehaviour
     private void Pause(InputAction.CallbackContext ctx)
     {
         _isPaused = !_isPaused;
-        Time.timeScale = _isPaused ? 0f : 1f;
+        Debug.Log("pause");
+        if (_isPaused)
+        {
+            pauseMenuGameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseMenuGameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 }
