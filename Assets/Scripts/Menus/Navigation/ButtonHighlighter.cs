@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Menus.Navigation
 {
+    /// <summary>
+    /// Highlights currently selected button
+    /// </summary>
     public class ButtonHighlighter : MonoBehaviour
     {
         [SerializeField] private Color selectedColor = new Color(255,0,0);

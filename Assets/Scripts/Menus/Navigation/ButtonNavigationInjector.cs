@@ -10,6 +10,9 @@ namespace Menus.Navigation
         public ButtonNavigation buttonNavigation;
         public NavigationDirections newNavigationDirections;
     }
+    /// <summary>
+    /// Updates a menu navigation path when the button is enabled or disabled
+    /// </summary>
     public class ButtonNavigationInjector : MonoBehaviour
     {
         [SerializeField] private List<InjectedNavigation> _injectedNavigations;
