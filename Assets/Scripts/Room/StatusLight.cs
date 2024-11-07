@@ -6,7 +6,6 @@ public class StatusLight : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Light2D lightComponent;
-
     [SerializeField] private Color baseColor;
     [SerializeField] private Color alienColor;
     [SerializeField] private Color astroColor;
