@@ -48,22 +48,22 @@ namespace Menus.Navigation
 
         private void MoveLeft(InputAction.CallbackContext ctx)
         {
-            SetButton(_currentButton.Left);
+            SetButton(_currentButton.directions.Left);
         }
 
         private void MoveRight(InputAction.CallbackContext ctx)
         {
-            SetButton(_currentButton.Right);
+            SetButton(_currentButton.directions.Right);
         }
 
         private void MoveUp(InputAction.CallbackContext ctx)
         {
-            SetButton(_currentButton.Up);
+            SetButton(_currentButton.directions.Up);
         }
 
         private void MoveDown(InputAction.CallbackContext ctx)
         {
-            SetButton(_currentButton.Down);
+            SetButton(_currentButton.directions.Down);
         }
 
         private void PressButton(InputAction.CallbackContext ctx)
