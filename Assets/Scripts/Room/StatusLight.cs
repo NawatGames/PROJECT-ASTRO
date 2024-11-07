@@ -21,11 +21,8 @@ public class StatusLight : MonoBehaviour
     private void SetColor(Color color, bool enableLight = true)
     {
         _spriteRenderer.color = color;
-        if (lightComponent != null)
-        {
-            lightComponent.color = color;
-            lightComponent.enabled = enableLight;
-        }
+        lightComponent.color = color;
+        lightComponent.enabled = enableLight;
     }
 
     public void TurnOnAlien()
