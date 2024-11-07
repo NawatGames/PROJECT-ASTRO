@@ -31,6 +31,7 @@ namespace Menus.Navigation
         {
             buttonNavigation.onSelect.RemoveListener(EnableHighlight);
             buttonNavigation.onDeselect.RemoveListener(DisableHighlight);
+            DisableHighlight();
         }
 
         private void EnableHighlight()
