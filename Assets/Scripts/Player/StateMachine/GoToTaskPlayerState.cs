@@ -6,7 +6,7 @@ public class GoToTaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
-    public GameObject pauseManager;
+    [SerializeField] private GameObject pauseManager;
     
     private Coroutine _goToTargetCoroutine;
     
