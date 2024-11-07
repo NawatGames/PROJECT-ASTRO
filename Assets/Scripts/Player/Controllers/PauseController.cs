@@ -36,10 +36,25 @@ public class PauseController : MonoBehaviour
         _pauseAction.performed -= Pause;
     }
 
-    private void Pause(InputAction.CallbackContext ctx)
+    public void Pause(InputAction.CallbackContext ctx)
     {
         _isPaused = !_isPaused;
-        Debug.Log("pause");
+        // Debug.Log("pause");
+        if (_isPaused)
+        {
+            pauseMenuGameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseMenuGameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+    public void PauseClick()
+    {
+        _isPaused = !_isPaused;
+        // Debug.Log("pause");
         if (_isPaused)
         {
             pauseMenuGameObject.SetActive(true);
