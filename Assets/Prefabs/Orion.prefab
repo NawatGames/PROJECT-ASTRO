@@ -56,17 +56,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orion
       objectReference: {fileID: 0}
+    - target: {fileID: 1158122258224959929, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 2f728c9ebe8c8a74bad2a3032bf49604, type: 2}
+    - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a157c748ec7f44545ac5eec6e79afae4, type: 3}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Color.g
-      value: 0.11891174
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
