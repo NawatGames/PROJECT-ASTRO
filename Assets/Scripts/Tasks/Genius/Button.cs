@@ -10,10 +10,10 @@ public class Button : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator Blink(Color newColor, Color oldColor)
+    public IEnumerator Blink(Color newColor, Color oldColor, float time)
     {
         _spriteRenderer.color = newColor;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(time);
         _spriteRenderer.color = oldColor;
     }
 }
