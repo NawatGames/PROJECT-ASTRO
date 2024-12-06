@@ -1,53 +1,53 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class StatusLight : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
-
+    [SerializeField] private Light2D lightComponent;
     [SerializeField] private Color baseColor;
     [SerializeField] private Color alienColor;
     [SerializeField] private Color astroColor;
     [SerializeField] private Color warningColor;
 
-    public Color GetColor()
-    {
-        return _spriteRenderer.color;
-    }
-        
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _spriteRenderer.color = baseColor;
+        SetColor(baseColor, false);
+    }
+
+    private void SetColor(Color color, bool enableLight = true)
+    {
+        _spriteRenderer.color = color;
+        lightComponent.color = color;
+        lightComponent.enabled = enableLight;
     }
 
     public void TurnOnAlien()
     {
-        _spriteRenderer.color = alienColor;
+        SetColor(alienColor);
     }
-
     public void TurnOnAstro()
     {
-        _spriteRenderer.color = astroColor;
+        SetColor(astroColor);
     }
-
     public void TurnOnWarning()
     {
-        _spriteRenderer.color = warningColor;
+        SetColor(warningColor);
     }
-
     public void TurnOff()
     {
-        _spriteRenderer.color = baseColor;
+        SetColor(baseColor, false);
     }
-    
+
     public IEnumerator Blink(Color color, int n_times, float interval)
     {
         for (int i = 0; i < n_times; i++)
         {
-            _spriteRenderer.color = color;
+            SetColor(color);
             yield return new WaitForSeconds(interval);
-            _spriteRenderer.color = baseColor;
+            SetColor(baseColor, false);
             yield return new WaitForSeconds(interval);
         }
     }
