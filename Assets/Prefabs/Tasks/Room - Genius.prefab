@@ -108,7 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 6768889588714193003}
   manager: {fileID: 0}
-  timerQuarantineDelay: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:
@@ -1725,6 +1724,10 @@ MonoBehaviour:
   signalLight: {fileID: 1340871626526778084}
   computerSequence: []
   levels: 2
+  levelsSpecialist: 0
+  playerTime: 1
+  computerTime: 2
+  waitSequenceTime: 3
 --- !u!4 &5933352195497504229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}

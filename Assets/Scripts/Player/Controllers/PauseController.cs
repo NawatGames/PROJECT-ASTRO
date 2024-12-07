@@ -13,13 +13,14 @@ public class PauseController : MonoBehaviour
     
     [SerializeField] private InputAction _pauseAction;
     private bool _isPaused;
-    
+    private bool _inputsFrozen;
 
     private void Start()
     {
         playerInputController = FindObjectOfType<PlayerInputController>();
         _pauseAction = playerInputController.pauseInputAction;
         _pauseAction.performed += Pause;
+        _inputsFrozen = false;
     }
     
     private void OnEnable()
@@ -39,6 +40,7 @@ public class PauseController : MonoBehaviour
     public void Pause(InputAction.CallbackContext ctx)
     {
         _isPaused = !_isPaused;
+        _inputsFrozen = !_inputsFrozen;
         // Debug.Log("pause");
         if (_isPaused)
         {
@@ -55,6 +57,7 @@ public class PauseController : MonoBehaviour
     {
         _isPaused = !_isPaused;
         // Debug.Log("pause");
+        _inputsFrozen = !_inputsFrozen;
         if (_isPaused)
         {
             pauseMenuGameObject.SetActive(true);
@@ -65,5 +68,10 @@ public class PauseController : MonoBehaviour
             pauseMenuGameObject.SetActive(false);
             Time.timeScale = 1f;
         }
+    }
+
+    public bool IsFrozen()
+    {
+        return _inputsFrozen;
     }
 }

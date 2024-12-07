@@ -6,23 +6,33 @@ public class GoToTaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private GameObject pauseManager;
     
     private Coroutine _goToTargetCoroutine;
     
     public override void EnterState()
     {
-        base.EnterState();
-        if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
+        pauseManager = GameObject.Find("GlobalPause");
+        if(!pauseManager.GetComponent<PauseController>().IsFrozen())
         {
-            SwitchState(playerStateMachine.taskState);
+            base.EnterState();
+            if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
+            {
+                SwitchState(playerStateMachine.taskState);
+            }
+            else
+            {
+                _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
+                    playerCollisionController.NearTaskController.playerPositioning.position,
+                    ()=> {
+                        SwitchState(playerStateMachine.taskState);
+                    }));
+            }
         }
         else
         {
-            _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
-                playerCollisionController.NearTaskController.playerPositioning.position,
-                ()=> {
-                    SwitchState(playerStateMachine.taskState);
-                }));
+            //Debug.Log("Impossível iniciar task durante pause");
+            SwitchState(playerStateMachine.freeMoveState);
         }
     }
 
