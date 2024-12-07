@@ -22,7 +22,8 @@ public class GasLeak : TaskScript
     
     [Header("Task Config")]
     [SerializeField] private float taskTime = 15f;
-    [SerializeField] private int maxTurnCount = 10;
+    [SerializeField] private int maxTurnCountNormal = 10;
+    [SerializeField] private int maxTurnCountBuff = 5;
     [SerializeField] private int mistakePenalty = 5;
     [SerializeField] private Rotation rotationDirection = Rotation.Clockwise;
     
@@ -30,6 +31,7 @@ public class GasLeak : TaskScript
     [SerializeField] private Transform valveSprite;
     
     private int _taskProgress = 0;
+    private int maxTurnCount;
     private int _currentKeyIndex = 0;
     private float _timeLeft;
     private KeyDirection _lastKey;
@@ -56,6 +58,10 @@ public class GasLeak : TaskScript
         _currentKeyIndex = 0;
         _timeLeft = taskTime;
         _resetSequence = true;
+
+        if (isAstro == isAstroSpecialist) maxTurnCount = maxTurnCountBuff;
+        else   maxTurnCount = maxTurnCountNormal;
+
         StartCoroutine(DecayTimeBar());
     }
     

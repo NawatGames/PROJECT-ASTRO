@@ -19,14 +19,20 @@ public class GeniusTask : TaskScript
     public GameObject rightButton;
 
     public GameObject signalLight;
-    
+
     private readonly List<GameObject> _buttons = new List<GameObject>();
     public List<GameObject> computerSequence = new List<GameObject>();
 
     private bool _computerTurn;
-    
+
     [SerializeField] private int levels;
+    [SerializeField] private int levelsSpecialist;
     private int playerTurn;
+
+    // Adicionando as variveis de tempo
+    [SerializeField] private float playerTime;
+    [SerializeField] private float computerTime;
+    [SerializeField] private float waitSequenceTime;
 
     private void Start()
     {
@@ -48,11 +54,23 @@ public class GeniusTask : TaskScript
     private void NextLevel()
     {
         playerTurn = 0;
-        if (computerSequence.Count >= levels) base.TaskSuccessful();
+        if (isAstro == isAstroSpecialist)
+        {
+            if (computerSequence.Count >= levelsSpecialist) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
+        }
         else
         {
-            computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
-            StartCoroutine(ShowComputerSequence());
+            if (computerSequence.Count >= levels) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
         }
     }
 
@@ -61,7 +79,7 @@ public class GeniusTask : TaskScript
         if (_computerTurn) return;
         if (computerSequence[playerTurn] == upButton)
         {
-            StartCoroutine(upButton.GetComponent<Button>().Blink(playerColor, baseColor));
+            StartCoroutine(upButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -76,7 +94,7 @@ public class GeniusTask : TaskScript
         if (_computerTurn) return;
         if (computerSequence[playerTurn] == downButton)
         {
-            StartCoroutine(downButton.GetComponent<Button>().Blink(playerColor, baseColor));
+            StartCoroutine(downButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -91,7 +109,7 @@ public class GeniusTask : TaskScript
         if (_computerTurn) return;
         if (computerSequence[playerTurn] == leftButton)
         {
-            StartCoroutine(leftButton.GetComponent<Button>().Blink(playerColor, baseColor));
+            StartCoroutine(leftButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -106,7 +124,7 @@ public class GeniusTask : TaskScript
         if (_computerTurn) return;
         if (computerSequence[playerTurn] == rightButton)
         {
-            StartCoroutine(rightButton.GetComponent<Button>().Blink(playerColor, baseColor));
+            StartCoroutine(rightButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -121,7 +139,7 @@ public class GeniusTask : TaskScript
         base.TaskMistakeLeave();
         foreach (var button in _buttons)
         {
-            StartCoroutine(button.GetComponent<Button>().Blink(errorColor, baseColor));
+            StartCoroutine(button.GetComponent<Button>().Blink(errorColor, baseColor, computerTime));
         }
     }
 
@@ -129,13 +147,13 @@ public class GeniusTask : TaskScript
     {
         _computerTurn = true;
         signalLight.GetComponent<SpriteRenderer>().color = Color.red;
-        
-        yield return new WaitForSeconds(2);
-        
+
+        yield return new WaitForSeconds(waitSequenceTime);
+
         foreach (var button in computerSequence)
         {
-            StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor));
-            yield return new WaitForSeconds(1);
+            StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor, computerTime));
+            yield return new WaitForSeconds(waitSequenceTime);
         }
 
         _computerTurn = false;
