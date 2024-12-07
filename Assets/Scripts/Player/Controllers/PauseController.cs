@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private GameObject pauseMenuGameObject;
     
     
     [SerializeField] private InputAction _pauseAction;
@@ -36,11 +37,37 @@ public class PauseController : MonoBehaviour
         _pauseAction.performed -= Pause;
     }
 
-    private void Pause(InputAction.CallbackContext ctx)
+    public void Pause(InputAction.CallbackContext ctx)
     {
         _isPaused = !_isPaused;
         _inputsFrozen = !_inputsFrozen;
-        Time.timeScale = _isPaused ? 0f : 1f;
+        // Debug.Log("pause");
+        if (_isPaused)
+        {
+            pauseMenuGameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseMenuGameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+    public void PauseClick()
+    {
+        _isPaused = !_isPaused;
+        // Debug.Log("pause");
+        _inputsFrozen = !_inputsFrozen;
+        if (_isPaused)
+        {
+            pauseMenuGameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseMenuGameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
     public bool IsFrozen()
