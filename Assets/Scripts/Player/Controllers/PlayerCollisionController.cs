@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCollisionController : MonoBehaviour
 {
     public bool IsOnTaskArea { get; private set; }
-    public bool IsOnLobbyArea { get; private set; }
+    public bool IsOnEmptyLobbyArea { get; private set; }
     public bool IsOnButtonArea { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
@@ -20,7 +20,7 @@ public class PlayerCollisionController : MonoBehaviour
         {
             if (isLobby)
             {
-                IsOnLobbyArea = true;
+                IsOnEmptyLobbyArea = false;
                 return;
             }
             // Botão acima do player
@@ -47,7 +47,7 @@ public class PlayerCollisionController : MonoBehaviour
             // Botão acima do player
             if(isLobby)
             {
-                IsOnLobbyArea = false;
+                IsOnEmptyLobbyArea = true;
                 return;
             }
             if (isTask)

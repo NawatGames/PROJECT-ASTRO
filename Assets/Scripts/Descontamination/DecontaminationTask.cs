@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 public class DecontaminationTask : MonoBehaviour
 {
     [SerializeField] private float firstDecontaminationDelay = 160f;
-
     [SerializeField] private float minIntervalUntilDecontamination = 100f;
     [SerializeField] private float maxIntervalUntilDecontamination = 150f;
     [SerializeField] private float decontaminationWindow = 30f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Collider2D lobbyCollider;
     [SerializeField] private GameEvent completedDecontaminationEvent;
+    public GameOverManager gameOverManager;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
     private bool onePlayerPressed = false;
@@ -129,5 +129,6 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = false;
         countdownText.gameObject.SetActive(false);
         Debug.Log("Game Over! A tarefa de descontaminação falhou.");
+        gameOverManager.StartGameOver();
     }
 }

@@ -28,7 +28,7 @@ public class FreeMovePlayerState : PlayerState
             //Debug.Log("(walk)Started task");
             SwitchState(playerStateMachine.goToTaskState);
         }
-        else if (playerCollisionController.IsOnLobbyArea)
+        else if (playerCollisionController.IsOnEmptyLobbyArea)
         {
             SwitchState(playerStateMachine.decontaminateState);
         }
