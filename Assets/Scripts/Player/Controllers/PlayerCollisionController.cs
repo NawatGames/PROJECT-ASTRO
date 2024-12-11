@@ -21,7 +21,6 @@ public class PlayerCollisionController : MonoBehaviour
             if (isInteractionDecontamination)
             {
                 IsOnEmptyLobbyArea = true;
-                Debug.Log("Entrou");
                 return;
             }
             // Botão acima do player
@@ -49,7 +48,6 @@ public class PlayerCollisionController : MonoBehaviour
             if(isInteractionDecontamination)
             {
                 IsOnEmptyLobbyArea = false;
-                Debug.Log("Saiu");
                 return;
             }
             if (isTask)
