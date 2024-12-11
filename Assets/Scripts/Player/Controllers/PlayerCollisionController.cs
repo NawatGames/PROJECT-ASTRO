@@ -14,13 +14,14 @@ public class PlayerCollisionController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
+        bool isInteractionDecontamination = other.CompareTag("InteractionDecontamination");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton || isInteractionDecontamination)
         {
-            if (isLobby)
+            if (isInteractionDecontamination)
             {
-                IsOnEmptyLobbyArea = false;
+                IsOnEmptyLobbyArea = true;
+                Debug.Log("Entrou");
                 return;
             }
             // Botão acima do player
@@ -40,14 +41,15 @@ public class PlayerCollisionController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
+        bool isInteractionDecontamination = other.CompareTag("InteractionDecontamination");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton || isInteractionDecontamination)
         {
             // Botão acima do player
-            if(isLobby)
+            if(isInteractionDecontamination)
             {
-                IsOnEmptyLobbyArea = true;
+                IsOnEmptyLobbyArea = false;
+                Debug.Log("Saiu");
                 return;
             }
             if (isTask)
