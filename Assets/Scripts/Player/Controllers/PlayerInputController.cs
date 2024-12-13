@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
-    [SerializeField] private PlayerInput input;
+    [SerializeField] public PlayerInput input;
     [HideInInspector] public PlayerInputAsset inputAsset; //TODO: Manter apenas este ou os dois debaixo
     [HideInInspector] public InputAction movementInputAction;
     [HideInInspector] public InputAction interactionInputAction;

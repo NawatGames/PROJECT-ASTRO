@@ -398,6 +398,34 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""6b092f9f-3d01-4419-8e3a-e2e197328ea4"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc22f3f4-1a6e-4950-ae75-9341019c9288"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""245d04e1-1fa2-4456-8377-a0073d71bbb7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""LeftKeyboard;RightKeyboard;Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -447,6 +475,9 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         m_Task_Down = m_Task.FindAction("Down", throwIfNotFound: true);
         m_Task_Left = m_Task.FindAction("Left", throwIfNotFound: true);
         m_Task_Right = m_Task.FindAction("Right", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -636,6 +667,52 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         }
     }
     public TaskActions @Task => new TaskActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
+    private readonly InputAction m_Menu_Pause;
+    public struct MenuActions
+    {
+        private @PlayerInputAsset m_Wrapper;
+        public MenuActions(@PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Menu_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void AddCallbacks(IMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenuActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IMenuActions instance)
+        {
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_LeftKeyboardSchemeIndex = -1;
     public InputControlScheme LeftKeyboardScheme
     {
@@ -675,5 +752,9 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -376,6 +376,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menu",
+            "id": "6b092f9f-3d01-4419-8e3a-e2e197328ea4",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "dc22f3f4-1a6e-4950-ae75-9341019c9288",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "245d04e1-1fa2-4456-8377-a0073d71bbb7",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "LeftKeyboard;RightKeyboard;Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
