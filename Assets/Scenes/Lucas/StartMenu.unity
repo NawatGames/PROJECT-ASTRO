@@ -674,7 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 255, g: 0, b: 0, a: 1}
   buttonImage: {fileID: 1302837839}
-  buttonNavigation: {fileID: 0}
+  buttonNavigation: {fileID: 264308103}
 --- !u!114 &264308103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,7 +5026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 255, g: 0, b: 0, a: 1}
   buttonImage: {fileID: 1442597206}
-  buttonNavigation: {fileID: 0}
+  buttonNavigation: {fileID: 1509552035}
 --- !u!114 &1509552035
 MonoBehaviour:
   m_ObjectHideFlags: 0
