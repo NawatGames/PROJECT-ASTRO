@@ -19,6 +19,7 @@ namespace Menus.Navigation
         private List<InjectedNavigation> _initialNavigation;
         private void Awake()
         {
+            _initialNavigation = new();
             foreach (InjectedNavigation nav in _injectedNavigations)
             {
                 InjectedNavigation initialNav = new();
