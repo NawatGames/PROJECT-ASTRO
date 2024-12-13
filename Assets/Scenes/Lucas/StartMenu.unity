@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationManager: {fileID: 1655382751}
-  buttonNavigation: {fileID: 0}
+  buttonNavigation: {fileID: 264308103}
 --- !u!114 &264308102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
     Left: {fileID: 0}
     Right: {fileID: 0}
     Up: {fileID: 0}
-    Down: {fileID: 0}
+    Down: {fileID: 1509552035}
   onSelect:
     m_PersistentCalls:
       m_Calls: []
