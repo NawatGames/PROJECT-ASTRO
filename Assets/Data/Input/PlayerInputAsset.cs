@@ -306,6 +306,24 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""884cbeb3-8bfd-466e-b461-4e15e05ae372"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""0dcdb23e-54fd-4ac8-b16b-ec64fd7020ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -396,6 +414,50 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34df4232-2033-4759-b19f-0fa6d41074ba"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""LeftKeyboard;RightKeyboard;Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""086f6ffa-a6ef-4150-84e7-383ade8a7132"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""LeftKeyboard"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa970b67-58d9-4c89-a612-ee27bddaf63d"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""RightKeyboard"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""459e013b-c7e6-463c-91fd-16f7d5dcf59b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -475,6 +537,8 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         m_Task_Down = m_Task.FindAction("Down", throwIfNotFound: true);
         m_Task_Left = m_Task.FindAction("Left", throwIfNotFound: true);
         m_Task_Right = m_Task.FindAction("Right", throwIfNotFound: true);
+        m_Task_Interaction = m_Task.FindAction("Interaction", throwIfNotFound: true);
+        m_Task_Pause = m_Task.FindAction("Pause", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -605,6 +669,8 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_Task_Down;
     private readonly InputAction m_Task_Left;
     private readonly InputAction m_Task_Right;
+    private readonly InputAction m_Task_Interaction;
+    private readonly InputAction m_Task_Pause;
     public struct TaskActions
     {
         private @PlayerInputAsset m_Wrapper;
@@ -613,6 +679,8 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         public InputAction @Down => m_Wrapper.m_Task_Down;
         public InputAction @Left => m_Wrapper.m_Task_Left;
         public InputAction @Right => m_Wrapper.m_Task_Right;
+        public InputAction @Interaction => m_Wrapper.m_Task_Interaction;
+        public InputAction @Pause => m_Wrapper.m_Task_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Task; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -634,6 +702,12 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
             @Right.started += instance.OnRight;
             @Right.performed += instance.OnRight;
             @Right.canceled += instance.OnRight;
+            @Interaction.started += instance.OnInteraction;
+            @Interaction.performed += instance.OnInteraction;
+            @Interaction.canceled += instance.OnInteraction;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(ITaskActions instance)
@@ -650,6 +724,12 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
             @Right.started -= instance.OnRight;
             @Right.performed -= instance.OnRight;
             @Right.canceled -= instance.OnRight;
+            @Interaction.started -= instance.OnInteraction;
+            @Interaction.performed -= instance.OnInteraction;
+            @Interaction.canceled -= instance.OnInteraction;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(ITaskActions instance)
@@ -752,6 +832,8 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

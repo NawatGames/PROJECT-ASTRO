@@ -22,13 +22,15 @@ namespace Player.StateMachine
         {
             stateEnterEvent.Invoke();
             playerInputController.interactionInputAction.performed += OnInteractHandler;
-            
+            playerInputController.inputAsset.Task.Interaction.performed +=  OnInteractHandler;
+
         }
 
         public virtual void LeaveState()
         {
             stateLeaveEvent.Invoke();
             playerInputController.interactionInputAction.performed -= OnInteractHandler;
+            playerInputController.inputAsset.Task.Interaction.performed -=  OnInteractHandler;
         }
 
         protected void SwitchState(PlayerState newState)

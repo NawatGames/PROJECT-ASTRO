@@ -19,15 +19,16 @@ public class PauseController : MonoBehaviour
 
     private void Start()
     {
-        _pauseAction = playerInputController.pauseInputAction;
         _inputsFrozen = false;
     }
     
     private void OnEnable()
     {
+        _pauseAction = playerInputController.pauseInputAction;
         if (_pauseAction != null)
         {
             _pauseAction.performed += Pause;
+            playerInputController.inputAsset.Task.Pause.performed += Pause;
             playerInputController.inputAsset.Menu.Pause.performed += Pause;
         }
         
@@ -36,6 +37,7 @@ public class PauseController : MonoBehaviour
     private void OnDisable()
     {
         _pauseAction.performed -= Pause;
+        playerInputController.inputAsset.Task.Pause.performed -= Pause;
         playerInputController.inputAsset.Menu.Pause.performed -= Pause;
     }
 
