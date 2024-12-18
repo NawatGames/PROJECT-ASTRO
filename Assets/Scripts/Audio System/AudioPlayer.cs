@@ -15,7 +15,7 @@ namespace Audio_System
         [SerializeField] private bool playOnStart = false;
 
         private AudioSource _source;
-        private List<PlayerController> _players;
+        private List<GameObject> _players;
         
         private void Awake()
         {
@@ -25,7 +25,7 @@ namespace Audio_System
 
         private void Start()
         {
-            _players = FindObjectsOfType<PlayerController>().ToList();
+            _players = GameObject.FindGameObjectsWithTag("Player").ToList();
             if(playOnStart) PlayLoop();
         }
 

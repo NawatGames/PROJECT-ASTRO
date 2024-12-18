@@ -164,7 +164,7 @@ public class FishingTask : TaskScript
         while (true)
         {
             MoveFishAndBar();
-            if (inputAsset.Task.Up.IsPressed())
+            if (inputController.inputAsset.Task.Up.IsPressed())
             {
                 _currentBarVelocity = Mathf.Clamp(_currentBarVelocity + controlledBarAcceleration * Time.deltaTime, -maxControlledBarVelocity, maxControlledBarVelocity);
             }
