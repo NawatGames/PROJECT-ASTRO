@@ -547,6 +547,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &357058784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5423135236298670460, guid: d85128964b626e34f949b015dd43a152, type: 3}
+  m_PrefabInstance: {fileID: 949942674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &363476874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 204391675937829733, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
@@ -708,6 +713,19 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4059269339949079152, guid: d85128964b626e34f949b015dd43a152, type: 3}
   m_PrefabInstance: {fileID: 949942674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &499920754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357058784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _occupied: 0
 --- !u!114 &641908514 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
@@ -1592,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5423135236298670460, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: m_TagString
-      value: InteractionDecontamination
+      value: InteractionRight
       objectReference: {fileID: 0}
     - target: {fileID: 6173167695212914303, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: m_Size.x
@@ -1672,6 +1690,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8829836319662570609, guid: d85128964b626e34f949b015dd43a152, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1091326715}
+    - targetCorrespondingSourceObject: {fileID: 5423135236298670460, guid: d85128964b626e34f949b015dd43a152, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 499920754}
   m_SourcePrefab: {fileID: 100100000, guid: d85128964b626e34f949b015dd43a152, type: 3}
 --- !u!114 &950357266 stripped
 MonoBehaviour:
@@ -2018,9 +2039,10 @@ GameObject:
   - component: {fileID: 1129869580}
   - component: {fileID: 1129869582}
   - component: {fileID: 1129869581}
+  - component: {fileID: 1129869583}
   m_Layer: 0
   m_Name: Interaction 2
-  m_TagString: InteractionDecontamination
+  m_TagString: InteractionRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2137,6 +2159,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1129869583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129869579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _occupied: 0
 --- !u!1 &1159285466
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ TagManager:
   - Undefined
   - Lobby
   - InteractionDecontamination
+  - InteractionLeft
+  - InteractionRight
   layers:
   - Default
   - TransparentFX
