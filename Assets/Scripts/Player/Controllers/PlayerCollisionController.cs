@@ -10,57 +10,6 @@ public class PlayerCollisionController : MonoBehaviour
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
     
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     bool isTask = other.CompareTag("Task");
-    //     bool isQuarantineButton = other.CompareTag("QuarantineButton");
-    //     bool isInteractionDecontamination = other.CompareTag("InteractionDecontamination");
-
-    //     if (isTask || isQuarantineButton || isInteractionDecontamination)
-    //     {
-    //         if (isInteractionDecontamination)
-    //         {
-    //             IsOnEmptyLobbyArea = true;
-    //             return;
-    //         }
-    //         if (isTask)
-    //         {
-    //             IsOnTaskArea = true;
-    //             NearTaskController = other.GetComponentInChildren<TaskController>();
-    //             return;
-    //         }
-    //         NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
-    //         IsOnButtonArea = true;
-
-    //     }
-    // }
-
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     bool isTask = other.CompareTag("Task");
-    //     bool isQuarantineButton = other.CompareTag("QuarantineButton");
-    //     bool isInteractionDecontamination = other.CompareTag("InteractionDecontamination");
-
-    //     if (isTask || isQuarantineButton || isInteractionDecontamination)
-    //     {
-    //         if(isInteractionDecontamination)
-    //         {
-    //             IsOnEmptyLobbyArea = false;
-    //             return;
-    //         }
-    //         if (isTask)
-    //         {
-    //             IsOnTaskArea = false;
-    //             NearTaskController = null;
-    //             return;
-    //         }
-    //         NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
-    //         IsOnButtonArea = false;
-    //     }
-    // }
-
-    // pra reverter: apagar o de baixo e descomentar o de cima
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         bool isTask = other.CompareTag("Task");
