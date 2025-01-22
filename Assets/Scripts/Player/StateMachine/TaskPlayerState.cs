@@ -6,9 +6,10 @@ using System.Collections;
 public class TaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
+    [SerializeField] private PlayerMovementController movementController;
     [SerializeField] private float cooldownTime = 2f; 
     private bool isOnCooldown = false;
-
+    
     public override void EnterState()
     {
         base.EnterState();
@@ -18,7 +19,8 @@ public class TaskPlayerState : PlayerState
             SwitchState(playerStateMachine.freeMoveState);
             return;
         }
-        
+
+        movementController.OnStop();
         playerCollisionController.NearTaskController.wasStarted = true;
         playerCollisionController.NearTaskController.taskScript.SetupAndRun(playerInputController, playerStateMachine.isAstro);
     }
