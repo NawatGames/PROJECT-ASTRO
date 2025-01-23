@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCollisionController : MonoBehaviour
 {
     public bool IsOnTaskArea { get; private set; }
-    public bool IsOnLobbyArea { get; private set; }
+    public bool IsOnEmptyLobbyArea { get; private set; }
     public bool IsOnButtonArea { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
@@ -14,16 +14,27 @@ public class PlayerCollisionController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
+        bool isRight = other.CompareTag("InteractionRight");
+        bool isLeft = other.CompareTag("InteractionLeft");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton || isRight || isLeft)
         {
-            if (isLobby)
+            if (isRight || isLeft)
             {
-                IsOnLobbyArea = true;
-                return;
+                InteractionManager interactionManager = other.GetComponent<InteractionManager>();
+                if(!interactionManager.IsOccupied())
+                {
+                    IsOnEmptyLobbyArea = true;
+                    interactionManager.SetOccupied(true);
+                    return;
+                }
+
+                else
+                {
+                    Debug.Log("Área de interação ocupada!");
+                    return;
+                }
             }
-            // Botão acima do player
             if (isTask)
             {
                 IsOnTaskArea = true;
@@ -32,7 +43,7 @@ public class PlayerCollisionController : MonoBehaviour
             }
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
             IsOnButtonArea = true;
-
+    
         }
     }
 
@@ -40,15 +51,20 @@ public class PlayerCollisionController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isLobby = other.CompareTag("Lobby");
+        bool isRight = other.CompareTag("InteractionRight");
+        bool isLeft = other.CompareTag("InteractionLeft");
 
-        if (isTask || isQuarantineButton || isLobby)
+        if (isTask || isQuarantineButton || isRight || isLeft)
         {
-            // Botão acima do player
-            if(isLobby)
+            if(isRight || isLeft)
             {
-                IsOnLobbyArea = false;
-                return;
+                InteractionManager interactionManager = other.GetComponent<InteractionManager>();
+                if(interactionManager.IsOccupied())
+                {
+                    interactionManager.SetOccupied(false);
+                    IsOnEmptyLobbyArea = false;
+                    return;
+                }
             }
             if (isTask)
             {
