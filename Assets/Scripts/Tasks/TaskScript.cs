@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class TaskScript : MonoBehaviour
 {
-    protected PlayerInputAsset inputAsset;
+    protected PlayerInputController inputController;
     protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
     protected bool isAstroSpecialist;
     private bool isTaskInProgress = false;
@@ -18,15 +18,15 @@ public class TaskScript : MonoBehaviour
         _taskController = GetComponentInParent<TaskController>();
     }
 
-    public void SetupAndRun(PlayerInputAsset pInputAsset, bool pIsAstro)
+    public void SetupAndRun(PlayerInputController pInputController, bool pIsAstro)
     {
-        inputAsset = pInputAsset;
+        inputController = pInputController;
         isAstro = pIsAstro;
-        inputAsset.Task.Enable();
-        inputAsset.Task.Up.performed += OnUpPerformed;
-        inputAsset.Task.Down.performed += OnDownPerformed;
-        inputAsset.Task.Left.performed += OnLeftPerformed;
-        inputAsset.Task.Right.performed += OnRightPerformed;
+        inputController.input.SwitchCurrentActionMap("Task");
+        inputController.inputAsset.Task.Up.performed += OnUpPerformed;
+        inputController.inputAsset.Task.Down.performed += OnDownPerformed;
+        inputController.inputAsset.Task.Left.performed += OnLeftPerformed;
+        inputController.inputAsset.Task.Right.performed += OnRightPerformed;
         RunTask();
     }
 
@@ -54,11 +54,11 @@ public class TaskScript : MonoBehaviour
     public virtual void EndTask()
     {
         StopAllCoroutines();
-        inputAsset.Task.Disable();
-        inputAsset.Task.Up.performed -= OnUpPerformed;
-        inputAsset.Task.Down.performed -= OnDownPerformed;
-        inputAsset.Task.Left.performed -= OnLeftPerformed;
-        inputAsset.Task.Right.performed -= OnRightPerformed;
+        inputController.input.SwitchCurrentActionMap("Default");
+        inputController.inputAsset.Task.Up.performed -= OnUpPerformed;
+        inputController.inputAsset.Task.Down.performed -= OnDownPerformed;
+        inputController.inputAsset.Task.Left.performed -= OnLeftPerformed;
+        inputController.inputAsset.Task.Right.performed -= OnRightPerformed;
         isTaskInProgress = false;
     }
 

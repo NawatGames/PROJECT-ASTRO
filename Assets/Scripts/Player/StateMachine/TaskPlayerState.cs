@@ -20,7 +20,7 @@ public class TaskPlayerState : PlayerState
         }
         
         playerCollisionController.NearTaskController.wasStarted = true;
-        playerCollisionController.NearTaskController.taskScript.SetupAndRun(playerInputController.inputAsset, playerStateMachine.isAstro);
+        playerCollisionController.NearTaskController.taskScript.SetupAndRun(playerInputController, playerStateMachine.isAstro);
     }
 
     public override void StateUpdate()

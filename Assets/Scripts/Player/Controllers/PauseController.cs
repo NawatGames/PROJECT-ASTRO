@@ -15,18 +15,21 @@ public class PauseController : MonoBehaviour
     private bool _isPaused;
     private bool _inputsFrozen;
 
+    private InputActionMap _currentActionMap;
+
     private void Start()
     {
-        _pauseAction = playerInputController.pauseInputAction;
-        _pauseAction.performed += Pause;
         _inputsFrozen = false;
     }
     
     private void OnEnable()
     {
+        _pauseAction = playerInputController.pauseInputAction;
         if (_pauseAction != null)
         {
             _pauseAction.performed += Pause;
+            playerInputController.inputAsset.Task.Pause.performed += Pause;
+            playerInputController.inputAsset.Menu.Pause.performed += Pause;
         }
         
     }
@@ -34,6 +37,8 @@ public class PauseController : MonoBehaviour
     private void OnDisable()
     {
         _pauseAction.performed -= Pause;
+        playerInputController.inputAsset.Task.Pause.performed -= Pause;
+        playerInputController.inputAsset.Menu.Pause.performed -= Pause;
     }
 
     public void Pause(InputAction.CallbackContext ctx)
@@ -43,11 +48,20 @@ public class PauseController : MonoBehaviour
         // Debug.Log("pause");
         if (_isPaused)
         {
+            _currentActionMap = playerInputController.input.currentActionMap;
+            Debug.Log(_currentActionMap);
+            playerInputController.inputAsset.Task.Disable();
+            playerInputController.inputAsset.Default.Disable();
+            playerInputController.inputAsset.Menu.Enable();
             pauseMenuGameObject.SetActive(true);
             Time.timeScale = 0f;
+            
         }
         else
         {
+            playerInputController.inputAsset.Menu.Disable();
+            playerInputController.input.currentActionMap = _currentActionMap;
+            playerInputController.input.ActivateInput();
             pauseMenuGameObject.SetActive(false);
             Time.timeScale = 1f;
         }
