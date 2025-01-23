@@ -6,8 +6,11 @@ public class InteractionManager : MonoBehaviour
 {
 
     [SerializeField] private bool _occupied;
+    private Transform _decontaminationTransform;
+    
     void Start()
     {
+        _decontaminationTransform = GetComponentInChildren<Transform>();
         _occupied = false;
     }
 
@@ -19,5 +22,10 @@ public class InteractionManager : MonoBehaviour
     public void SetOccupied(bool occupied)
     {
         _occupied = occupied;
+    }
+
+    public Vector2 GetDecontaminationPosition()
+    {
+        return _decontaminationTransform.position;
     }
 }

@@ -430,6 +430,7 @@ MonoBehaviour:
   stateLeaveEvent:
     m_PersistentCalls:
       m_Calls: []
+  playerCollisionController: {fileID: 6980675924244276331}
 --- !u!114 &223320627011355376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +673,7 @@ MonoBehaviour:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
   playerMovementController: {fileID: 4867556920664918401}
+  pauseManager: {fileID: 0}
 --- !u!1 &6247656207967995968
 GameObject:
   m_ObjectHideFlags: 0
