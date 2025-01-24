@@ -28,10 +28,13 @@ public class FreeMovePlayerState : PlayerState
             //Debug.Log("(walk)Started task");
             SwitchState(playerStateMachine.goToTaskState);
         }
-        else if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
+        else if (playerCollisionController.NearDecontaminationInteraction != null)
         {
-            playerCollisionController.NearDecontaminationInteraction.SetOccupied(true);
-            SwitchState(playerStateMachine.decontaminateState);
+            if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
+            {
+                playerCollisionController.NearDecontaminationInteraction.SetOccupied(true);
+                SwitchState(playerStateMachine.goToDecontaminationPlayerState);
+            }
         }
         else if (playerCollisionController.IsOnButtonArea)
         {

@@ -10,8 +10,14 @@ public class InteractionManager : MonoBehaviour
     
     void Start()
     {
-        _decontaminationTransform = GetComponentInChildren<Transform>();
+        _decontaminationTransform = transform.GetChild(0);
         _occupied = false;
+        
+        // Apenas para debug:
+        if (!GetComponent<BoxCollider2D>().bounds.Contains(_decontaminationTransform.position))
+        {
+            Debug.LogWarning($"O Player Positioning deve estar dentro do collider do {name}! (Se estiver perto o suficiente, ignorar)");
+        }
     }
 
     public bool IsOccupied()

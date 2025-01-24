@@ -47,7 +47,7 @@ public class PlayerCollisionController : MonoBehaviour
         {
             if(isDecontamination)
             {
-                NearDecontaminationInteraction = null; 
+                NearDecontaminationInteraction = null;
             }
             else if (isTask)
             {
