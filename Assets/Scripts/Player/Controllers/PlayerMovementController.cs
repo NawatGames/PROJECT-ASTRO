@@ -46,14 +46,7 @@ using UnityEngine.InputSystem;
         private void OnMovement(InputAction.CallbackContext obj)
         {
             _inputDirection = obj.ReadValue<Vector2>();
-            playerAnimationController.SetMovimentAnimation(_inputDirection);
-        }
-
-        public void OnStop()
-        {
-            rb.velocity = Vector2.zero;
-            _currentVelocity = Vector2.zero;
-            playerAnimationController.SetIdleAnimation(_inputDirection);
+            playerAnimationController.SetMovementAnimParameters(_inputDirection);
         }
 
         private void SetVelocity(Vector2 direction)

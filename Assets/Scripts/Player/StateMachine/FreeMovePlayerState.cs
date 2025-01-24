@@ -1,12 +1,13 @@
 using Player.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class FreeMovePlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
-    [SerializeField] private TaskPlayerState taskplayerstate;
+    [SerializeField] private TaskPlayerState taskPlayerState;
 
     public override void EnterState()
     {
@@ -24,7 +25,7 @@ public class FreeMovePlayerState : PlayerState
     
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        if(!taskplayerstate.IsOnCooldown)
+        if(!taskPlayerState.IsOnCooldown)
         {
             if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
             {

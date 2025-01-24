@@ -6,21 +6,14 @@ using System.Collections;
 public class TaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
-    [SerializeField] private PlayerMovementController movementController;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
     [SerializeField] private float cooldownTime = 2f; 
     public bool IsOnCooldown {get; private set;}= false;
     
     public override void EnterState()
     {
         base.EnterState();
-        if (IsOnCooldown)
-        {
-            Debug.Log("Player esta no cooldown.");
-            SwitchState(playerStateMachine.freeMoveState);
-            return;
-        }
-
-        movementController.OnStop();
+        playerAnimationController.SetMovementAnimParameters(Vector2.zero);
         playerCollisionController.NearTaskController.wasStarted = true;
         playerCollisionController.NearTaskController.taskScript.SetupAndRun(playerInputController, playerStateMachine.isAstro);
     }
