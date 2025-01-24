@@ -26,13 +26,13 @@ public class FreeMovePlayerState : PlayerState
     {
         if(!taskplayerstate.IsOnCooldown)
         {
-        if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
-        {
-            //Debug.Log("(walk)Started task");
-            SwitchState(playerStateMachine.goToTaskState);
+            if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
+            {
+                //Debug.Log("(walk)Started task");
+                SwitchState(playerStateMachine.goToTaskState);
+            }
         }
-        }
-        else if (playerCollisionController.IsOnLobbyArea)
+        else if (playerCollisionController.IsOnEmptyLobbyArea)
         {
             SwitchState(playerStateMachine.decontaminateState);
         }
