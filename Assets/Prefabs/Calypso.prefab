@@ -52,7 +52,8 @@ MonoBehaviour:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
   playerMovementController: {fileID: 4867556920664918401}
-  pauseManager: {fileID: 0}
+  playerAnimationController: {fileID: 4266758921371716804}
+  pauseController: {fileID: 0}
 --- !u!1 &205392759199000823
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +486,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
+  playerAnimationController: {fileID: 4266758921371716804}
 --- !u!114 &223320627011355376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +730,8 @@ MonoBehaviour:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
   playerMovementController: {fileID: 4867556920664918401}
-  pauseManager: {fileID: 0}
+  playerAnimationController: {fileID: 4266758921371716804}
+  pauseController: {fileID: 0}
 --- !u!1 &6247656207967995968
 GameObject:
   m_ObjectHideFlags: 0

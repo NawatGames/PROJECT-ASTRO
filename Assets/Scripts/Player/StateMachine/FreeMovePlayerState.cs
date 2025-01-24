@@ -25,11 +25,10 @@ public class FreeMovePlayerState : PlayerState
     
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        if(!taskPlayerState.IsOnCooldown)
+        if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
         {
-            if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
+            if (!taskPlayerState.IsOnCooldown)
             {
-                //Debug.Log("(walk)Started task");
                 SwitchState(playerStateMachine.goToTaskState);
             }
         }

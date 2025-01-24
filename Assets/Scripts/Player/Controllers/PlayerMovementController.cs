@@ -64,8 +64,8 @@ using UnityEngine.InputSystem;
             SetVelocity(_inputDirection);
         }
         
-        // RODA COM ESTE SCRIPT DESATIVADO: TODO: Ao inves de usar Coroutine, passar esse codigo para o FixedUpdate e usar evento ao inves da Action switchToTaskState
-        public IEnumerator GoToTarget(Vector2 targetPosition, Action switchToTaskState)
+        // RODA COM ESTE SCRIPT DESATIVADO: TODO: Ao inves de usar Coroutine, passar esse codigo para o FixedUpdate e usar evento ao inves da Action switchToTargetState
+        public IEnumerator GoToTarget(Vector2 targetPosition, Action switchToTargetState)
         {
             Vector2 playerPos = transform.position;
             
@@ -73,11 +73,14 @@ using UnityEngine.InputSystem;
             // Trocar linha acima pela de baixo para evitar que o player pare (Também é necessario nao zerar o rb.velocity)
             //_currentVelocity = Mathf.Clamp(Vector2.Dot((targetPosition - playerPos).normalized, rb.velocity),0,Mathf.Infinity) * rb.velocity.normalized;
 
+            Vector2 direction;
             while (true)
             {
-                SetVelocity((targetPosition - playerPos).normalized);
+                direction = targetPosition - playerPos;
+                playerAnimationController.SetMovementAnimParameters(direction);
+                SetVelocity(direction.normalized);
             
-                if ((rb.velocity).magnitude * Time.fixedDeltaTime >= (targetPosition - playerPos).magnitude)
+                if ((rb.velocity).magnitude * Time.fixedDeltaTime >= direction.magnitude)
                 {
                     rb.velocity = Vector2.zero;
                     rb.MovePosition(targetPosition);
@@ -88,6 +91,6 @@ using UnityEngine.InputSystem;
                 playerPos = transform.position;
             }
             _currentVelocity = Vector2.zero;
-            switchToTaskState();
+            switchToTargetState();
         }
     }

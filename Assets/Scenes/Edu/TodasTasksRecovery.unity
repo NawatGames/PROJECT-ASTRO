@@ -791,6 +791,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
+--- !u!114 &576091132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7493853662421199250, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
+  m_PrefabInstance: {fileID: 561246648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4d906e661c19a4da8b548e85465575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &641908514 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
@@ -1628,6 +1639,10 @@ PrefabInstance:
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 400229394}
+    - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
+      propertyPath: gameOverManager
+      value: 
+      objectReference: {fileID: 576091132}
     - target: {fileID: 8829836319662570609, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: m_Name
       value: Lobby
@@ -2168,6 +2183,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6620780279485309036, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 1191715182}
     - target: {fileID: 8160291187195557868, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
       propertyPath: m_Name
       value: Orion
@@ -2212,6 +2231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9221469884354379191, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 1191715182}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2857,17 +2880,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924474180 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2323419721803707782, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-  m_PrefabInstance: {fileID: 5182967668293503333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1927187338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,6 +3071,22 @@ PrefabInstance:
     - target: {fileID: 205392759199000823, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Name
       value: Calypso
+      objectReference: {fileID: 0}
+    - target: {fileID: 873593020683084460, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 1191715182}
+    - target: {fileID: 2884312209043160951, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 1191715182}
+    - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571572905502361990, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3680,45 +3708,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 28204276352625663, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Center.y
-      value: -0.00000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 28204276352625663, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.9985302
-      objectReference: {fileID: 0}
-    - target: {fileID: 28204276352625663, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.99853027
-      objectReference: {fileID: 0}
     - target: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Name
       value: Room - Genius
-      objectReference: {fileID: 0}
-    - target: {fileID: 2252769463273133262, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Center.y
-      value: -0.00000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 2252769463273133262, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.9985302
-      objectReference: {fileID: 0}
-    - target: {fileID: 2252769463273133262, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.99853027
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515948274175451678, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: lightComponent
-      value: 
-      objectReference: {fileID: 1924474180}
-    - target: {fileID: 3015349071074526152, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.132
-      objectReference: {fileID: 0}
-    - target: {fileID: 3015349071074526152, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.068
       objectReference: {fileID: 0}
     - target: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3760,18 +3752,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6600572674470165549, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Center.y
-      value: -0.00000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600572674470165549, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.9985302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600572674470165549, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.99853027
-      objectReference: {fileID: 0}
     - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: manager
       value: 
@@ -3792,8 +3772,7 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    m_RemovedComponents:
-    - {fileID: 28204276352625663, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

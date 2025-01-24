@@ -1723,8 +1723,8 @@ MonoBehaviour:
   rightButton: {fileID: 3497972178227557283}
   signalLight: {fileID: 1340871626526778084}
   computerSequence: []
-  levels: 2
-  levelsSpecialist: 0
+  levels: 3
+  levelsSpecialist: 2
   playerTime: 1
   computerTime: 2
   waitSequenceTime: 3
