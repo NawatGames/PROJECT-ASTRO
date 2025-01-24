@@ -7,6 +7,7 @@ public class DecontaminatePlayerState : PlayerState
 {
     private GameEventListener _gameEventListener;
     [SerializeField] private PlayerCollisionController playerCollisionController;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
 
     protected override void Awake()
     {
@@ -17,6 +18,7 @@ public class DecontaminatePlayerState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
+        playerAnimationController.SetMovementAnimParameters(Vector2.zero);
         playerStateMachine.startedDecontaminationEvent.Raise();
         _gameEventListener.response.AddListener(OnCompleteDecontaminationHandler);
     }

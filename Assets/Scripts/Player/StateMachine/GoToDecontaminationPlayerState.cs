@@ -1,20 +1,21 @@
 using Player.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 
 public class GoToDecontaminationPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
-    [SerializeField] private GameObject pauseManager;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
+    [SerializeField] private PauseController pauseController;
     
     private Coroutine _goToTargetCoroutine;
     
     public override void EnterState()
     {
-        pauseManager = GameObject.Find("GlobalPause");
-        if(!pauseManager.GetComponent<PauseController>().IsFrozen())
+        if(!pauseController.IsFrozen())
         {
             base.EnterState();
             
@@ -44,6 +45,7 @@ public class GoToDecontaminationPlayerState : PlayerState
     {
         Debug.Log("(walk to) Decontamination cancelled");
         StopCoroutine(_goToTargetCoroutine);
+        playerAnimationController.SetMovementAnimParameters(Vector2.zero);
         playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
         SwitchState(playerStateMachine.freeMoveState);
     }
