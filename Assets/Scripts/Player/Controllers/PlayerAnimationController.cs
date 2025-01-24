@@ -17,8 +17,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void SetIdleAnimation(Vector2 lastDirection)
     {
-        animator.SetFloat("LastHorizontal", lastDirection.x);
-        animator.SetFloat("LastVertical", lastDirection.y);
         animator.SetFloat("Horizontal", 0f); 
         animator.SetFloat("Vertical", 0f);
     }
