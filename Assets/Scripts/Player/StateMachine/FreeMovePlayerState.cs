@@ -6,6 +6,7 @@ public class FreeMovePlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private TaskPlayerState taskplayerstate;
 
     public override void EnterState()
     {
@@ -23,10 +24,13 @@ public class FreeMovePlayerState : PlayerState
     
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
+        if(!taskplayerstate.IsOnCooldown)
         {
-            //Debug.Log("(walk)Started task");
-            SwitchState(playerStateMachine.goToTaskState);
+            if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
+            {
+                //Debug.Log("(walk)Started task");
+                SwitchState(playerStateMachine.goToTaskState);
+            }
         }
         else if (playerCollisionController.IsOnEmptyLobbyArea)
         {

@@ -6,19 +6,21 @@ using System.Collections;
 public class TaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
+    [SerializeField] private PlayerMovementController movementController;
     [SerializeField] private float cooldownTime = 2f; 
-    private bool isOnCooldown = false;
-
+    public bool IsOnCooldown {get; private set;}= false;
+    
     public override void EnterState()
     {
         base.EnterState();
-        if (isOnCooldown)
+        if (IsOnCooldown)
         {
             Debug.Log("Player esta no cooldown.");
             SwitchState(playerStateMachine.freeMoveState);
             return;
         }
-        
+
+        movementController.OnStop();
         playerCollisionController.NearTaskController.wasStarted = true;
         playerCollisionController.NearTaskController.taskScript.SetupAndRun(playerInputController, playerStateMachine.isAstro);
     }
@@ -47,9 +49,9 @@ public class TaskPlayerState : PlayerState
 
     private void ApplyCooldown()
     {
-        if (!isOnCooldown)
+        if (!IsOnCooldown)
         {
-            isOnCooldown = true;
+            IsOnCooldown = true;
             StartCoroutine(CooldownCoroutine());
         }
     }
@@ -60,7 +62,7 @@ public class TaskPlayerState : PlayerState
         
         yield return new WaitForSeconds(cooldownTime);
         
-        isOnCooldown = false;
+        IsOnCooldown = false;
         Debug.Log("Fim do coolwdown");
     }
 }

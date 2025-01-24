@@ -49,6 +49,13 @@ using UnityEngine.InputSystem;
             playerAnimationController.SetMovimentAnimation(_inputDirection);
         }
 
+        public void OnStop()
+        {
+            rb.velocity = Vector2.zero;
+            _currentVelocity = Vector2.zero;
+            playerAnimationController.SetIdleAnimation(_inputDirection);
+        }
+
         private void SetVelocity(Vector2 direction)
         {
             _currentVelocity = Vector2.Lerp(
