@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &195581366982399087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2716148962608601008}
+  - component: {fileID: 2884312209043160951}
+  m_Layer: 0
+  m_Name: GoToDecontaminationState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2716148962608601008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195581366982399087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5528695562153266455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2884312209043160951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195581366982399087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31439e8b21697c545b8b6af73046929e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stateLeaveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  playerCollisionController: {fileID: 6980675924244276331}
+  playerMovementController: {fileID: 4867556920664918401}
+  pauseManager: {fileID: 0}
 --- !u!1 &205392759199000823
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,15 +136,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 226c67c4bb31f1f4c88b29f8043d4991, type: 3}
+  m_Sprite: {fileID: -1719152232, guid: 8b208fd1c20de224d9bfc60b042ff3ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96, y: 0.96}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &8669376623493524591
@@ -430,6 +483,7 @@ MonoBehaviour:
   stateLeaveEvent:
     m_PersistentCalls:
       m_Calls: []
+  playerCollisionController: {fileID: 6980675924244276331}
 --- !u!114 &223320627011355376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +726,7 @@ MonoBehaviour:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
   playerMovementController: {fileID: 4867556920664918401}
+  pauseManager: {fileID: 0}
 --- !u!1 &6247656207967995968
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +812,7 @@ Transform:
   - {fileID: 9005226306685509994}
   - {fileID: 1558007715550456960}
   - {fileID: 3990316401525092806}
+  - {fileID: 2716148962608601008}
   m_Father: {fileID: 181030423604035346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &120675065564451792
@@ -778,6 +834,7 @@ MonoBehaviour:
   gameOverState: {fileID: 5348146527620348548}
   decontaminateState: {fileID: 546405311452254865}
   goToTaskState: {fileID: 873593020683084460}
+  goToDecontaminationPlayerState: {fileID: 2884312209043160951}
   startedDecontaminationEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
   stoppedDecontaminationEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
 --- !u!1 &6822938230941474528

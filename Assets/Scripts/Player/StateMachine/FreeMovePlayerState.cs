@@ -32,9 +32,13 @@ public class FreeMovePlayerState : PlayerState
                 SwitchState(playerStateMachine.goToTaskState);
             }
         }
-        else if (playerCollisionController.IsOnEmptyLobbyArea)
+        else if (playerCollisionController.NearDecontaminationInteraction != null)
         {
-            SwitchState(playerStateMachine.decontaminateState);
+            if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
+            {
+                playerCollisionController.NearDecontaminationInteraction.SetOccupied(true);
+                SwitchState(playerStateMachine.goToDecontaminationPlayerState);
+            }
         }
         else if (playerCollisionController.IsOnButtonArea)
         {
