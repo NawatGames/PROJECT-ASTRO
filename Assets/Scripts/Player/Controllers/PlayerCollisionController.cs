@@ -51,8 +51,13 @@ public class PlayerCollisionController : MonoBehaviour
             }
             else if (isTask)
             {
-                IsOnTaskArea = false;
-                NearTaskController = null;
+                // O If abaixo resolve o problema caso o collider do player passe por duas tasks ao mesmo tempo
+                // (Nesse caso, o exit de uma task pode anular o nearTask, que continha a outra task)
+                if (NearTaskController == other.GetComponentInChildren<TaskController>())
+                {
+                    IsOnTaskArea = false;
+                    NearTaskController = null;
+                }
             }
             else
             {
