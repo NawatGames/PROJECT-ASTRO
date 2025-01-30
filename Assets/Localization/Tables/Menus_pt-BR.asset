@@ -74,6 +74,10 @@ MonoBehaviour:
     m_Localized: "Portugu\xEAs"
     m_Metadata:
       m_Items: []
+  - m_Id: 59081513125257216
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
