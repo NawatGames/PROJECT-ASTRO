@@ -56,6 +56,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orion
       objectReference: {fileID: 0}
+    - target: {fileID: 916070431580799896, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Size.x
+      value: 0.45958295
+      objectReference: {fileID: 0}
+    - target: {fileID: 916070431580799896, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Size.y
+      value: 0.29705864
+      objectReference: {fileID: 0}
+    - target: {fileID: 916070431580799896, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00186418
+      objectReference: {fileID: 0}
+    - target: {fileID: 916070431580799896, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.33164784
+      objectReference: {fileID: 0}
     - target: {fileID: 1158122258224959929, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Controller
       value: 
