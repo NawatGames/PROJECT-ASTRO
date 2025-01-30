@@ -9,6 +9,7 @@ public class PlayerCollisionController : MonoBehaviour
     public bool IsOnButtonArea { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
+    public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -41,7 +42,9 @@ public class PlayerCollisionController : MonoBehaviour
                 NearTaskController = other.GetComponentInChildren<TaskController>();
                 return;
             }
+            
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+            AdjacentDoorButtonControler = other.GetComponentInParent<AdjacentDoorButtonControler>();
             IsOnButtonArea = true;
     
         }
@@ -73,6 +76,7 @@ public class PlayerCollisionController : MonoBehaviour
                 return;
             }
             NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+            AdjacentDoorButtonControler= other.GetComponentInParent<AdjacentDoorButtonControler>();
             IsOnButtonArea = false;
         }
     }

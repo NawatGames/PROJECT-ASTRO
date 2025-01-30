@@ -3,8 +3,11 @@ using UnityEngine;
 public class DoorButtonController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
-    [SerializeField] private SpriteRenderer doorSprite;
+    //[SerializeField] private BoxCollider2D adjacentDoorCollider;
+     [SerializeField] private SpriteRenderer doorSprite;
+     //[SerializeField] private SpriteRenderer adjacentDoorSprite;
     private RoomQuarantineHandler _roomQuarantineHandler;
+    [SerializeField] private AdjacentDoorButtonControler adjacentDoorButtonControler;
 
     private void OnEnable()
     {
@@ -20,6 +23,8 @@ public class DoorButtonController : MonoBehaviour
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
+        adjacentDoorButtonControler.IndependentToggleDoor();
+       
     }
     public bool IsDoorOpen()
     {

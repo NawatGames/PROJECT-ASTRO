@@ -39,19 +39,20 @@ public class QuarantineManager : MonoBehaviour
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
             DoorButtonController doorButton = room.GetComponentInChildren<DoorButtonController>();
+            AdjacentDoorButtonControler adjacentDoorButton = room.GetComponentInChildren<AdjacentDoorButtonControler>();
             if (script.isBeingUsed && !roomsInUse.Contains(room))
             {
                 roomsInUse.Add(room);
             }
             
-            if (!doorButton.IsDoorOpen())
+            if (!doorButton.IsDoorOpen() )//|| adjacentDoorButton.IsDoorOpen())
             {
                 closedDoors++;
                 script.isRoomQuarantined = true;
                 
             }
             
-            if (doorButton.IsDoorOpen())
+            if (doorButton.IsDoorOpen() )//&& adjacentDoorButton.IsDoorOpen())
             {
                 roomNotQuarantinable.Add(script);
             }
@@ -60,7 +61,8 @@ public class QuarantineManager : MonoBehaviour
             if (closedDoors > 1)
             {
                 
-                doorButton.OpenDoor();  
+                doorButton.OpenDoor();
+                //adjacentDoorButton.OpenDoor();
                 script.isRoomQuarantined = false;
                 script.canPressButton = false;
                 script.quarantineEnded.Invoke();
