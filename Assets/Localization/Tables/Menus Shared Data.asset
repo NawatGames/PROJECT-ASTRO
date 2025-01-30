@@ -75,6 +75,22 @@ MonoBehaviour:
     m_Key: ResumeButton
     m_Metadata:
       m_Items: []
+  - m_Id: 59144931861569536
+    m_Key: GameOver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146199673839616
+    m_Key: TryAgain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146262756171776
+    m_Key: MainMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146658341953536
+    m_Key: GameOverCaps
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

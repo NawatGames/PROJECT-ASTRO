@@ -78,6 +78,22 @@ MonoBehaviour:
     m_Localized: Continuar
     m_Metadata:
       m_Items: []
+  - m_Id: 59144931861569536
+    m_Localized: Fim de Jogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146199673839616
+    m_Localized: Tentar Novamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146262756171776
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146658341953536
+    m_Localized: FIM DE JOGO
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
