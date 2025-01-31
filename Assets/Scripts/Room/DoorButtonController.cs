@@ -9,6 +9,7 @@ public class DoorButtonController : MonoBehaviour
      //[SerializeField] private SpriteRenderer adjacentDoorSprite;
     private RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
+    private bool isPressed = false;
 
     private void OnEnable()
     {
@@ -24,6 +25,7 @@ public class DoorButtonController : MonoBehaviour
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
+        isPressed = !isPressed;
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.IndependentToggleDoor();
@@ -34,7 +36,7 @@ public class DoorButtonController : MonoBehaviour
     }
     public bool IsDoorOpen()
     {
-        return !doorCollider.enabled;
+        return !isPressed;
     }
 
     public void OpenDoor()
