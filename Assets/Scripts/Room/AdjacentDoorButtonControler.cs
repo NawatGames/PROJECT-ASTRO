@@ -6,9 +6,8 @@ public class AdjacentDoorButtonControler : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
-    [SerializeField] private DoorButtonController doorButtonController;
-    
-    
+    [SerializeField] private List< DoorButtonController> doorButtonControllers;
+    private bool alreadyOpened = false;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -19,14 +18,17 @@ public class AdjacentDoorButtonControler : MonoBehaviour
 
     public void ToggleDoor()
     {
-        
-        doorButtonController.ToggleDoor();
+        foreach (DoorButtonController doorButtonController in doorButtonControllers)
+        {
+            doorButtonController.ToggleDoor();
+        }
         
     }
 
     public void IndependentToggleDoor()
     {
-        
+        if (alreadyOpened)
+            return;
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red: Color.green;
     }
@@ -49,6 +51,11 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
+    }
+
+    public void setAlreadyOpenedFalse()
+    {
+        alreadyOpened = false;
     }
     // Update is called once per frame
     void Update()

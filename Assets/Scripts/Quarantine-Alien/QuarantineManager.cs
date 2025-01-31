@@ -12,6 +12,7 @@ public class QuarantineManager : MonoBehaviour
     [SerializeField] private int timerQuarantineDelay;
 
     private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
+    [SerializeField] private List<GameObject> linkedRooms;
     
     private int closedDoors;
 
@@ -39,7 +40,7 @@ public class QuarantineManager : MonoBehaviour
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
             DoorButtonController doorButton = room.GetComponentInChildren<DoorButtonController>();
-            AdjacentDoorButtonControler adjacentDoorButton = room.GetComponentInChildren<AdjacentDoorButtonControler>();
+            //AdjacentDoorButtonControler adjacentDoorButton = room.GetComponentInChildren<AdjacentDoorButtonControler>();
             if (script.isBeingUsed && !roomsInUse.Contains(room))
             {
                 roomsInUse.Add(room);
