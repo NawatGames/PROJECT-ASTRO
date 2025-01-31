@@ -8,6 +8,7 @@ public class PlayerCollisionController : MonoBehaviour
     public bool IsOnButtonArea { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
+    public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
     
     public InteractionManager NearDecontaminationInteraction { get; private set; }
     
@@ -27,13 +28,16 @@ public class PlayerCollisionController : MonoBehaviour
             {
                 IsOnTaskArea = true;
                 NearTaskController = other.GetComponentInChildren<TaskController>();
+
+                
             }
             else
             {
                 NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+                AdjacentDoorButtonControler = other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = true;
             }
-    
+            
         }
     }
 
@@ -61,9 +65,18 @@ public class PlayerCollisionController : MonoBehaviour
             }
             else
             {
+
+                IsOnTaskArea = false;
+                NearTaskController = null;
+                
+            }
+            else
+            {
                 NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
+                AdjacentDoorButtonControler= other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = false;
             }
+
         }
     }
 }
