@@ -65,18 +65,11 @@ public class PlayerCollisionController : MonoBehaviour
             }
             else
             {
-
-                IsOnTaskArea = false;
-                NearTaskController = null;
                 
-            }
-            else
-            {
                 NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
                 AdjacentDoorButtonControler= other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = false;
             }
-
         }
     }
 }
