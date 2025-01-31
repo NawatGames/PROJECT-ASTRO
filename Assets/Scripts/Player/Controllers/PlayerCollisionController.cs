@@ -5,41 +5,30 @@ using UnityEngine;
 public class PlayerCollisionController : MonoBehaviour
 {
     public bool IsOnTaskArea { get; private set; }
-    public bool IsOnEmptyLobbyArea { get; private set; }
     public bool IsOnButtonArea { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
     public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
     
+    public InteractionManager NearDecontaminationInteraction { get; private set; }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isRight = other.CompareTag("InteractionRight");
-        bool isLeft = other.CompareTag("InteractionLeft");
+        bool isDecontamination = other.CompareTag("InteractionDecontamination");
 
-        if (isTask || isQuarantineButton || isRight || isLeft)
+        if (isTask || isQuarantineButton || isDecontamination)
         {
-            if (isRight || isLeft)
+            if (isDecontamination)
             {
-                InteractionManager interactionManager = other.GetComponent<InteractionManager>();
-                if(!interactionManager.IsOccupied())
-                {
-                    IsOnEmptyLobbyArea = true;
-                    interactionManager.SetOccupied(true);
-                    return;
-                }
-
-                else
-                {
-                    Debug.Log("Área de interação ocupada!");
-                    return;
-                }
+                NearDecontaminationInteraction = other.GetComponent<InteractionManager>();
             }
-            if (isTask)
+            else if (isTask)
             {
                 IsOnTaskArea = true;
                 NearTaskController = other.GetComponentInChildren<TaskController>();
+
                 
             }
             else
@@ -48,6 +37,7 @@ public class PlayerCollisionController : MonoBehaviour
                 AdjacentDoorButtonControler = other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = true;
             }
+            
         }
     }
 
@@ -55,23 +45,27 @@ public class PlayerCollisionController : MonoBehaviour
     {
         bool isTask = other.CompareTag("Task");
         bool isQuarantineButton = other.CompareTag("QuarantineButton");
-        bool isRight = other.CompareTag("InteractionRight");
-        bool isLeft = other.CompareTag("InteractionLeft");
+        bool isDecontamination = other.CompareTag("InteractionDecontamination");
 
-        if (isTask || isQuarantineButton || isRight || isLeft)
+        if (isTask || isQuarantineButton || isDecontamination)
         {
-            if(isRight || isLeft)
+            if(isDecontamination)
             {
-                InteractionManager interactionManager = other.GetComponent<InteractionManager>();
-                if(interactionManager.IsOccupied())
+                NearDecontaminationInteraction = null;
+            }
+            else if (isTask)
+            {
+                // O If abaixo resolve o problema caso o collider do player passe por duas tasks ao mesmo tempo
+                // (Nesse caso, o exit de uma task pode anular o nearTask, que continha a outra task)
+                if (NearTaskController == other.GetComponentInChildren<TaskController>())
                 {
-                    interactionManager.SetOccupied(false);
-                    IsOnEmptyLobbyArea = false;
-                    return;
+                    IsOnTaskArea = false;
+                    NearTaskController = null;
                 }
             }
-            if (isTask)
+            else
             {
+
                 IsOnTaskArea = false;
                 NearTaskController = null;
                 
@@ -82,7 +76,7 @@ public class PlayerCollisionController : MonoBehaviour
                 AdjacentDoorButtonControler= other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = false;
             }
-            
+
         }
     }
 }

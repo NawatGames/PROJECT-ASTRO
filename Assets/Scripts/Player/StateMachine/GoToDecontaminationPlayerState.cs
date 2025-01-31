@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class GoToTaskPlayerState : PlayerState
+
+public class GoToDecontaminationPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
@@ -17,18 +18,12 @@ public class GoToTaskPlayerState : PlayerState
         if(!pauseController.IsFrozen())
         {
             base.EnterState();
-            if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
-            {
-                SwitchState(playerStateMachine.taskState);
-            }
-            else
-            {
-                _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
-                    playerCollisionController.NearTaskController.playerPositioning.position,
-                    ()=> {
-                        SwitchState(playerStateMachine.taskState);
-                    }));
-            }
+            
+            _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
+                playerCollisionController.NearDecontaminationInteraction.GetDecontaminationPosition(),
+                ()=> {
+                    SwitchState(playerStateMachine.decontaminateState);
+                }));
         }
         else
         {
@@ -39,13 +34,7 @@ public class GoToTaskPlayerState : PlayerState
 
     public override void StateUpdate()
     {
-        // TODO (PAUSE TASK TIMER)- O único jeito de isso virar false é se acabar o tempo da task. Mas aqui o timer já estará pausado (?)
-        if (!playerCollisionController.NearTaskController.needsToBeDone)
-        {
-            StopCoroutine(_goToTargetCoroutine);
-            SwitchState(playerStateMachine.freeMoveState);
-        }
-        else if (playerStateMachine.GameIsOver)
+        if (playerStateMachine.GameIsOver)
         {
             StopCoroutine(_goToTargetCoroutine);
             SwitchState(playerStateMachine.gameOverState);
@@ -54,9 +43,10 @@ public class GoToTaskPlayerState : PlayerState
 
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        Debug.Log("(walk to) Task cancelled");
+        Debug.Log("(walk to) Decontamination cancelled");
         StopCoroutine(_goToTargetCoroutine);
         playerAnimationController.SetMovementAnimParameters(Vector2.zero);
+        playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
         SwitchState(playerStateMachine.freeMoveState);
     }
 }
