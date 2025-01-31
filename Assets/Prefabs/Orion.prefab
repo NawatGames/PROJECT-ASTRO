@@ -76,10 +76,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 2f728c9ebe8c8a74bad2a3032bf49604, type: 2}
+    - target: {fileID: 4266758921371716804, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 7202632629350043298}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a157c748ec7f44545ac5eec6e79afae4, type: 3}
+      objectReference: {fileID: 894332162, guid: 26065a7936fafaf59b2ccabbdf2cba47, type: 3}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -105,3 +109,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+--- !u!95 &7202632629350043298 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1158122258224959929, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+  m_PrefabInstance: {fileID: 8351536530278637339}
+  m_PrefabAsset: {fileID: 0}
