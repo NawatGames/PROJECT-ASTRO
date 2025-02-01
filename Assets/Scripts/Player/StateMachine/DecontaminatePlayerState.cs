@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class DecontaminatePlayerState : PlayerState
 {
     private GameEventListener _gameEventListener;
+    [SerializeField] private PlayerCollisionController playerCollisionController;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
 
     protected override void Awake()
     {
@@ -16,6 +18,7 @@ public class DecontaminatePlayerState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
+        playerAnimationController.SetMovementAnimParameters(Vector2.zero);
         playerStateMachine.startedDecontaminationEvent.Raise();
         _gameEventListener.response.AddListener(OnCompleteDecontaminationHandler);
     }
@@ -30,12 +33,17 @@ public class DecontaminatePlayerState : PlayerState
 
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
+        /*A linha abaixo só é necessária se quisermos permitir que o player entre em estado de
+         descontaminação mesmo quando não é exigido / não tem timer de descontaminação*/
+        playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
+        
         playerStateMachine.stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }
     
     public void OnCompleteDecontaminationHandler(Component c, object o)
     {
+        playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
         playerStateMachine.stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }

@@ -16,6 +16,7 @@ namespace Player.StateMachine
         public GameOverPlayerState gameOverState;
         public DecontaminatePlayerState decontaminateState;
         public GoToTaskPlayerState goToTaskState;
+        public GoToDecontaminationPlayerState goToDecontaminationPlayerState;
         
         private PlayerState _initialPlayerState;
         

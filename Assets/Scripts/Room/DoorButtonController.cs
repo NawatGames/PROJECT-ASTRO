@@ -1,10 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorButtonController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
-    [SerializeField] private SpriteRenderer doorSprite;
+    //[SerializeField] private BoxCollider2D adjacentDoorCollider;
+     [SerializeField] private SpriteRenderer doorSprite;
+     //[SerializeField] private SpriteRenderer adjacentDoorSprite;
     private RoomQuarantineHandler _roomQuarantineHandler;
+    [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
+    private bool isPressed = false;
 
     private void OnEnable()
     {
@@ -20,10 +25,18 @@ public class DoorButtonController : MonoBehaviour
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
+        isPressed = !isPressed;
+        foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
+        {
+            adjacentDoorButtonControler.IndependentToggleDoor();
+            adjacentDoorButtonControler.setAlreadyOpenedFalse();
+        }
+        
+       
     }
     public bool IsDoorOpen()
     {
-        return !doorCollider.enabled;
+        return !isPressed;
     }
 
     public void OpenDoor()

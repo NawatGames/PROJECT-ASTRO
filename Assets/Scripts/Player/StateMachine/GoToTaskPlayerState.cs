@@ -1,28 +1,39 @@
 using Player.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class GoToTaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
+    [SerializeField] private PauseController pauseController;
     
     private Coroutine _goToTargetCoroutine;
     
     public override void EnterState()
     {
-        base.EnterState();
-        if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
+        if(!pauseController.IsFrozen())
         {
-            SwitchState(playerStateMachine.taskState);
+            base.EnterState();
+            if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
+            {
+                SwitchState(playerStateMachine.taskState);
+            }
+            else
+            {
+                _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
+                    playerCollisionController.NearTaskController.playerPositioning.position,
+                    ()=> {
+                        SwitchState(playerStateMachine.taskState);
+                    }));
+            }
         }
         else
         {
-            _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
-                playerCollisionController.NearTaskController.playerPositioning.position,
-                ()=> {
-                    SwitchState(playerStateMachine.taskState);
-                }));
+            //Debug.Log("Impossível iniciar task durante pause");
+            SwitchState(playerStateMachine.freeMoveState);
         }
     }
 
@@ -45,6 +56,7 @@ public class GoToTaskPlayerState : PlayerState
     {
         Debug.Log("(walk to) Task cancelled");
         StopCoroutine(_goToTargetCoroutine);
+        playerAnimationController.SetMovementAnimParameters(Vector2.zero);
         SwitchState(playerStateMachine.freeMoveState);
     }
 }

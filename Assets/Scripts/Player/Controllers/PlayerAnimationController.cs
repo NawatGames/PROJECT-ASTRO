@@ -6,20 +6,21 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private AnimatorOverrideController astroAnimator;
-    [SerializeField] private AnimatorOverrideController alienAnimator;
-
-    private void Awake()
+    
+    public void SetMovementAnimParameters(Vector2 moveVector)
     {
-        /* Descomentar após criar e associar os animators
-        if (transform.parent.GetComponentInChildren<PlayerStateMachine>().isAstro)
+        float lastHorizontal = animator.GetFloat("Horizontal");
+        float lastVertical = animator.GetFloat("Vertical");
+        
+        
+        // Se ambos last forem pra 0, o idle é forçado pra direção padrão (cima)
+        if (lastHorizontal != 0f || lastVertical != 0f)
         {
-            animator.runtimeAnimatorController = astroAnimator;
+            animator.SetFloat("LastHorizontal", lastHorizontal);
+            animator.SetFloat("LastVertical", lastVertical);
         }
-        else
-        {
-            animator.runtimeAnimatorController = alienAnimator;
-        }
-        */
+        
+        animator.SetFloat("Horizontal", moveVector.x);
+        animator.SetFloat("Vertical", moveVector.y);
     }
 }

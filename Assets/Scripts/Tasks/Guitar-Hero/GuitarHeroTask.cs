@@ -89,7 +89,7 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 0; // simbolo de seta pra cima
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (inputAsset.Task.Up.WasPressedThisFrame())
+            if (inputController.inputAsset.Task.Up.WasPressedThisFrame())
             {
                 VerifyPoint(symbolPressed);
             }
@@ -102,7 +102,7 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 1; // simbolo de seta pra baixo
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (inputAsset.Task.Down.WasPressedThisFrame())
+            if (inputController.inputAsset.Task.Down.WasPressedThisFrame())
             {
                 VerifyPoint(symbolPressed);
             }
@@ -115,7 +115,7 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 2; // simbolo de seta pra esquerda
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (inputAsset.Task.Left.WasPressedThisFrame())
+            if (inputController.inputAsset.Task.Left.WasPressedThisFrame())
             {
                 VerifyPoint(symbolPressed);
             }
@@ -128,7 +128,7 @@ public class GuitarHeroTask : TaskScript
         int symbolPressed = 3; // simbolo de seta pra direita
         if (targetsActive.Count > 0) // ta podendo apertar o botao
         {
-            if (inputAsset.Task.Right.WasPressedThisFrame())
+            if (inputController.inputAsset.Task.Right.WasPressedThisFrame())
             {
                 VerifyPoint(symbolPressed);
             }

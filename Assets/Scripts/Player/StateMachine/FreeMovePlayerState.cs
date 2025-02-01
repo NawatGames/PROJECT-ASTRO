@@ -1,11 +1,13 @@
 using Player.StateMachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class FreeMovePlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private TaskPlayerState taskPlayerState;
 
     public override void EnterState()
     {
@@ -25,16 +27,31 @@ public class FreeMovePlayerState : PlayerState
     {
         if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
         {
-            //Debug.Log("(walk)Started task");
-            SwitchState(playerStateMachine.goToTaskState);
+            if (!taskPlayerState.IsOnCooldown)
+            {
+                SwitchState(playerStateMachine.goToTaskState);
+            }
         }
-        else if (playerCollisionController.IsOnLobbyArea)
+        else if (playerCollisionController.NearDecontaminationInteraction != null)
         {
-            SwitchState(playerStateMachine.decontaminateState);
+            if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
+            {
+                playerCollisionController.NearDecontaminationInteraction.SetOccupied(true);
+                SwitchState(playerStateMachine.goToDecontaminationPlayerState);
+            }
         }
         else if (playerCollisionController.IsOnButtonArea)
         {
-            playerCollisionController.NearDoorButtonController.ToggleDoor();
+            if (playerCollisionController.NearDoorButtonController != null)
+            {
+                playerCollisionController.NearDoorButtonController.ToggleDoor();
+            }
+
+            // Verifica se há um botão adjacente e aciona sua função
+            if (playerCollisionController.AdjacentDoorButtonControler != null)
+            {
+                playerCollisionController.AdjacentDoorButtonControler.ToggleDoor();
+            }
         }
     }
 
