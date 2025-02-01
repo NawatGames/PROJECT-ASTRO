@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26065a7936fafaf59b2ccabbdf2cba47
+guid: 38a9e5ea34c5d2449acee25507014898
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_0"
+      name: OrionIdleDown_0
       rect:
         serializedVersion: 2
         x: 0
@@ -105,20 +105,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6096bf188a63803fe957439f27222c91
-      internalID: 894332162
+      spriteID: a3b775f7819c5064ca7236f7b08d0457
+      internalID: -1215872771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_1"
+      name: OrionIdleDown_1
       rect:
         serializedVersion: 2
         x: 32
@@ -126,20 +126,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51bcb234ea80421f19904ebad6f7d33a
-      internalID: -668255529
+      spriteID: b2fea5573d3451b4c9a7e6ffee5d4d7d
+      internalID: -1269542018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_2"
+      name: OrionIdleDown_2
       rect:
         serializedVersion: 2
         x: 64
@@ -147,20 +147,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b735eb06573ef6c8352c4ee2e9c4ca
-      internalID: -500252706
+      spriteID: edbdbc546936bfd45b1bfb30a89f0b47
+      internalID: 395656683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_3"
+      name: OrionIdleDown_3
       rect:
         serializedVersion: 2
         x: 96
@@ -168,20 +168,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04891e98964bdddfda4c77b03869203c
-      internalID: -46132645
+      spriteID: 2d010a4f6435f0249a1114cb6a31ee76
+      internalID: 147879543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_4"
+      name: OrionIdleDown_4
       rect:
         serializedVersion: 2
         x: 128
@@ -189,20 +189,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3534a64a7fbac652af4923ea4b68443
-      internalID: -995074611
+      spriteID: 00411dfa4d29d5c45a48a0c712ae0599
+      internalID: 1477737036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_5"
+      name: OrionIdleDown_5
       rect:
         serializedVersion: 2
         x: 160
@@ -210,20 +210,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51d82235469d0105b9cd9e9f75aec8e8
-      internalID: 1693001013
+      spriteID: c64161e2a29513a47848f59e4e36a9e5
+      internalID: 1607203937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_6"
+      name: OrionIdleDown_6
       rect:
         serializedVersion: 2
         x: 192
@@ -231,20 +231,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b49189cb1fac8f15b1a238a6f835014
-      internalID: -2129573070
+      spriteID: 45347fc8ec2ccf141afdd8c1652e4ce9
+      internalID: -27792239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_7"
+      name: OrionIdleDown_7
       rect:
         serializedVersion: 2
         x: 224
@@ -252,20 +252,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44034e484b3aa6ef5888a63c69ad0cba
-      internalID: 2129623191
+      spriteID: 1546cfd305c43d844854907ec72ce32a
+      internalID: -1361149323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_8"
+      name: OrionIdleDown_8
       rect:
         serializedVersion: 2
         x: 256
@@ -273,20 +273,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab9b30e0dcccfd5a396566233ee2fdf9
-      internalID: -1222006333
+      spriteID: 687b2f92aa6b5cd4a90202eb2c81aea7
+      internalID: 298123252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_9"
+      name: OrionIdleDown_9
       rect:
         serializedVersion: 2
         x: 288
@@ -294,20 +294,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bca920c822690e7d3869437d0721af1b
-      internalID: -1560188686
+      spriteID: f1bc4b1104ce4f74abda1432052cf148
+      internalID: 275670137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_10"
+      name: OrionIdleDown_10
       rect:
         serializedVersion: 2
         x: 320
@@ -315,20 +315,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64216b924d0c43aff97d1c9858d39c8e
-      internalID: -236533844
+      spriteID: d70c5a109bb2dc040a61af2acf4091a3
+      internalID: -331937860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animac\u0327a\u0303o_Orion_Idle_Baixo_11"
+      name: OrionIdleDown_11
       rect:
         serializedVersion: 2
         x: 352
@@ -336,14 +336,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f62471726a7a1d21bb26eaad7e026b0
-      internalID: -1140011302
+      spriteID: f3417dc8c75552c49b900abf672f24d2
+      internalID: -2003400188
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_0": 894332162
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_1": -668255529
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_10": -236533844
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_11": -1140011302
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_2": -500252706
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_3": -46132645
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_4": -995074611
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_5": 1693001013
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_6": -2129573070
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_7": 2129623191
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_8": -1222006333
-      "Animac\u0327a\u0303o_Orion_Idle_Baixo_9": -1560188686
+      OrionIdleDown_0: -1215872771
+      OrionIdleDown_1: -1269542018
+      OrionIdleDown_10: -331937860
+      OrionIdleDown_11: -2003400188
+      OrionIdleDown_2: 395656683
+      OrionIdleDown_3: 147879543
+      OrionIdleDown_4: 1477737036
+      OrionIdleDown_5: 1607203937
+      OrionIdleDown_6: -27792239
+      OrionIdleDown_7: -1361149323
+      OrionIdleDown_8: 298123252
+      OrionIdleDown_9: 275670137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
