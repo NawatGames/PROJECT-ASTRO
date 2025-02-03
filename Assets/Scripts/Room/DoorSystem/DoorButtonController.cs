@@ -22,8 +22,8 @@ public class DoorButtonController : MonoBehaviour
     {
         if(!_roomQuarantineHandler.canPressButton)
             return;
-        _roomQuarantineHandler.ToggleQuarantine();
         
+        _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         isPressed = !isPressed;
@@ -38,7 +38,10 @@ public class DoorButtonController : MonoBehaviour
         {
             repeater.ToggleDoor();
         }
-        
+        if (!_roomQuarantineHandler.canPressButton && !_roomQuarantineHandler.isRoomQuarantined)
+        {
+            OpenAllRoomDoors();
+        }
        
     }
     public bool IsDoorOpen()
@@ -65,5 +68,17 @@ public class DoorButtonController : MonoBehaviour
     public SpriteRenderer getDoorSprite()
     {
         return doorSprite;
+    }
+
+    public void OpenAllRoomDoors()
+    {
+        doorCollider.enabled = false;
+        doorSprite.color = Color.green;
+        foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
+        {
+            adjacentDoorButtonControler.OpenDoor();
+            
+        }
+        
     }
 }
