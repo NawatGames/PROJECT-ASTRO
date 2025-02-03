@@ -42,7 +42,11 @@ public class DoorButtonController : MonoBehaviour
         {
             OpenAllRoomDoors();
         }
-       
+
+        if (_roomQuarantineHandler.isRoomQuarantined)
+        {
+            
+        }
     }
     public bool IsDoorOpen()
     {
@@ -80,5 +84,16 @@ public class DoorButtonController : MonoBehaviour
             
         }
         
+    }
+
+    public void CloseAllRoomDoors()
+    {
+        doorCollider.enabled = true;
+        doorSprite.color = Color.red;
+        foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
+        {
+            adjacentDoorButtonControler.CloseDoor();
+            
+        }
     }
 }

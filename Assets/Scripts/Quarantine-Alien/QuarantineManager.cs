@@ -16,6 +16,7 @@ public class QuarantineManager : MonoBehaviour
     
     private int closedDoors;
 
+    private int notQuarantinableRoomsCount;
     // public UnityEvent roomQuarantined;
     
    
@@ -29,13 +30,15 @@ public class QuarantineManager : MonoBehaviour
             roomsScript.Add(script);
             roomToTask.Add(room, script.task);
         }
+
+        
     }
     
     private void Update()
     {
         List<GameObject> roomsInUse = new List<GameObject>();
         closedDoors = 0;
-        
+        notQuarantinableRoomsCount = 0;
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
@@ -51,13 +54,22 @@ public class QuarantineManager : MonoBehaviour
                 script.isRoomQuarantined = true;
                 
             }
+            if (!script.canPressButton && !script.isRoomQuarantined)
+            {
+                notQuarantinableRoomsCount++;
+            }
             
             if (doorButton.IsDoorOpen() )//&& adjacentDoorButton.IsDoorOpen())
             {
                 roomNotQuarantinable.Add(script);
             }
 
-            
+            if (notQuarantinableRoomsCount >= 8)
+            {
+                doorButton.OpenAllRoomDoors();
+                notQuarantinableRoomsCount = 0;
+                
+            }
             if (closedDoors > 1)
             {
                 

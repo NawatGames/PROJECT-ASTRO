@@ -71,6 +71,12 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     {
         alreadyOpened = false;
     }
+
+    public void CloseDoor()
+    {
+        doorCollider.enabled = true;
+        doorSprite.color = Color.red;
+    }
     // Update is called once per frame
     void Update()
     {
