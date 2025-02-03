@@ -273,8 +273,8 @@ Transform:
   - {fileID: 1266829589129471436}
   - {fileID: 2379429778046334609}
   - {fileID: 511328650894659255}
-  - {fileID: 5516145989507060173}
   - {fileID: 55519315568742606}
+  - {fileID: 5516145989507060173}
   - {fileID: 5608688869548370623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,7 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 1822347476744995607}
   manager: {fileID: 0}
-  timerQuarantineDelay: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:
@@ -1310,6 +1309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorCollider: {fileID: 4807690162774459266}
   doorSprite: {fileID: 7487274452206510684}
+  adjacentDoorButtonControlers: []
 --- !u!1 &5175928381659583470
 GameObject:
   m_ObjectHideFlags: 0

@@ -486,8 +486,8 @@ Transform:
   m_Children:
   - {fileID: 6321656951672242151}
   - {fileID: 3437391475418153208}
-  - {fileID: 5994388076820355290}
   - {fileID: 6198206640121073738}
+  - {fileID: 5994388076820355290}
   - {fileID: 8276672107129529840}
   - {fileID: 1371905334777294780}
   - {fileID: 2100795899839391949}
@@ -560,7 +560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 3201175765473476900}
   manager: {fileID: 0}
-  timerQuarantineDelay: 0
   canPressButton: 0
   isBeingUsed: 0
   quarantineStarted:
@@ -907,6 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorCollider: {fileID: 7072579333261403488}
   doorSprite: {fileID: 7499165621812712245}
+  adjacentDoorButtonControlers: []
 --- !u!1 &5298706614351588389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksManager: {fileID: 0}
   sequenceSize: 5
+  normalSequenceSize: 5
+  sequenceSizeSpecialist: 3
   timerBarScript: {fileID: 3356472700910191879}
   upArrow: {fileID: 372629740513955050, guid: f63836eeb6b875a428e251e8831cff8a, type: 3}
   downArrow: {fileID: 8438348848085929826, guid: b0a3d087010f5fe4f8e28d77396a3f3e, type: 3}

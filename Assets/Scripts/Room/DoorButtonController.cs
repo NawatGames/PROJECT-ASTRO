@@ -4,9 +4,8 @@ using UnityEngine;
 public class DoorButtonController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
-    //[SerializeField] private BoxCollider2D adjacentDoorCollider;
-     [SerializeField] private SpriteRenderer doorSprite;
-     //[SerializeField] private SpriteRenderer adjacentDoorSprite;
+    [SerializeField] private SpriteRenderer doorSprite;
+ 
     private RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
     private bool isPressed = false;
@@ -23,6 +22,7 @@ public class DoorButtonController : MonoBehaviour
         if(!_roomQuarantineHandler.canPressButton)
             return;
         _roomQuarantineHandler.ToggleQuarantine();
+        
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         isPressed = !isPressed;

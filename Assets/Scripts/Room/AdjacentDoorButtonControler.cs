@@ -18,10 +18,16 @@ public class AdjacentDoorButtonControler : MonoBehaviour
 
     public void ToggleDoor()
     {
+        if (doorButtonControllers == null || doorButtonControllers.Count == 0)
+        {
+            IndependentToggleDoor();
+            return;
+        }
         foreach (DoorButtonController doorButtonController in doorButtonControllers)
         {
             doorButtonController.ToggleDoor();
         }
+        
         
     }
 
