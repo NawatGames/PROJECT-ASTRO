@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameOverTester : MonoBehaviour
 {
-    public GameObject gameOver;
+    public GameOverManager gameOver;
 
-    void Start()
+    void Update()
     {
-        Instantiate(gameOver, new Vector2(0f, 0f), Quaternion.identity);
-        gameOver.SetActive(false);
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            gameOver.StartGameOver();
+        }
     }
 }
