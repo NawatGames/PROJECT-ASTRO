@@ -8,6 +8,7 @@ public class DoorButtonController : MonoBehaviour
  
     private RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
+    [SerializeField] private List<DoorControlerRepeater> repeaters;
     private bool isPressed = false;
 
     private void OnEnable()
@@ -30,6 +31,12 @@ public class DoorButtonController : MonoBehaviour
         {
             adjacentDoorButtonControler.IndependentToggleDoor();
             adjacentDoorButtonControler.setAlreadyOpenedFalse();
+            
+        }
+
+        foreach (DoorControlerRepeater repeater in repeaters)
+        {
+            repeater.ToggleDoor();
         }
         
        
@@ -49,5 +56,14 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
     }
-    // need to add exception for no button interaction 
+
+    public BoxCollider2D getDoorCollider()
+    {
+        return doorCollider;
+    }
+
+    public SpriteRenderer getDoorSprite()
+    {
+        return doorSprite;
+    }
 }

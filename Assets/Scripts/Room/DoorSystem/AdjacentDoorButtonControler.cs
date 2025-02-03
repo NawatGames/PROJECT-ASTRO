@@ -37,6 +37,14 @@ public class AdjacentDoorButtonControler : MonoBehaviour
             return;
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red: Color.green;
+        if (doorCollider.enabled)
+        {
+            FindObjectOfType<AudioManager>().Play("DoorClose");
+        }
+        else if (!doorSprite.enabled)
+        {
+            FindObjectOfType<AudioManager>().Play("DoorOpen");
+        }
     }
     public void setColor(Color color)
     {
