@@ -49,5 +49,5 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
     }
-    
+    // need to add exception for no button interaction 
 }
