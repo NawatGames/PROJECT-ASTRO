@@ -1804,10 +1804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a159046e9ce0f9143b085a93a32a8571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 1283453698724221151}
   taskSuccessAudio: {fileID: 4509148034226122085}
   taskMistakeStayAudio: {fileID: 3091371053011308452}
+  tasksManager: {fileID: 0}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   playerColor: {r: 0, g: 0.23503351, b: 1, a: 1}
   computerColor: {r: 0, g: 1, b: 0.038882256, a: 1}

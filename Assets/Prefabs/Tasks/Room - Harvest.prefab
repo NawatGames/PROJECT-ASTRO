@@ -1636,10 +1636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63014eaf26b03394ab9fe7da5b8bb774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 5605075346860556933}
   taskSuccessAudio: {fileID: 7103639226318651199}
   taskMistakeStayAudio: {fileID: 8565923020887563774}
+  tasksManager: {fileID: 0}
   progressSlider: {fileID: 8394016416870340647}
   timeSlider: {fileID: 8837110129456744922}
   progressValue: 0.05

@@ -1665,10 +1665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0961b59668c7e3545aa39827bae33166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 3603376600127451358}
   taskSuccessAudio: {fileID: 2116071171070987620}
   taskMistakeStayAudio: {fileID: 659984207933173669}
+  tasksManager: {fileID: 0}
   inputBar: {fileID: 195384519426079716}
   maxBlockPoints: 5
   blockSpeed: 1

@@ -1515,10 +1515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f1202869b6464bbaad490cdb7b8ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 5576008626647489184}
   taskSuccessAudio: {fileID: 7079093621655004954}
   taskMistakeStayAudio: {fileID: 8523213491646105051}
+  tasksManager: {fileID: 0}
   taskTime: 5
   maxTurnCountNormal: 10
   maxTurnCountBuff: 5

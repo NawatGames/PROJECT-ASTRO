@@ -1423,14 +1423,6 @@ PrefabInstance:
       value: Task Audio Players
       objectReference: {fileID: 0}
     - target: {fileID: 8518755493989768037, guid: 89f4be01b6940a249bdb54e5807482fc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.9767237
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518755493989768037, guid: 89f4be01b6940a249bdb54e5807482fc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.920728
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518755493989768037, guid: 89f4be01b6940a249bdb54e5807482fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.380043
       objectReference: {fileID: 0}
@@ -1609,10 +1601,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75585e47975fe34aa75ff7723b5f037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 1773380002582563274}
   taskSuccessAudio: {fileID: 4017289888907637872}
   taskMistakeStayAudio: {fileID: 2573016061515617969}
+  tasksManager: {fileID: 0}
   circle: {fileID: 6582382471507078164}
   arrow: {fileID: 1106065122125860448}
   specialZone: {fileID: 3880697617223818538}

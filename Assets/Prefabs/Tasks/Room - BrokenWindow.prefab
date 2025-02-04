@@ -1359,10 +1359,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d68dc1c8bf14a4b826a60470e063e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 2075451695588202606}
   taskSuccessAudio: {fileID: 3715878967759660500}
   taskMistakeStayAudio: {fileID: 2874426434572519189}
+  tasksManager: {fileID: 0}
   sequenceSize: 5
   normalSequenceSize: 5
   sequenceSizeSpecialist: 3

@@ -2071,10 +2071,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e925c2c9cac57774dbb4089ff41a1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 6078297182883100598}
   taskSuccessAudio: {fileID: 8864908691391744524}
   taskMistakeStayAudio: {fileID: 8030776698032449741}
+  tasksManager: {fileID: 0}
   gotFishWarningSprite: {fileID: 5887583891517017804}
   minFishWaitTime: 2
   maxFishWaitTime: 5

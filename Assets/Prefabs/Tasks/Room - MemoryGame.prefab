@@ -1227,10 +1227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918dd79eb7f84e5a8e316278db6ed7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksManager: {fileID: 0}
   taskEnteredAudio: {fileID: 5525535173047275861}
   taskSuccessAudio: {fileID: 7202008554004573423}
   taskMistakeStayAudio: {fileID: 0}
+  tasksManager: {fileID: 0}
   easyModeColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.34555674, g: 1, b: 0, a: 1}
