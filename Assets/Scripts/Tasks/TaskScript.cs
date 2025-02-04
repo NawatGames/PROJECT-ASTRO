@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio_System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +11,16 @@ public class TaskScript : MonoBehaviour
     protected bool isAstroSpecialist;
     private bool isTaskInProgress = false;
     private TaskController _taskController;
-    [SerializeField] private TasksManager tasksManager;
     protected String taskName;
+
+    [Header("AUDIO SAMPLES")]
+    [SerializeField] private GameObject taskEnteredAudio;
+    [SerializeField] private GameObject taskSuccessAudio;
+    [SerializeField] private GameObject taskMistakeStayAudio;
+
+    [Header("TASK CONFIG")]
+    [SerializeField] private TasksManager tasksManager;
+    
 
     protected virtual void Awake()
     {
@@ -34,20 +43,22 @@ public class TaskScript : MonoBehaviour
     {
         isTaskInProgress = false;
         tasksManager.TaskDoneSuccessfully(_taskController);
-        FindObjectOfType<AudioManager>().Play("TaskSuccess");
+        taskSuccessAudio.GetComponent<AudioPlayer>().PlayAudio();
     }
 
     protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
     {
         Debug.Log("Task Mistake (stay)");
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
+        taskMistakeStayAudio.GetComponent<AudioPlayer>().PlayAudio();
+
     }
 
     protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
     {
         Debug.Log("Task Mistake (leave)");
         isTaskInProgress = false;
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
         tasksManager.KickPlayer(_taskController);
     }
 
@@ -62,15 +73,16 @@ public class TaskScript : MonoBehaviour
         isTaskInProgress = false;
     }
 
-    protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnDownPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnRightPerformed(InputAction.CallbackContext value) {}
+    protected virtual void OnUpPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnDownPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnRightPerformed(InputAction.CallbackContext value) { }
 
 
     protected virtual void RunTask()
     {
-        FindObjectOfType<AudioManager>().Play("TaskStarted");
+        // FindObjectOfType<AudioManager>().Play("TaskStarted");
+        taskEnteredAudio.GetComponent<AudioPlayer>().PlayAudio();
         isTaskInProgress = true;
     }
 

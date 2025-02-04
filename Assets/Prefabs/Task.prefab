@@ -178,3 +178,4 @@ MonoBehaviour:
   wasInterrupted: 0
   _maxMistakes: 7
   _mistakes: 0
+  playerPositioning: {fileID: 0}
