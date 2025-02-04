@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio_System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Audio Samples")]
+    [SerializeField] private AudioPlayer ambienceOST;
+
+    [Header("Parameters")]
     private int _levelIndex;
     [SerializeField] private LevelParameters[] levelParams;
     private List<List<TaskController>> _allLevelTasks;
@@ -27,6 +32,8 @@ public class LevelManager : MonoBehaviour
             level3Tasks,
             level4Tasks
         };
+
+        ambienceOST.PlayLoop();
     }
 
     public int GetMaxNumberOfActiveTasks()
