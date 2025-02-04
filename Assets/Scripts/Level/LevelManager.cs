@@ -33,9 +33,12 @@ public class LevelManager : MonoBehaviour
             level4Tasks
         };
 
-        ambienceOST.PlayLoop();
     }
+    void Start()
+    {
+        ambienceOST.PlayLoop();
 
+    }
     public int GetMaxNumberOfActiveTasks()
     {
         return levelParams[_levelIndex].maxActiveTasks;

@@ -11,12 +11,15 @@ public class TaskScript : MonoBehaviour
     protected bool isAstroSpecialist;
     private bool isTaskInProgress = false;
     private TaskController _taskController;
-    [SerializeField] private TasksManager tasksManager;
     protected String taskName;
 
-    [Header("Audio Samples")]
+    [Header("AUDIO SAMPLES")]
     [SerializeField] private GameObject taskEnteredAudio;
     [SerializeField] private GameObject taskSuccessAudio;
+    [SerializeField] private GameObject taskMistakeStayAudio;
+
+    [Header("TASK CONFIG")]
+    [SerializeField] private TasksManager tasksManager;
     
 
     protected virtual void Awake()
@@ -47,6 +50,8 @@ public class TaskScript : MonoBehaviour
     {
         Debug.Log("Task Mistake (stay)");
         _taskController.Mistakes++;
+        taskMistakeStayAudio.GetComponent<AudioPlayer>().PlayAudio();
+
     }
 
     protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
