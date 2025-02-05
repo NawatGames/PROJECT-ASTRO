@@ -488,6 +488,8 @@ MonoBehaviour:
       m_Calls: []
   playerCollisionController: {fileID: 6980675924244276331}
   playerAnimationController: {fileID: 4266758921371716804}
+  startedDecontaminationEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
+  stoppedDecontaminationEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
 --- !u!114 &223320627011355376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,8 +845,6 @@ MonoBehaviour:
   goToTaskState: {fileID: 873593020683084460}
   goToDecontaminationPlayerState: {fileID: 2884312209043160951}
   interactionHint: {fileID: 6856092847396395421}
-  startedDecontaminationEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
-  stoppedDecontaminationEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
 --- !u!1 &6822938230941474528
 GameObject:
   m_ObjectHideFlags: 0

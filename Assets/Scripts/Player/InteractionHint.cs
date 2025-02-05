@@ -10,7 +10,7 @@ public class InteractionHint : MonoBehaviour
     {
         if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState && !taskPlayerState.IsOnCooldown
             || playerCollisionController.IsOnButtonArea && playerCollisionController.NearDoorButtonController._roomQuarantineHandler.canPressButton
-            || playerCollisionController.IsOnDecontamination)
+            || playerCollisionController.IsOnDecontamination && !playerCollisionController.NearDecontaminationInteraction.IsOccupied())
         {
             interactionHintSprite.enabled = true;
         }

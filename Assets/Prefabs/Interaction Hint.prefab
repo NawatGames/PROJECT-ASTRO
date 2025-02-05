@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 58977947407970298}
   - component: {fileID: 8440769344233848085}
   - component: {fileID: 5451429492029923767}
+  - component: {fileID: 6698231526865450150}
   m_Layer: 3
   m_Name: Interaction Hint
   m_TagString: Untagged
@@ -237,6 +238,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InteractionHint, Assembly-CSharp
         m_MethodName: OnButtonCooldownEndedHandler
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6698231526865450150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099326797527239703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6706674967794871605}
+        m_TargetAssemblyTypeName: InteractionHint, Assembly-CSharp
+        m_MethodName: CheckForInteractionHintUpdate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

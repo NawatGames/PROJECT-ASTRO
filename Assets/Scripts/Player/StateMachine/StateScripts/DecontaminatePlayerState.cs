@@ -39,20 +39,19 @@ public class DecontaminatePlayerState : PlayerState
          descontaminação mesmo quando não é exigido / não tem timer de descontaminação*/
         playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
         
-        stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }
     
     public void OnCompleteDecontaminationHandler(Component c, object o)
     {
         playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
-        stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }
 
     public override void LeaveState()
     {
         base.LeaveState();
+        stoppedDecontaminationEvent.Raise();
         _gameEventListener.response.RemoveListener(OnCompleteDecontaminationHandler);
     }
 }
