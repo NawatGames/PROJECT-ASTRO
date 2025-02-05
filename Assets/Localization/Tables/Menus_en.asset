@@ -74,6 +74,26 @@ MonoBehaviour:
     m_Localized: English
     m_Metadata:
       m_Items: []
+  - m_Id: 59081513125257216
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59144931861569536
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146199673839616
+    m_Localized: Try Again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146262756171776
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59146658341953536
+    m_Localized: GAME OVER
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
