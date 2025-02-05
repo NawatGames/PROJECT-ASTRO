@@ -14,7 +14,7 @@ public class PlayerCollisionController : MonoBehaviour
     public DoorButtonController NearDoorButtonController { get; private set; }
     public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
     
-    public InteractionManager NearDecontaminationInteraction { get; private set; }
+    public DecontaminationPod NearDecontaminationInteraction { get; private set; }
 
     private void Reset()
     {
@@ -32,7 +32,7 @@ public class PlayerCollisionController : MonoBehaviour
             
             if (isDecontamination)
             {
-                NearDecontaminationInteraction = other.GetComponent<InteractionManager>();
+                NearDecontaminationInteraction = other.GetComponent<DecontaminationPod>();
                 IsOnDecontamination = true;
             }
             else if (isTask)
