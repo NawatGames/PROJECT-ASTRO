@@ -950,7 +950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2487667485969025490, guid: 28ac93f81d3843a459138999b5606098, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.677
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2487667485969025490, guid: 28ac93f81d3843a459138999b5606098, type: 3}
       propertyPath: m_LocalPosition.z
@@ -987,6 +987,10 @@ PrefabInstance:
     - target: {fileID: 3099326797527239703, guid: 28ac93f81d3843a459138999b5606098, type: 3}
       propertyPath: m_Name
       value: Interaction Hint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099326797527239703, guid: 28ac93f81d3843a459138999b5606098, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6706674967794871605, guid: 28ac93f81d3843a459138999b5606098, type: 3}
       propertyPath: taskPlayerState
