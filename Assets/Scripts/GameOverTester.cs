@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameOverTester : MonoBehaviour
 {
-    public GameOverManager gameOver;
+    [SerializeField] private GameOverManager _gameOver;
+    [SerializeField] private bool _isActive;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(_isActive)
         {
-            gameOver.StartGameOver();
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                _gameOver.StartGameOver();
+            }
         }
     }
 }

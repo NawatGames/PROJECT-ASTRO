@@ -27,6 +27,8 @@ public class GameOverVideoController : MonoBehaviour
 
     public void StartJumpscareVideo()
     {
+        ResetRenderTexture();
+
         if (rawImage != null)
         {
             rawImage.texture = renderTexture;
@@ -37,6 +39,7 @@ public class GameOverVideoController : MonoBehaviour
         videoPlayer.isLooping = false;
         videoPlayer.Play();
     }
+
 
     public void StopVideo()
     {
@@ -63,8 +66,20 @@ public class GameOverVideoController : MonoBehaviour
         }
     }
 
+
     public VideoPlayer getVideoPlayer()
     {
         return videoPlayer;
     }
+
+    public RawImage GetRawImage()
+    {
+        return rawImage;
+    }
+
+    public VideoPlayer GetVideoPlayer()
+    {
+        return videoPlayer;
+    }
+
 }
