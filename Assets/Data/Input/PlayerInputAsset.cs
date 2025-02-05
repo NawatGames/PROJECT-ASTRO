@@ -235,7 +235,7 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d44f2f76-7082-4e78-b1fe-63bcaadc7994"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""RightKeyboard"",
@@ -440,7 +440,7 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aa970b67-58d9-4c89-a612-ee27bddaf63d"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""RightKeyboard"",
