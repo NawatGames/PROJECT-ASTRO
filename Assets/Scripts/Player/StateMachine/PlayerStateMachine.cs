@@ -24,8 +24,6 @@ namespace Player.StateMachine
         
         // TODO Parar de usar OLD_VARS
         #region OLD_VARS
-        public GameEvent startedDecontaminationEvent;
-        public GameEvent stoppedDecontaminationEvent;
         public bool GameIsOver { get; private set; }
         #endregion
 
