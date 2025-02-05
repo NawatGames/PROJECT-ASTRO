@@ -1146,7 +1146,7 @@ MonoBehaviour:
   - {fileID: 901912491}
   roomsScript: []
   roomsBeingUsed: []
-  timerQuarantineDelay: 0
+  timerQuarantineDelay: 1
   linkedRooms: []
 --- !u!4 &773420859
 Transform:

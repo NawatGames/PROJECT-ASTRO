@@ -11,7 +11,7 @@ public class QuarantineManager : MonoBehaviour
     public List<GameObject> roomsBeingUsed;
     [SerializeField] private int timerQuarantineDelay;
 
-    private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
+
     [SerializeField] private List<GameObject> linkedRooms;
     
     private int closedDoors;
@@ -39,6 +39,7 @@ public class QuarantineManager : MonoBehaviour
         List<GameObject> roomsInUse = new List<GameObject>();
         closedDoors = 0;
         notQuarantinableRoomsCount = 0;
+        List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
@@ -52,6 +53,7 @@ public class QuarantineManager : MonoBehaviour
             {
                 closedDoors++;
                 script.isRoomQuarantined = true;
+                doorButton.CloseAllRoomDoors();
                 
             }
             if (!script.canPressButton && !script.isRoomQuarantined)
