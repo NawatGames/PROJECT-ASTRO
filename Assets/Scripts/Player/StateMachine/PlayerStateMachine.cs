@@ -19,6 +19,8 @@ namespace Player.StateMachine
         public GoToDecontaminationPlayerState goToDecontaminationPlayerState;
         
         private PlayerState _initialPlayerState;
+
+        public InteractionHint interactionHint;
         
         // TODO Parar de usar OLD_VARS
         #region OLD_VARS

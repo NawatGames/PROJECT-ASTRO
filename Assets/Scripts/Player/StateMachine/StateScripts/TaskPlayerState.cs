@@ -7,6 +7,7 @@ public class TaskPlayerState : PlayerState
 {
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerAnimationController playerAnimationController;
+    [SerializeField] private InteractionHint interactionHint;
     [SerializeField] private float cooldownTime = 2f; 
     public bool IsOnCooldown {get; private set;}= false;
     
@@ -51,11 +52,12 @@ public class TaskPlayerState : PlayerState
 
     private IEnumerator CooldownCoroutine()
     {
-        Debug.Log("Cooldown de " + cooldownTime + " s.");
+        //Debug.Log("Cooldown de " + cooldownTime + " s.");
         
         yield return new WaitForSeconds(cooldownTime);
         
         IsOnCooldown = false;
-        Debug.Log("Fim do coolwdown");
+        interactionHint.CheckForInteractionHintUpdate();
+        //Debug.Log("Fim do coolwdown");
     }
 }

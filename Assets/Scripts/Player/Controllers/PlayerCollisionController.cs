@@ -1,17 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player.StateMachine;
 using UnityEngine;
 
 public class PlayerCollisionController : MonoBehaviour
 {
+    [SerializeField] private PlayerStateMachine playerStateMachine;
     public bool IsOnTaskArea { get; private set; }
     public bool IsOnButtonArea { get; private set; }
+    public bool IsOnDecontamination { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
     public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
     
     public InteractionManager NearDecontaminationInteraction { get; private set; }
-    
+
+    private void Reset()
+    {
+        playerStateMachine = transform.root.GetComponentInChildren<PlayerStateMachine>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         bool isTask = other.CompareTag("Task");
@@ -20,9 +29,11 @@ public class PlayerCollisionController : MonoBehaviour
 
         if (isTask || isQuarantineButton || isDecontamination)
         {
+            
             if (isDecontamination)
             {
                 NearDecontaminationInteraction = other.GetComponent<InteractionManager>();
+                IsOnDecontamination = true;
             }
             else if (isTask)
             {
@@ -35,7 +46,7 @@ public class PlayerCollisionController : MonoBehaviour
                 AdjacentDoorButtonControler = other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = true;
             }
-            
+            playerStateMachine.interactionHint.CheckForInteractionHintUpdate();
         }
     }
 
@@ -50,6 +61,7 @@ public class PlayerCollisionController : MonoBehaviour
             if(isDecontamination)
             {
                 NearDecontaminationInteraction = null;
+                IsOnDecontamination = false;
             }
             else if (isTask)
             {
@@ -67,6 +79,7 @@ public class PlayerCollisionController : MonoBehaviour
                 AdjacentDoorButtonControler = null;
                 IsOnButtonArea = false;
             }
+            playerStateMachine.interactionHint.CheckForInteractionHintUpdate();
         }
     }
 }
