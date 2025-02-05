@@ -15,10 +15,16 @@ public class AvailableState : ITaskState
 
     public ITaskState Do(TaskController task)
     {
-        if(!task.wasStarted)
-            return task.AvailableState;
-        task.wasStarted = false;
-        return task.BeingDoneState;
+        if (task.wasStarted)
+        {
+            task.wasStarted = false;
+            return task.BeingDoneState;
+        }
+        if (!task.needsToBeDone)
+        {
+            return task.UnavailableState; 
+        }
+        return task.AvailableState;
     }
 
     public void Exit(TaskController task)
