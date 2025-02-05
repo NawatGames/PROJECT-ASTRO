@@ -13,6 +13,9 @@ public class QuarantineManager : MonoBehaviour
 
     private List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
     [SerializeField] private List<GameObject> linkedRooms;
+
+    [SerializeField] private GameEvent quarantineActivated;
+    [SerializeField] private GameEvent quarantineDeactivated;
     
     private int closedDoors;
 
@@ -86,24 +89,32 @@ public class QuarantineManager : MonoBehaviour
         this.roomsBeingUsed = roomsInUse;
     }
 
+    // Ativa a quarentena (desabilita a opção de quarentenar)
     public void DisableQuarantines(RoomQuarantineHandler roomQuarantinedScript)
     {
         foreach (RoomQuarantineHandler script in roomsScript)
         {
+            script.canPressButton = false;
             if (script != roomQuarantinedScript)
             {
                 script.isRoomQuarantined = false;
-                script.canPressButton = false;
             }
         }
+        quarantineActivated.Raise();
     }
-    public void EnableQuarantines()
+    
+    // Desativa a quarentena (habilita a opção de quarentenar) 
+    public void EnableQuarantines(RoomQuarantineHandler openedRoomScript)
     {
         foreach (RoomQuarantineHandler script in roomsScript)
         {
             script.isRoomQuarantined = false;
-            script.canPressButton = true;
+            if (script != openedRoomScript)
+            {
+                script.canPressButton = true;
+            }
         }
+        quarantineDeactivated.Raise();
     }
     
     public float getTimerQuarantineDelay()

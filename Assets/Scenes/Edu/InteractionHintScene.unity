@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 2045109253}
-  totalTimeForTaskToFail: 130
+  totalTimeForTaskToFail: 7
   shortTimeForTaskToBeCompleted: 5
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 773420859}
   - component: {fileID: 773420858}
   m_Layer: 0
-  m_Name: RoomManager
+  m_Name: QuarantineManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1126,6 +1126,8 @@ MonoBehaviour:
   roomsBeingUsed: []
   timerQuarantineDelay: 2
   linkedRooms: []
+  quarantineActivated: {fileID: 11400000, guid: 56151fbf9746480478d5fe5322671e36, type: 2}
+  quarantineDeactivated: {fileID: 11400000, guid: d32858315f5a3cf4b823f6652ae7da9c, type: 2}
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -1676,6 +1678,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
     - target: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -2817,6 +2823,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 871797094}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
+    - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableQuarantines
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisableQuarantines
       objectReference: {fileID: 0}
@@ -2988,6 +3002,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 50326912740799339, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
     - target: {fileID: 50326912740799339, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -3730,6 +3748,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
+    - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableQuarantines
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisableQuarantines
       objectReference: {fileID: 0}
@@ -4249,6 +4275,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
+    - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableQuarantines
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisableQuarantines
       objectReference: {fileID: 0}
@@ -4336,6 +4370,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
     - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4786,6 +4824,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
+    - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773420858}
@@ -4943,6 +4985,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 773420858}
+    - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: buttonCooldownEnded
+      value: 
+      objectReference: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
     - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

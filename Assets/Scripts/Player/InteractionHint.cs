@@ -21,11 +21,22 @@ public class InteractionHint : MonoBehaviour
         
     }
 
-    public void TaskAvailabilityChanged(Component task, object _)
+    public void OnTaskAvailabilityChangedHandler(Component task, object _)
     {
         if (task == playerCollisionController.NearTaskController)
         {
             CheckForInteractionHintUpdate();
+        }
+    }
+
+    public void OnButtonCooldownEndedHandler(Component room, object _)
+    {
+        if (playerCollisionController.NearDoorButtonController)
+        {
+            if (room == playerCollisionController.NearDoorButtonController._roomQuarantineHandler)
+            {
+                CheckForInteractionHintUpdate();
+            }
         }
     }
 }
