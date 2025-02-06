@@ -25,14 +25,7 @@ public class FreeMovePlayerState : PlayerState
     
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
-        {
-            if (!taskPlayerState.IsOnCooldown)
-            {
-                SwitchState(playerStateMachine.goToTaskState);
-            }
-        }
-        else if (playerCollisionController.NearDecontaminationInteraction != null)
+        if (playerCollisionController.NearDecontaminationInteraction != null)
         {
             if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
             {
@@ -51,6 +44,13 @@ public class FreeMovePlayerState : PlayerState
             if (playerCollisionController.AdjacentDoorButtonControler != null)
             {
                 playerCollisionController.AdjacentDoorButtonControler.ToggleDoor();
+            }
+        }
+        else if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
+        {
+            if (!taskPlayerState.IsOnCooldown)
+            {
+                SwitchState(playerStateMachine.goToTaskState);
             }
         }
     }
