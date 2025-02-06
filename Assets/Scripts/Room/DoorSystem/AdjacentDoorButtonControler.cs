@@ -6,14 +6,16 @@ public class AdjacentDoorButtonControler : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
-    [SerializeField] private List< DoorButtonController> doorButtonControllers;
+    [SerializeField] private Animator doorAnimator;
+
+    [SerializeField] private List<DoorButtonController> doorButtonControllers;
     private bool alreadyOpened = false;
     // Start is called before the first frame update
     private void OnEnable()
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
-        
+        doorAnimator.SetBool("IsOpen", true);
     }
 
     public void ToggleDoor()
@@ -27,8 +29,8 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         {
             doorButtonController.ToggleDoor();
         }
-        
-        
+
+
     }
 
     public void IndependentToggleDoor()
@@ -36,20 +38,22 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         if (alreadyOpened)
             return;
         doorCollider.enabled = !doorCollider.enabled;
-        doorSprite.color = doorCollider.enabled ? Color.red: Color.green;
+        doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         if (doorCollider.enabled)
         {
+            doorAnimator.SetBool("IsOpen", false);
             FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (!doorSprite.enabled)
         {
+            doorAnimator.SetBool("IsOpen", true);
             FindObjectOfType<AudioManager>().Play("DoorOpen");
         }
     }
     public void setColor(Color color)
     {
         doorSprite.color = color;
-        
+
     }
 
     public void setCollider(bool collider)
@@ -65,6 +69,8 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
+        doorAnimator.SetBool("IsOpen", true);
+
     }
 
     public void setAlreadyOpenedFalse()
@@ -76,10 +82,12 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     {
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
+        doorAnimator.SetBool("IsOpen", false);
+
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

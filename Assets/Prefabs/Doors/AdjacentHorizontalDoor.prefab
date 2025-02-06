@@ -69,6 +69,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
+--- !u!95 &8273235172342594409 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7597490046750599089, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
+  m_PrefabInstance: {fileID: 1999558102304546008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8433198654313278645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7977957420552482925, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
@@ -86,6 +91,10 @@ PrefabInstance:
       propertyPath: doorSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2112807835909873177, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 8273235172342594409}
     - target: {fileID: 2112807835909873177, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
       propertyPath: doorCollider
       value: 

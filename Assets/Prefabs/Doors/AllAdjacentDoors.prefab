@@ -50,6 +50,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.42
       objectReference: {fileID: 0}
+    - target: {fileID: 2112807835909873177, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 1154368844263483992}
     - target: {fileID: 7825475354405585681, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
       propertyPath: m_Name
       value: Broken Window
@@ -107,6 +111,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+--- !u!95 &1154368844263483992 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1991865035523321991, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+  m_PrefabInstance: {fileID: 838130137160030943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8786505723364987580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8236611530945349731, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
@@ -124,6 +133,10 @@ PrefabInstance:
       propertyPath: doorSprite
       value: 
       objectReference: {fileID: 2339575860678796872}
+    - target: {fileID: 3551847863485520031, guid: 27c48e78733d8b54790902c7743828ae, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 4611801191990423625}
     - target: {fileID: 3551847863485520031, guid: 27c48e78733d8b54790902c7743828ae, type: 3}
       propertyPath: doorCollider
       value: 
@@ -207,6 +220,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1344272709401849192, guid: 27c48e78733d8b54790902c7743828ae, type: 3}
   m_PrefabInstance: {fileID: 3661434406938118944}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4611801191990423625 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8273235172342594409, guid: 27c48e78733d8b54790902c7743828ae, type: 3}
+  m_PrefabInstance: {fileID: 3661434406938118944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7820171885174048197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6797853595782565605, guid: 27c48e78733d8b54790902c7743828ae, type: 3}
@@ -240,6 +258,10 @@ PrefabInstance:
       propertyPath: doorSprite
       value: 
       objectReference: {fileID: 2007094787471755260}
+    - target: {fileID: 2112807835909873177, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 8911811627432776189}
     - target: {fileID: 2112807835909873177, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
       propertyPath: doorCollider
       value: 
@@ -314,5 +336,10 @@ SpriteRenderer:
 --- !u!61 &2415684904548480963 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4724178531277493945, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+  m_PrefabInstance: {fileID: 6920233581913629050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8911811627432776189 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1991865035523321991, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
   m_PrefabInstance: {fileID: 6920233581913629050}
   m_PrefabAsset: {fileID: 0}

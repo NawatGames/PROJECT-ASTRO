@@ -5,6 +5,7 @@ public class DoorButtonController : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
+    [SerializeField] private Animator doorAnimator;
  
     private RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
@@ -15,6 +16,7 @@ public class DoorButtonController : MonoBehaviour
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
+        doorAnimator.SetBool("IsOpen", true);
         _roomQuarantineHandler = GetComponentInParent<RoomQuarantineHandler>();
     }
 
@@ -57,11 +59,15 @@ public class DoorButtonController : MonoBehaviour
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
+        doorAnimator.SetBool("IsOpen", true);
+
     }
     public void CloseDoor()
     {
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
+        doorAnimator.SetBool("IsOpen", false);
+
     }
 
     public BoxCollider2D getDoorCollider()
@@ -78,6 +84,8 @@ public class DoorButtonController : MonoBehaviour
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
+        doorAnimator.SetBool("IsOpen", true);
+
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.OpenDoor();
@@ -90,6 +98,8 @@ public class DoorButtonController : MonoBehaviour
     {
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
+        doorAnimator.SetBool("IsOpen", false);
+
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.CloseDoor();
