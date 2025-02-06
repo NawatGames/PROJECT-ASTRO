@@ -522,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorCollider: {fileID: 8123129665094829706}
   doorSprite: {fileID: 5397487086209218229}
+  doorAnimator: {fileID: 3066958553443688628}
   adjacentDoorButtonControlers:
   - {fileID: 0}
   repeaters: []
@@ -1695,6 +1696,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5025961466932921946}
   m_SourcePrefab: {fileID: 100100000, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
+--- !u!95 &3066958553443688628 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7597490046750599089, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
+  m_PrefabInstance: {fileID: 4899831181152470789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3263091571800749928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
