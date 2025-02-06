@@ -2547,14 +2547,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllAdjacentDoors
       objectReference: {fileID: 0}
-    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 21.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -29.89
-      objectReference: {fileID: 0}
     - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
@@ -3547,22 +3539,6 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 2089711232}
-    - target: {fileID: 1072104062582905517, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1072104062582905517, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268807257217099466, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268807257217099466, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: manager
       value: 
