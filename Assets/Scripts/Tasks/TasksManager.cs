@@ -13,17 +13,19 @@ public class TasksManager : MonoBehaviour
     [SerializeField] private int nextTaskMinDelay = 5;
     [SerializeField] private int nextTaskMaxDelay = 10;
     [SerializeField] private int startingTasks = 3;
+    
+    [Space]
+    [SerializeField] private int astroProbability = 50;
 
     [Space]
     [SerializeField] private GameEvent onTaskFailed;
     [SerializeField] private GameObject taskTimerPrefab;
     [SerializeField] private Transform taskGridLayoutTransform;
+    
+    private List<TaskController> _tasksNotYetSelected;
     private List<TaskController> _tasksForThisLevel;
-    [SerializeField] private List<TaskController> _tasksNotYetSelected;
     private Dictionary<TaskController, Coroutine> _taskQueue;
-    private int maxNumberOfActiveTasks;
-    private TaskController recentRemovedTask;
-    [SerializeField] private int astroProbability = 50;
+    private TaskController _recentRemovedTask;
 
     private bool _hasOneStartingAlienSpecialist;
     private bool _hasOneStartingAstroSpecialist;
@@ -32,7 +34,6 @@ public class TasksManager : MonoBehaviour
     private void Start()
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
-        maxNumberOfActiveTasks = levelManager.GetMaxNumberOfActiveTasks();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
         SetupStartingTasks();
@@ -43,24 +44,24 @@ public class TasksManager : MonoBehaviour
         // Adiciona as primeiras (-1) tasks
         for (var i = 0; i < startingTasks - 1; i++)
         {
-            AddTaskToQueue();
+            AddNextTaskToQueue();
         }
         if (!_hasOneStartingAstroSpecialist || !_hasOneStartingAlienSpecialist)
         {
             _forceOneStartingSpecialist = true;
         }
-        AddTaskToQueue();
+        AddNextTaskToQueue();
         
         // Adiciona as próximas tasks
-        StartCoroutine(WaitAndAddTaskToQueue(maxNumberOfActiveTasks - startingTasks));
+        StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
     }
 
-    private TaskController SelectNextTask()
+    private TaskController AddNextTaskToQueue()
     {
         TaskController task;
         if (_tasksNotYetSelected.Count == 0)
         {
-            task = recentRemovedTask;
+            task = _recentRemovedTask;
         }
         else
         {
@@ -83,22 +84,17 @@ public class TasksManager : MonoBehaviour
         return task;
     }
 
-    private void AddTaskToQueue()
-    {
-        var task = SelectNextTask();
-    }
-
     private IEnumerator WaitAndAddTaskToQueue()
     {
         yield return new WaitForSeconds(Random.Range(nextTaskMinDelay, nextTaskMaxDelay));
-        AddTaskToQueue();
+        AddNextTaskToQueue();
     }
 
     private IEnumerator WaitAndAddTaskToQueue(int tasks)
     {
         if (tasks == 0) yield break;
         yield return new WaitForSeconds(Random.Range(nextTaskMinDelay, nextTaskMaxDelay));
-        AddTaskToQueue();
+        AddNextTaskToQueue();
         StartCoroutine(WaitAndAddTaskToQueue(tasks - 1));
     }
 
@@ -178,7 +174,7 @@ public class TasksManager : MonoBehaviour
 
     private void RemoveTaskFromQueue(TaskController task)
     {
-        recentRemovedTask = task;
+        _recentRemovedTask = task;
         task.Mistakes = 0;
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
