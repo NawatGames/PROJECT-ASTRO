@@ -1,11 +1,11 @@
 public class UnavailableState : ITaskState
 {
-        public ITaskState Do(TaskController task)
+    public ITaskState Do(TaskController task)
+    {
+        if (task.needsToBeDone)
         {
-                if (task.needsToBeDone)
-                {
-                        return task.AvailableState;
-                }
-                return task.UnavailableState;
+            return task.AvailableState;
         }
+        return task.UnavailableState;
+    }
 }

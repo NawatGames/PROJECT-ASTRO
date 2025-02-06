@@ -8,6 +8,8 @@ public class DecontaminatePlayerState : PlayerState
     private GameEventListener _gameEventListener;
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerAnimationController playerAnimationController;
+    [SerializeField] private GameEvent startedDecontaminationEvent;
+    [SerializeField] private GameEvent stoppedDecontaminationEvent;
 
     protected override void Awake()
     {
@@ -19,7 +21,7 @@ public class DecontaminatePlayerState : PlayerState
     {
         base.EnterState();
         playerAnimationController.SetMovementAnimParameters(Vector2.zero);
-        playerStateMachine.startedDecontaminationEvent.Raise();
+        startedDecontaminationEvent.Raise();
         _gameEventListener.response.AddListener(OnCompleteDecontaminationHandler);
     }
 
@@ -37,20 +39,19 @@ public class DecontaminatePlayerState : PlayerState
          descontaminação mesmo quando não é exigido / não tem timer de descontaminação*/
         playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
         
-        playerStateMachine.stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }
     
     public void OnCompleteDecontaminationHandler(Component c, object o)
     {
         playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
-        playerStateMachine.stoppedDecontaminationEvent.Raise();
         SwitchState(playerStateMachine.freeMoveState);
     }
 
     public override void LeaveState()
     {
         base.LeaveState();
+        stoppedDecontaminationEvent.Raise();
         _gameEventListener.response.RemoveListener(OnCompleteDecontaminationHandler);
     }
 }

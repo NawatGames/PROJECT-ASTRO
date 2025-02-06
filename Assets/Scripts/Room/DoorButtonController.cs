@@ -7,7 +7,7 @@ public class DoorButtonController : MonoBehaviour
     //[SerializeField] private BoxCollider2D adjacentDoorCollider;
      [SerializeField] private SpriteRenderer doorSprite;
      //[SerializeField] private SpriteRenderer adjacentDoorSprite;
-    private RoomQuarantineHandler _roomQuarantineHandler;
+    public RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
     private bool isPressed = false;
 

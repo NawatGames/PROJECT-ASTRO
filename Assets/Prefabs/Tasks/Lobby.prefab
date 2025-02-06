@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6587566220632577350}
   - component: {fileID: 5219658412456692770}
   m_Layer: 0
-  m_Name: Interaction 2
+  m_Name: Right Pod
   m_TagString: InteractionDecontamination
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _occupied: 0
+  DecontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
 --- !u!1 &2057427955050985273
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4059269339949079152}
   - component: {fileID: 6594996474930888962}
   m_Layer: 0
-  m_Name: Interaction 1
+  m_Name: Left Pod
   m_TagString: InteractionDecontamination
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _occupied: 0
+  DecontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
 --- !u!1 &8829836319662570609
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     private bool _isAlienInside;
     [SerializeField] private GameEvent onAlienAttack;
+    [SerializeField] private GameEvent buttonCooldownEnded;
 
     // public GameObject room;
     public SpriteRenderer roomSprite;
@@ -109,8 +110,9 @@ public class RoomQuarantineHandler : MonoBehaviour
                 onAlienAttack.Raise();
             }
             isRoomQuarantined = false;
+            canPressButton = false;
             quarantineEnded.Invoke();
-            manager.EnableQuarantines();
+            manager.EnableQuarantines(this);
             
             
         }
@@ -121,12 +123,12 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(manager.getTimerQuarantineDelay());
         canPressButton = true;
+        buttonCooldownEnded.Raise(this);
     }
 
     public void ToggleQuarantine()
     {
         StartCoroutine(QuarantineToggleRoutine());
-        canPressButton = false;
     }
 
     public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)

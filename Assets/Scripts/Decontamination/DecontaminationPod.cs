@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionManager : MonoBehaviour
+public class DecontaminationPod : MonoBehaviour
 {
 
-    [SerializeField] private bool _occupied;
+    private bool _occupied;
     private Transform _decontaminationTransform;
-    
+
+    [SerializeField] private GameEvent DecontaminationOccupancyChanged;
     void Start()
     {
         _decontaminationTransform = transform.GetChild(0);
-        _occupied = false;
         
         // Apenas para debug:
         if (!GetComponent<BoxCollider2D>().bounds.Contains(_decontaminationTransform.position))
@@ -28,6 +28,7 @@ public class InteractionManager : MonoBehaviour
     public void SetOccupied(bool occupied)
     {
         _occupied = occupied;
+        DecontaminationOccupancyChanged.Raise();
     }
 
     public Vector2 GetDecontaminationPosition()
