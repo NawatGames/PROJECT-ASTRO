@@ -25,6 +25,10 @@ public class TasksManager : MonoBehaviour
     private TaskController recentRemovedTask;
     [SerializeField] private int astroProbability = 50;
 
+    private bool _hasOneStartingAlienSpecialist;
+    private bool _hasOneStartingAstroSpecialist;
+    private bool _forceOneStartingSpecialist;
+
     private void Start()
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
@@ -36,12 +40,17 @@ public class TasksManager : MonoBehaviour
 
     private void SetupStartingTasks()
     {
-        // Adiciona as primeiras tasks
-        for (var i = 0; i < startingTasks; i++)
+        // Adiciona as primeiras (-1) tasks
+        for (var i = 0; i < startingTasks - 1; i++)
         {
             AddTaskToQueue();
         }
-
+        if (!_hasOneStartingAstroSpecialist || !_hasOneStartingAlienSpecialist)
+        {
+            _forceOneStartingSpecialist = true;
+        }
+        AddTaskToQueue();
+        
         // Adiciona as próximas tasks
         StartCoroutine(WaitAndAddTaskToQueue(maxNumberOfActiveTasks - startingTasks));
     }
@@ -179,14 +188,24 @@ public class TasksManager : MonoBehaviour
     private void DefineSpecialist(TaskScript taskScript)
     {
         int specialistRng;
-        specialistRng = Random.Range(1, 101);
-        if(specialistRng >= astroProbability)
+        if (_forceOneStartingSpecialist)
         {
-            taskScript.SetAstroSpecialist(true);
+            _forceOneStartingSpecialist = false;
+            specialistRng = _hasOneStartingAlienSpecialist ? astroProbability : astroProbability + 1;
         }
-
         else
         {
+            specialistRng = Random.Range(1, 101);
+        }
+        
+        if(specialistRng <= astroProbability)
+        {
+            _hasOneStartingAstroSpecialist = true;
+            taskScript.SetAstroSpecialist(true);
+        }
+        else
+        {
+            _hasOneStartingAlienSpecialist = true;
             taskScript.SetAstroSpecialist(false);
         }
     }
