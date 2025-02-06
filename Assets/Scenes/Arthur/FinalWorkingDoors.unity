@@ -405,6 +405,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65961416}
   m_CullTransparentMesh: 1
+--- !u!114 &137914651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+  m_PrefabInstance: {fileID: 2089711230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &204968861
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,14 +538,9 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &266018272 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1353038195721102510, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-  m_PrefabInstance: {fileID: 5182967668293503333}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &284552013 stripped
+--- !u!114 &363341027 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
   m_PrefabInstance: {fileID: 5182967668293503333}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -928,11 +934,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &468956719 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6433708092298098316, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
+--- !u!114 &442421219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+  m_PrefabInstance: {fileID: 1619706421}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &561246648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1105,11 +1117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &758085432 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8876377590568078511, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-  m_PrefabInstance: {fileID: 817822659}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &773420857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,10 +1694,6 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
-    - target: {fileID: 1270415086105620340, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 758085432}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1738,6 +1741,10 @@ PrefabInstance:
     - target: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_Name
       value: Room - GuitarHero
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690435052041575896, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_Name
+      value: GuitarHero Door Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2096,17 +2103,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1152383516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8899172514173468602, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-  m_PrefabInstance: {fileID: 2089711230}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1159285466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,11 +2327,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1397393891 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8710544905539021445, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1422296544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2446,6 +2437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: repeaters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1517004639053767461}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -2498,17 +2493,13 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 7225734138491099428, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 1397393891}
-    - target: {fileID: 7225734138491099428, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: repeaters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1517004639053767461}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145510211459193002, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Name
+      value: O2 Control Door Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2526,7 +2517,11 @@ PrefabInstance:
     - target: {fileID: 259719909162374079, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
-      objectReference: {fileID: 284552013}
+      objectReference: {fileID: 363341027}
+    - target: {fileID: 771868916475042135, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Name
+      value: Genius Extra Button
+      objectReference: {fileID: 0}
     - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2570,7 +2565,7 @@ PrefabInstance:
     - target: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
-      objectReference: {fileID: 1891803420}
+      objectReference: {fileID: 442421219}
     - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
       value: AllAdjacentDoors
@@ -2578,7 +2573,7 @@ PrefabInstance:
     - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
-      objectReference: {fileID: 1152383516}
+      objectReference: {fileID: 137914651}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2660,14 +2655,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
-    - target: {fileID: 3472120722631424347, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 1664840224}
-    - target: {fileID: 3472120722631424347, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.data[0]
-      value: 
-      objectReference: {fileID: 375281282}
+    - target: {fileID: 180970222571814900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Name
+      value: Broken Window Door Button
+      objectReference: {fileID: 0}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7699995
@@ -2716,6 +2707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - BrokenWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 375281282}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2732,11 +2727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1664840224 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8559082105300073072, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-  m_PrefabInstance: {fileID: 1619706421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1755467155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
@@ -2979,17 +2969,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cb05c3ace0f97a4eac6428d979d0c8d, type: 3}
---- !u!114 &1891803420 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3472120722631424347, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-  m_PrefabInstance: {fileID: 1619706421}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1893230233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,11 +3077,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2727893083210838408, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 1940385033}
-    - target: {fileID: 2727893083210838408, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+    - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1619706423}
@@ -3154,6 +3129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778912265723355065, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Name
+      value: Gas Leak Door Button
+      objectReference: {fileID: 0}
     - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: manager
       value: 
@@ -3178,11 +3157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1940385033 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1541033238176459707, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-  m_PrefabInstance: {fileID: 1940385030}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1985897228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3485,6 +3459,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 2027073913235777568, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Name
+      value: MemoryGame Door Button
+      objectReference: {fileID: 0}
     - target: {fileID: 2419951622391577520, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7799997
@@ -3525,18 +3503,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2120217093}
     - target: {fileID: 8082507900171210099, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: m_Name
       value: Room - MemoryGame
       objectReference: {fileID: 0}
-    - target: {fileID: 8899172514173468602, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 2089711234}
-    - target: {fileID: 8899172514173468602, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.data[0]
-      value: 
-      objectReference: {fileID: 2120217093}
     - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: manager
       value: 
@@ -3561,11 +3535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2089711234 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3066958553443688628, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-  m_PrefabInstance: {fileID: 2089711230}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103209704 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
@@ -3590,10 +3559,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 1517004639053767462}
     - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3674,6 +3639,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5190370952332159651, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_Name
+      value: Harvest Door Button
+      objectReference: {fileID: 0}
     - target: {fileID: 8840270026049982345, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_Name
       value: Room - Harvest
@@ -3694,11 +3663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1517004639053767462 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4986378017904207353, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2717097818120226247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,22 +3671,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1646419590809787382, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Name
+      value: Fishing Door Button
+      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
-    - target: {fileID: 3689753218946435072, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 468956719}
-    - target: {fileID: 3689753218946435072, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: repeaters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1940385032}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: repeaters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1940385032}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.528
@@ -3805,18 +3769,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Genius
       objectReference: {fileID: 0}
-    - target: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 266018272}
-    - target: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+    - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
-      objectReference: {fileID: 2120217093}
-    - target: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      objectReference: {fileID: 214017964}
+    - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[1]
       value: 
-      objectReference: {fileID: 214017964}
+      objectReference: {fileID: 2120217093}
     - target: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4980993
@@ -3877,6 +3841,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 8907336385246221435, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Name
+      value: Genius Door Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

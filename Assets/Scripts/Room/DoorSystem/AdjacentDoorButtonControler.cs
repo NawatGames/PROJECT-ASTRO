@@ -7,15 +7,22 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private Animator doorAnimator;
+    private Animator buttonAnimator;
 
     [SerializeField] private List<DoorButtonController> doorButtonControllers;
     private bool alreadyOpened = false;
     // Start is called before the first frame update
+    void Awake()
+    {
+        buttonAnimator = this.GetComponent<Animator>();
+
+    }
     private void OnEnable()
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
+        buttonAnimator.SetBool("IsPressed", false);
     }
 
     public void ToggleDoor()
@@ -42,11 +49,14 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         if (doorCollider.enabled)
         {
             doorAnimator.SetBool("IsOpen", false);
+            buttonAnimator.SetBool("IsPressed", true);
+
             FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (!doorSprite.enabled)
         {
             doorAnimator.SetBool("IsOpen", true);
+            buttonAnimator.SetBool("IsPressed", false);
             FindObjectOfType<AudioManager>().Play("DoorOpen");
         }
     }
@@ -70,6 +80,8 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
+        buttonAnimator.SetBool("IsPressed", false);
+
 
     }
 
@@ -83,6 +95,8 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
+        buttonAnimator.SetBool("IsPressed", true);
+
 
     }
     // Update is called once per frame

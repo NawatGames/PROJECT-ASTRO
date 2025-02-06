@@ -6,25 +6,34 @@ public class DoorButtonController : MonoBehaviour
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private Animator doorAnimator;
- 
+    private Animator buttonAnimator;
+
+
     private RoomQuarantineHandler _roomQuarantineHandler;
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
     [SerializeField] private List<DoorControlerRepeater> repeaters;
     private bool isPressed = false;
 
+    void Awake()
+    {
+        buttonAnimator = this.GetComponent<Animator>();
+
+    }
     private void OnEnable()
     {
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
+        buttonAnimator.SetBool("IsPressed", false);
+
         _roomQuarantineHandler = GetComponentInParent<RoomQuarantineHandler>();
     }
 
     public void ToggleDoor()
     {
-        if(!_roomQuarantineHandler.canPressButton)
+        if (!_roomQuarantineHandler.canPressButton)
             return;
-        
+
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
         doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
@@ -33,7 +42,7 @@ public class DoorButtonController : MonoBehaviour
         {
             adjacentDoorButtonControler.IndependentToggleDoor();
             adjacentDoorButtonControler.setAlreadyOpenedFalse();
-            
+
         }
 
         foreach (DoorControlerRepeater repeater in repeaters)
@@ -47,7 +56,7 @@ public class DoorButtonController : MonoBehaviour
 
         if (_roomQuarantineHandler.isRoomQuarantined)
         {
-            
+
         }
     }
     public bool IsDoorOpen()
@@ -60,6 +69,8 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
+        buttonAnimator.SetBool("IsPressed", false);
+
 
     }
     public void CloseDoor()
@@ -67,6 +78,8 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
+        buttonAnimator.SetBool("IsPressed", true);
+
 
     }
 
@@ -85,13 +98,15 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = false;
         doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
+        buttonAnimator.SetBool("IsPressed", false);
+
 
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.OpenDoor();
-            
+
         }
-        
+
     }
 
     public void CloseAllRoomDoors()
@@ -99,11 +114,13 @@ public class DoorButtonController : MonoBehaviour
         doorCollider.enabled = true;
         doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
+        buttonAnimator.SetBool("IsPressed", true);
+
 
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.CloseDoor();
-            
+
         }
     }
 }
