@@ -405,17 +405,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65961416}
   m_CullTransparentMesh: 1
---- !u!114 &195322671 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6535997730507688783, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+--- !u!61 &117427024 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2415684904548480963, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
   m_PrefabInstance: {fileID: 1531394373}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+--- !u!212 &117427025 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2007094787471755260, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204968861
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +490,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204968861}
   m_CullTransparentMesh: 1
+--- !u!114 &214017964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 259719909162374079, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &259498850
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +557,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &375281282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &384344493 stripped
@@ -2423,17 +2444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astroPlayerInput: {fileID: 437778893}
   alienPlayerInput: {fileID: 2008283550}
---- !u!114 &1183713296 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4164021875899280336, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-  m_PrefabInstance: {fileID: 1531394373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1191715179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,17 +2690,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
   m_PrefabInstance: {fileID: 1940385030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1499992368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2745771931510800584, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-  m_PrefabInstance: {fileID: 1531394373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1526052248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2983,83 +2982,234 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2745771931510800584, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745771931510800584, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 259719909162374079, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorSprite
+      value: 
+      objectReference: {fileID: 1531394375}
+    - target: {fileID: 259719909162374079, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 1531394374}
+    - target: {fileID: 259719909162374079, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
       objectReference: {fileID: 284552013}
-    - target: {fileID: 3093383180718784582, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 563686030356164233, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorButtonControllers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080320908476540001, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
-      value: AllAdjacentDoors
+      value: Descontamination Extra Button
       objectReference: {fileID: 0}
-    - target: {fileID: 4164021875899280336, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164021875899280336, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.data[0]
-      value: 
-      objectReference: {fileID: 1152383516}
-    - target: {fileID: 4164021875899280336, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.data[1]
-      value: 
-      objectReference: {fileID: 1152383516}
-    - target: {fileID: 6535997730507688783, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6535997730507688783, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
-      propertyPath: doorButtonControllers.Array.data[0]
-      value: 
-      objectReference: {fileID: 1891803420}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7609645724415558615, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+    - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorButtonControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1891803420}
+    - target: {fileID: 1719801842696732036, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296587535817215534, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Name
+      value: Broken Window Extra Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787371827967565777, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Name
+      value: Genius Extra Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090731479597797709, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090731479597797709, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 32.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090731479597797709, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.813
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155365469219956751, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorButtonControllers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363154775578881147, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.436857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363154775578881147, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8460138
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363154775578881147, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.4059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363154775578881147, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363154775578881147, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.01004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423356640020223289, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorButtonControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 284552013}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398876452513958319, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398876452513958319, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666796152575636633, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666796152575636633, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 32.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666796152575636633, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Name
+      value: AllAdjacentDoors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114561836775322143, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114561836775322143, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 32.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114561836775322143, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392219442505872779, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Name
+      value: Memory Extra Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968302406039881249, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968302406039881249, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968302406039881249, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorSprite
+      value: 
+      objectReference: {fileID: 117427025}
+    - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 117427024}
+    - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: doorButtonControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1152383516}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7986238271263042969, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 10e56f41d78ff07408d91984dd25bd85, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+--- !u!61 &1531394374 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1885681500720911991, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1531394375 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2339575860678796872, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571042459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,7 +3357,7 @@ PrefabInstance:
     - target: {fileID: 3472120722631424347, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
-      objectReference: {fileID: 195322671}
+      objectReference: {fileID: 375281282}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.9125457
@@ -4458,7 +4608,7 @@ PrefabInstance:
     - target: {fileID: 8899172514173468602, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
-      objectReference: {fileID: 1183713296}
+      objectReference: {fileID: 2120217093}
     - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: manager
       value: 
@@ -4503,6 +4653,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
   m_PrefabInstance: {fileID: 817822659}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2120217093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1517004639053767459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5176,11 +5337,11 @@ PrefabInstance:
     - target: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
-      objectReference: {fileID: 1499992368}
+      objectReference: {fileID: 2120217093}
     - target: {fileID: 4020935903821161621, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[1]
       value: 
-      objectReference: {fileID: 1183713296}
+      objectReference: {fileID: 214017964}
     - target: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.7377553
