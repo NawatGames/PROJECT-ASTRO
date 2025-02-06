@@ -20,7 +20,7 @@ public class DoorControlerRepeater : MonoBehaviour
         doorAnimator = GetComponent<Animator>();
 
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
 
     }
@@ -30,12 +30,12 @@ public class DoorControlerRepeater : MonoBehaviour
         if (doorCollider.enabled)
         {
             doorAnimator.SetBool("IsOpen", false);
-            doorSprite.color = Color.red;
+            // doorSprite.color = Color.red;
         }
         else
         {
             doorAnimator.SetBool("IsOpen", true);
-            doorSprite.color = Color.green;
+            // doorSprite.color = Color.green;
         }
 
     }

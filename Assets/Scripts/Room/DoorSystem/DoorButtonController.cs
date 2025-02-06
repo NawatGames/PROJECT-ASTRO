@@ -22,7 +22,7 @@ public class DoorButtonController : MonoBehaviour
     private void OnEnable()
     {
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
 
@@ -36,7 +36,7 @@ public class DoorButtonController : MonoBehaviour
 
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
-        doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
+        // doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         isPressed = !isPressed;
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
@@ -67,7 +67,7 @@ public class DoorButtonController : MonoBehaviour
     public void OpenDoor()
     {
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
 
@@ -76,7 +76,7 @@ public class DoorButtonController : MonoBehaviour
     public void CloseDoor()
     {
         doorCollider.enabled = true;
-        doorSprite.color = Color.red;
+        // doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
         buttonAnimator.SetBool("IsPressed", true);
 
@@ -96,7 +96,7 @@ public class DoorButtonController : MonoBehaviour
     public void OpenAllRoomDoors()
     {
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
 
@@ -112,7 +112,7 @@ public class DoorButtonController : MonoBehaviour
     public void CloseAllRoomDoors()
     {
         doorCollider.enabled = true;
-        doorSprite.color = Color.red;
+        // doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
         buttonAnimator.SetBool("IsPressed", true);
 

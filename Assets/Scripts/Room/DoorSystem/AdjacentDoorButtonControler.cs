@@ -20,7 +20,7 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     private void OnEnable()
     {
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
     }
@@ -45,7 +45,7 @@ public class AdjacentDoorButtonControler : MonoBehaviour
         if (alreadyOpened)
             return;
         doorCollider.enabled = !doorCollider.enabled;
-        doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
+        // doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         if (doorCollider.enabled)
         {
             doorAnimator.SetBool("IsOpen", false);
@@ -78,7 +78,7 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     public void OpenDoor()
     {
         doorCollider.enabled = false;
-        doorSprite.color = Color.green;
+        // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
 
@@ -93,7 +93,7 @@ public class AdjacentDoorButtonControler : MonoBehaviour
     public void CloseDoor()
     {
         doorCollider.enabled = true;
-        doorSprite.color = Color.red;
+        // doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
         buttonAnimator.SetBool("IsPressed", true);
 
