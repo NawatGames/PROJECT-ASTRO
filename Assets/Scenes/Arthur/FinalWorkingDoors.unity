@@ -1097,11 +1097,13 @@ MonoBehaviour:
   levelManager: {fileID: 2045109253}
   totalTimeForTaskToFail: 130
   shortTimeForTaskToBeCompleted: 5
+  nextTaskMinDelay: 5
+  nextTaskMaxDelay: 10
+  startingTasks: 3
+  astroProbability: 50
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
-  _tasksNotYetSelected: []
-  astroProbability: 50
 --- !u!4 &752719925
 Transform:
   m_ObjectHideFlags: 0
@@ -1159,6 +1161,8 @@ MonoBehaviour:
   roomsBeingUsed: []
   timerQuarantineDelay: 1
   linkedRooms: []
+  quarantineActivated: {fileID: 0}
+  quarantineDeactivated: {fileID: 0}
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -1397,7 +1401,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4141a64f725c0ed45af19b891f560e4e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.429
   m_Pitch: 1
