@@ -46,7 +46,7 @@ public class QuarantineManager : MonoBehaviour
         foreach (GameObject room in rooms)
         {
             RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
-            DoorButtonController doorButton = room.GetComponentInChildren<DoorButtonController>();
+            MainDoorButtonController doorButton = room.GetComponentInChildren<MainDoorButtonController>();
             if (script.isBeingUsed && !roomsInUse.Contains(room))
             {
                 roomsInUse.Add(room);

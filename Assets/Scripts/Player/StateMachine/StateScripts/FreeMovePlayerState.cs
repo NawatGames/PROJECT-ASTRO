@@ -39,12 +39,6 @@ public class FreeMovePlayerState : PlayerState
             {
                 playerCollisionController.NearDoorButtonController.ToggleDoor();
             }
-
-            // Verifica se há um botão adjacente e aciona sua função
-            if (playerCollisionController.AdjacentDoorButtonControler != null)
-            {
-                playerCollisionController.AdjacentDoorButtonControler.ToggleDoor();
-            }
         }
         else if (playerCollisionController.IsOnTaskArea && playerCollisionController.NearTaskController.currentState is AvailableState)
         {
