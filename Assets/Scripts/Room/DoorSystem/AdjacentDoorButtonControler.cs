@@ -2,37 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdjacentDoorButtonControler : MonoBehaviour
+public class AdjacentDoorButtonControler : DoorButtonController
 {
-    [SerializeField] private BoxCollider2D doorCollider;
-    [SerializeField] private SpriteRenderer doorSprite;
-    [SerializeField] private Animator doorAnimator;
-    private Animator buttonAnimator;
-
-    [SerializeField] private List<DoorButtonController> doorButtonControllers;
+    
+    [SerializeField] private List<MainDoorButtonController> doorButtonControllers;
     private bool alreadyOpened = false;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        buttonAnimator = this.GetComponent<Animator>();
+    
 
-    }
-    private void OnEnable()
-    {
-        doorCollider.enabled = false;
-        // doorSprite.color = Color.green;
-        doorAnimator.SetBool("IsOpen", true);
-        buttonAnimator.SetBool("IsPressed", false);
-    }
-
-    public void ToggleDoor()
+    public override void ToggleDoor()
     {
         if (doorButtonControllers == null || doorButtonControllers.Count == 0)
         {
             IndependentToggleDoor();
             return;
         }
-        foreach (DoorButtonController doorButtonController in doorButtonControllers)
+        foreach (MainDoorButtonController doorButtonController in doorButtonControllers)
         {
             doorButtonController.ToggleDoor();
         }
@@ -59,11 +43,6 @@ public class AdjacentDoorButtonControler : MonoBehaviour
             buttonAnimator.SetBool("IsPressed", false);
             FindObjectOfType<AudioManager>().Play("DoorOpen");
         }
-    }
-    public void setColor(Color color)
-    {
-        doorSprite.color = color;
-
     }
 
     public void setCollider(bool collider)

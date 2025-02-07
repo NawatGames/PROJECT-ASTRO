@@ -12,8 +12,6 @@ public class PlayerCollisionController : MonoBehaviour
     public bool IsOnDecontamination { get; private set; }
     public TaskController NearTaskController { get; private set; }
     public DoorButtonController NearDoorButtonController { get; private set; }
-    public AdjacentDoorButtonControler AdjacentDoorButtonControler { get; private set; }
-    
     public DecontaminationPod NearDecontaminationInteraction { get; private set; }
 
     private void Reset()
@@ -43,7 +41,6 @@ public class PlayerCollisionController : MonoBehaviour
             else
             {
                 NearDoorButtonController = other.GetComponentInParent<DoorButtonController>();
-                AdjacentDoorButtonControler = other.GetComponentInParent<AdjacentDoorButtonControler>();
                 IsOnButtonArea = true;
             }
             playerStateMachine.interactionHint.CheckForInteractionHintUpdate();
@@ -76,7 +73,6 @@ public class PlayerCollisionController : MonoBehaviour
             else
             {
                 NearDoorButtonController = null;
-                AdjacentDoorButtonControler = null;
                 IsOnButtonArea = false;
             }
             playerStateMachine.interactionHint.CheckForInteractionHintUpdate();
