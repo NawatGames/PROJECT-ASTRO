@@ -7,8 +7,6 @@ using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    [Header("Audio Samples")]
-    [SerializeField] private AudioPlayer ambienceOST;
 
     [Header("Parameters")]
     private int _levelIndex;
@@ -34,11 +32,7 @@ public class LevelManager : MonoBehaviour
         };
 
     }
-    void Start()
-    {
-        ambienceOST.PlayLoop();
-
-    }
+    
     public int GetMaxNumberOfActiveTasks()
     {
         return levelParams[_levelIndex].maxActiveTasks;
