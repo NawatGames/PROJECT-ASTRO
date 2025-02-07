@@ -405,6 +405,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65961416}
   m_CullTransparentMesh: 1
+--- !u!1 &74102154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823776112029698616, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &137914651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
@@ -1161,8 +1166,8 @@ MonoBehaviour:
   roomsBeingUsed: []
   timerQuarantineDelay: 1
   linkedRooms: []
-  quarantineActivated: {fileID: 0}
-  quarantineDeactivated: {fileID: 0}
+  quarantineActivated: {fileID: 11400000, guid: 56151fbf9746480478d5fe5322671e36, type: 2}
+  quarantineDeactivated: {fileID: 11400000, guid: d32858315f5a3cf4b823f6652ae7da9c, type: 2}
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -2786,6 +2791,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1653436699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 606887539045775234, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1755467155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
@@ -3689,11 +3699,11 @@ PrefabInstance:
     - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: taskEnteredAudio
       value: 
-      objectReference: {fileID: 1517004639053767463}
+      objectReference: {fileID: 1653436699}
     - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: taskSuccessAudio
       value: 
-      objectReference: {fileID: 1517004639053767462}
+      objectReference: {fileID: 74102154}
     - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: taskMistakeStayAudio
       value: 
@@ -3775,16 +3785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1517004639053767462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2823776112029698616, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1517004639053767463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 606887539045775234, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2717097818120226247
 PrefabInstance:
   m_ObjectHideFlags: 0

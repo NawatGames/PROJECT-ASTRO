@@ -1022,7 +1022,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: QuarantineManager, Assembly-CSharp
-        m_MethodName: DisableQuarantines
+        m_MethodName: 
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1037,7 +1037,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: QuarantineManager, Assembly-CSharp
-        m_MethodName: EnableQuarantines
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1049,7 +1049,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
-  buttonCooldownEnded: {fileID: 0}
+  buttonCooldownEnded: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
   roomSprite: {fileID: 2055060580976954603}
   wallSprite: {fileID: 7854251515957637897}
   fadeVel: 0.03
