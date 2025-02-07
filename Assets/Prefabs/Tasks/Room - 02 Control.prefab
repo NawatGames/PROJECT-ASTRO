@@ -636,6 +636,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  buttonCooldownEnded: {fileID: 0}
   roomSprite: {fileID: 3139318545487454939}
   wallSprite: {fileID: 1071823155146029104}
   fadeVel: 0.03
@@ -1185,6 +1186,14 @@ PrefabInstance:
       propertyPath: needsToBeDone
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 4108637563040208199, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_Color.a
       value: 0.078431375
@@ -1228,6 +1237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75585e47975fe34aa75ff7723b5f037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskEnteredAudio: {fileID: 8282095774600809437}
+  taskSuccessAudio: {fileID: 6751989116318316135}
+  taskMistakeStayAudio: {fileID: 5316101288808420518}
   tasksManager: {fileID: 0}
   circle: {fileID: 6582382471507078164}
   arrow: {fileID: 1106065122125860448}
@@ -1235,6 +1247,11 @@ MonoBehaviour:
   rotationSpeed: 100
   alignmentThreshold: 10
   RequiredAlignments: 5
+--- !u!1 &5316101288808420518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336126066777521319, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 8497050443224573953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6033445570116949700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1251,6 +1268,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6751989116318316135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2907201138242428518, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 8497050443224573953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8282095774600809437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505665817885647836, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 8497050443224573953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9137924019221274336
 PrefabInstance:
   m_ObjectHideFlags: 0

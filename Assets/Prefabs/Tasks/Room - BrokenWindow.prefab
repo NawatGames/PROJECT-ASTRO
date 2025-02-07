@@ -517,6 +517,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  buttonCooldownEnded: {fileID: 0}
   roomSprite: {fileID: 2687104902649753731}
   wallSprite: {fileID: 3748035459583637872}
   fadeVel: 0.03
@@ -1059,6 +1060,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4665502479418077427}
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+--- !u!1 &180216334201450931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505665817885647836, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 397510479497220719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2581883308731083946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1075,6 +1081,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3304597199389740041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2907201138242428518, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 397510479497220719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4154920317513936584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336126066777521319, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 397510479497220719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4873410090983601278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1092,6 +1108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d68dc1c8bf14a4b826a60470e063e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskEnteredAudio: {fileID: 180216334201450931}
+  taskSuccessAudio: {fileID: 3304597199389740041}
+  taskMistakeStayAudio: {fileID: 4154920317513936584}
   tasksManager: {fileID: 0}
   sequenceSize: 5
   normalSequenceSize: 5

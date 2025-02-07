@@ -378,6 +378,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  buttonCooldownEnded: {fileID: 0}
   roomSprite: {fileID: 3577032269699827205}
   wallSprite: {fileID: 8765983169889538915}
   fadeVel: 0.03
@@ -1771,9 +1772,19 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6448475316502947355}
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+--- !u!1 &905123717836532987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336126066777521319, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 3504546626863140956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1653430237926059673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 3504546626863140956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1799982581017841210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2907201138242428518, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 3504546626863140956}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1822347476744995607 stripped
@@ -1787,6 +1798,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4010133272659571584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505665817885647836, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 3504546626863140956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8540882708190230093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1804,6 +1820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e925c2c9cac57774dbb4089ff41a1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskEnteredAudio: {fileID: 4010133272659571584}
+  taskSuccessAudio: {fileID: 1799982581017841210}
+  taskMistakeStayAudio: {fileID: 905123717836532987}
   tasksManager: {fileID: 0}
   gotFishWarningSprite: {fileID: 5887583891517017804}
   minFishWaitTime: 2

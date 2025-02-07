@@ -1746,6 +1746,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - GuitarHero
       objectReference: {fileID: 0}
+    - target: {fileID: 4326069593658654447, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 4326069593658654447, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 4690435052041575896, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_Name
       value: GuitarHero Door Button
@@ -2509,6 +2517,18 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: taskEnteredAudio
+      value: 
+      objectReference: {fileID: 1526052251}
+    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: taskSuccessAudio
+      value: 
+      objectReference: {fileID: 1526052250}
+    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: taskMistakeStayAudio
+      value: 
+      objectReference: {fileID: 1526052249}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
@@ -2522,6 +2542,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+--- !u!1 &1526052249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5316101288808420518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+  m_PrefabInstance: {fileID: 1526052248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526052250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6751989116318316135, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+  m_PrefabInstance: {fileID: 1526052248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526052251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8282095774600809437, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+  m_PrefabInstance: {fileID: 1526052248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1531394373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2675,6 +2710,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Broken Window Door Button
       objectReference: {fileID: 0}
+    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7699995
@@ -3097,6 +3140,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1619706423}
+    - target: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 3259135766846697953, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: tasksManager
       value: 
@@ -3531,6 +3582,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3081015132620033326, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 3081015132620033326, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
@@ -3627,6 +3686,26 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: taskEnteredAudio
+      value: 
+      objectReference: {fileID: 1517004639053767463}
+    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: taskSuccessAudio
+      value: 
+      objectReference: {fileID: 1517004639053767462}
+    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: taskMistakeStayAudio
+      value: 
+      objectReference: {fileID: 1517004639053767460}
+    - target: {fileID: 2774363230452123413, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 2774363230452123413, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 4832594994419253937, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2699995
@@ -3680,6 +3759,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+--- !u!1 &1517004639053767460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3694472106874726649, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1517004639053767461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4410442879641469828, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
@@ -3691,6 +3775,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1517004639053767462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823776112029698616, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1517004639053767463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 606887539045775234, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2717097818120226247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,10 +3801,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
+    - target: {fileID: 1822347476744995607, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 1822347476744995607, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: taskEnteredAudio
+      value: 
+      objectReference: {fileID: 2717097818120226250}
+    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: taskSuccessAudio
+      value: 
+      objectReference: {fileID: 2717097818120226249}
+    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: taskMistakeStayAudio
+      value: 
+      objectReference: {fileID: 2717097818120226248}
     - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3775,6 +3889,21 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+--- !u!1 &2717097818120226248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 905123717836532987, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2717097818120226249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799982581017841210, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2717097818120226250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4010133272659571584, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4544197879662426443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
@@ -3865,10 +3994,30 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 6768889588714193003, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: taskBecameAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
+    - target: {fileID: 6768889588714193003, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: taskBecameInaccessible
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: taskEnteredAudio
+      value: 
+      objectReference: {fileID: 5182967668293503336}
+    - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: taskSuccessAudio
+      value: 
+      objectReference: {fileID: 5182967668293503335}
+    - target: {fileID: 8431873511240347862, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: taskMistakeStayAudio
+      value: 
+      objectReference: {fileID: 5182967668293503334}
     - target: {fileID: 8907336385246221435, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Name
       value: Genius Door Button
@@ -3878,6 +4027,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+--- !u!1 &5182967668293503334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199985564429594503, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+  m_PrefabInstance: {fileID: 5182967668293503333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5182967668293503335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6656171775940152646, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+  m_PrefabInstance: {fileID: 5182967668293503333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5182967668293503336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8287591568455004412, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+  m_PrefabInstance: {fileID: 5182967668293503333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

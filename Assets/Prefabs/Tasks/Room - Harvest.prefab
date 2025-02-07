@@ -1049,6 +1049,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  buttonCooldownEnded: {fileID: 0}
   roomSprite: {fileID: 2055060580976954603}
   wallSprite: {fileID: 7854251515957637897}
   fadeVel: 0.03
@@ -1218,6 +1219,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2355918297153082638}
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+--- !u!1 &606887539045775234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505665817885647836, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 1110248777803797598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2774363230452123413 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1229,9 +1235,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2823776112029698616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2907201138242428518, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 1110248777803797598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2970381230808165019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 1110248777803797598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3694472106874726649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336126066777521319, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 1110248777803797598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5282032303466508879 stripped
@@ -1251,6 +1267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63014eaf26b03394ab9fe7da5b8bb774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskEnteredAudio: {fileID: 606887539045775234}
+  taskSuccessAudio: {fileID: 2823776112029698616}
+  taskMistakeStayAudio: {fileID: 3694472106874726649}
   tasksManager: {fileID: 0}
   progressSlider: {fileID: 8394016416870340647}
   timeSlider: {fileID: 8837110129456744922}

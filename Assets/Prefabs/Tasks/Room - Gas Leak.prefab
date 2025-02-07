@@ -173,6 +173,7 @@ MonoBehaviour:
         m_CallState: 2
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  buttonCooldownEnded: {fileID: 0}
   roomSprite: {fileID: 4796052056505781646}
   wallSprite: {fileID: 254343171027309586}
   fadeVel: 0.03
@@ -1097,6 +1098,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3259135766846697953}
   m_SourcePrefab: {fileID: 100100000, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+--- !u!1 &826280491284163938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505665817885647836, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 897331072897011390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2606319554657210584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2907201138242428518, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 897331072897011390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2709781670042394101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3019911804098679627, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
@@ -1111,6 +1122,11 @@ MonoBehaviour:
 --- !u!4 &3036403919987290235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760861174571499205, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+  m_PrefabInstance: {fileID: 897331072897011390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3485494141090509337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4336126066777521319, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
   m_PrefabInstance: {fileID: 897331072897011390}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5356500554346309807 stripped
@@ -1130,6 +1146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f1202869b6464bbaad490cdb7b8ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskEnteredAudio: {fileID: 826280491284163938}
+  taskSuccessAudio: {fileID: 2606319554657210584}
+  taskMistakeStayAudio: {fileID: 3485494141090509337}
   tasksManager: {fileID: 0}
   taskTime: 5
   maxTurnCountNormal: 10
