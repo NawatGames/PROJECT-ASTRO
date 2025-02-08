@@ -10,6 +10,8 @@ public class DistributeO2Task : TaskScript
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private float alignmentThreshold = 10f;
     [SerializeField] private float RequiredAlignments = 7;
+    [SerializeField] private int maxUnsuccessfulAlignments = 3; 
+    [SerializeField] private int _unsuccessfulAlignments = 0;    
     private bool _isRotating = false;
     private int _successfulAlignments = 0;
 
@@ -45,15 +47,18 @@ public class DistributeO2Task : TaskScript
     private void CheckAlignment()
     {
         float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
+
         if (angleDifference <= alignmentThreshold)
         {
+            _unsuccessfulAlignments = 0;
+
             if (isAstro == isAstroSpecialist)
             {
-                _successfulAlignments+=2;
+                _successfulAlignments += 2;
             }
             else
             {
-                _successfulAlignments ++;
+                _successfulAlignments++;
             }
 
             if (_successfulAlignments >= RequiredAlignments)
@@ -69,9 +74,14 @@ public class DistributeO2Task : TaskScript
         else
         {
             TaskMistakeStay();
+            _unsuccessfulAlignments++;
+
+            if (_unsuccessfulAlignments >= maxUnsuccessfulAlignments)
+            {
+                TaskMistakeLeave();
+            }
         }
     }
-
 
     private void PositionSpecialZone()
     {
@@ -99,6 +109,7 @@ public class DistributeO2Task : TaskScript
         StopRotation();
         StopAllCoroutines();
         _successfulAlignments = 0;
+        _unsuccessfulAlignments = 0; // Reinicia também os erros
     }
 
     protected override void TaskMistakeStay()

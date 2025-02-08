@@ -7,11 +7,11 @@ using UnityEngine.InputSystem;
 public class TaskScript : MonoBehaviour
 {
     protected PlayerInputController inputController;
-    protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
+    protected bool isAstro; // Pode ser usada no futuro para vantagens em task de acordo com o personagem
     protected bool isAstroSpecialist;
     private bool isTaskInProgress = false;
     private TaskController _taskController;
-    protected String taskName;
+    protected string taskName;
 
     [Header("AUDIO SAMPLES")]
     [SerializeField] private GameObject taskEnteredAudio;
@@ -21,6 +21,8 @@ public class TaskScript : MonoBehaviour
     [Header("TASK CONFIG")]
     [SerializeField] private TasksManager tasksManager;
     
+    [Header("RED SIGNAL")]
+    [SerializeField] private RedSignalController redSignalController; // Atribua o componente via Inspector
 
     protected virtual void Awake()
     {
@@ -39,6 +41,12 @@ public class TaskScript : MonoBehaviour
         RunTask();
     }
 
+    protected virtual void RunTask()
+    {
+        taskEnteredAudio.GetComponent<AudioPlayer>().PlayAudio();
+        isTaskInProgress = true;
+    }
+
     protected virtual void TaskSuccessful()
     {
         isTaskInProgress = false;
@@ -46,20 +54,28 @@ public class TaskScript : MonoBehaviour
         taskSuccessAudio.GetComponent<AudioPlayer>().PlayAudio();
     }
 
-    protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
+    protected virtual void TaskMistakeStay() // Erro, mas o jogador continua na tarefa
     {
         Debug.Log("Task Mistake (stay)");
         _taskController.Mistakes++;
         taskMistakeStayAudio.GetComponent<AudioPlayer>().PlayAudio();
-
     }
 
-    protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
+    protected virtual void TaskMistakeLeave() // Erro crítico: o jogador sai da tarefa
     {
         Debug.Log("Task Mistake (leave)");
         isTaskInProgress = false;
         _taskController.Mistakes++;
         tasksManager.KickPlayer(_taskController);
+
+        if (redSignalController != null)
+        {
+            redSignalController.StartRedSignal();
+        }
+        else
+        {
+            Debug.LogWarning("RedSignalController not assigned!");
+        }
     }
 
     public virtual void EndTask()
@@ -78,36 +94,9 @@ public class TaskScript : MonoBehaviour
     protected virtual void OnLeftPerformed(InputAction.CallbackContext value) { }
     protected virtual void OnRightPerformed(InputAction.CallbackContext value) { }
 
-
-    protected virtual void RunTask()
-    {
-        // FindObjectOfType<AudioManager>().Play("TaskStarted");
-        taskEnteredAudio.GetComponent<AudioPlayer>().PlayAudio();
-        isTaskInProgress = true;
-    }
-
-    public bool IsAstroSpecialist()
-    {
-        return isAstroSpecialist;
-    }
-
-    public bool IsTaskInProgress()
-    {
-        return isTaskInProgress;
-    }
-
-    public void SetAstroSpecialist(bool isAstroSpecialist)
-    {
-        this.isAstroSpecialist = isAstroSpecialist;
-    }
-
-    public void SetTaskInProgress(bool isTaskInProgress)
-    {
-        this.isTaskInProgress = isTaskInProgress;
-    }
-
-    public String GetTaskName()
-    {
-        return taskName;
-    }
+    public bool IsAstroSpecialist() { return isAstroSpecialist; }
+    public bool IsTaskInProgress() { return isTaskInProgress; }
+    public void SetAstroSpecialist(bool isAstroSpecialist) { this.isAstroSpecialist = isAstroSpecialist; }
+    public void SetTaskInProgress(bool isTaskInProgress) { this.isTaskInProgress = isTaskInProgress; }
+    public string GetTaskName() { return taskName; }
 }
