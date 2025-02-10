@@ -49,4 +49,9 @@ public class LevelManager : MonoBehaviour
         SaveManager.IncreaseLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    [ContextMenu("WinGame")]
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Winscreen");
+    }
 }

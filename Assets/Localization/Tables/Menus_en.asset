@@ -91,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 59146658341953536
-    m_Localized: GAME OVER
+    m_Localized: Congrats, you won!
     m_Metadata:
       m_Items: []
   references:
