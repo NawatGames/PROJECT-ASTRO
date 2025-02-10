@@ -8,20 +8,15 @@ using Random = UnityEngine.Random;
 
 public class GeniusTask : TaskScript
 {
-    public Color baseColor;
-    public Color playerColor;
-    public Color computerColor;
-    public Color errorColor;
+    public Button upButton;
+    public Button downButton;
+    public Button leftButton;
+    public Button rightButton;
 
-    public GameObject upButton;
-    public GameObject downButton;
-    public GameObject leftButton;
-    public GameObject rightButton;
+    public SpriteRenderer signalLight;
 
-    public GameObject signalLight;
-
-    private readonly List<GameObject> _buttons = new List<GameObject>();
-    public List<GameObject> computerSequence = new List<GameObject>();
+    private readonly List<Button> _buttons = new List<Button>();
+    public List<Button> computerSequence = new List<Button>();
 
     private bool _computerTurn;
 
@@ -74,12 +69,11 @@ public class GeniusTask : TaskScript
         }
     }
 
-    protected override void OnUpPerformed(InputAction.CallbackContext value)
-    {
+    private void OnButtonPress(Button button){
         if (_computerTurn) return;
-        if (computerSequence[playerTurn] == upButton)
+        if (computerSequence[playerTurn] == button)
         {
-            StartCoroutine(upButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
+            button.StartCoroutine(button.Blink(playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -87,76 +81,52 @@ public class GeniusTask : TaskScript
         {
             TaskMistakeLeave();
         }
+    }
+
+    protected override void OnUpPerformed(InputAction.CallbackContext value)
+    {
+        OnButtonPress(upButton);
     }
 
     protected override void OnDownPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == downButton)
-        {
-            StartCoroutine(downButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(downButton);
     }
 
     protected override void OnLeftPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == leftButton)
-        {
-            StartCoroutine(leftButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(leftButton);
     }
 
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == rightButton)
-        {
-            StartCoroutine(rightButton.GetComponent<Button>().Blink(playerColor, baseColor, playerTime));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(rightButton);
     }
 
     protected override void TaskMistakeLeave()
     {
         base.TaskMistakeLeave();
-        foreach (var button in _buttons)
-        {
-            StartCoroutine(button.GetComponent<Button>().Blink(errorColor, baseColor, computerTime));
-        }
     }
 
     private IEnumerator ShowComputerSequence()
     {
         _computerTurn = true;
-        signalLight.GetComponent<SpriteRenderer>().color = Color.red;
-
+        //signalLight.color = Color.red;
+        
+        // Espera todas as animações de blink acabarem
+        foreach (var button in computerSequence){
+          while(button.running) yield return null;
+        }
+        
         yield return new WaitForSeconds(waitSequenceTime);
 
         foreach (var button in computerSequence)
         {
-            StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor, computerTime));
+            yield return button.StartCoroutine(button.Blink(computerTime));
             yield return new WaitForSeconds(waitSequenceTime);
         }
 
         _computerTurn = false;
-        signalLight.GetComponent<SpriteRenderer>().color = Color.green;
+        //signalLight.color = Color.green;
     }
 }
