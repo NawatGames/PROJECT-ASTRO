@@ -11,7 +11,7 @@ public class DistributeO2Task : TaskScript
     [SerializeField] private float alignmentThreshold = 10f;
     [SerializeField] private float RequiredAlignments = 7;
     [SerializeField] private int maxUnsuccessfulAlignments = 3; 
-    [SerializeField] private int _unsuccessfulAlignments = 0;    
+    private int _unsuccessfulAlignments = 0;    
     private bool _isRotating = false;
     private int _successfulAlignments = 0;
 
@@ -50,7 +50,6 @@ public class DistributeO2Task : TaskScript
 
         if (angleDifference <= alignmentThreshold)
         {
-            _unsuccessfulAlignments = 0;
 
             if (isAstro == isAstroSpecialist)
             {
@@ -120,6 +119,8 @@ public class DistributeO2Task : TaskScript
     public override void EndTask()
     {
         base.EndTask();
+        _unsuccessfulAlignments = 0;
+        _successfulAlignments = 0;
         StopRotation();
         StopAllCoroutines();
     }
