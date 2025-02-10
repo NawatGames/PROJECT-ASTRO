@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class DecontaminationTask : MonoBehaviour
@@ -11,7 +12,8 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private float decontaminationWindow = 30f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private GameEvent completedDecontaminationEvent;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator podDoorsAnimator;
+    [SerializeField] private Animator scannerAnimator;
     public GameOverManager gameOverManager;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
@@ -81,7 +83,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void StartDecontaminationWindow()
     {
-        animator.SetTrigger("Open");
+        podDoorsAnimator.SetTrigger("Open");
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
@@ -121,7 +123,8 @@ public class DecontaminationTask : MonoBehaviour
         _twoPlayersPressed = false;
         countdownText.gameObject.SetActive(false);
         StopAllCoroutines();
-        animator.SetTrigger("Close");
+        scannerAnimator.SetTrigger("StartScan");
+        //yield return new Waitani
         _timeRemaining = Random.Range(minIntervalUntilDecontamination,maxIntervalUntilDecontamination);
         StartCoroutine(CountdownToDecontamination()); 
     }
