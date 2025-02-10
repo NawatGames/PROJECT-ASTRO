@@ -7,8 +7,6 @@ TagManager:
   - QuarantineButton
   - InteractiveArea
   - Task
-  - Undefined
-  - Lobby
   - InteractionDecontamination
   layers:
   - Default
