@@ -120,6 +120,8 @@ public class TasksManager : MonoBehaviour
     private IEnumerator StartTaskTimer(TaskController task)
     {
         task.needsToBeDone = true;
+        task.brokenTaskMask?.SetActive(true);
+
         DefineSpecialist(task.taskScript);
         
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
@@ -178,6 +180,7 @@ public class TasksManager : MonoBehaviour
         task.Mistakes = 0;
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
+        task.brokenTaskMask?.SetActive(false);
         StartCoroutine(WaitAndAddTaskToQueue());
     }
 
