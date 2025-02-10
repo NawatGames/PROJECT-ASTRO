@@ -4,16 +4,20 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
-
+    public bool running = false;
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator Blink(Color newColor, Color oldColor, float time)
+    public IEnumerator Blink(float time)
     {
-        _spriteRenderer.color = newColor;
+        running = true;
+        _spriteRenderer.enabled = true;
+
         yield return new WaitForSeconds(time);
-        _spriteRenderer.color = oldColor;
+
+        running = false;
+        _spriteRenderer.enabled = false;
     }
 }
