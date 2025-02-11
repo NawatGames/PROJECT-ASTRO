@@ -17,13 +17,20 @@ public class DecontaminationTask : MonoBehaviour
     private bool _decontaminationNeeded = false;
     private bool onePlayerPressed = false;
     private bool twoPlayersPressed = false;
+    private BoxCollider2D[] podColliders;
 
     private void Start()
     {
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
+        podColliders = GetComponentsInChildren<BoxCollider2D>();
+        foreach (var collider in podColliders)
+        {
+            collider.enabled = false;
+        }
         StartCoroutine(CountdownToDecontamination());
+        
     }
 
     private void Update()
@@ -84,6 +91,10 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
+        foreach (var collider in podColliders)
+        {
+            collider.enabled = true;
+        }
         StartCoroutine(DecontaminationWindow());
     }
 
