@@ -181,12 +181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5f7fc8594bed459eb092691bff42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warningBlinkInterval: 0.5
   lightComponent: {fileID: 2252001235888704138}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   alienColor: {r: 0, g: 0, b: 1, a: 1}
   astroColor: {r: 1, g: 0.5394964, b: 0, a: 1}
   warningColor: {r: 1, g: 0, b: 0, a: 1}
   successColor: {r: 0.023584902, g: 1, b: 0.17111859, a: 1}
+  failedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &-5632319015564355246
 Animator:
   serializedVersion: 5

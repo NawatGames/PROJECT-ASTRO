@@ -131,7 +131,7 @@ public class TasksManager : MonoBehaviour
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         
         if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
-        else task.StatusLight.TurnOnAlien();
+        else task.StatusLight.TurnOnOrion();
         
         while (timeLeft > shortTimeForTaskToBeCompleted)
         {
@@ -153,6 +153,7 @@ public class TasksManager : MonoBehaviour
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         
         task.StatusLight.TurnOnWarning();
+        // task.StatusLight.Blink())
         
         while (timeLeft > 0)
         {
@@ -168,7 +169,7 @@ public class TasksManager : MonoBehaviour
 
     private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        StartCoroutine(task.StatusLight.Blink("TaskFailed",Color.red, 1, 1f));
+        task.StatusLight.TurnOnFailed();
         Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);
