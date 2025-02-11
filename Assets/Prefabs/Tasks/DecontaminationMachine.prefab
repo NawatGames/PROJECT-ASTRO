@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
+  decontaminationTransform: {fileID: 5143883639546217536}
+  decontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
 --- !u!1 &1570274245981632306
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +104,7 @@ GameObject:
   - component: {fileID: 1144486459120254639}
   - component: {fileID: 3382534355412671384}
   - component: {fileID: 2863167681671612776}
+  - component: {fileID: 6750431071316516431}
   m_Layer: 0
   m_Name: Scanner
   m_TagString: Untagged
@@ -198,6 +200,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6750431071316516431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570274245981632306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7878f89931f95f40a69b18aa88e3b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decontaminationTask: {fileID: 8230690206460885616}
 --- !u!1 &2057427955050985273
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c507c14e41fb4b348aa9fa05e7a6ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
+  decontaminationTransform: {fileID: 3769102400208995044}
+  decontaminationOccupancyChanged: {fileID: 11400000, guid: 3d3a6aaa74df0184c934a2d16f3beec1, type: 2}
 --- !u!1 &8829836319662570609
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +496,7 @@ MonoBehaviour:
   minIntervalUntilDecontamination: 100
   maxIntervalUntilDecontamination: 150
   decontaminationWindow: 30
+  delayBeforeAndAfterScan: 2
   countdownText: {fileID: 0}
   completedDecontaminationEvent: {fileID: 11400000, guid: 059faf270876ee04690ede1cd6e07af6, type: 2}
   podDoorsAnimator: {fileID: 7440155392382021199}
@@ -503,7 +520,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8230690206460885616}
         m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
-        m_MethodName: PlayerStartedDecontamination
+        m_MethodName: SomeoneEnteredDecontamination
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -531,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8230690206460885616}
         m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
-        m_MethodName: PlayerEndedDecontamination
+        m_MethodName: SomeoneLeftDecontamination
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

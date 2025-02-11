@@ -10,6 +10,7 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private float minIntervalUntilDecontamination = 100f;
     [SerializeField] private float maxIntervalUntilDecontamination = 150f;
     [SerializeField] private float decontaminationWindow = 30f;
+    [SerializeField] private float delayBeforeAndAfterScan = 2f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private GameEvent completedDecontaminationEvent;
     [SerializeField] private Animator podDoorsAnimator;
@@ -28,19 +29,8 @@ public class DecontaminationTask : MonoBehaviour
         StartCoroutine(CountdownToDecontamination());
     }
 
-    private void Update()
-    {
-        if (_decontaminationNeeded)
-        {
-            if (_twoPlayersPressed)
-            {
-                CompleteTask();
-                completedDecontaminationEvent.Raise();
-            }
-        }
-    }
-
-    public void PlayerStartedDecontamination()
+    // função chamada pelo GameEvent SomeoneEnteredDecontamination
+    public void SomeoneEnteredDecontamination()
     {
         if(!_onePlayerPressed)
         {
@@ -49,10 +39,12 @@ public class DecontaminationTask : MonoBehaviour
         else
         {
             _twoPlayersPressed = true;
+            StartDecontaminationProcedure();
         }
     }
 
-    public void PlayerEndedDecontamination()
+    // função chamada pelo GameEvent SomeoneLeftDecontamination
+    public void SomeoneLeftDecontamination()
     {
         if(_twoPlayersPressed)
         {
@@ -116,17 +108,31 @@ public class DecontaminationTask : MonoBehaviour
         }
     }
 
-    private void CompleteTask()
+    private void StartDecontaminationProcedure()
     {
         _decontaminationNeeded = false;
         _onePlayerPressed = false;
         _twoPlayersPressed = false;
         countdownText.gameObject.SetActive(false);
-        StopAllCoroutines();
+        StopAllCoroutines(); // Para interromper DecontaminationWindow()
+        StartCoroutine(WaitAndScan());
+    }
+
+    private IEnumerator WaitAndScan()
+    {
+        podDoorsAnimator.SetTrigger("Close");
+        yield return new WaitForSeconds(delayBeforeAndAfterScan);
         scannerAnimator.SetTrigger("StartScan");
-        //yield return new Waitani
+        // Após a animação, CompleteDecontamination() será iniciada por AnimationEvent ...
+    }
+
+    public IEnumerator CompleteDecontamination()
+    {
+        yield return new WaitForSeconds(delayBeforeAndAfterScan);
+        podDoorsAnimator.SetTrigger("Open");
+        completedDecontaminationEvent.Raise();
         _timeRemaining = Random.Range(minIntervalUntilDecontamination,maxIntervalUntilDecontamination);
-        StartCoroutine(CountdownToDecontamination()); 
+        StartCoroutine(CountdownToDecontamination());
     }
 
     private void GameOver()

@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class DecontaminationPod : MonoBehaviour
 {
-
+    [SerializeField] private Transform decontaminationTransform;
+    [SerializeField] private GameEvent decontaminationOccupancyChanged;
     private bool _occupied;
-    private Transform _decontaminationTransform;
 
-    [SerializeField] private GameEvent DecontaminationOccupancyChanged;
-    void Start()
+    
+    [Conditional("UNITY_EDITOR")]
+    private void WarnIfPositioningIsWrong()
     {
-        _decontaminationTransform = transform.GetChild(0);
-        
-        // Apenas para debug:
-        if (!GetComponent<BoxCollider2D>().bounds.Contains(_decontaminationTransform.position))
+        if (!GetComponent<BoxCollider2D>().bounds.Contains(decontaminationTransform.position))
         {
             Debug.LogWarning($"O Player Positioning deve estar dentro do collider do {name}! (Se estiver perto o suficiente, ignorar)");
-        }
+        } 
+    }
+    
+    void Start()
+    {
+        // Apenas para debug:
+        WarnIfPositioningIsWrong();
     }
 
     public bool IsOccupied()
@@ -28,11 +32,11 @@ public class DecontaminationPod : MonoBehaviour
     public void SetOccupied(bool occupied)
     {
         _occupied = occupied;
-        DecontaminationOccupancyChanged.Raise();
+        decontaminationOccupancyChanged.Raise();
     }
 
     public Vector2 GetDecontaminationPosition()
     {
-        return _decontaminationTransform.position;
+        return decontaminationTransform.position;
     }
 }
