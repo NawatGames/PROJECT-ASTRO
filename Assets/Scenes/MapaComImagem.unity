@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8851764c73867ee46b82bc2bffa06689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTillVictory: 120
+  countdownTillVictory: 500
   onVictory: {fileID: 11400000, guid: efba9ad265577fd42a188d50b03da726, type: 2}
 --- !u!114 &65961419
 MonoBehaviour:
@@ -516,17 +516,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &310672611 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2034008329500292426, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &384344493 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8779284005877961085, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
@@ -1062,8 +1051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 2045109253}
-  totalTimeForTaskToFail: 130
-  shortTimeForTaskToBeCompleted: 5
+  totalTimeForTaskToFail: 180
+  shortTimeForTaskToBeCompleted: 60
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
@@ -1125,6 +1114,7 @@ MonoBehaviour:
   roomsScript: []
   roomsBeingUsed: []
   timerQuarantineDelay: 0
+  linkedRooms: []
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -2231,8 +2221,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: 4141a64f725c0ed45af19b891f560e4e, type: 3}
-    volume: 0.761
+    clip: {fileID: 8300000, guid: c87dfcb78dab8584488c96b608bdff5e, type: 3}
+    volume: 0.118
     pitch: 0.676
     loop: 1
     source: {fileID: 0}
@@ -2559,7 +2549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171139477180260361, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8171139477180260361, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2885,7 +2875,7 @@ PrefabInstance:
       objectReference: {fileID: 752719924}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
-      value: Room - 02 Control
+      value: Room - O2 Control
       objectReference: {fileID: 0}
     - target: {fileID: 9144866073694493292, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: lightComponent
@@ -3511,7 +3501,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3839,7 +3829,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.18
+  m_Intensity: 0.2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -3917,6 +3907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52fcf39c88c85499231d5c7bd2357d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceOST: {fileID: 0}
   levelParams:
   - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
   - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
@@ -4586,7 +4577,7 @@ PrefabInstance:
     - target: {fileID: 2228788692423533266, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: lightComponent
       value: 
-      objectReference: {fileID: 310672611}
+      objectReference: {fileID: 0}
     - target: {fileID: 2542070633824375810, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
       value: -0.00000011920929
@@ -4772,7 +4763,8 @@ PrefabInstance:
     - {fileID: 4999666133823748410, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
     - {fileID: 674659392101625659, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
     - {fileID: 695373547134911771, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2899127238131800881, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3145734465130625258, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}

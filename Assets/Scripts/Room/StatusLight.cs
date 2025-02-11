@@ -6,49 +6,55 @@ public class StatusLight : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Light2D lightComponent;
-    [SerializeField] private Color baseColor;
-    [SerializeField] private Color alienColor;
-    [SerializeField] private Color astroColor;
-    [SerializeField] private Color warningColor;
+    [SerializeField] private Color baseColor = Color.white;
+    [SerializeField] private Sprite baseSprite;
+    [SerializeField] private Sprite blueSprite;
+    [SerializeField] private Sprite orangeSprite;
+    [SerializeField] private Color blueLightColor;
+    [SerializeField] private Color orangeLightColor;
+    [SerializeField] private float blinkInterval;
+    private Sprite _currentSprite;
+    private Color _currentColor;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        SetColor(baseColor, false);
-    }
-
-    private void SetColor(Color color, bool enableLight = true)
-    {
-        _spriteRenderer.color = color;
-        lightComponent.color = color;
-        lightComponent.enabled = enableLight;
+        SetSprite(baseSprite, baseColor, false);
     }
 
     public void TurnOnAlien()
     {
-        SetColor(alienColor);
+        SetSprite(blueSprite, blueLightColor);
     }
     public void TurnOnAstro()
     {
-        SetColor(astroColor);
-    }
-    public void TurnOnWarning()
-    {
-        SetColor(warningColor);
+        SetSprite(orangeSprite, orangeLightColor);
     }
     public void TurnOff()
     {
-        SetColor(baseColor, false);
+        SetSprite(baseSprite, baseColor, false);
     }
 
-    public IEnumerator Blink(Color color, int n_times, float interval)
+    public IEnumerator Blink(int timeForTaskToBreak)
     {
-        for (int i = 0; i < n_times; i++)
+        var elapsedTime = 0f;
+        while (elapsedTime < timeForTaskToBreak)
         {
-            SetColor(color);
-            yield return new WaitForSeconds(interval);
-            SetColor(baseColor, false);
-            yield return new WaitForSeconds(interval);
+            SetSprite(baseSprite, baseColor, false);
+            yield return new WaitForSeconds(blinkInterval);
+            SetSprite(_currentSprite, _currentColor);
+            yield return new WaitForSeconds(blinkInterval);
+            elapsedTime += Time.deltaTime;
         }
+    }
+    
+    private void SetSprite(Sprite sprite, Color color, bool enableLight = true)
+    {
+        _spriteRenderer.sprite = sprite;
+        lightComponent.enabled = enableLight;
+        lightComponent.color = color;
+        if (color == baseColor || sprite == baseSprite) return;
+        _currentSprite = sprite;
+        _currentColor = color;
     }
 }

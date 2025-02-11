@@ -17,6 +17,7 @@ public class AlienBehavior : MonoBehaviour
 
     [SerializeField] private GameEvent onAlienAttack;
     [SerializeField] private GameEvent alienWarningStartEvent;
+    [SerializeField] private GameEvent alienInvasionStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
 
     private int _levelIndex;
@@ -98,6 +99,8 @@ public class AlienBehavior : MonoBehaviour
             else
             {
                 FindObjectOfType<AudioManager>().Play("VentOpened");
+                alienInvasionStartEvent.Raise(roomInvaded.transform);
+                yield return new WaitForSeconds(0.5f);
                 onAlienAttack.Raise();
             }
         }

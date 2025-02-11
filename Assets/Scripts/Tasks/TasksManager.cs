@@ -152,7 +152,7 @@ public class TasksManager : MonoBehaviour
         int seconds = shortTimeForTaskToBeCompleted - 60 * minutes;
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         
-        task.StatusLight.TurnOnWarning();
+        StartCoroutine(task.StatusLight.Blink(shortTimeForTaskToBeCompleted));
         
         while (timeLeft > 0)
         {
@@ -168,7 +168,7 @@ public class TasksManager : MonoBehaviour
 
     private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        StartCoroutine(task.StatusLight.Blink(Color.red, 4, 0.2f));
+        
         Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.8
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.59
+  m_PointLightOuterRadius: 0.5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f216477d57ffc744a2faa835b1a80ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -181,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightComponent: {fileID: 2252001235888704138}
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  alienColor: {r: 0, g: 0, b: 1, a: 1}
-  astroColor: {r: 1, g: 0.5394964, b: 0, a: 1}
-  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  baseSprite: {fileID: 21300000, guid: 8f216477d57ffc744a2faa835b1a80ca, type: 3}
+  blueSprite: {fileID: 21300000, guid: 6c290c5a4c7e3494d9bea6e91764424f, type: 3}
+  orangeSprite: {fileID: 21300000, guid: 8b67e702002c9f9479d686c93f0bed3a, type: 3}
+  blueLightColor: {r: 0.27058825, g: 0.5686275, b: 0.68235296, a: 1}
+  orangeLightColor: {r: 0.7607844, g: 0.28235295, b: 0, a: 1}
+  blinkInterval: 0.3
