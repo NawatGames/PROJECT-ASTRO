@@ -9,6 +9,7 @@ public class DecontaminatePlayerState : PlayerState
     private bool _isDecontaminating;
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerAnimationController playerAnimationController;
+    [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameEvent startedDecontaminationEvent;
     [SerializeField] private GameEvent stoppedDecontaminationEvent;
 
@@ -45,15 +46,22 @@ public class DecontaminatePlayerState : PlayerState
     
     private void OnCompleteDecontaminationHandler(Component c, object o)
     {
-        _isDecontaminating = false;
-        playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
-        SwitchState(playerStateMachine.freeMoveState);
+        playerCollisionController.NearDecontaminationPod.SetOccupied(false);
+        StartCoroutine(playerMovementController.GoToTarget(
+            playerCollisionController.NearDecontaminationPod.GetDecontaminationOutsidePosition(),
+            ()=> {
+                SwitchState(playerStateMachine.freeMoveState);
+            }));
     }
 
     public override void LeaveState()
     {
         base.LeaveState();
-        stoppedDecontaminationEvent.Raise();
+        if (!_isDecontaminating) // Portanto, saiu pelo OnInteractHandler
+        {
+            stoppedDecontaminationEvent.Raise();
+        }
+        _isDecontaminating = false;
         _gameEventListener.response.RemoveListener(OnCompleteDecontaminationHandler);
     }
 }

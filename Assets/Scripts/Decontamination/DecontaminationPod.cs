@@ -1,10 +1,12 @@
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 public class DecontaminationPod : MonoBehaviour
 {
-    [SerializeField] private Transform decontaminationTransform;
+    [SerializeField] private Transform insideTransform;
+    [SerializeField] private Transform outsideTransform;
     [SerializeField] private GameEvent decontaminationOccupancyChanged;
     private bool _occupied;
 
@@ -12,7 +14,7 @@ public class DecontaminationPod : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void WarnIfPositioningIsWrong()
     {
-        if (!GetComponent<BoxCollider2D>().bounds.Contains(decontaminationTransform.position))
+        if (!GetComponent<BoxCollider2D>().bounds.Contains(insideTransform.position))
         {
             Debug.LogWarning($"O Player Positioning deve estar dentro do collider do {name}! (Se estiver perto o suficiente, ignorar)");
         } 
@@ -35,8 +37,13 @@ public class DecontaminationPod : MonoBehaviour
         decontaminationOccupancyChanged.Raise();
     }
 
-    public Vector2 GetDecontaminationPosition()
+    public Vector2 GetDecontaminationInsidePosition()
     {
-        return decontaminationTransform.position;
+        return insideTransform.position;
+    }
+    
+    public Vector2 GetDecontaminationOutsidePosition()
+    {
+        return outsideTransform.position;
     }
 }
