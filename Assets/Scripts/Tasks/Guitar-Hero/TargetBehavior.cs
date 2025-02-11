@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class TargetBehavior : MonoBehaviour
 {
-    public Transform pos;
     [SerializeField] private Rigidbody2D body;
-    private float speed;
     [SerializeField] private GuitarHeroTask task;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] sprites;
+
+    public Transform pos;
+    private float speed;
     public bool _pressNow;
     public SymbolEnum symbol;
     public bool _passedBeyondTrigger = false;
@@ -26,7 +29,10 @@ public class TargetBehavior : MonoBehaviour
         speed = task.GetGameSpeed();
         _pressNow = false;
         transform.position = pos.position;
-        symbol = (SymbolEnum) Random.Range(0, 4);
+
+        int symbolVal = Random.Range(0, 4);
+        symbol = (SymbolEnum) symbolVal;
+        spriteRenderer.sprite = sprites[symbolVal];
     }
 
     void OnDisable()
