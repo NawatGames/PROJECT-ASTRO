@@ -93,7 +93,7 @@ public class DecontaminationTask : MonoBehaviour
         countdownText.gameObject.SetActive(true);
         foreach (var collider in podColliders)
         {
-            collider.enabled = false;
+            collider.enabled = true;
         }
         StartCoroutine(DecontaminationWindow());
     }
