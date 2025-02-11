@@ -115,7 +115,7 @@ public class GuitarHeroTask : TaskScript
                 if (isAstro == isAstroSpecialist) pointsMade += 2;
                 else pointsMade++;
 
-                if (pointsMade == maxBlockPoints || pointsMade >= maxBlockPoints) TaskSuccessful();
+                if (pointsMade >= maxBlockPoints) TaskSuccessful();
             }
             else
             {
