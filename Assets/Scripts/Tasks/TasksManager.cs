@@ -168,7 +168,7 @@ public class TasksManager : MonoBehaviour
 
     private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        StartCoroutine(task.StatusLight.Blink(Color.red, 4, 0.2f));
+        StartCoroutine(task.StatusLight.Blink("TaskFailed",Color.red, 1, 1f));
         Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);

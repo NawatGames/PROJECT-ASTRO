@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -41,21 +42,22 @@ public class StatusLight : MonoBehaviour
     }
     public void TurnOnSuccess()
     {
-        SetColor(successColor);
-        _animator.SetBool("TaskFinished",true);
+        StartCoroutine(Blink("TaskFinished",successColor,1,1f));
     }
     public void TurnOff()
     {
         SetColor(baseColor);
     }
 
-    public IEnumerator Blink(Color color, int n_times, float interval)
+    public IEnumerator Blink(string animatorTrigger,Color color, int n_times, float interval)
     {
         for (int i = 0; i < n_times; i++)
         {
             SetColor(color);
+            _animator.SetTrigger(animatorTrigger);
             yield return new WaitForSeconds(interval);
             SetColor(baseColor, false);
+            _animator.SetTrigger("TaskBase");
             yield return new WaitForSeconds(interval);
         }
     }
