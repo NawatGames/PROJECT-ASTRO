@@ -106,9 +106,10 @@ public class GuitarHeroTask : TaskScript
 
     private void VerifyPoint(SymbolEnum symbolPressed)
     {
-        if (targetsActive[0]._pressNow)
+        TargetBehavior nextTarget = targetsActive[0];
+        if (nextTarget._pressNow)
         {
-            if (targetsActive[0].symbol == symbolPressed)
+            if (nextTarget.symbol == symbolPressed)
             {
                 Debug.Log("good timing");
                 InsertTargetInBuffer();
