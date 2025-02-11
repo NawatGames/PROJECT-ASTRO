@@ -100,7 +100,7 @@ public class TasksManager : MonoBehaviour
 
     public void TaskDoneSuccessfully(TaskController task)
     {
-        task.StatusLight.TurnOff();
+        task.StatusLight.TurnOnSuccess();
         StopCoroutine(_taskQueue[task]);
         RemoveTaskFromQueue(task);
     }

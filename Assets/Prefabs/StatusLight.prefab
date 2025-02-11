@@ -182,10 +182,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightComponent: {fileID: 2252001235888704138}
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
   alienColor: {r: 0, g: 0, b: 1, a: 1}
   astroColor: {r: 1, g: 0.5394964, b: 0, a: 1}
   warningColor: {r: 1, g: 0, b: 0, a: 1}
+  successColor: {r: 0.023584902, g: 1, b: 0.17111859, a: 1}
 --- !u!95 &-5632319015564355246
 Animator:
   serializedVersion: 5
