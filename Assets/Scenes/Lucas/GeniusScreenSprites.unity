@@ -4207,6 +4207,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: redSignalDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6105068359593305665, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Sprite
       value: 
