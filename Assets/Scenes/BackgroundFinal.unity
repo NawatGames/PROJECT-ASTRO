@@ -1774,6 +1774,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuitarHero Door Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8247966891939857473, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247966891939857473, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2492,6 +2500,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1517004639053767461}
+    - target: {fileID: 5837632166385170745, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837632166385170745, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -2748,6 +2764,14 @@ PrefabInstance:
     - target: {fileID: 180970222571814900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Name
       value: Broken Window Door Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982868562408985231, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982868562408985231, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: taskBecameAvailable
@@ -3184,6 +3208,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1619706423}
+    - target: {fileID: 2389858784050270820, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389858784050270820, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: taskBecameAvailable
       value: 
@@ -3626,6 +3658,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2732557811774681395, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732557811774681395, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3081015132620033326, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: taskBecameAvailable
       value: 
@@ -3750,6 +3790,14 @@ PrefabInstance:
       propertyPath: taskBecameInaccessible
       value: 
       objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
+    - target: {fileID: 3227873907585102506, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227873907585102506, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4832594994419253937, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2699995
@@ -3827,6 +3875,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1565487094786601835, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565487094786601835, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1646419590809787382, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Fishing Door Button
@@ -4022,6 +4078,14 @@ PrefabInstance:
     - target: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: blinkInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: redSignalDuration
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: manager
