@@ -38,7 +38,7 @@ public class DecontaminatePlayerState : PlayerState
     {
         if (!_isDecontaminating)
         {
-            playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
+            playerCollisionController.NearDecontaminationPod.SetOccupied(false);
             SwitchState(playerStateMachine.freeMoveState);
         }
     }
