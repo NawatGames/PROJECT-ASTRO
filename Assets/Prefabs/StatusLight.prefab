@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5669073372574766463}
   - component: {fileID: 7814267078897957104}
   - component: {fileID: 2131530267387501842}
+  - component: {fileID: -5632319015564355246}
   m_Layer: 0
   m_Name: StatusLight
   m_TagString: Untagged
@@ -157,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5afdba7696b93ce4e9f97cddcd23a2c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,8 +181,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5f7fc8594bed459eb092691bff42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warningBlinkInterval: 0.5
   lightComponent: {fileID: 2252001235888704138}
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
   alienColor: {r: 0, g: 0, b: 1, a: 1}
   astroColor: {r: 1, g: 0.5394964, b: 0, a: 1}
   warningColor: {r: 1, g: 0, b: 0, a: 1}
+  successColor: {r: 0.023584902, g: 1, b: 0.17111859, a: 1}
+  failedColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!95 &-5632319015564355246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520924644633997017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bb7e8297424df94684a722616fdb999, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
