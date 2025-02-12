@@ -1107,19 +1107,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.39048
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5615368
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4201148
+      value: 0.0019006729
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7102067
+      value: -2.22845
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1181,19 +1181,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9625364
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8152392
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9674244
+      value: 1.7519007
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3887764
+      value: -2.0722
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1349,11 +1349,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a159046e9ce0f9143b085a93a32a8571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  redSignalController: {fileID: 6041094590731558391}
   taskEnteredAudio: {fileID: 8287591568455004412}
   taskSuccessAudio: {fileID: 6656171775940152646}
   taskMistakeStayAudio: {fileID: 5199985564429594503}
-  tasksManager: {fileID: 0}
-  redSignalController: {fileID: 6041094590731558391}
   upButton: {fileID: 8336748039312156968}
   downButton: {fileID: 8661839609588618066}
   leftButton: {fileID: 9140403420951496933}
