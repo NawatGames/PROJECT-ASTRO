@@ -2478,22 +2478,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1335948541826127494, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335948541826127494, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335948541826127494, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 1335948541826127494, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.38
-      objectReference: {fileID: 0}
     - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -2575,10 +2559,6 @@ PrefabInstance:
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
       objectReference: {fileID: 363341027}
-    - target: {fileID: 771868916475042135, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
-      propertyPath: m_Name
-      value: Genius Extra Button
-      objectReference: {fileID: 0}
     - target: {fileID: 1378146172639758552, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3111,6 +3091,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienCrawlAudio: {fileID: 0}
+  alienQuarantinedAudio: {fileID: 0}
+  alienOpenVentAudio: {fileID: 0}
   quarantineManager: {fileID: 773420858}
   roomsToInvade: []
   levelParams:
@@ -3601,22 +3584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - MemoryGame
       objectReference: {fileID: 0}
-    - target: {fileID: 8459144384051658149, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459144384051658149, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459144384051658149, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459144384051658149, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.23
-      objectReference: {fileID: 0}
     - target: {fileID: 8969777179821294587, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: manager
       value: 
@@ -3669,6 +3636,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 2089711232}
+    - target: {fileID: 965029886808166998, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 965029886808166998, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1072104062582905517, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3705,6 +3680,14 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 4822227735774851621, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822227735774851621, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4832594994419253937, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2699995
