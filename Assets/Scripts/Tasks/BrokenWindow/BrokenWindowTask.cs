@@ -95,7 +95,9 @@ public class BrokenWindowTask : TaskScript
                 currentSequence++;
                 if (currentSequence >= totalSequence)
                 {
-                   TaskSuccessful(); 
+                   TaskSuccessful();
+                   _sequence.Clear();
+                   frameManager.ResetArrowFrame();
                 }
                 else
                 {
@@ -110,6 +112,8 @@ public class BrokenWindowTask : TaskScript
         else
         {
             TaskMistakeStay();
+            _sequence.Clear();
+            frameManager.ResetArrowFrame();
         }
     }
 
