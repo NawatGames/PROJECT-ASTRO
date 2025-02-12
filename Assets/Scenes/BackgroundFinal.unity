@@ -1711,14 +1711,6 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 2411773828464685456, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2411773828464685456, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2894772779124201009, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1528997
@@ -2607,6 +2599,14 @@ PrefabInstance:
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
       objectReference: {fileID: 442421219}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.865
+      objectReference: {fileID: 0}
     - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
       value: AllAdjacentDoors
@@ -3130,6 +3130,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0762501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271155141677325029, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403546445528167, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403546445528167, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3138,6 +3182,14 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 3357328028476319564, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357328028476319564, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_Name
       value: Room - Gas Leak
@@ -3200,11 +3252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157007881467958170, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: -0.08874996
       objectReference: {fileID: 0}
     - target: {fileID: 8157007881467958170, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.05
+      value: -0.9862499
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3889,14 +3941,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 614119932115487960, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 614119932115487960, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Name
       value: Room - Genius
