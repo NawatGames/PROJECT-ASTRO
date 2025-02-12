@@ -306,8 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8851764c73867ee46b82bc2bffa06689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTillVictory: 120
-  onVictory: {fileID: 11400000, guid: efba9ad265577fd42a188d50b03da726, type: 2}
 --- !u!114 &65961419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,11 +403,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65961416}
   m_CullTransparentMesh: 1
---- !u!1 &74102154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2823776112029698616, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &137914651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
@@ -1115,7 +1108,7 @@ MonoBehaviour:
   shortTimeForTaskToBeCompleted: 5
   nextTaskMinDelay: 5
   nextTaskMaxDelay: 10
-  startingTasks: 8
+  startingTasks: 7
   astroProbability: 50
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
@@ -1266,7 +1259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0531006, y: 3.5651245}
+  m_AnchoredPosition: {x: -1.0532227, y: 3.5650635}
   m_SizeDelta: {x: 12.093857, y: 21.510206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &789865641
@@ -1706,14 +1699,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 773420858}
-    - target: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 659919459}
+    - target: {fileID: 320981134885201197, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320981134885201197, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1762,17 +1755,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - GuitarHero
       objectReference: {fileID: 0}
-    - target: {fileID: 4326069593658654447, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 4326069593658654447, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
-    - target: {fileID: 4690435052041575896, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: m_Name
-      value: GuitarHero Door Button
+    - target: {fileID: 9004921699117177715, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004921699117177715, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004921699117177715, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2348,9 +2341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94499d0425f526f499e661b2b674f5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  onZeroHealth: {fileID: 11400000, guid: 0b6ff208d64f9f242a524f5c8c8c3a99, type: 2}
-  healthText: {fileID: 7855111}
 --- !u!4 &1319094733
 Transform:
   m_ObjectHideFlags: 0
@@ -2492,6 +2482,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1517004639053767461}
+    - target: {fileID: 4289958354835349599, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289958354835349599, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -2544,46 +2542,35 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskEnteredAudio
-      value: 
-      objectReference: {fileID: 1526052251}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskSuccessAudio
-      value: 
-      objectReference: {fileID: 1526052250}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskMistakeStayAudio
-      value: 
-      objectReference: {fileID: 1526052249}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
       objectReference: {fileID: 0}
-    - target: {fileID: 9145510211459193002, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Name
-      value: O2 Control Door Button
+    - target: {fileID: 9167851647834504537, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167851647834504537, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167851647834504537, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167851647834504537, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.7400007
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167851647834504537, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15040016
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
---- !u!1 &1526052249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5316101288808420518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1526052250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6751989116318316135, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1526052251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8282095774600809437, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1531394373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2652,9 +2639,81 @@ PrefabInstance:
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
       objectReference: {fileID: 442421219}
+    - target: {fileID: 1719801842696732036, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719801842696732036, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3850001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.72125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.865
+      objectReference: {fileID: 0}
     - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
       value: AllAdjacentDoors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.70875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.01875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330828481815992400, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968302406039881249, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968302406039881249, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: _roomQuarantineHandler
@@ -2745,18 +2804,6 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
-    - target: {fileID: 180970222571814900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: m_Name
-      value: Broken Window Door Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7699995
@@ -2805,10 +2852,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - BrokenWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5179544215205791489, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179544215205791489, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179544215205791489, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5199995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179544215205791489, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5687501
+      objectReference: {fileID: 0}
     - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
       objectReference: {fileID: 375281282}
+    - target: {fileID: 8151274684190191020, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151274684190191020, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151274684190191020, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2825,11 +2900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1653436699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 606887539045775234, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1755467155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
@@ -3184,22 +3254,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1349403546445528167, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403546445528167, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349403546445528167, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1619706423}
-    - target: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 2709781670042394101, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 3259135766846697953, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 3357328028476319564, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357328028476319564, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_Name
       value: Room - Gas Leak
@@ -3244,10 +3326,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7778912265723355065, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-      propertyPath: m_Name
-      value: Gas Leak Door Button
-      objectReference: {fileID: 0}
     - target: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: manager
       value: 
@@ -3282,11 +3360,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 181030423604035346, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2800007
+      value: -2.40625
       objectReference: {fileID: 0}
     - target: {fileID: 181030423604035346, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2800002
+      value: -3.1640625
       objectReference: {fileID: 0}
     - target: {fileID: 181030423604035346, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3586,10 +3664,6 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 2027073913235777568, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: m_Name
-      value: MemoryGame Door Button
-      objectReference: {fileID: 0}
     - target: {fileID: 2419951622391577520, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7799997
@@ -3630,18 +3704,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3081015132620033326, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 3081015132620033326, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
+    - target: {fileID: 3263091571800749928, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263091571800749928, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263091571800749928, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
       objectReference: {fileID: 2120217093}
+    - target: {fileID: 6431707117156339925, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431707117156339925, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8082507900171210099, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: m_Name
       value: Room - MemoryGame
@@ -3698,6 +3784,18 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 2089711232}
+    - target: {fileID: 965029886808166998, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 965029886808166998, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 965029886808166998, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1072104062582905517, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3734,26 +3832,18 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: taskEnteredAudio
-      value: 
-      objectReference: {fileID: 1653436699}
-    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: taskSuccessAudio
-      value: 
-      objectReference: {fileID: 74102154}
-    - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: taskMistakeStayAudio
-      value: 
-      objectReference: {fileID: 1517004639053767460}
-    - target: {fileID: 2774363230452123413, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 2774363230452123413, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
+    - target: {fileID: 4822227735774851621, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822227735774851621, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822227735774851621, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4832594994419253937, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2699995
@@ -3794,10 +3884,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5190370952332159651, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-      propertyPath: m_Name
-      value: Harvest Door Button
-      objectReference: {fileID: 0}
     - target: {fileID: 8840270026049982345, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_Name
       value: Room - Harvest
@@ -3807,11 +3893,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
---- !u!1 &1517004639053767460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3694472106874726649, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
-  m_PrefabInstance: {fileID: 1517004639053767459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1517004639053767461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4410442879641469828, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
@@ -3831,42 +3912,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1646419590809787382, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_Name
-      value: Fishing Door Button
-      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
-    - target: {fileID: 1822347476744995607, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 1822347476744995607, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
+    - target: {fileID: 6033379382882706179, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033379382882706179, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: taskEnteredAudio
-      value: 
-      objectReference: {fileID: 2717097818120226250}
-    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: taskSuccessAudio
-      value: 
-      objectReference: {fileID: 2717097818120226249}
-    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: taskMistakeStayAudio
-      value: 
-      objectReference: {fileID: 2717097818120226248}
     - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1940385032}
+    - target: {fileID: 6814453784540979536, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814453784540979536, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814453784540979536, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.528
@@ -3927,21 +4004,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
---- !u!1 &2717097818120226248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 905123717836532987, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2717097818120226249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1799982581017841210, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2717097818120226250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4010133272659571584, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4544197879662426443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
@@ -3971,41 +4033,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.7206507
-      objectReference: {fileID: 0}
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.94720006
-      objectReference: {fileID: 0}
-    - target: {fileID: 654279189478404480, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Name
       value: Room - Genius
-      objectReference: {fileID: 0}
-    - target: {fileID: 1340871626526778084, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
@@ -4055,14 +4085,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: blinkInterval
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041094590731558391, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: redSignalDuration
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: manager
       value: 
@@ -4083,17 +4105,8 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 8567139825183368715, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9043493
-      objectReference: {fileID: 0}
-    - target: {fileID: 8567139825183368715, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.9472001
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1340871626526778084, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da04c0638b52fd946b87e882a967d450, type: 3}

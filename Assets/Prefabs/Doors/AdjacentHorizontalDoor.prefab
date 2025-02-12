@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7977957420552482925, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.460012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977957420552482925, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8119862
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977957420552482925, guid: 9b97adfb9d2b65548bfd521fbdb57a54, type: 3}
       propertyPath: m_LocalScale.z
@@ -102,6 +102,14 @@ PrefabInstance:
     - target: {fileID: 7825475354405585681, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
       propertyPath: m_Name
       value: AdjacentHorizontalDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236611530945349731, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236611530945349731, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8236611530945349731, guid: bda98b893bbdb4a4297884f17cda9778, type: 3}
       propertyPath: m_LocalPosition.x

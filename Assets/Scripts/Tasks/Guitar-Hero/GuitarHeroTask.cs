@@ -71,7 +71,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnUpPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0)
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Up);
         }
@@ -80,7 +80,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnDownPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0) 
+        if (targetsActive.Count > 0) 
         {
             VerifyPoint(SymbolEnum.Down);
         }
@@ -89,7 +89,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnLeftPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0) 
+        if (targetsActive.Count > 0) 
         {
             VerifyPoint(SymbolEnum.Left);
         }
@@ -98,7 +98,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnRightPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0)
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Right);
         }
