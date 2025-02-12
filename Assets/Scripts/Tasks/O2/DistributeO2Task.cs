@@ -41,7 +41,7 @@ public class DistributeO2Task : TaskScript
 
     private void RotateArrowAroundCircle()
     {
-        arrow.RotateAround(circle.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+        arrow.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     private void CheckAlignment()
@@ -84,14 +84,11 @@ public class DistributeO2Task : TaskScript
 
     private void PositionSpecialZone()
     {
-        float radius = circle.rect.width / 2;
-        Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        Vector2 tangentialPosition = randomDirection * radius;
-
-        specialZone.localPosition = tangentialPosition;
-
-        float angle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg;
-        specialZone.rotation = Quaternion.Euler(0, 0, angle + 90);
+        // Gera um ângulo aleatório entre 0 e 360 graus
+        float randomAngle = Random.Range(0f, 360f);
+    
+        // Aplica a rotação diretamente na seta
+        specialZone.rotation = Quaternion.Euler(0, 0, randomAngle);
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
