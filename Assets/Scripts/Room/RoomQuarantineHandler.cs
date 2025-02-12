@@ -100,11 +100,9 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
             manager.DisableQuarantines(this);
-            FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (isRoomQuarantined)
         {
-            FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
             {
                 onAlienAttack.Raise();
