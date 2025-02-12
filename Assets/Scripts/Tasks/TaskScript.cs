@@ -12,17 +12,16 @@ public class TaskScript : MonoBehaviour
     private bool isTaskInProgress = false;
     private TaskController _taskController;
     protected string taskName;
+    
+    [SerializeField] private TasksManager tasksManager;
+    [SerializeField] private RedSignalController redSignalController; // Atribua o componente via Inspector
 
-    [Header("AUDIO SAMPLES")]
+    [Header("AUDIO SAMPLES (BASE SCRIPT)")]
     [SerializeField] private GameObject taskEnteredAudio;
     [SerializeField] private GameObject taskSuccessAudio;
     [SerializeField] private GameObject taskMistakeStayAudio;
 
-    [Header("TASK CONFIG")]
-    [SerializeField] private TasksManager tasksManager;
-    
-    [Header("RED SIGNAL")]
-    [SerializeField] private RedSignalController redSignalController; // Atribua o componente via Inspector
+
 
     protected virtual void Awake()
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio_System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,10 +9,16 @@ using Slider = UnityEngine.UI.Slider;
 
 public class HarvestCropTask : TaskScript
 {
+    private float _modifiedProgressValue;
+
+    [Header("AUDIO SAMPLES (HARVEST SCRIPT)")]
+    [SerializeField] private GameObject buttonPressedAudio;
+
+
+    [Header("TASK CONFIG")]
     [SerializeField] private Slider progressSlider;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
-    private float _modifiedProgressValue;
     [SerializeField] private float decayValue;
 
     protected override void Awake()
@@ -37,7 +44,7 @@ public class HarvestCropTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        FindObjectOfType<AudioManager>().Play("HarvestCropButtonPress");
+        buttonPressedAudio.GetComponent<AudioPlayer>().PlayAudio();
         progressSlider.value += _modifiedProgressValue;
         if (progressSlider.value == 1)
         {
