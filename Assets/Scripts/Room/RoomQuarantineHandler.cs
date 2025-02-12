@@ -132,9 +132,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
     {
         _isAlienInside = true;
-        FindObjectOfType<AudioManager>().Play("AlienInsideRoom");
         yield return new WaitForSeconds(alienInsideSeconds);
-        FindObjectOfType<AudioManager>().Stop("AlienInsideRoom");
         _isAlienInside = false;
     }
 }
