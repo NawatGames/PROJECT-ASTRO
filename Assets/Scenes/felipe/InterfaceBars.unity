@@ -761,7 +761,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188750151040898619, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGameOver
+      value: StartDelayedGameOver
       objectReference: {fileID: 0}
     - target: {fileID: 2803086778610235497, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3120,6 +3120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienCrawlAudio: {fileID: 0}
+  alienQuarantinedAudio: {fileID: 0}
+  alienOpenVentAudio: {fileID: 0}
   quarantineManager: {fileID: 773420858}
   roomsToInvade: []
   levelParams:
@@ -3129,9 +3132,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
   - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
-  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  alienAttackEvent: {fileID: 0}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
+  alienQuarantinedEvent: {fileID: 0}
 --- !u!4 &1917454590
 Transform:
   m_ObjectHideFlags: 0

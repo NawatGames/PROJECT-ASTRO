@@ -33,6 +33,12 @@ public class GameOverManager : MonoBehaviour
         StartCoroutine(GameOverSequence());
     }
 
+    [ContextMenu("Forçar game over com delay")]
+    public void StartDelayedGameOver()
+    {
+        StartCoroutine(DelayedGameOverSequence());
+    }
+
     private IEnumerator GameOverSequence()
     {
         alien.SetActive(false);
@@ -54,7 +60,30 @@ public class GameOverManager : MonoBehaviour
         GameOver();
     }
 
+    private IEnumerator DelayedGameOverSequence()
+    {
+        alien.SetActive(false);
 
+        yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
+
+        yield return new WaitForSeconds(preJumpscareDelay);
+
+        var randomTime = Random.Range(2, 8);
+
+        yield return new WaitForSeconds(randomTime);
+
+        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 1);
+        gameOverVideoController.StartJumpscareVideo();
+
+        yield return new WaitForSeconds((float)gameOverVideoController.GetVideoPlayer().clip.length);
+
+        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
+
+        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
+
+        yield return new WaitForSeconds(preGameOverDelay);
+        GameOver();
+    }
 
     private IEnumerator FadeImage(Image image, float targetAlpha, float duration)
     {
