@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 6814989126670053677}
   - {fileID: 4434264596208759454}
+  - {fileID: 4086504868530527619}
   m_Father: {fileID: 610174334335718640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4685749661514214120
@@ -79,7 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alienCrawlAudio: {fileID: 9205848474756968522}
-  alienInsideRoomAudio: {fileID: 8576377867666312755}
+  alienQuarantinedAudio: {fileID: 8576377867666312755}
+  alienOpenVentAudio: {fileID: 5086361640343798193}
   quarantineManager: {fileID: 0}
   roomsToInvade: []
   levelParams:
@@ -93,6 +95,150 @@ MonoBehaviour:
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
   alienQuarantinedEvent: {fileID: 11400000, guid: 91e22abb35a48fb44959523b53f2a8e7, type: 2}
+--- !u!1 &5086361640343798193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4086504868530527619}
+  - component: {fileID: 2332534834556115361}
+  - component: {fileID: 6249552382825142038}
+  m_Layer: 0
+  m_Name: AlienOpenVent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4086504868530527619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086361640343798193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4411984063867151291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2332534834556115361
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086361640343798193}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6249552382825142038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086361640343798193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ab8c9f71681e9a94d940890a0f75977e, type: 3}
+  minDistance: 1
+  playOnStart: 0
 --- !u!1 &8576377867666312755
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +251,7 @@ GameObject:
   - component: {fileID: 2314077030075072347}
   - component: {fileID: 8164586529520542912}
   m_Layer: 0
-  m_Name: AlienInsideRoom
+  m_Name: AlienQuarantined
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
