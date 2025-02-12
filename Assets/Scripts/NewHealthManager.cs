@@ -1,18 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NewHealthManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private int health;
+    [SerializeField] private int health = 3;
     [SerializeField] private int preGameOverDelay;
     [SerializeField] GameEvent onZeroHealthEvent;
-
-    void Awake()
-    {
-        health = 3;
-    }
+    
 
     [ContextMenu("Forçar perda de vida")]
     public void DecreaseHealth()
