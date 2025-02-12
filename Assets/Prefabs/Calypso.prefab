@@ -491,6 +491,7 @@ MonoBehaviour:
   playerMovementController: {fileID: 4867556920664918401}
   startedDecontaminationEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
   stoppedDecontaminationEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
+  playersMovedAwayFromDecontaminationDoors: {fileID: 11400000, guid: 23d7fee0e0a53304fa0b754d206e9792, type: 2}
 --- !u!114 &223320627011355376
 MonoBehaviour:
   m_ObjectHideFlags: 0

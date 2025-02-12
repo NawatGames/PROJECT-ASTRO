@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82502381407086582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -713,7 +713,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6042430851501439875}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -800,10 +800,11 @@ GameObject:
   - component: {fileID: 3707516005319035196}
   - component: {fileID: 828643550506415544}
   - component: {fileID: 7440155392382021199}
+  - component: {fileID: 8333054921153875256}
   - component: {fileID: 8230690206460885616}
   - component: {fileID: 8267592642971272514}
   - component: {fileID: 4550813500006642154}
-  - component: {fileID: 8333054921153875256}
+  - component: {fileID: 5095107550525969419}
   m_Layer: 0
   m_Name: DecontaminationMachine
   m_TagString: Untagged
@@ -904,84 +905,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8230690206460885616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8829836319662570609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8df5d76545d9bf43911f4580565eb6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstDecontaminationDelay: 90
-  minIntervalUntilDecontamination: 100
-  maxIntervalUntilDecontamination: 150
-  decontaminationWindow: 30
-  delayBeforeAndAfterScan: 2
-  countdownText: {fileID: 0}
-  completedDecontaminationEvent: {fileID: 11400000, guid: 059faf270876ee04690ede1cd6e07af6, type: 2}
-  podDoorsAnimator: {fileID: 7440155392382021199}
-  scannerAnimator: {fileID: 2863167681671612776}
-  gameOverManager: {fileID: 0}
---- !u!114 &8267592642971272514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8829836319662570609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8230690206460885616}
-        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
-        m_MethodName: SomeoneEnteredDecontamination
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4550813500006642154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8829836319662570609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8230690206460885616}
-        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
-        m_MethodName: SomeoneLeftDecontamination
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!60 &8333054921153875256
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,3 +970,113 @@ PolygonCollider2D:
       - {x: 0.9303752, y: -0.6603657}
       - {x: 1.1246184, y: -0.7823706}
   m_UseDelaunayMesh: 0
+--- !u!114 &8230690206460885616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829836319662570609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8df5d76545d9bf43911f4580565eb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstDecontaminationDelay: 90
+  minIntervalUntilDecontamination: 100
+  maxIntervalUntilDecontamination: 150
+  decontaminationWindow: 30
+  delayBeforeAndAfterScan: 2
+  countdownText: {fileID: 0}
+  completedDecontaminationEvent: {fileID: 11400000, guid: 059faf270876ee04690ede1cd6e07af6, type: 2}
+  podDoorsAnimator: {fileID: 7440155392382021199}
+  scannerAnimator: {fileID: 2863167681671612776}
+  closedCollider: {fileID: 8333054921153875256}
+  openedCollider: {fileID: 366967377849646385}
+  leftGradientMask: {fileID: 0}
+  rightGradientMask: {fileID: 0}
+  gameOverManager: {fileID: 0}
+--- !u!114 &8267592642971272514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829836319662570609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8c80d5657802920469ca55135e1fc9dd, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8230690206460885616}
+        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
+        m_MethodName: SomeoneEnteredDecontamination
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4550813500006642154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829836319662570609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 62872e1fcabb42549b397a500d207e24, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8230690206460885616}
+        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
+        m_MethodName: SomeoneLeftDecontamination
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5095107550525969419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829836319662570609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189010c355224447876d05a9d7a5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 23d7fee0e0a53304fa0b754d206e9792, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8230690206460885616}
+        m_TargetAssemblyTypeName: DecontaminationTask, Assembly-CSharp
+        m_MethodName: ResetDecontamination
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

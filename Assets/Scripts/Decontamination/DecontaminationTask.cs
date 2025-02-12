@@ -15,6 +15,10 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private GameEvent completedDecontaminationEvent;
     [SerializeField] private Animator podDoorsAnimator;
     [SerializeField] private Animator scannerAnimator;
+    [SerializeField] private Collider2D closedCollider;
+    [SerializeField] private Collider2D openedCollider;
+    [SerializeField] private SpriteRenderer leftGradientMask;
+    [SerializeField] private SpriteRenderer rightGradientMask;
     public GameOverManager gameOverManager;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
@@ -76,6 +80,8 @@ public class DecontaminationTask : MonoBehaviour
     private void StartDecontaminationWindow()
     {
         podDoorsAnimator.SetTrigger("Open");
+        closedCollider.enabled = false;
+        openedCollider.enabled = true;
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
@@ -131,6 +137,14 @@ public class DecontaminationTask : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeAndAfterScan);
         podDoorsAnimator.SetTrigger("Open");
         completedDecontaminationEvent.Raise();
+        // Evento acima faz os players sairem das portas e depois um GameEvent invoca ResetDecontamination() 
+    }
+
+    public void ResetDecontamination()
+    {
+        podDoorsAnimator.SetTrigger("Close");
+        openedCollider.enabled = false;
+        closedCollider.enabled = true;
         _timeRemaining = Random.Range(minIntervalUntilDecontamination,maxIntervalUntilDecontamination);
         StartCoroutine(CountdownToDecontamination());
     }

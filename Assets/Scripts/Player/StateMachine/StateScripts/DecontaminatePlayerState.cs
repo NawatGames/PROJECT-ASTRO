@@ -1,6 +1,8 @@
 using Player.StateMachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(GameEventListener))]
 public class DecontaminatePlayerState : PlayerState
@@ -12,6 +14,7 @@ public class DecontaminatePlayerState : PlayerState
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameEvent startedDecontaminationEvent;
     [SerializeField] private GameEvent stoppedDecontaminationEvent;
+    [SerializeField] private GameEvent playersMovedAwayFromDecontaminationDoors;
 
     protected override void Awake()
     {
@@ -49,7 +52,9 @@ public class DecontaminatePlayerState : PlayerState
         playerCollisionController.NearDecontaminationPod.SetOccupied(false);
         StartCoroutine(playerMovementController.GoToTarget(
             playerCollisionController.NearDecontaminationPod.GetDecontaminationOutsidePosition(),
-            ()=> {
+            ()=>
+            {
+                playersMovedAwayFromDecontaminationDoors.Raise();
                 SwitchState(playerStateMachine.freeMoveState);
             }));
     }
