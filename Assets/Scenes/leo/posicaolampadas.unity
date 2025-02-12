@@ -4037,18 +4037,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Genius
       objectReference: {fileID: 0}
-    - target: {fileID: 1521697571543167858, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521697571543167858, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521697571543167858, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
@@ -4096,22 +4084,6 @@ PrefabInstance:
     - target: {fileID: 4106650541230151091, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539250534964980878, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539250534964980878, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539250534964980878, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.2480993
-      objectReference: {fileID: 0}
-    - target: {fileID: 4539250534964980878, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.22845
       objectReference: {fileID: 0}
     - target: {fileID: 6702794630500239338, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: manager
