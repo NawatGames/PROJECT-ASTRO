@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.236, y: -0.742, z: 0}
-  m_LocalScale: {x: 0.10058776, y: 0.14317371, z: 0.12581055}
+  m_LocalScale: {x: 1, y: 1, z: 0.12581055}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 597704976345296006}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1501009141
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 11625f1dea9c3b448b612c2b4d8a801e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 1.25}
+    oldSize: {x: 0.375, y: 0.625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   doorCollider: {fileID: 0}
   doorSprite: {fileID: 0}
   doorAnimator: {fileID: 0}
+  _roomQuarantineHandler: {fileID: 0}
   adjacentDoorButtonControlers: []
   repeaters:
   - {fileID: 0}
