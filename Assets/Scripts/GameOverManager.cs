@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio_System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,10 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
+    [Header("AUDIO SAMPLES")]
+    [SerializeField] private GameObject gameOverAudio;
+
+    [Header("GAMEOVER CONFIG")]
     [SerializeField] private float gameOverFadeDuration = 1f;
     [SerializeField] private GameObject alien;
     [SerializeField] private TextMeshProUGUI gameOverText;
@@ -43,7 +48,7 @@ public class GameOverManager : MonoBehaviour
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
 
-        FindObjectOfType<AudioManager>().Play("GameOver");
+        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
         GameOver();
