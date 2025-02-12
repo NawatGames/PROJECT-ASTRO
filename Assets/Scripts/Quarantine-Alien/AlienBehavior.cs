@@ -15,9 +15,11 @@ public class AlienBehavior : MonoBehaviour
     public GameObject roomInvaded;
     private bool _canCheckRooms;
 
-    [SerializeField] private GameEvent onAlienAttack;
+    [SerializeField] private GameEvent alienAttackEvent;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
+    [SerializeField] private GameEvent alienQuarantinedEvent;
+
 
     private int _levelIndex;
 
@@ -85,20 +87,22 @@ public class AlienBehavior : MonoBehaviour
             alienWarningStartEvent.Raise(roomInvaded.transform);
             FindObjectOfType<AudioManager>().Play("AlienCrawl");
             yield return new WaitForSeconds(levelParams[_levelIndex].invasionWarningSeconds);
-            alienWarningEndEvent.Raise(roomInvaded.transform);
 
             FindObjectOfType<AudioManager>().Stop("AlienCrawl");
 
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
-                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
+                alienQuarantinedEvent.Raise(roomInvaded.transform);
+                yield return StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
                 roomInvadedScript.task.ResetMistakes();
+                alienWarningEndEvent.Raise(roomInvaded.transform);
+                //preciso que essa linha so aconteca quando ~StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));~ tenha acabado
             }
             else
             {
+                alienAttackEvent.Raise(roomInvaded.transform);
                 FindObjectOfType<AudioManager>().Play("VentOpened");
-                onAlienAttack.Raise();
             }
         }
         else
@@ -108,6 +112,10 @@ public class AlienBehavior : MonoBehaviour
         }
 
         _canCheckRooms = true;
+        // if (roomInvaded != null)
+        // {
+        //     alienWarningEndEvent.Raise(roomInvaded.transform);
+        // }
     }
 
 }
