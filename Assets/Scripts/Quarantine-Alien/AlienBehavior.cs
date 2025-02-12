@@ -9,7 +9,8 @@ public class AlienBehavior : MonoBehaviour
 {
     [Header("AUDIO SAMPLES")]
     [SerializeField] private GameObject alienCrawlAudio;
-    [SerializeField] private GameObject alienInsideRoomAudio;
+    [SerializeField] private GameObject alienQuarantinedAudio;
+    [SerializeField] private GameObject alienOpenVentAudio;
 
 
     [Header("ENTITY PARAMETERS")]
@@ -100,18 +101,19 @@ public class AlienBehavior : MonoBehaviour
             {
                 //Debug.Log("Alien Quarantined");
                 alienQuarantinedEvent.Raise(roomInvaded.transform);
-                alienInsideRoomAudio.GetComponent<AudioPlayer>().PlayLoop();
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().PlayLoop();
 
                 yield return StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
 
                 roomInvadedScript.task.ResetMistakes();
                 alienWarningEndEvent.Raise(roomInvaded.transform);
-                alienInsideRoomAudio.GetComponent<AudioPlayer>().StopAudio();
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().StopAudio();
             }
             else
             {
                 alienAttackEvent.Raise(roomInvaded.transform);
-                FindObjectOfType<AudioManager>().Play("VentOpened");
+                alienOpenVentAudio.GetComponent<AudioPlayer>().PlayAudio();
+
             }
         }
         else
