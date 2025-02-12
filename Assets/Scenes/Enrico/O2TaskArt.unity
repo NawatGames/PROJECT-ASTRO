@@ -2499,90 +2499,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1106065122125860448, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1106065122125860448, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1106065122125860448, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.00000023841858
-      objectReference: {fileID: 0}
-    - target: {fileID: 1106065122125860448, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.00000044703484
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 41e3e6680dad77347b5544c962d9e9f9, type: 3}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357032243778870600, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8b9b201913c483946b312546cc5a66aa, type: 3}
-    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2632666375611452358, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3270008349921712275, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3669908325807582583, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3669908325807582583, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.493
-      objectReference: {fileID: 0}
     - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1517004639053767461}
-    - target: {fileID: 3879910955526791388, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 810d749e66635c844bfcd1a2728a2069, type: 3}
-    - target: {fileID: 5837632166385170745, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: blinkInterval
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5837632166385170745, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: redSignalDuration
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -2635,50 +2555,15 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskEnteredAudio
-      value: 
-      objectReference: {fileID: 1526052251}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskSuccessAudio
-      value: 
-      objectReference: {fileID: 1526052250}
-    - target: {fileID: 6716762474016768310, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: taskMistakeStayAudio
-      value: 
-      objectReference: {fileID: 1526052249}
-    - target: {fileID: 7853436906988474998, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Name
       value: Room - 02 Control
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145510211459193002, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-      propertyPath: m_Name
-      value: O2 Control Door Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
---- !u!1 &1526052249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5316101288808420518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1526052250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6751989116318316135, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1526052251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8282095774600809437, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
-  m_PrefabInstance: {fileID: 1526052248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1531394373
 PrefabInstance:
   m_ObjectHideFlags: 0
