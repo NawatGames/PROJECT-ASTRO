@@ -100,11 +100,9 @@ public class RoomQuarantineHandler : MonoBehaviour
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
             manager.DisableQuarantines(this);
-            FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (isRoomQuarantined)
         {
-            FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
             {
                 onAlienAttack.Raise();
@@ -134,9 +132,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
     {
         _isAlienInside = true;
-        FindObjectOfType<AudioManager>().Play("AlienInsideRoom");
         yield return new WaitForSeconds(alienInsideSeconds);
-        FindObjectOfType<AudioManager>().Stop("AlienInsideRoom");
         _isAlienInside = false;
     }
 }

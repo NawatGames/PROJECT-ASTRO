@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio_System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class AlienBehavior : MonoBehaviour
 {
+    [Header("AUDIO SAMPLES")]
+    [SerializeField] private GameObject alienCrawlAudio;
+    [SerializeField] private GameObject alienQuarantinedAudio;
+    [SerializeField] private GameObject alienOpenVentAudio;
+
+
+    [Header("ENTITY PARAMETERS")]
     public QuarantineManager quarantineManager;
     public List<GameObject> roomsToInvade;
 
@@ -85,24 +93,27 @@ public class AlienBehavior : MonoBehaviour
             roomInvaded = roomsToInvadeWeighted[roomIndex];
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
-            FindObjectOfType<AudioManager>().Play("AlienCrawl");
+            alienCrawlAudio.GetComponent<AudioPlayer>().PlayLoop();
             yield return new WaitForSeconds(levelParams[_levelIndex].invasionWarningSeconds);
-
-            FindObjectOfType<AudioManager>().Stop("AlienCrawl");
+            alienCrawlAudio.GetComponent<AudioPlayer>().StopAudio();
 
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
                 alienQuarantinedEvent.Raise(roomInvaded.transform);
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().PlayLoop();
+
                 yield return StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
+
                 roomInvadedScript.task.ResetMistakes();
                 alienWarningEndEvent.Raise(roomInvaded.transform);
-                //preciso que essa linha so aconteca quando ~StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));~ tenha acabado
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().StopAudio();
             }
             else
             {
                 alienAttackEvent.Raise(roomInvaded.transform);
-                FindObjectOfType<AudioManager>().Play("VentOpened");
+                alienOpenVentAudio.GetComponent<AudioPlayer>().PlayAudio();
+
             }
         }
         else
