@@ -4091,10 +4091,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.9472001
       objectReference: {fileID: 0}
-    - target: {fileID: 8907336385246221435, guid: da04c0638b52fd946b87e882a967d450, type: 3}
-      propertyPath: m_Name
-      value: Genius Door Button
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1340871626526778084, guid: da04c0638b52fd946b87e882a967d450, type: 3}
