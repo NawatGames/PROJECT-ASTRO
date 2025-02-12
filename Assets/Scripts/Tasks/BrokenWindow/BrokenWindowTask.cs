@@ -18,7 +18,8 @@ public class BrokenWindowTask : TaskScript
     [SerializeField] private ArrowsFrameManager frameManager;
     private List<DirectionEnum> _sequence;
     private Dictionary<DirectionEnum, GameObject> _arrowsMapping;
-    
+    [SerializeField] private int totalSequence;
+    private int currentSequence;
     
     private enum DirectionEnum
     {
@@ -44,12 +45,15 @@ public class BrokenWindowTask : TaskScript
 
     protected override void RunTask()
     {
+        currentSequence = 0;
         base.RunTask();
         timerBarScript.ResetTimerBarSize();
         
         if (isAstro == isAstroSpecialist) sequenceSize = sequenceSizeSpecialist;
         else  sequenceSize = normalSequenceSize;
-
+        
+        
+        
         CreateNewSequence();
         ShowNewSequence();
         StartCoroutine(timerBarScript.StartTimer());
@@ -88,14 +92,24 @@ public class BrokenWindowTask : TaskScript
             _sequence.RemoveAt(0);
             if (_sequence.Count == 0)
             {
-                TaskSuccessful();
+                currentSequence++;
+                if (currentSequence >= totalSequence)
+                {
+                   TaskSuccessful(); 
+                }
+                else
+                {
+                    
+                    CreateNewSequence();
+                    ShowNewSequence();
+                    StartCoroutine(timerBarScript.StartTimer());
+                    
+                }
             }
         }
         else
         {
             TaskMistakeStay();
-            CreateNewSequence();
-            ShowNewSequence();
         }
     }
 
