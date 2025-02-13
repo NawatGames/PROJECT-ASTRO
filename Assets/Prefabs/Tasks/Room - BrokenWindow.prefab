@@ -1120,7 +1120,7 @@ MonoBehaviour:
   leftArrow: {fileID: 7322027561944482424, guid: eff144b7739875d4f9e0c7469cdd03cc, type: 3}
   rightArrow: {fileID: 5004167849233349002, guid: f2723cb770e59f74f9a32b3aad6a5446, type: 3}
   frameManager: {fileID: 5918042196794418900}
-  totalSequence: 0
+  totalSequence: 3
 --- !u!1001 &2281147024922549697
 PrefabInstance:
   m_ObjectHideFlags: 0

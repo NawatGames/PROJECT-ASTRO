@@ -111,7 +111,7 @@ public class BrokenWindowTask : TaskScript
         }
         else
         {
-            TaskMistakeStay();
+            TaskMistakeLeave();
             _sequence.Clear();
             frameManager.ResetArrowFrame();
         }

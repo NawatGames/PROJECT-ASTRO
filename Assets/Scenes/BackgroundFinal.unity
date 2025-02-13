@@ -2517,6 +2517,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
+--- !u!95 &1458869199 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1154368844263483992, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1458869200 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5345216075714481254, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1458869201 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8102709376315505753, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1462642295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,6 +2737,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.865
       objectReference: {fileID: 0}
+    - target: {fileID: 5345216075714481254, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
       value: AllAdjacentDoors
@@ -2879,6 +2898,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - BrokenWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: doorSprite
+      value: 
+      objectReference: {fileID: 1458869201}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 1458869199}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 1458869200}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: repeaters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: repeaters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1619706423}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

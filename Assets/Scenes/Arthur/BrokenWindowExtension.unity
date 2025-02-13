@@ -306,11 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8851764c73867ee46b82bc2bffa06689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTillVictory: 120
-  onVictory: {fileID: 11400000, guid: efba9ad265577fd42a188d50b03da726, type: 2}
-  _levelTimerTMP: {fileID: 0}
-  _min: 0
-  _sec: 0
 --- !u!114 &65961419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,17 +550,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &375281282 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
-  m_PrefabInstance: {fileID: 1531394373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &400229392
@@ -2351,9 +2335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94499d0425f526f499e661b2b674f5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  onZeroHealth: {fileID: 11400000, guid: 0b6ff208d64f9f242a524f5c8c8c3a99, type: 2}
-  healthText: {fileID: 7855111}
 --- !u!4 &1319094733
 Transform:
   m_ObjectHideFlags: 0
@@ -2748,18 +2729,6 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
-    - target: {fileID: 180970222571814900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: m_Name
-      value: Broken Window Door Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: taskBecameAvailable
-      value: 
-      objectReference: {fileID: 11400000, guid: c4397faa0858bc94bbe3088cb27376d9, type: 2}
-    - target: {fileID: 3201175765473476900, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: taskBecameInaccessible
-      value: 
-      objectReference: {fileID: 11400000, guid: ffb67158c10bc20468c9b0b5faafbefa, type: 2}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7699995
@@ -2804,22 +2773,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 4665502479418077427, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: totalSequence
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4665502479418077427, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: totalSequences
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4713397733649990244, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Name
       value: Room - BrokenWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.data[0]
-      value: 
-      objectReference: {fileID: 375281282}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
