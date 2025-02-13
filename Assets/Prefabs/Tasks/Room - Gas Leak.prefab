@@ -194,7 +194,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7752948905543903856}
   - component: {fileID: 7844112702051320153}
-  - component: {fileID: 4915024806351646905}
   - component: {fileID: 4782908649253480994}
   m_Layer: 0
   m_Name: Room - Gas Leak
@@ -279,51 +278,6 @@ MonoBehaviour:
   roomSprite: {fileID: 4796052056505781646}
   wallSprite: {fileID: 254343171027309586}
   fadeVel: 0.03
---- !u!68 &4915024806351646905
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3943977172684552857}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 3.45, y: -1.4238756}
-  - {x: 3.4984384, y: -2.5076497}
-  - {x: -3.5048962, y: -2.5057266}
-  - {x: -3.5020761, y: 2.5051024}
-  - {x: 3.499301, y: 2.5000622}
-  - {x: 3.5006642, y: 0.88944364}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!61 &4782908649253480994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -356,7 +310,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02434063, y: -0.012170553}
+  m_Offset: {x: 0.017785788, y: 0.030170262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -367,7 +321,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9878693, y: 5.016254}
+  m_Size: {x: 3.1964612, y: 2.7650537}
   m_EdgeRadius: 0
 --- !u!1 &4018878272133440036
 GameObject:
@@ -687,7 +641,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: -0.18}
+  m_Offset: {x: 0.20282416, y: 0.41228727}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -698,7 +652,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6}
+  m_Size: {x: 0.41206977, y: 0.5792181}
   m_EdgeRadius: 0
 --- !u!1001 &897331072897011390
 PrefabInstance:
@@ -780,6 +734,10 @@ PrefabInstance:
       propertyPath: brokenTaskMask
       value: 
       objectReference: {fileID: 5346209270579351754}
+    - target: {fileID: 4108637563040208199, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5054702362481714705, guid: 6734a459eb94c7c4cb14090e22ab5659, type: 3}
       propertyPath: m_Name
       value: GasLeakTask
@@ -1013,19 +971,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_Size.x
-      value: 4.69
+      value: 0.8054166
       objectReference: {fileID: 0}
     - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_Size.y
-      value: 3.08
+      value: 0.96414137
       objectReference: {fileID: 0}
     - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_Offset.x
-      value: -0.546469
+      value: -0.4059627
       objectReference: {fileID: 0}
     - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_Offset.y
-      value: -2.5455108
+      value: -1.4875817
       objectReference: {fileID: 0}
     - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1103,6 +1061,10 @@ PrefabInstance:
       propertyPath: repeaters.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 7844112702051320153}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
