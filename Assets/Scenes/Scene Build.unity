@@ -1409,7 +1409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4685749661514214120, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: alienCrawlAudio
@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 2045109253}
-  totalTimeForTaskToFail: 130
+  totalTimeForTaskToFail: 150
   shortTimeForTaskToBeCompleted: 5
   nextTaskMinDelay: 5
   nextTaskMaxDelay: 10
@@ -3385,6 +3385,22 @@ PrefabInstance:
     - target: {fileID: 7221614639288744988, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.49415016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890993023533651858, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890993023533651858, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890993023533651858, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890993023533651858, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 7969681337548533205, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_IsActive
