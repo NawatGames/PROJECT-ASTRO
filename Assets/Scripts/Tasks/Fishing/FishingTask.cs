@@ -18,6 +18,7 @@ public class FishingTask : TaskScript
     private bool _pressNow = false;
 
     [Header("Mini game")]
+    [SerializeField] GameObject UI;
     [SerializeField] private TextMeshPro timerText;
     [SerializeField] private Transform controlledBar, fishIcon, progressBar;
 
@@ -63,6 +64,7 @@ public class FishingTask : TaskScript
     protected override void Awake()
     {
         base.Awake();
+        UI.SetActive(false);
         _controlledBarSprite = controlledBar.GetComponent<SpriteRenderer>();
         _fishIconSprite = fishIcon.GetComponent<SpriteRenderer>();
         _miniGameAreaSprite = controlledBar.parent.GetComponent<SpriteRenderer>();
@@ -78,6 +80,7 @@ public class FishingTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
+        UI.SetActive(true);
         Vector3 auxVector = controlledBar.localScale;
         if (isAstro != isAstroSpecialist)
         {
@@ -88,7 +91,7 @@ public class FishingTask : TaskScript
             auxVector.x = _originalControlledBarSize * barSizeModifier;
         }
         controlledBar.localScale = auxVector;
-        _barHalfHeight = _controlledBarSprite.bounds.extents.x;
+        _barHalfHeight = _controlledBarSprite.bounds.extents.y;
 
         _waitingForFish = false;
         _waitingForCast = false;
@@ -166,7 +169,7 @@ public class FishingTask : TaskScript
         while (true)
         {
             MoveFishAndBar();
-            if (inputController.inputAsset.Task.Up.IsPressed())
+            if (inputController.inputAsset.Task.Right.IsPressed())
             {
                 _currentBarVelocity = Mathf.Clamp(_currentBarVelocity + controlledBarAcceleration * Time.deltaTime, -maxControlledBarVelocity, maxControlledBarVelocity);
             }
@@ -232,10 +235,10 @@ public class FishingTask : TaskScript
     private void SetProgressBarSize()
     {
         Vector3 auxVector = progressBar.localScale;
-        auxVector.x = _progressBarFullHeight * _currentProgress;
+        auxVector.y = _progressBarFullHeight * _currentProgress;
         progressBar.localScale = auxVector;
         auxVector = progressBar.localPosition;
-        auxVector.x = Mathf.Lerp(-_progressBarFullHeight / 2, 0, _currentProgress);
+        auxVector.y = Mathf.Lerp(-_progressBarFullHeight / 2, 0, _currentProgress);
         progressBar.localPosition = auxVector;
     }
 
@@ -261,6 +264,12 @@ public class FishingTask : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
+        UI.SetActive(false);
         Debug.Log("Pesca bem sucedida");
+    }
+    protected override void TaskMistakeLeave()
+    {
+        base.TaskMistakeLeave();
+        UI.SetActive(false);
     }
 }

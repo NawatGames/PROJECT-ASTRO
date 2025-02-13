@@ -2314,6 +2314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astroPlayerInput: {fileID: 437778893}
   alienPlayerInput: {fileID: 2008283550}
+--- !u!1 &1183343515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6492966270810864819, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191715179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,17 +3383,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
---- !u!114 &1940385032 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1902598379491993675, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
-  m_PrefabInstance: {fileID: 1940385030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28cccdfe19e5da14a994955e6f92251d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1985897228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3935,32 +3929,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10241355329624782, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
-    - target: {fileID: 6033379382882706179, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+    - target: {fileID: 5510206044710518585, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6033379382882706179, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+    - target: {fileID: 5510206044710518585, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.18
       objectReference: {fileID: 0}
+    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1183343515}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: repeaters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1940385032}
-    - target: {fileID: 6814453784540979536, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814453784540979536, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalScale.y
+    - target: {fileID: 6492966270810864819, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
@@ -4002,14 +3996,6 @@ PrefabInstance:
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361037028195037187, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.153
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361037028195037187, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.62595034
       objectReference: {fileID: 0}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: manager
