@@ -3735,6 +3735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3126529660733650022, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: _roomQuarantineHandler
       value: 
