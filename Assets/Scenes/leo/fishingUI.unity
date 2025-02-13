@@ -2314,11 +2314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astroPlayerInput: {fileID: 437778893}
   alienPlayerInput: {fileID: 2008283550}
---- !u!1 &1183343515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6492966270810864819, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-  m_PrefabInstance: {fileID: 2717097818120226247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191715179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,58 +3924,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 10241355329624782, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
       objectReference: {fileID: 0}
-    - target: {fileID: 3577032269699827205, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477815377500861839, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510206044710518585, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510206044710518585, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5516145989507060173, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25325012
-      objectReference: {fileID: 0}
-    - target: {fileID: 5516145989507060173, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0927999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608688869548370623, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.4967499
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608688869548370623, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3447001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: UI
-      value: 
-      objectReference: {fileID: 1183343515}
     - target: {fileID: 6448475316502947355, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
-    - target: {fileID: 6492966270810864819, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.528
@@ -4019,18 +3970,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927698358074711528, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.7798986
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927698358074711528, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.7348216
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285793855731411797, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
-      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}

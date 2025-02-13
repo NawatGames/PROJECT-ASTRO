@@ -227,7 +227,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9325423, g: 1, b: 0, a: 0.047058824}
+  m_Color: {r: 0.9325423, g: 1, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -322,7 +322,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7490196, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 0.7490196, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -586,7 +586,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.009075573, y: 0.000045582376, z: 0}
-  m_LocalScale: {x: 0.4, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.35, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9041278607863553239}
@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.157475, y: 0.00004548001}
+  m_AnchoredPosition: {x: -2.7798986, y: -0.7348216}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8352018519549502760
@@ -841,7 +841,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.009075573, y: 0.000045582376, z: 0}
-  m_LocalScale: {x: 0.91444534, y: 0.2887111, z: 1}
+  m_LocalScale: {x: 1, y: 0.18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9041278607863553239}
@@ -1329,7 +1329,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1468,11 +1468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3359323
+      value: -1.4967499
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27891493
+      value: -1.3447001
       objectReference: {fileID: 0}
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1784,7 +1784,7 @@ MonoBehaviour:
   minFishWaitTime: 2
   maxFishWaitTime: 3
   timeToReact: 1
-  UI: {fileID: 0}
+  UI: {fileID: 6492966270810864819}
   timerText: {fileID: 9172184856943355227}
   controlledBar: {fileID: 5510206044710518585}
   fishIcon: {fileID: 10241355329624782}
@@ -1810,11 +1810,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3097377
+      value: 0.25325012
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96523356
+      value: 0.0927999
       objectReference: {fileID: 0}
     - target: {fileID: 3365658961443428226, guid: 7016d7453bfb0fa4598d721dd6467224, type: 3}
       propertyPath: m_LocalPosition.z
