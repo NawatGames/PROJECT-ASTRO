@@ -41,7 +41,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator GameOverSequence()
     {
-        alien.SetActive(false);
+        
 
         yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
 
@@ -57,12 +57,13 @@ public class GameOverManager : MonoBehaviour
         gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
+        alien.SetActive(false);
         GameOver();
     }
 
     private IEnumerator DelayedGameOverSequence()
     {
-        alien.SetActive(false);
+        
 
         yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
 
@@ -82,6 +83,7 @@ public class GameOverManager : MonoBehaviour
         gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
+        alien.SetActive(false);
         GameOver();
     }
 

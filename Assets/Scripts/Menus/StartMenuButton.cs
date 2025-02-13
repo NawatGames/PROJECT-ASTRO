@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RetryButton : MonoBehaviour
+public class StartMenuButton : MonoBehaviour
 {
-    public void RetryGame()
+    public void MainMenu()
     {
-        SceneManager.LoadScene("Scene Build");
+        SceneManager.LoadScene("StartMenuAnimations");
     }
-
 }
