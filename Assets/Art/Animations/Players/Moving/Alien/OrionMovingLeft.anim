@@ -40,7 +40,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1111112
+        time: 0.8888889
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -68,16 +68,12 @@ AnimationClip:
     - time: 0.33333334
       value: {fileID: 712920716, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - time: 0.44444445
-      value: {fileID: 1141724204, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - time: 0.5555556
-      value: {fileID: -435751924, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - time: 0.6666667
       value: {fileID: 369251305, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - time: 0.7777778
+    - time: 0.5555556
       value: {fileID: -1730865904, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - time: 0.8888889
+    - time: 0.6666667
       value: {fileID: -1468688706, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - time: 1
+    - time: 0.7777778
       value: {fileID: -830993816, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     attribute: m_Sprite
     path: 
@@ -114,8 +110,6 @@ AnimationClip:
     - {fileID: -2008070954, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - {fileID: 1698316163, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - {fileID: 712920716, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - {fileID: 1141724204, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
-    - {fileID: -435751924, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - {fileID: 369251305, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - {fileID: -1730865904, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
     - {fileID: -1468688706, guid: 959c46c3ee4722bbaac078f14d910ee7, type: 3}
@@ -125,7 +119,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1111112
+    m_StopTime: 0.8888889
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -164,7 +158,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.1111112
+        time: 0.8888889
         value: 0
         inSlope: Infinity
         outSlope: Infinity

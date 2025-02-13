@@ -10,22 +10,22 @@ public class GuitarHeroTask : TaskScript
     [SerializeField] private float blockSpeed;
     private float _blockSpace = 2f;
 
-    [SerializeField] private int totalMistakes;
+    [SerializeField] private int mistakesMade;
     [SerializeField] private int numberOfPossibleMistakes;
 
     [SerializeField] private int pointsMade;
     [SerializeField] private List<TargetBehavior> targetsBuffer;
     [SerializeField] private List<TargetBehavior> targetsActive;
-    [SerializeField] private int auxPointsToWin;
+    [SerializeField] private int pointsToWin;
     [SerializeField] private Transform targetsStartLocation;
 
     protected override void Awake()
     {
         base.Awake();
 
-        auxPointsToWin = numberOfPossibleMistakes;
+        pointsToWin = maxBlockPoints - numberOfPossibleMistakes;
         pointsMade = 0;
-        totalMistakes = 0;
+        mistakesMade = 0;
         foreach (TargetBehavior target in targetsBuffer)
         {
             target.gameObject.SetActive(false);
@@ -36,9 +36,9 @@ public class GuitarHeroTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
-        numberOfPossibleMistakes = auxPointsToWin;
+        // numberOfPossibleMistakes = auxPointsToWin;
         pointsMade = 0;
-        totalMistakes = 0;
+        mistakesMade = 0;
 
         StartCoroutine(GameRound());
     }
@@ -60,7 +60,7 @@ public class GuitarHeroTask : TaskScript
         {
             yield return null;
         }
-        if (pointsMade >= maxBlockPoints)
+        if (pointsMade >= pointsToWin)
         {
             TaskSuccessful();
             yield break;
@@ -71,7 +71,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnUpPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0)
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Up);
         }
@@ -80,7 +80,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnDownPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0) 
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Down);
         }
@@ -89,7 +89,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnLeftPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0) 
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Left);
         }
@@ -98,7 +98,7 @@ public class GuitarHeroTask : TaskScript
     protected override void OnRightPerformed(InputAction.CallbackContext ctx)
     {
         // Ta podendo apertar o botao
-        if (ctx.started && targetsActive.Count > 0)
+        if (targetsActive.Count > 0)
         {
             VerifyPoint(SymbolEnum.Right);
         }
@@ -122,16 +122,30 @@ public class GuitarHeroTask : TaskScript
             {
                 Debug.Log("failed");
                 InsertTargetInBuffer();
-                totalMistakes++;
-                if (totalMistakes > numberOfPossibleMistakes) TaskMistakeLeave();
+                mistakesMade++;
+                if (mistakesMade > numberOfPossibleMistakes)
+                {
+                    TaskMistakeLeave();
+                }
+                else
+                {
+                    TaskMistakeStay();
+                }
             }
         }
         else if (!targetsActive[0]._pressNow)
         {
             Debug.Log("failed");
             InsertTargetInBuffer();
-            totalMistakes++;
-            if (totalMistakes > numberOfPossibleMistakes) TaskMistakeLeave();
+            mistakesMade++;
+            if (mistakesMade > numberOfPossibleMistakes)
+            {
+                TaskMistakeLeave();
+            }
+            else
+            {
+                TaskMistakeStay();
+            }
         }
 
     }
@@ -182,7 +196,7 @@ public class GuitarHeroTask : TaskScript
 
     public void IncrementMistake()
     {
-        totalMistakes++;
-        if (totalMistakes > numberOfPossibleMistakes) TaskMistakeLeave();
+        mistakesMade++;
+        if (mistakesMade > numberOfPossibleMistakes) TaskMistakeLeave();
     }
 }

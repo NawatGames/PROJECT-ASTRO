@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio_System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,10 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
+    [Header("AUDIO SAMPLES")]
+    [SerializeField] private GameObject gameOverAudio;
+
+    [Header("GAMEOVER CONFIG")]
     [SerializeField] private float gameOverFadeDuration = 1f;
     [SerializeField] private GameObject alien;
     [SerializeField] private TextMeshProUGUI gameOverText;
@@ -28,6 +33,12 @@ public class GameOverManager : MonoBehaviour
         StartCoroutine(GameOverSequence());
     }
 
+    [ContextMenu("Forçar game over com delay")]
+    public void StartDelayedGameOver()
+    {
+        StartCoroutine(DelayedGameOverSequence());
+    }
+
     private IEnumerator GameOverSequence()
     {
         alien.SetActive(false);
@@ -43,13 +54,36 @@ public class GameOverManager : MonoBehaviour
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
 
-        FindObjectOfType<AudioManager>().Play("GameOver");
+        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
         GameOver();
     }
 
+    private IEnumerator DelayedGameOverSequence()
+    {
+        alien.SetActive(false);
 
+        yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
+
+        yield return new WaitForSeconds(preJumpscareDelay);
+
+        var randomTime = Random.Range(2, 8);
+
+        yield return new WaitForSeconds(randomTime);
+
+        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 1);
+        gameOverVideoController.StartJumpscareVideo();
+
+        yield return new WaitForSeconds((float)gameOverVideoController.GetVideoPlayer().clip.length);
+
+        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
+
+        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
+
+        yield return new WaitForSeconds(preGameOverDelay);
+        GameOver();
+    }
 
     private IEnumerator FadeImage(Image image, float targetAlpha, float duration)
     {
