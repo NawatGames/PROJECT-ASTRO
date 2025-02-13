@@ -43,27 +43,27 @@ public class LevelBars : MonoBehaviour
         yield return new WaitForSeconds(countdownTillVictory * ((percent12 - percent0) / 100f));
         SetSprite(tempo12);
         Debug.Log(percent12);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent34 - percent12) / 100f));
         SetSprite(tempo34);
         Debug.Log(percent34);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent50 - percent34) / 100f));
         SetSprite(tempo50);
         Debug.Log(percent50);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent68 - percent50) / 100f));
         SetSprite(tempo68);
         Debug.Log(percent68);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent87 - percent68) / 100f));
         SetSprite(tempo87);
         Debug.Log(percent87);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent95 - percent87) / 100f));
         SetSprite(tempo95);
         Debug.Log(percent95);
-        
+
         yield return new WaitForSeconds(countdownTillVictory * ((percent100 - percent95) / 100f));
         SetSprite(tempo100);
         Debug.Log(percent100);

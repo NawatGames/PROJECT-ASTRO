@@ -54,7 +54,7 @@ public class GameOverManager : MonoBehaviour
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
 
-        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
+        // gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
         alien.SetActive(false);
@@ -80,7 +80,7 @@ public class GameOverManager : MonoBehaviour
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
 
-        gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
+        // gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
         alien.SetActive(false);

@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 2045109253}
-  totalTimeForTaskToFail: 130
+  totalTimeForTaskToFail: 5
   shortTimeForTaskToBeCompleted: 5
   nextTaskMinDelay: 5
   nextTaskMaxDelay: 10
@@ -1737,6 +1737,10 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 576091132}
+    - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
+      propertyPath: firstDecontaminationDelay
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8829836319662570609, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: m_Name
       value: Lobby
