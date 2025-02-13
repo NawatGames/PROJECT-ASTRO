@@ -91,6 +91,7 @@ using UnityEngine.InputSystem;
                 playerPos = transform.position;
             }
             _currentVelocity = Vector2.zero;
+            playerAnimationController.ForceIdleWithDirection(direction.normalized);
             switchToTargetState();
         }
     }

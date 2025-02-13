@@ -25,11 +25,11 @@ public class FreeMovePlayerState : PlayerState
     
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
-        if (playerCollisionController.NearDecontaminationInteraction != null)
+        if (playerCollisionController.NearDecontaminationPod != null)
         {
-            if (!playerCollisionController.NearDecontaminationInteraction.IsOccupied())
+            if (!playerCollisionController.NearDecontaminationPod.IsOccupied())
             {
-                playerCollisionController.NearDecontaminationInteraction.SetOccupied(true);
+                playerCollisionController.NearDecontaminationPod.SetOccupied(true);
                 SwitchState(playerStateMachine.goToDecontaminationPlayerState);
             }
         }

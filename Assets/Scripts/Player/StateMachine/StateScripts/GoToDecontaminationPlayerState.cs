@@ -20,7 +20,7 @@ public class GoToDecontaminationPlayerState : PlayerState
             base.EnterState();
             
             _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
-                playerCollisionController.NearDecontaminationInteraction.GetDecontaminationPosition(),
+                playerCollisionController.NearDecontaminationPod.GetDecontaminationInsidePosition(),
                 ()=> {
                     SwitchState(playerStateMachine.decontaminateState);
                 }));
@@ -46,7 +46,7 @@ public class GoToDecontaminationPlayerState : PlayerState
         Debug.Log("(walk to) Decontamination cancelled");
         StopCoroutine(_goToTargetCoroutine);
         playerAnimationController.SetMovementAnimParameters(Vector2.zero);
-        playerCollisionController.NearDecontaminationInteraction.SetOccupied(false);
+        playerCollisionController.NearDecontaminationPod.SetOccupied(false);
         SwitchState(playerStateMachine.freeMoveState);
     }
 }
