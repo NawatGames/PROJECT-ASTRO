@@ -16,6 +16,7 @@ public class HarvestCropTask : TaskScript
 
 
     [Header("TASK CONFIG")]
+    [SerializeField] private Canvas UI;
     [SerializeField] private Slider progressSlider;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
@@ -29,6 +30,7 @@ public class HarvestCropTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
+        UI.gameObject.SetActive(true);
         progressSlider.value = 0;
         timeSlider.value = 1;
         if (isAstro == isAstroSpecialist)
@@ -55,11 +57,13 @@ public class HarvestCropTask : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
+        UI.gameObject.SetActive(false);
         Debug.Log("Colheita bem sucedida");
     }
     public override void EndTask()
     {
         base.EndTask();
+        UI.gameObject.SetActive(false);
         StopAllCoroutines();
     }
 
