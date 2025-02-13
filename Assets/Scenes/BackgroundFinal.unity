@@ -1784,6 +1784,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 537245125981286470, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1831,6 +1835,10 @@ PrefabInstance:
     - target: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: m_Name
       value: Room - GuitarHero
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397771273258022846, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2597,6 +2605,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.29465842
       objectReference: {fileID: 0}
+    - target: {fileID: 5543726922261822790, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: manager
       value: 
@@ -2734,6 +2746,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.3850001
       objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744359193463268341, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.59375
+      objectReference: {fileID: 0}
     - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.69
@@ -2765,6 +2785,14 @@ PrefabInstance:
     - target: {fileID: 7362775942509503087, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Offset.y
       value: -0.5548767
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3150005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418599424949604137, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3850002
       objectReference: {fileID: 0}
     - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: _roomQuarantineHandler
@@ -2855,6 +2883,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 2687104902649753731, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3237197775953271886, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Size.y
       value: 1.1288701
@@ -2862,6 +2894,10 @@ PrefabInstance:
     - target: {fileID: 3237197775953271886, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Offset.y
       value: 0.064435065
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748035459583637872, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2923,6 +2959,10 @@ PrefabInstance:
       propertyPath: doorCollider
       value: 
       objectReference: {fileID: 1458869200}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1822503294}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3035,6 +3075,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221abb82bd504853ad3dc5bd0e01b99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1822503294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+  m_PrefabInstance: {fileID: 1531394373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1838393662 stripped
@@ -3249,6 +3300,10 @@ PrefabInstance:
     - target: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_Name
       value: Room - Gas Leak
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796052056505781646, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7752948905543903856, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3776,6 +3831,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 2055060580976954603, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2355918297153082638, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: tasksManager
       value: 
@@ -3818,6 +3877,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4832594994419253937, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961022504726795175, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8840270026049982345, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
@@ -3968,6 +4031,26 @@ PrefabInstance:
     - target: {fileID: 989692950033628077, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: m_Name
       value: Room - Genius
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635999345971087460, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Size.x
+      value: 6.536528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635999345971087460, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Size.y
+      value: 5.238308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635999345971087460, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.05727458
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635999345971087460, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2609172
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144316229404686137, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: _roomQuarantineHandler
