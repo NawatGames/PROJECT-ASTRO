@@ -1,11 +1,14 @@
 using System.Collections;
+using Audio_System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class DecontaminationTask : MonoBehaviour
 {
+    [Header("TASK CONFIG")]
     [SerializeField] private float firstDecontaminationDelay = 160f;
     [SerializeField] private float minIntervalUntilDecontamination = 100f;
     [SerializeField] private float maxIntervalUntilDecontamination = 150f;
@@ -19,14 +22,19 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private Collider2D openedCollider;
     [SerializeField] private SpriteRenderer leftGradientMask;
     [SerializeField] private SpriteRenderer rightGradientMask;
+    [SerializeField] private Image vignette;
     public GameOverManager gameOverManager;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
     private bool _onePlayerPressed = false;
     private bool _twoPlayersPressed = false;
+    [Header("AUDIO SAMPLES")]
+    private AudioSource _audioSource;
+    [SerializeField] private AudioPlayer audioPlayer;
 
     private void Start()
     {
+        _audioSource = audioPlayer.gameObject.GetComponent<AudioSource>();
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
@@ -85,6 +93,7 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
+        StartCoroutine(VignetteAndHeartbeat());
         StartCoroutine(DecontaminationWindow());
     }
 
@@ -103,6 +112,35 @@ public class DecontaminationTask : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator VignetteAndHeartbeat()
+    {
+        audioPlayer.PlayLoop();
+        float initialTime = _timeRemaining;
+
+        while (_timeRemaining > 0)
+        {
+            _timeRemaining -= Time.deltaTime;
+            float progress = 1 - (_timeRemaining / initialTime);
+
+            // Ajusta o alfa da vinheta
+            var color = vignette.color;
+            color.a = Mathf.Lerp(0f, 1f, progress);
+            vignette.color = color;
+
+            // Ajusta o volume do áudio
+            _audioSource.volume = Mathf.Lerp(0f, 1f, progress);
+
+            yield return null;
+        }
+
+        // Garante que os valores finais sejam 100%
+        var finalColor = vignette.color;
+        finalColor.a = 1f;
+        vignette.color = finalColor;
+        _audioSource.volume = 1f;
+        audioPlayer.StopAudio();
+    } 
 
     private void UpdateCountdownText()
     {
