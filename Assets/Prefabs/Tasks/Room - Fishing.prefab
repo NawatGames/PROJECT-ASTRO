@@ -1467,14 +1467,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 7756717363625582678}
     m_Modifications:
     - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8928
-      objectReference: {fileID: 0}
-    - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.84830004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5669073372574766463, guid: 17061b79cfbbeb040b49b5e56e5f647f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3359323
       objectReference: {fileID: 0}
@@ -1540,42 +1532,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fishing Door Button
       objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.x
-      value: 1.647125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.8752195
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.x
-      value: 1.2819558
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.y
-      value: -1.0364871
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4855414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4945726
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2763958
@@ -1616,22 +1572,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: doorSprite
-      value: 
-      objectReference: {fileID: 4124910275111592077}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 6433708092298098316}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: doorCollider
-      value: 
-      objectReference: {fileID: 243826076475379890}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: repeaters.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1653,18 +1593,6 @@ PrefabInstance:
     - target: {fileID: 477185692739947071, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
       propertyPath: m_Name
       value: VerticalDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4913284
-      objectReference: {fileID: 0}
-    - target: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.49812612
-      objectReference: {fileID: 0}
-    - target: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2958
       objectReference: {fileID: 0}
     - target: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,21 +1639,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
---- !u!61 &243826076475379890 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3694241541231182223, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-  m_PrefabInstance: {fileID: 3469649256029704509}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &4124910275111592077 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 655286492553015728, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-  m_PrefabInstance: {fileID: 3469649256029704509}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6433708092298098316 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7597490046750599089, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
-  m_PrefabInstance: {fileID: 3469649256029704509}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6814453784540979536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7977957420552482925, guid: a01d8bba7f7841e46878afced94b7964, type: 3}
@@ -1862,11 +1775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e925c2c9cac57774dbb4089ff41a1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasksManager: {fileID: 0}
+  redSignalController: {fileID: 1565487094786601835}
   taskEnteredAudio: {fileID: 4010133272659571584}
   taskSuccessAudio: {fileID: 1799982581017841210}
   taskMistakeStayAudio: {fileID: 905123717836532987}
-  tasksManager: {fileID: 0}
-  redSignalController: {fileID: 1565487094786601835}
   gotFishWarningSprite: {fileID: 5887583891517017804}
   minFishWaitTime: 2
   maxFishWaitTime: 3
