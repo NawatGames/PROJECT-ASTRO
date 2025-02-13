@@ -2930,6 +2930,22 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2100795899839391949, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100795899839391949, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100795899839391949, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2387495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100795899839391949, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41250014
+      objectReference: {fileID: 0}
     - target: {fileID: 2687104902649753731, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -2943,8 +2959,12 @@ PrefabInstance:
       value: 0.064435065
       objectReference: {fileID: 0}
     - target: {fileID: 3748035459583637872, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b245430674ee0f6489f1176cb91c5d41, type: 3}
+    - target: {fileID: 3748035459583637872, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3780505795414349645, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3336,6 +3356,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c29a399cd6c98b48b28d541be780ba1, type: 3}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 254343171027309586, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1501009141
+      objectReference: {fileID: 0}
     - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3348,6 +3396,22 @@ PrefabInstance:
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
       objectReference: {fileID: 1822503294}
+    - target: {fileID: 2794223326434243265, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794223326434243265, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794223326434243265, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.026249886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794223326434243265, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5137501
+      objectReference: {fileID: 0}
     - target: {fileID: 3259135766846697953, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: tasksManager
       value: 
