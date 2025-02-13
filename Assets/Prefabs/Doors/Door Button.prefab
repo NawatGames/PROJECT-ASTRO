@@ -180,7 +180,6 @@ MonoBehaviour:
   adjacentDoorButtonControlers: []
   repeaters:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!95 &6600843793115481505
 Animator:
   serializedVersion: 5

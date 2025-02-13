@@ -4,14 +4,14 @@ using UnityEngine.InputSystem;
 
 public class DistributeO2Task : TaskScript
 {
-    [SerializeField] private RectTransform circle;
-    [SerializeField] private RectTransform arrow;
-    [SerializeField] private RectTransform specialZone;
+    [SerializeField] private Transform circle;
+    [SerializeField] private Transform arrow;
+    [SerializeField] private Transform specialZone;
     [SerializeField] private float rotationSpeed = 100f;
-    [SerializeField] private float alignmentThreshold = 10f;
+    [SerializeField] private float alignmentThreshold;
     [SerializeField] private float RequiredAlignments = 7;
-    [SerializeField] private int maxUnsuccessfulAlignments = 3; 
-    private int _unsuccessfulAlignments = 0;    
+    [SerializeField] private int maxUnsuccessfulAlignments = 3;
+    private int _unsuccessfulAlignments = 0;
     private bool _isRotating = false;
     private int _successfulAlignments = 0;
 
@@ -41,12 +41,13 @@ public class DistributeO2Task : TaskScript
 
     private void RotateArrowAroundCircle()
     {
-        arrow.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+        arrow.RotateAround(circle.position, Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
+    [ContextMenu("CheckAlign")]
     private void CheckAlignment()
     {
-        float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
+        float angleDifference = Mathf.Abs(arrow.eulerAngles.z - specialZone.eulerAngles.z);
 
         if (angleDifference <= alignmentThreshold)
         {
@@ -70,7 +71,7 @@ public class DistributeO2Task : TaskScript
                 PositionSpecialZone();
             }
         }
-        else
+        else if(angleDifference > alignmentThreshold)
         {
             TaskMistakeStay();
             _unsuccessfulAlignments++;
@@ -86,7 +87,7 @@ public class DistributeO2Task : TaskScript
     {
         // Gera um ângulo aleatório entre 0 e 360 graus
         float randomAngle = Random.Range(0f, 360f);
-    
+
         // Aplica a rotação diretamente na seta
         specialZone.rotation = Quaternion.Euler(0, 0, randomAngle);
     }
