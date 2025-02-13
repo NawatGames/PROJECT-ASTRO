@@ -855,11 +855,13 @@ MonoBehaviour:
   levelManager: {fileID: 2045109253}
   totalTimeForTaskToFail: 130
   shortTimeForTaskToBeCompleted: 5
+  nextTaskMinDelay: 5
+  nextTaskMaxDelay: 10
+  startingTasks: 3
+  astroProbability: 50
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
   taskGridLayoutTransform: {fileID: 1571042460}
-  _tasksNotYetSelected: []
-  astroProbability: 50
 --- !u!4 &752719925
 Transform:
   m_ObjectHideFlags: 0
@@ -916,6 +918,9 @@ MonoBehaviour:
   roomsScript: []
   roomsBeingUsed: []
   timerQuarantineDelay: 0
+  linkedRooms: []
+  quarantineActivated: {fileID: 0}
+  quarantineDeactivated: {fileID: 0}
 --- !u!4 &773420859
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,8 +2124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4d906e661c19a4da8b548e85465575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverAudio: {fileID: 0}
   gameOverFadeDuration: 1
-  jumpscareFadeDuration: 1
   alien: {fileID: 1917454588}
   gameOverText: {fileID: 1100590112}
   blackScreen: {fileID: 784201138}
@@ -2359,91 +2364,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a53e4817b544b44a829655f1c9fcca, type: 3}
---- !u!1 &1456006157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1456006159}
-  - component: {fileID: 1456006158}
-  - component: {fileID: 1456006160}
-  m_Layer: 5
-  m_Name: GameOverVideoController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1456006158
+--- !u!114 &1456006158 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5866916124014997199, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+  m_PrefabInstance: {fileID: 5436699237593712614}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456006157}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e6f97b41f54ce4690409bcab123efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 1456006160}
-  rawImage: {fileID: 717957291}
-  jumpscareVideo: {fileID: 32900000, guid: b48faf0b965c404439a08efb3bb2fc55, type: 3}
-  renderTexture: {fileID: 8400000, guid: fee89262372d50d48901450c1a57f61c, type: 2}
---- !u!4 &1456006159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456006157}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7874093, y: 0.65939665, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &1456006160
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456006157}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b48faf0b965c404439a08efb3bb2fc55, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: fee89262372d50d48901450c1a57f61c, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!1 &1474032225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
@@ -2935,6 +2866,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienCrawlAudio: {fileID: 0}
+  alienQuarantinedAudio: {fileID: 0}
+  alienOpenVentAudio: {fileID: 0}
   quarantineManager: {fileID: 773420858}
   roomsToInvade: []
   levelParams:
@@ -2944,9 +2878,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
   - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
   roomInvaded: {fileID: 0}
-  onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
+  alienAttackEvent: {fileID: 0}
   alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
   alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
+  alienQuarantinedEvent: {fileID: 0}
 --- !u!4 &1917454590
 Transform:
   m_ObjectHideFlags: 0
@@ -4019,13 +3954,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+--- !u!1001 &5436699237593712614
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1627253400531055074, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_Name
+      value: GameOverVideoController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866916124014997199, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: rawImage
+      value: 
+      objectReference: {fileID: 717957291}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7874093
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65939665
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1116699427}
   - {fileID: 789865644}
-  - {fileID: 1456006159}
+  - {fileID: 5436699237593712614}
   - {fileID: 1258172822}
   - {fileID: 806782042}
   - {fileID: 1927187339}
