@@ -22,6 +22,7 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private Collider2D openedCollider;
     [SerializeField] private SpriteRenderer leftGradientMask;
     [SerializeField] private SpriteRenderer rightGradientMask;
+
     [SerializeField] private Image vignette;
     public GameOverManager gameOverManager;
     private float _timeRemaining;
@@ -47,13 +48,13 @@ public class DecontaminationTask : MonoBehaviour
             collider.enabled = false;
         }
         StartCoroutine(CountdownToDecontamination());
-        
+
     }
 
     // função chamada pelo GameEvent SomeoneEnteredDecontamination
     public void SomeoneEnteredDecontamination()
     {
-        if(!_onePlayerPressed)
+        if (!_onePlayerPressed)
         {
             _onePlayerPressed = true;
         }
@@ -67,7 +68,7 @@ public class DecontaminationTask : MonoBehaviour
     // função chamada pelo GameEvent SomeoneLeftDecontamination
     public void SomeoneLeftDecontamination()
     {
-        if(_twoPlayersPressed)
+        if (_twoPlayersPressed)
         {
             _twoPlayersPressed = false;
         }
@@ -87,7 +88,7 @@ public class DecontaminationTask : MonoBehaviour
             if (_timeRemaining <= 0 && !_decontaminationNeeded)
             {
                 StartDecontaminationWindow();
-                yield break; 
+                yield break;
             }
 
             yield return null;
@@ -102,9 +103,9 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
-        
+
         StartCoroutine(VignetteAndHeartbeat());
-        
+
         foreach (var collider in podColliders)
         {
             collider.enabled = true;
@@ -155,7 +156,7 @@ public class DecontaminationTask : MonoBehaviour
         vignette.color = finalColor;
         _audioSource.volume = 1f;
         audioPlayer.StopAudio();
-    } 
+    }
 
     private void UpdateCountdownText()
     {
@@ -169,6 +170,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void StartDecontaminationProcedure()
     {
+        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
         _decontaminationNeeded = false;
         _onePlayerPressed = false;
         _twoPlayersPressed = false;
@@ -187,9 +189,47 @@ public class DecontaminationTask : MonoBehaviour
 
     public IEnumerator CompleteDecontamination()
     {
+
         yield return new WaitForSeconds(delayBeforeAndAfterScan);
         podDoorsAnimator.SetTrigger("Open");
         completedDecontaminationEvent.Raise();
+
+        float fadeDuration = 2f; // Tempo que o fade-out deve durar
+        float elapsedTime = 0f;
+
+        float initialAlpha = vignette.color.a;
+        float initialVolume = _audioSource.volume;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / fadeDuration;
+
+            // Ajusta o alfa da vinheta suavemente
+            var color = vignette.color;
+            color.a = Mathf.Lerp(initialAlpha, 0f, progress);
+            vignette.color = color;
+
+            // Ajusta o volume do áudio suavemente
+            _audioSource.volume = Mathf.Lerp(initialVolume, 0f, progress);
+
+            yield return null;
+        }
+
+        // Garante que os valores finais sejam 0
+        var finalColor = vignette.color;
+        finalColor.a = 0f;
+        vignette.color = finalColor;
+
+        _audioSource.volume = 0f;
+        _audioSource.Stop();
+        audioPlayer.StopAudio();
+
+        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+        ResetDecontamination();
+
+
         // Evento acima faz os players sairem das portas e depois um GameEvent invoca ResetDecontamination() 
     }
 
@@ -198,7 +238,12 @@ public class DecontaminationTask : MonoBehaviour
         podDoorsAnimator.SetTrigger("Close");
         openedCollider.enabled = false;
         closedCollider.enabled = true;
-        _timeRemaining = Random.Range(minIntervalUntilDecontamination,maxIntervalUntilDecontamination);
+        podColliders = GetComponentsInChildren<BoxCollider2D>();
+        foreach (var collider in podColliders)
+        {
+            collider.enabled = false;
+        }
+        _timeRemaining = Random.Range(minIntervalUntilDecontamination, maxIntervalUntilDecontamination);
         StartCoroutine(CountdownToDecontamination());
     }
 

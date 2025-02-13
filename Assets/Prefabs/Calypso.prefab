@@ -1002,18 +1002,6 @@ PrefabInstance:
       propertyPath: playerCollisionController
       value: 
       objectReference: {fileID: 6980675924244276331}
-    - target: {fileID: 7373485353977213504, guid: 28ac93f81d3843a459138999b5606098, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373485353977213504, guid: 28ac93f81d3843a459138999b5606098, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373485353977213504, guid: 28ac93f81d3843a459138999b5606098, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1351266079
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
