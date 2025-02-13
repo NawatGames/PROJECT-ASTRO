@@ -1185,7 +1185,7 @@ MonoBehaviour:
   shortTimeForTaskToBeCompleted: 5
   nextTaskMinDelay: 5
   nextTaskMaxDelay: 10
-  startingTasks: 3
+  startingTasks: 7
   astroProbability: 50
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
@@ -1784,10 +1784,6 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
-    - target: {fileID: 777215014409719261, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-      propertyPath: _roomQuarantineHandler
-      value: 
-      objectReference: {fileID: 2103209706}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -3705,17 +3701,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
   m_PrefabInstance: {fileID: 817822659}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2103209706 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
-  m_PrefabInstance: {fileID: 817822659}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103209704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2120217093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}

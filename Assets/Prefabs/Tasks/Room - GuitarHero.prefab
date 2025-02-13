@@ -1146,7 +1146,7 @@ MonoBehaviour:
   inputBar: {fileID: 195384519426079716}
   maxBlockPoints: 5
   blockSpeed: 1
-  totalMistakes: 0
+  mistakesMade: 0
   numberOfPossibleMistakes: 2
   pointsMade: 0
   targetsBuffer:
@@ -1155,7 +1155,7 @@ MonoBehaviour:
   - {fileID: 4174779561968318192}
   - {fileID: 5850019035796600468}
   targetsActive: []
-  auxPointsToWin: 0
+  pointsToWin: 0
   targetsStartLocation: {fileID: 8699660653636695437}
 --- !u!1 &6191805682673657126
 GameObject:
@@ -1533,7 +1533,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 17
   m_Sprite: {fileID: 21300000, guid: 42f492fdd8a772840ab503e8a2fb3002, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2050,42 +2050,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuitarHero Door Button
       objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.x
-      value: 2.4925349
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.4719806
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.x
-      value: 1.0481852
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.891557
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1528997
@@ -2142,6 +2106,10 @@ PrefabInstance:
       propertyPath: repeaters.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 361451851442497156}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
