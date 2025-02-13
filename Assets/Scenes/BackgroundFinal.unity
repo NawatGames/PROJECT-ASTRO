@@ -547,17 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912fd52b51203164ab72c00de79feabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &375281282 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1653825342947247302, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
-  m_PrefabInstance: {fileID: 1531394373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab57fcf17d584b45b835c10e2a8c615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &400229392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,6 +2706,14 @@ PrefabInstance:
       propertyPath: doorButtonControllers.Array.data[0]
       value: 
       objectReference: {fileID: 442421219}
+    - target: {fileID: 1719801842696732036, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719801842696732036, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3850001
+      objectReference: {fileID: 0}
     - target: {fileID: 5177092620519057301, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.69
@@ -2728,6 +2725,22 @@ PrefabInstance:
     - target: {fileID: 5789143462606834505, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: m_Name
       value: AllAdjacentDoors
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362775942509503087, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8297374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362775942509503087, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.50975347
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362775942509503087, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.072342
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362775942509503087, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5548767
       objectReference: {fileID: 0}
     - target: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
       propertyPath: _roomQuarantineHandler
@@ -2865,22 +2878,6 @@ PrefabInstance:
     - target: {fileID: 4713397733649990244, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Name
       value: Room - BrokenWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: _roomQuarantineHandler
-      value: 
-      objectReference: {fileID: 667369342}
-    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.data[0]
-      value: 
-      objectReference: {fileID: 375281282}
-    - target: {fileID: 5899915912857996017, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5899915912857996017, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3265,6 +3262,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Gas Leak
       objectReference: {fileID: 0}
+    - target: {fileID: 4782908649253480994, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.x
+      value: 3.1964612
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782908649253480994, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.y
+      value: 2.7650537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782908649253480994, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.017785788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782908649253480994, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.030170262
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930005132146749576, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3979407
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930005132146749576, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5792181
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930005132146749576, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.19575962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930005132146749576, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.41228727
+      objectReference: {fileID: 0}
     - target: {fileID: 7752948905543903856, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.12
@@ -3345,7 +3374,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.4875817
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4915024806351646905, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
