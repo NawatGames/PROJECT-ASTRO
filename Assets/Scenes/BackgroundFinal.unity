@@ -2883,6 +2883,26 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 948017297999991739, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Size.x
+      value: 4.3074756
+      objectReference: {fileID: 0}
+    - target: {fileID: 948017297999991739, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.6950462
+      objectReference: {fileID: 0}
+    - target: {fileID: 948017297999991739, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.17676425
+      objectReference: {fileID: 0}
+    - target: {fileID: 948017297999991739, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.30343354
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181605031371604015, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2687104902649753731, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: m_Color.a
       value: 0
