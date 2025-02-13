@@ -4054,6 +4054,22 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.9348262
       objectReference: {fileID: 0}
+    - target: {fileID: 1266829589129471436, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266829589129471436, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266829589129471436, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.027999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266829589129471436, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.030299902
+      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
@@ -4129,6 +4145,26 @@ PrefabInstance:
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765983169889538915, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d31d879cd25225f4c9514279d46f2ab5, type: 3}
+    - target: {fileID: 8765983169889538915, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765983169889538915, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765983169889538915, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765983169889538915, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1501009141
       objectReference: {fileID: 0}
     - target: {fileID: 8781592431414487031, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: manager
