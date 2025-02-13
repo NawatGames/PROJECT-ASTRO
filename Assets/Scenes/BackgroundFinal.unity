@@ -3700,6 +3700,22 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 9106672425164600725, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6783144
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106672425164600725, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Size.y
+      value: 2.463931
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106672425164600725, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.074745536
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106672425164600725, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5698168
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

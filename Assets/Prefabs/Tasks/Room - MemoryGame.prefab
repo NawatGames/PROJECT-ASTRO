@@ -1427,50 +1427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MemoryGame Door Button
       objectReference: {fileID: 0}
-    - target: {fileID: 597704976345296006, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 597704976345296006, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.x
-      value: 2.922008
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Size.y
-      value: 2.2979164
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.29092306
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392207273974991218, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_Offset.y
-      value: -3.2392464
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2198559574795186189, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.468977
@@ -1523,14 +1479,6 @@ PrefabInstance:
       propertyPath: doorCollider
       value: 
       objectReference: {fileID: 8123129665094829706}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: repeaters.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5469042623657104975, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
-      propertyPath: adjacentDoorButtonControlers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

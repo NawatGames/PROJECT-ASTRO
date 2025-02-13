@@ -177,9 +177,9 @@ MonoBehaviour:
   doorSprite: {fileID: 0}
   doorAnimator: {fileID: 0}
   _roomQuarantineHandler: {fileID: 0}
-  adjacentDoorButtonControlers: []
-  repeaters:
+  adjacentDoorButtonControlers:
   - {fileID: 0}
+  repeaters: []
 --- !u!95 &6600843793115481505
 Animator:
   serializedVersion: 5
