@@ -1031,6 +1031,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4d906e661c19a4da8b548e85465575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &601039035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 610174334335718640, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685749661514214120, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: m_Name
+      value: Alien
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: alienCrawlAudio
+      value: 
+      objectReference: {fileID: 601039038}
+    - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: quarantineManager
+      value: 
+      objectReference: {fileID: 773420858}
+    - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: alienOpenVentAudio
+      value: 
+      objectReference: {fileID: 601039036}
+    - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+      propertyPath: alienQuarantinedAudio
+      value: 
+      objectReference: {fileID: 601039037}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+--- !u!1 &601039036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5086361640343798193, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+  m_PrefabInstance: {fileID: 601039035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &601039037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8576377867666312755, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+  m_PrefabInstance: {fileID: 601039035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &601039038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9205848474756968522, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+  m_PrefabInstance: {fileID: 601039035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &641908514 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6630274549574695754, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
@@ -1259,7 +1347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0531006, y: 3.5651245}
+  m_AnchoredPosition: {x: -1.0531006, y: 3.5650635}
   m_SizeDelta: {x: 12.093857, y: 21.510206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &789865641
@@ -1707,6 +1795,10 @@ PrefabInstance:
       propertyPath: quarantineStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 659919459}
+    - target: {fileID: 777215014409719261, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 2103209706}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -1765,6 +1857,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8248439634075152876, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
   m_PrefabInstance: {fileID: 1526052248}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &871797092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6151258435034933518, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+  m_PrefabInstance: {fileID: 1526052248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871797090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901912491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8082507900171210099, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
@@ -2462,6 +2565,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3943977172684552857, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
   m_PrefabInstance: {fileID: 1940385030}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474032227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7844112702051320153, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+  m_PrefabInstance: {fileID: 1940385030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474032225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1526052248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2470,6 +2584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 871797092}
     - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -2748,6 +2866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - BrokenWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 667369342}
     - target: {fileID: 5286120202907922417, guid: 478fdc3b5689b964e99e9fd26152075e, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
@@ -3062,66 +3184,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1917454588
+--- !u!1 &1917454588 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4685749661514214120, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
+  m_PrefabInstance: {fileID: 601039035}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1917454590}
-  - component: {fileID: 1917454589}
-  m_Layer: 0
-  m_Name: Alien
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1917454589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917454588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee3f9f2aa4d644cb82b46a65ba12fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alienCrawlAudio: {fileID: 0}
-  alienQuarantinedAudio: {fileID: 0}
-  alienOpenVentAudio: {fileID: 0}
-  quarantineManager: {fileID: 773420858}
-  roomsToInvade: []
-  levelParams:
-  - {fileID: 11400000, guid: 148ac37a34d971949be90e64a2b3c11b, type: 2}
-  - {fileID: 11400000, guid: 7ac4aec57c10c5b4bafc4a91132c6378, type: 2}
-  - {fileID: 11400000, guid: 760d1f7276a2e8b46ae6c717e4ed9b82, type: 2}
-  - {fileID: 11400000, guid: 9077651ee88c71946900de9413e26cf9, type: 2}
-  - {fileID: 11400000, guid: 3777915e54bc6774da94038782e16871, type: 2}
-  roomInvaded: {fileID: 0}
-  alienAttackEvent: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
-  alienWarningStartEvent: {fileID: 11400000, guid: 9186152d567d07a40bf2002869355e75, type: 2}
-  alienWarningEndEvent: {fileID: 11400000, guid: 247e5732916e8b840ae38ff93bfe62fd, type: 2}
-  alienQuarantinedEvent: {fileID: 11400000, guid: 91e22abb35a48fb44959523b53f2a8e7, type: 2}
---- !u!4 &1917454590
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917454588}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1940385030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3174,6 +3241,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 1474032227}
     - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3257,6 +3328,22 @@ PrefabInstance:
     - target: {fileID: 8157007881467958170, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.9862499
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691153641436483713, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8054166
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691153641436483713, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96414137
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691153641436483713, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.4059627
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691153641436483713, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.4875817
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3353,6 +3440,18 @@ PrefabInstance:
     - target: {fileID: 6300515094712007553, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[2]
       value: 1993534973
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234109881267586792, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234109881267586792, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234109881267586792, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1501009141
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3629,6 +3728,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 901912495}
+    - target: {fileID: 6340894414304868389, guid: 7e96cf65443f6704e8c3dfa8952b5bcc, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
       objectReference: {fileID: 2120217093}
@@ -3665,6 +3768,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4243915478856545851, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
   m_PrefabInstance: {fileID: 817822659}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103209706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 361451851442497156, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+  m_PrefabInstance: {fileID: 817822659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103209704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2120217093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9032998536062517091, guid: 7751f2464796b4745b259b5c5059b51b, type: 3}
@@ -3684,6 +3798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 4646895350017370941}
     - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3840,6 +3958,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 409916251293521102, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Size.x
+      value: 1.8942345
+      objectReference: {fileID: 0}
+    - target: {fileID: 409916251293521102, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8752193
+      objectReference: {fileID: 0}
+    - target: {fileID: 409916251293521102, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.9348262
+      objectReference: {fileID: 0}
     - target: {fileID: 1799294479997191682, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_Name
       value: Room - Fishing
@@ -3848,6 +3978,10 @@ PrefabInstance:
       propertyPath: tasksManager
       value: 
       objectReference: {fileID: 752719924}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 659919459}
     - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
@@ -3933,6 +4067,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8840270026049982345, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
   m_PrefabInstance: {fileID: 1517004639053767459}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4646895350017370941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+  m_PrefabInstance: {fileID: 1517004639053767459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646895350017370939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b503f32bb58e1264cbbae3fb26ca24fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5182967668293503333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3945,6 +4090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room - Genius
       objectReference: {fileID: 0}
+    - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
+      propertyPath: _roomQuarantineHandler
+      value: 
+      objectReference: {fileID: 4544197879662426447}
     - target: {fileID: 3477845558608266366, guid: da04c0638b52fd946b87e882a967d450, type: 3}
       propertyPath: adjacentDoorButtonControlers.Array.data[0]
       value: 
@@ -4031,7 +4180,7 @@ SceneRoots:
   - {fileID: 1319094733}
   - {fileID: 773420859}
   - {fileID: 561246648}
-  - {fileID: 1917454590}
+  - {fileID: 601039035}
   - {fileID: 2008694019}
   - {fileID: 1893230235}
   - {fileID: 1191715181}
