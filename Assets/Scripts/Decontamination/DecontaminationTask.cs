@@ -31,6 +31,9 @@ public class DecontaminationTask : MonoBehaviour
     [Header("AUDIO SAMPLES")]
     private AudioSource _audioSource;
     [SerializeField] private AudioPlayer audioPlayer;
+    private bool onePlayerPressed = false;
+    private bool twoPlayersPressed = false;
+    private BoxCollider2D[] podColliders;
 
     private void Start()
     {
@@ -38,7 +41,13 @@ public class DecontaminationTask : MonoBehaviour
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
+        podColliders = GetComponentsInChildren<BoxCollider2D>();
+        foreach (var collider in podColliders)
+        {
+            collider.enabled = false;
+        }
         StartCoroutine(CountdownToDecontamination());
+        
     }
 
     // função chamada pelo GameEvent SomeoneEnteredDecontamination
@@ -93,7 +102,13 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = true;
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
+        
         StartCoroutine(VignetteAndHeartbeat());
+        
+        foreach (var collider in podColliders)
+        {
+            collider.enabled = true;
+        }
         StartCoroutine(DecontaminationWindow());
     }
 

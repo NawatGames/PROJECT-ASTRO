@@ -122,6 +122,14 @@ namespace Tasks.MemoryTask
             yield return new WaitForSeconds(inputTime);
             int selectedTileIndex = _selectorPosition.y * gridSize + _selectorPosition.x;
             Color selectedColor = _tiles[selectedTileIndex].GetCurrentColor();
+            for (int i = 0; i < _tiles.Count; i++)
+            {
+                if(i!= selectedTileIndex)
+                {
+                    _tiles[i].GetComponent<SpriteRenderer>().color = Color.black;
+                }
+            }
+            yield return new WaitForSeconds(1f);
             if (selectedColor == _correctColor)
             {
                 TaskSuccessful();

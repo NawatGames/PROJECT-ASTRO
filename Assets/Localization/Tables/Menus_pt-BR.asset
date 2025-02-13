@@ -91,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 59146658341953536
-    m_Localized: FIM DE JOGO
+    m_Localized: "Parab\xE9ns, \nvoc\xEAs venceram!"
     m_Metadata:
       m_Items: []
   references:

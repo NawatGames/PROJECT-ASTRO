@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio_System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,10 +9,17 @@ using Slider = UnityEngine.UI.Slider;
 
 public class HarvestCropTask : TaskScript
 {
+    private float _modifiedProgressValue;
+
+    [Header("AUDIO SAMPLES (HARVEST SCRIPT)")]
+    [SerializeField] private GameObject buttonPressedAudio;
+
+
+    [Header("TASK CONFIG")]
+    [SerializeField] private Canvas UI;
     [SerializeField] private Slider progressSlider;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
-    private float _modifiedProgressValue;
     [SerializeField] private float decayValue;
 
     protected override void Awake()
@@ -22,6 +30,7 @@ public class HarvestCropTask : TaskScript
     protected override void RunTask()
     {
         base.RunTask();
+        UI.gameObject.SetActive(true);
         progressSlider.value = 0;
         timeSlider.value = 1;
         if (isAstro == isAstroSpecialist)
@@ -37,7 +46,7 @@ public class HarvestCropTask : TaskScript
     }
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        FindObjectOfType<AudioManager>().Play("HarvestCropButtonPress");
+        buttonPressedAudio.GetComponent<AudioPlayer>().PlayAudio();
         progressSlider.value += _modifiedProgressValue;
         if (progressSlider.value == 1)
         {
@@ -48,11 +57,13 @@ public class HarvestCropTask : TaskScript
     protected override void TaskSuccessful()
     {
         base.TaskSuccessful();
+        UI.gameObject.SetActive(false);
         Debug.Log("Colheita bem sucedida");
     }
     public override void EndTask()
     {
         base.EndTask();
+        UI.gameObject.SetActive(false);
         StopAllCoroutines();
     }
 

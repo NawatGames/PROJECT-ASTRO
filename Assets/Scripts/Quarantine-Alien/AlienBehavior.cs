@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio_System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class AlienBehavior : MonoBehaviour
 {
+    [Header("AUDIO SAMPLES")]
+    [SerializeField] private GameObject alienCrawlAudio;
+    [SerializeField] private GameObject alienQuarantinedAudio;
+    [SerializeField] private GameObject alienOpenVentAudio;
+
+
+    [Header("ENTITY PARAMETERS")]
     public QuarantineManager quarantineManager;
     public List<GameObject> roomsToInvade;
 
@@ -15,9 +23,11 @@ public class AlienBehavior : MonoBehaviour
     public GameObject roomInvaded;
     private bool _canCheckRooms;
 
-    [SerializeField] private GameEvent onAlienAttack;
+    [SerializeField] private GameEvent alienAttackEvent;
     [SerializeField] private GameEvent alienWarningStartEvent;
     [SerializeField] private GameEvent alienWarningEndEvent;
+    [SerializeField] private GameEvent alienQuarantinedEvent;
+
 
     private int _levelIndex;
 
@@ -83,22 +93,27 @@ public class AlienBehavior : MonoBehaviour
             roomInvaded = roomsToInvadeWeighted[roomIndex];
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
-            FindObjectOfType<AudioManager>().Play("AlienCrawl");
+            alienCrawlAudio.GetComponent<AudioPlayer>().PlayLoop();
             yield return new WaitForSeconds(levelParams[_levelIndex].invasionWarningSeconds);
-            alienWarningEndEvent.Raise(roomInvaded.transform);
-
-            FindObjectOfType<AudioManager>().Stop("AlienCrawl");
+            alienCrawlAudio.GetComponent<AudioPlayer>().StopAudio();
 
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
-                StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
+                alienQuarantinedEvent.Raise(roomInvaded.transform);
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().PlayLoop();
+
+                yield return StartCoroutine(roomInvadedScript.AlienIsInsideTimer(levelParams[_levelIndex].alienInsideSeconds));
+
                 roomInvadedScript.task.ResetMistakes();
+                alienWarningEndEvent.Raise(roomInvaded.transform);
+                alienQuarantinedAudio.GetComponent<AudioPlayer>().StopAudio();
             }
             else
             {
-                FindObjectOfType<AudioManager>().Play("VentOpened");
-                onAlienAttack.Raise();
+                alienAttackEvent.Raise(roomInvaded.transform);
+                alienOpenVentAudio.GetComponent<AudioPlayer>().PlayAudio();
+
             }
         }
         else
@@ -108,6 +123,10 @@ public class AlienBehavior : MonoBehaviour
         }
 
         _canCheckRooms = true;
+        // if (roomInvaded != null)
+        // {
+        //     alienWarningEndEvent.Raise(roomInvaded.transform);
+        // }
     }
 
 }

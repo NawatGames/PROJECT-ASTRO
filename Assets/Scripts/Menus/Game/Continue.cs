@@ -16,7 +16,7 @@ namespace Menus.Game
 
         public void ContinueGame()
         {
-            SceneManager.LoadScene("Mapa Final");
+            SceneManager.LoadScene("Scene Build");
         }
     }
 }

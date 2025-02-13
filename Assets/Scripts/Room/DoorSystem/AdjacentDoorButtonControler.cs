@@ -35,13 +35,11 @@ public class AdjacentDoorButtonControler : DoorButtonController
             doorAnimator.SetBool("IsOpen", false);
             buttonAnimator.SetBool("IsPressed", true);
 
-            FindObjectOfType<AudioManager>().Play("DoorClose");
         }
         else if (!doorSprite.enabled)
         {
             doorAnimator.SetBool("IsOpen", true);
             buttonAnimator.SetBool("IsPressed", false);
-            FindObjectOfType<AudioManager>().Play("DoorOpen");
         }
     }
 
