@@ -256,6 +256,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &35690761 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6433708092298098316, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &35690762 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 243826076475379890, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &35690763 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4124910275111592077, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+  m_PrefabInstance: {fileID: 2717097818120226247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65961416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 777215014409719261, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1338657572392848228, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
       propertyPath: tasksManager
       value: 
@@ -2582,6 +2601,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: repeaters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: _roomQuarantineHandler
       value: 
       objectReference: {fileID: 871797092}
@@ -2589,6 +2612,10 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1517004639053767461}
+    - target: {fileID: 3834142392894408879, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4750154866643839855, guid: 9b26f7208bc90a145a02c6abce6e4d57, type: 3}
       propertyPath: m_Size.x
       value: 5.1463723
@@ -3313,6 +3340,14 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1619706423}
+    - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317878649507401660, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1822503294}
     - target: {fileID: 3259135766846697953, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: tasksManager
       value: 
@@ -3836,9 +3871,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: repeaters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 2089711232}
+    - target: {fileID: 277283387184839334, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: manager
       value: 
@@ -3956,6 +3999,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 752719924}
     - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: doorSprite
+      value: 
+      objectReference: {fileID: 35690763}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 35690761}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 35690762}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: repeaters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: _roomQuarantineHandler
       value: 
       objectReference: {fileID: 659919459}
@@ -3963,6 +4022,10 @@ PrefabInstance:
       propertyPath: repeaters.Array.data[0]
       value: 
       objectReference: {fileID: 1940385032}
+    - target: {fileID: 6703534108224605171, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
+      propertyPath: adjacentDoorButtonControlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7756717363625582678, guid: 79907f2a973818b46ba216cd3f4df00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.528
