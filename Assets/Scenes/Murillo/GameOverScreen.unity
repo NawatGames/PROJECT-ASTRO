@@ -1177,7 +1177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1946738597}
-        m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: StartMenuButton, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1946738592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615b7a1ecf7d9ce4c9b1d5c19bd1b104, type: 3}
+  m_Script: {fileID: 11500000, guid: 51a146ce5912269409733c359dc9403a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1982103982
