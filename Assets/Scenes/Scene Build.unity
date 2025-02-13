@@ -1012,6 +1012,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1100590112}
     - target: {fileID: 7493853662421199250, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
+      propertyPath: gameOverAudio
+      value: 
+      objectReference: {fileID: 1536352017}
+    - target: {fileID: 7493853662421199250, guid: d1343fb4c6cbe2546add50904be5e7ff, type: 3}
       propertyPath: jumpScareImage
       value: 
       objectReference: {fileID: 204968863}
