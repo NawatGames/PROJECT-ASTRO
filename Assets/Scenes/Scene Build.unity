@@ -2737,7 +2737,7 @@ PrefabInstance:
       objectReference: {fileID: 5182967668293503334}
     - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: firstDecontaminationDelay
-      value: 40
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8829836319662570609, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: m_Name
