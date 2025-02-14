@@ -72,23 +72,23 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (_isAlienInside)
         {
-            roomSprite.color = Color.black;
+            // roomSprite.color = Color.black;
         }
         else if (isRoomQuarantined)
         {
             //Sala quarentenada
-            roomSprite.color = Color.red;
+            // roomSprite.color = Color.red;
             if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
-            roomSprite.color = Color.blue;
+            // roomSprite.color = Color.blue;
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
         }
         else
         {
-            roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
+            // roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
         }
     }

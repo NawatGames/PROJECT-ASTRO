@@ -48,6 +48,9 @@ TagManager:
   - name: Interactable
     uniqueID: 1501009141
     locked: 0
+  - name: UniqueGlow
+    uniqueID: 245849893
+    locked: 0
   - name: Player
     uniqueID: 1993534973
     locked: 0

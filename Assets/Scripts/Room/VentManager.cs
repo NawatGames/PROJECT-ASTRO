@@ -22,7 +22,7 @@ public class VentManager : MonoBehaviour
         {
             Debug.Log("InvasionStart");
             _actualTrigger = "AlienInvading";
-            ventSprite.color = Color.magenta;
+            // ventSprite.color = Color.magenta;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -33,7 +33,7 @@ public class VentManager : MonoBehaviour
         {
             Debug.Log("InvasionEnd");
             _actualTrigger = "AlienBase";
-            ventSprite.color = Color.white;
+            // ventSprite.color = Color.white;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -43,7 +43,7 @@ public class VentManager : MonoBehaviour
         {
             Debug.Log("AlienAttack");
             _actualTrigger = "AlienInvaded";
-            ventSprite.color = Color.red;
+            // ventSprite.color = Color.red;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -53,7 +53,7 @@ public class VentManager : MonoBehaviour
         {
             Debug.Log("AlienQuarantined");
             _actualTrigger = "AlienQuarantined";
-            ventSprite.color = Color.blue;
+            // ventSprite.color = Color.blue;
             _animator.SetTrigger(_actualTrigger);
         }
     }

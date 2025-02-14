@@ -15,16 +15,14 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject alien;
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private Image blackScreen;
-    [SerializeField] private int preGameOverDelay;
-    [SerializeField] private int preJumpscareDelay;
+    [SerializeField] private float preGameOverDelay;
+    [SerializeField] private float preJumpscareDelay;
     [SerializeField] private GameOverVideoController gameOverVideoController;
 
     private void Start()
     {
         blackScreen.color = new Color(0, 0, 0, 0);
         gameOverText.color = new Color(1, 1, 1, 0);
-        preGameOverDelay = 3;
-        preJumpscareDelay = 4;
     }
 
     [ContextMenu("Forçar game over")]
@@ -43,7 +41,7 @@ public class GameOverManager : MonoBehaviour
     {
         
 
-        yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
+        // yield return FadeImage(blackScreen, 1f, gameOverFadeDuration);
 
         yield return new WaitForSeconds(preJumpscareDelay);
 
@@ -52,7 +50,7 @@ public class GameOverManager : MonoBehaviour
 
         yield return new WaitForSeconds((float)gameOverVideoController.GetVideoPlayer().clip.length);
 
-        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
+        gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 1);
 
         // gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
