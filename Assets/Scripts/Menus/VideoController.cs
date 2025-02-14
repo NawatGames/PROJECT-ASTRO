@@ -1,3 +1,4 @@
+using Audio_System;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class SceneVideoController : MonoBehaviour
     [SerializeField] private VideoClip startVideo;
     [SerializeField] private VideoClip loopVideo;
     [SerializeField] private GameObject[] buttons;
+    [SerializeField] private AudioPlayer audioPlayer;
 
     private bool isSceneActive = false;
     private int videoPhase = 0;
@@ -77,6 +79,8 @@ public class SceneVideoController : MonoBehaviour
         videoPlayer.clip = startVideo;
         videoPlayer.isLooping = false;
         videoPlayer.Play();
+        videoPlayer.SetDirectAudioVolume(0,.4f);
+        audioPlayer.PlayAudio();
         videoPhase = 1;
     }
 
