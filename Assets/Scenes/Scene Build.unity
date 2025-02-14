@@ -1638,7 +1638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4685749661514214120, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: alienCrawlAudio
@@ -1759,11 +1759,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 2045109253}
-  totalTimeForTaskToFail: 130
-  shortTimeForTaskToBeCompleted: 5
-  nextTaskMinDelay: 5
-  nextTaskMaxDelay: 10
-  startingTasks: 7
+  totalTimeForTaskToFail: 180
+  shortTimeForTaskToBeCompleted: 60
+  nextTaskMinDelay: 30
+  nextTaskMaxDelay: 60
+  startingTasks: 2
   astroProbability: 50
   onTaskFailed: {fileID: 11400000, guid: b1bf2737e09d8264994203400834d75e, type: 2}
   taskTimerPrefab: {fileID: 1070328791084340435, guid: 5380aea54f84590498b46db3e45e96a8, type: 3}
