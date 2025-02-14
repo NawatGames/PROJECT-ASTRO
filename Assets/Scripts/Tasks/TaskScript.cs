@@ -20,6 +20,7 @@ public class TaskScript : MonoBehaviour
     [SerializeField] private GameObject taskEnteredAudio;
     [SerializeField] private GameObject taskSuccessAudio;
     [SerializeField] private GameObject taskMistakeStayAudio;
+    [SerializeField] private GameObject taskMistakeLeaveAudio;
 
 
 
@@ -66,6 +67,8 @@ public class TaskScript : MonoBehaviour
         isTaskInProgress = false;
         _taskController.Mistakes++;
         tasksManager.KickPlayer(_taskController);
+        taskMistakeLeaveAudio.GetComponent<AudioPlayer>().PlayAudio();
+
 
         if (redSignalController != null)
         {
