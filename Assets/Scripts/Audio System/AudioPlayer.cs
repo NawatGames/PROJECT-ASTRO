@@ -31,6 +31,10 @@ namespace Audio_System
 
         private float GetNearestPlayerDistance()
         {
+            if (_players.Count <= 0)
+            {
+                return 0; // Força audio no max
+            }
             return _players.Min(player => Vector2.Distance(player.transform.position, transform.position));
         }
 
@@ -60,6 +64,7 @@ namespace Audio_System
         private void FixedUpdate()
         {
             if (!_source.isPlaying) return;
+            
             float distance = GetNearestPlayerDistance();
             _source.volume = GetVolume(distance);
         }

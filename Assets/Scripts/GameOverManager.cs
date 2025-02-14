@@ -99,7 +99,7 @@ public class GameOverManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         SceneManager.LoadScene("GameOverScreen");
     }

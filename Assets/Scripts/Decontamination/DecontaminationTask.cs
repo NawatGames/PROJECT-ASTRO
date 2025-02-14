@@ -32,8 +32,6 @@ public class DecontaminationTask : MonoBehaviour
     [Header("AUDIO SAMPLES")]
     private AudioSource _audioSource;
     [SerializeField] private AudioPlayer audioPlayer;
-    private bool onePlayerPressed = false;
-    private bool twoPlayersPressed = false;
     private BoxCollider2D[] podColliders;
 
     private void Start()
@@ -253,6 +251,6 @@ public class DecontaminationTask : MonoBehaviour
         _decontaminationNeeded = false;
         countdownText.gameObject.SetActive(false);
         Debug.Log("Game Over! A tarefa de descontaminação falhou.");
-        gameOverManager.StartGameOver();
+        gameOverManager.GameOver();
     }
 }

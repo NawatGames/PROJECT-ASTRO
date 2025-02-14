@@ -10,12 +10,12 @@ public class FishingTask : TaskScript
     #region Declaracao de variaveis
     [Header("Esperando peixe")]
     [SerializeField] private SpriteRenderer gotFishWarningSprite;
-    [SerializeField] private float minFishWaitTime = 5;
-    [SerializeField] private float maxFishWaitTime = 14;
+    //[SerializeField] private float minFishWaitTime = 5;
+    //[SerializeField] private float maxFishWaitTime = 14;
     [SerializeField] private float timeToReact = 1;
-    private bool _waitingForCast = false;
+    /*private bool _waitingForCast = false;
     private bool _waitingForFish = false;
-    private bool _pressNow = false;
+    private bool _pressNow = false;*/
 
     [Header("Mini game")]
     [SerializeField] GameObject UI;
@@ -68,7 +68,7 @@ public class FishingTask : TaskScript
         _controlledBarSprite = controlledBar.GetComponent<SpriteRenderer>();
         _fishIconSprite = fishIcon.GetComponent<SpriteRenderer>();
         _miniGameAreaSprite = controlledBar.parent.GetComponent<SpriteRenderer>();
-        _originalControlledBarSize = controlledBar.localScale.x;
+        _originalControlledBarSize = controlledBar.localScale.y;
         _fishHalfHeight = _fishIconSprite.bounds.extents.x;
         var gameHeight = _miniGameAreaSprite.bounds.size.x;
         _miniGameTopBound = _miniGameAreaSprite.transform.position.x + gameHeight / 2;
@@ -84,18 +84,18 @@ public class FishingTask : TaskScript
         Vector3 auxVector = controlledBar.localScale;
         if (isAstro != isAstroSpecialist)
         {
-            auxVector.x = _originalControlledBarSize * 1;
+            auxVector.y = _originalControlledBarSize * 1;
         }
         else
         {
-            auxVector.x = _originalControlledBarSize * barSizeModifier;
+            auxVector.y = _originalControlledBarSize * barSizeModifier;
         }
         controlledBar.localScale = auxVector;
         _barHalfHeight = _controlledBarSprite.bounds.extents.y;
 
-        _waitingForFish = false;
+        /*_waitingForFish = false;
         _waitingForCast = false;
-        _pressNow = false;
+        _pressNow = false;*/
         _currentProgress = 0;
         auxVector = controlledBar.localPosition;
         auxVector.x = 0;
@@ -105,7 +105,7 @@ public class FishingTask : TaskScript
         fishIcon.localPosition = auxVector;
 
         // <ANIM> Iniciar animação de posicionando para pesca
-        _waitingForCast = true; // Realizar apenas após animacao (animationEvent) ?
+        //_waitingForCast = true; // Realizar apenas após animacao (animationEvent) ?
         StartCoroutine(FishChallenge());
 
     }
@@ -140,23 +140,23 @@ public class FishingTask : TaskScript
     {
         while (true)
         {
-            _waitingForFish = true;
-            yield return new WaitForSeconds(Random.Range(minFishWaitTime, maxFishWaitTime));
-            _pressNow = true;
+            //_waitingForFish = true;
+            //yield return new WaitForSeconds(Random.Range(minFishWaitTime, maxFishWaitTime));
+            //_pressNow = true;
             gotFishWarningSprite.enabled = true;
             yield return new WaitForSeconds(timeToReact);
             gotFishWarningSprite.enabled = false;
-            _pressNow = false;
+            //_pressNow = false;
         }
     }
 
     private void WrongTiming()
     {
         TaskMistakeStay();
-        _waitingForFish = false;
+        //_waitingForFish = false;
         // <ANIM> Rodar animação de retornar isca
         StopCoroutine(_currentCoroutine);
-        _waitingForCast = true;
+        //_waitingForCast = true;
     }
     #endregion
 
