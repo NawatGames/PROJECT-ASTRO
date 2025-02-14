@@ -31,7 +31,7 @@ public class TasksManager : MonoBehaviour
     private bool _hasOneStartingAstroSpecialist;
     private bool _forceOneStartingSpecialist;
 
-    private void Start()
+    private void Start()    
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
@@ -50,7 +50,7 @@ public class TasksManager : MonoBehaviour
         {
             _forceOneStartingSpecialist = true;
         }
-        AddNextTaskToQueue();
+        //AddNextTaskToQueue();
         
         // Adiciona as próximas tasks
         StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
@@ -124,6 +124,7 @@ public class TasksManager : MonoBehaviour
 
         DefineSpecialist(task.taskScript);
         
+        Debug.Log("AAAAA");
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         float timeLeft = totalTimeForTaskToFail;
         int minutes = totalTimeForTaskToFail / 60;

@@ -14,8 +14,6 @@ public class GoToTaskPlayerState : PlayerState
     
     public override void EnterState()
     {
-        if(!pauseController.IsFrozen())
-        {
             base.EnterState();
             if (!playerCollisionController.NearTaskController.playerPositioning) // Para tasks que não precisam de posicionamento (é null)
             {
@@ -29,12 +27,6 @@ public class GoToTaskPlayerState : PlayerState
                         SwitchState(playerStateMachine.taskState);
                     }));
             }
-        }
-        else
-        {
-            //Debug.Log("Impossível iniciar task durante pause");
-            SwitchState(playerStateMachine.freeMoveState);
-        }
     }
 
     public override void StateUpdate()

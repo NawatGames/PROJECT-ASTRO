@@ -7,7 +7,7 @@ public class StatusLight : MonoBehaviour
 {
     [SerializeField] private float warningBlinkInterval;
     private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
     private string _actualTrigger;
     [SerializeField] private Light2D lightComponent;
     [SerializeField] private Color baseColor;
@@ -20,7 +20,7 @@ public class StatusLight : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
+        //_animator = GetComponent<Animator>();
         SetColor(baseColor, false);
     }
 

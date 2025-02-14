@@ -36,7 +36,7 @@ public class PauseController : MonoBehaviour
 
     private void OnDisable()
     {
-        _pauseAction.performed -= Pause;
+        //_pauseAction.performed -= Pause;
         playerInputController.inputAsset.Task.Pause.performed -= Pause;
         playerInputController.inputAsset.Menu.Pause.performed -= Pause;
     }
