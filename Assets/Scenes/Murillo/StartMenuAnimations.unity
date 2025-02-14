@@ -815,7 +815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -59.604683}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &298123120
@@ -3587,7 +3587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517, y: 57.9}
+  m_AnchoredPosition: {x: 0.000030517, y: -10.546783}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1302837838
@@ -4057,7 +4057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -52.6}
+  m_AnchoredPosition: {x: 0, y: -121.04677}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442597205
@@ -4698,8 +4698,8 @@ MonoBehaviour:
   videoPlayer: {fileID: 946267453}
   targetSceneName: StartMenuAnimations
   trailerVideo: {fileID: 32900000, guid: 213f952ecc17424419340438c8a96f23, type: 3}
-  startVideo: {fileID: 32900000, guid: 68e4960c6b3d330468162aed014e0a34, type: 3}
-  loopVideo: {fileID: 32900000, guid: 1dbb1ca43fb59f3438350cb4359cabbc, type: 3}
+  startVideo: {fileID: 32900000, guid: 3b0a3153168b36b44a4020d0ef9e9a33, type: 3}
+  loopVideo: {fileID: 32900000, guid: d080dfd520e02ac4c85e39cb2d08498c, type: 3}
   buttons:
   - {fileID: 1302837836}
   - {fileID: 1442597203}
