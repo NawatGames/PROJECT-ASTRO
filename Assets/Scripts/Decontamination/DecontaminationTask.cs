@@ -2,6 +2,7 @@ using System.Collections;
 using Audio_System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -20,8 +21,7 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private Animator scannerAnimator;
     [SerializeField] private Collider2D closedCollider;
     [SerializeField] private Collider2D openedCollider;
-    [SerializeField] private SpriteRenderer leftGradientMask;
-    [SerializeField] private SpriteRenderer rightGradientMask;
+    [SerializeField] private GameObject signGameObject;
 
     [SerializeField] private Image vignette;
     public GameOverManager gameOverManager;
@@ -97,6 +97,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void StartDecontaminationWindow()
     {
+        signGameObject.SetActive(true);
         podDoorsAnimator.SetTrigger("Open");
         closedCollider.enabled = false;
         openedCollider.enabled = true;
@@ -189,7 +190,7 @@ public class DecontaminationTask : MonoBehaviour
 
     public IEnumerator CompleteDecontamination()
     {
-
+        signGameObject.SetActive(false);
         yield return new WaitForSeconds(delayBeforeAndAfterScan);
         podDoorsAnimator.SetTrigger("Open");
         completedDecontaminationEvent.Raise();
