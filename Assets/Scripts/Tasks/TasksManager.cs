@@ -36,13 +36,13 @@ public class TasksManager : MonoBehaviour
         _taskQueue = new Dictionary<TaskController, Coroutine>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
-        SetupStartingTasks();
+        StartCoroutine(SetupStartingTasks());
     }
 
-    private void SetupStartingTasks()
+    private IEnumerator SetupStartingTasks()
     {
         // Adiciona as primeiras (-1) tasks
-        for (var i = 0; i < startingTasks - 1; i++)
+        for (var i = 1; i <= startingTasks - 1; i++)
         {
             AddNextTaskToQueue();
         }
@@ -50,10 +50,10 @@ public class TasksManager : MonoBehaviour
         {
             _forceOneStartingSpecialist = true;
         }
-        //AddNextTaskToQueue();
+        AddNextTaskToQueue();
         
         // Adiciona as próximas tasks
-        StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
+        yield return StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
     }
 
     private TaskController AddNextTaskToQueue()
@@ -124,7 +124,6 @@ public class TasksManager : MonoBehaviour
 
         DefineSpecialist(task.taskScript);
         
-        Debug.Log("AAAAA");
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         float timeLeft = totalTimeForTaskToFail;
         int minutes = totalTimeForTaskToFail / 60;

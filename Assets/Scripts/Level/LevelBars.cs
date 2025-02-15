@@ -37,7 +37,6 @@ public class LevelBars : MonoBehaviour
 
     private IEnumerator UpdateTimer()
     {
-        Debug.Log("Timer iniciou");
         SetSprite(tempo0);
 
         yield return new WaitForSeconds(countdownTillVictory * ((percent12 - percent0) / 100f));
