@@ -8,25 +8,26 @@ using Random = UnityEngine.Random;
 
 public class GeniusTask : TaskScript
 {
-    public Color baseColor;
-    public Color playerColor;
-    public Color computerColor;
-    public Color errorColor;
+    public Button upButton;
+    public Button downButton;
+    public Button leftButton;
+    public Button rightButton;
 
-    public GameObject upButton;
-    public GameObject downButton;
-    public GameObject leftButton;
-    public GameObject rightButton;
+    public SpriteRenderer signalLight;
 
-    public GameObject signalLight;
-    
-    private readonly List<GameObject> _buttons = new List<GameObject>();
-    public List<GameObject> computerSequence = new List<GameObject>();
+    private readonly List<Button> _buttons = new List<Button>();
+    public List<Button> computerSequence = new List<Button>();
 
     private bool _computerTurn;
-    
+
     [SerializeField] private int levels;
+    [SerializeField] private int levelsSpecialist;
     private int playerTurn;
+
+    // Adicionando as variveis de tempo
+    [SerializeField] private float playerTime;
+    [SerializeField] private float computerTime;
+    [SerializeField] private float waitSequenceTime;
 
     private void Start()
     {
@@ -48,97 +49,84 @@ public class GeniusTask : TaskScript
     private void NextLevel()
     {
         playerTurn = 0;
-        if (computerSequence.Count >= levels) base.TaskSuccessful();
+        if (isAstro == isAstroSpecialist)
+        {
+            if (computerSequence.Count >= levelsSpecialist) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
+        }
         else
         {
-            computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
-            StartCoroutine(ShowComputerSequence());
+            if (computerSequence.Count >= levels) base.TaskSuccessful();
+            else
+            {
+                computerSequence.Add(_buttons[Random.Range(0, _buttons.Count)]);
+                StartCoroutine(ShowComputerSequence());
+            }
+        }
+    }
+
+    private void OnButtonPress(Button button){
+        if (_computerTurn) return;
+        if (computerSequence[playerTurn] == button)
+        {
+            button.StartCoroutine(button.Blink(playerTime));
+            playerTurn++;
+            if (playerTurn >= computerSequence.Count) NextLevel();
+        }
+        else
+        {
+            TaskMistakeLeave();
         }
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == upButton)
-        {
-            StartCoroutine(upButton.GetComponent<Button>().Blink(playerColor, baseColor));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(upButton);
     }
 
     protected override void OnDownPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == downButton)
-        {
-            StartCoroutine(downButton.GetComponent<Button>().Blink(playerColor, baseColor));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(downButton);
     }
 
     protected override void OnLeftPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == leftButton)
-        {
-            StartCoroutine(leftButton.GetComponent<Button>().Blink(playerColor, baseColor));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(leftButton);
     }
 
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
-        if (_computerTurn) return;
-        if (computerSequence[playerTurn] == rightButton)
-        {
-            StartCoroutine(rightButton.GetComponent<Button>().Blink(playerColor, baseColor));
-            playerTurn++;
-            if (playerTurn >= computerSequence.Count) NextLevel();
-        }
-        else
-        {
-            TaskMistakeLeave();
-        }
+        OnButtonPress(rightButton);
     }
 
     protected override void TaskMistakeLeave()
     {
         base.TaskMistakeLeave();
-        foreach (var button in _buttons)
-        {
-            StartCoroutine(button.GetComponent<Button>().Blink(errorColor, baseColor));
-        }
     }
 
     private IEnumerator ShowComputerSequence()
     {
         _computerTurn = true;
-        signalLight.GetComponent<SpriteRenderer>().color = Color.red;
+        //signalLight.color = Color.red;
         
-        yield return new WaitForSeconds(2);
+        // Espera todas as animações de blink acabarem
+        foreach (var button in computerSequence){
+          while(button.running) yield return null;
+        }
         
+        yield return new WaitForSeconds(waitSequenceTime);
+
         foreach (var button in computerSequence)
         {
-            StartCoroutine(button.GetComponent<Button>().Blink(computerColor, baseColor));
-            yield return new WaitForSeconds(1);
+            yield return button.StartCoroutine(button.Blink(computerTime));
+            yield return new WaitForSeconds(waitSequenceTime);
         }
 
         _computerTurn = false;
-        signalLight.GetComponent<SpriteRenderer>().color = Color.green;
+        //signalLight.color = Color.green;
     }
 }

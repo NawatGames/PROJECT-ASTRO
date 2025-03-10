@@ -6,6 +6,6 @@ public class MainMenuButton : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("Scene Build");
     }
 }

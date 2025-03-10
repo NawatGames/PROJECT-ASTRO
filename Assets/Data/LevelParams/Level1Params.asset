@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1Params
   m_EditorClassIdentifier: 
   maxActiveTasks: 7
-  alienInactiveAtStartSeconds: 1
-  invasionDelaySeconds: 5
-  invasionWarningSeconds: 7
+  alienInactiveAtStartSeconds: 5
+  invasionDelaySeconds: 15
+  invasionWarningSeconds: 6
   alienInsideSeconds: 8

@@ -8,7 +8,7 @@ namespace Menus.Game
         public void StartNewGame()
         {
             SaveManager.CreateNewSaveFile();
-            SceneManager.LoadScene("Mapa Final");
+            SceneManager.LoadScene("Scene Build");
         }
     }
 }

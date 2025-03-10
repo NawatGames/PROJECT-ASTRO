@@ -7,8 +7,7 @@ TagManager:
   - QuarantineButton
   - InteractiveArea
   - Task
-  - Undefined
-  - Lobby
+  - InteractionDecontamination
   layers:
   - Default
   - TransparentFX
@@ -45,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Interactable
+    uniqueID: 1501009141
+    locked: 0
+  - name: UniqueGlow
+    uniqueID: 245849893
+    locked: 0
+  - name: Player
+    uniqueID: 1993534973
+    locked: 0
+  - name: UI
+    uniqueID: 1351266079
     locked: 0

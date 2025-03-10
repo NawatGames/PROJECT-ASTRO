@@ -11,9 +11,13 @@ public class TaskController : MonoBehaviour
     public bool needsToBeDone = false;
     public bool wasStarted;
     public bool wasInterrupted;
+    
+    // TODO: Por enquanto esses dois GameEvent são usados no mesmo momento e poderiam ser apenas um
+    [SerializeField] private GameEvent taskBecameAvailable;
+    [SerializeField] private GameEvent taskBecameInaccessible;
 
     public UnavailableState UnavailableState { get; private set; } = new UnavailableState();
-    public AvailableState AvailableState { get; private set; } = new AvailableState();
+    public AvailableState AvailableState { get; private set; } // setado no OnEnable
     public BeingDoneState BeingDoneState { get; private set; } = new BeingDoneState();
 
     [SerializeField] private int _maxMistakes = 7; // Usar um unico valor pra todas tasks? -> Usar scriptableObject
@@ -21,9 +25,15 @@ public class TaskController : MonoBehaviour
     public int Mistakes { get => _mistakes; set => _mistakes = value > _maxMistakes ? _maxMistakes : value; }
 
     public Transform playerPositioning;
+    [SerializeField] private StatusLight statusLight;
+    public StatusLight StatusLight { get => statusLight; private set => statusLight = value; }
+    public GameObject brokenTaskMask;
+    
     
     private void OnEnable()
     {
+        AvailableState = new AvailableState(taskBecameAvailable, taskBecameInaccessible);
+
         currentState = UnavailableState;
         _previousState = currentState;
         if (taskScript is null)

@@ -5,72 +5,46 @@ using UnityEngine;
 
 public class TargetBehavior : MonoBehaviour
 {
-    public Transform pos;
     [SerializeField] private Rigidbody2D body;
-    private float speed;
     [SerializeField] private GuitarHeroTask task;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] sprites;
+
+    public Transform pos;
+    private float speed;
     public bool _pressNow;
-    public int symbol;
+    public SymbolEnum symbol;
     public bool _passedBeyondTrigger = false;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        DebugColor();
-    }
 
     void FixedUpdate()
     {
         if (this.gameObject.activeSelf)
         {
             body.velocity = Vector2.left * speed;
-
         }
     }
-    void DebugColor()
-    {
-        switch (symbol)
-        {
-            case 0:
-                gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-                break;
 
-            case 1:
-                gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-                break;
-            case 2:
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                break;
-            case 3:
-                gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                break;
-            default:
-                break;
-        }
-
-    }
     void OnEnable()
     {
         speed = task.GetGameSpeed();
         _pressNow = false;
-        gameObject.transform.position = pos.position;
-        symbol = Random.Range(0, 4);
+        transform.position = pos.position;
 
-
+        int symbolVal = Random.Range(0, 4);
+        symbol = (SymbolEnum) symbolVal;
+        spriteRenderer.sprite = sprites[symbolVal];
     }
+
     void OnDisable()
     {
-        gameObject.transform.position = pos.position;
+        transform.position = pos.position;
     }
+
     void OnTriggerEnter2D()
     {
         _pressNow = true;
     }
+
     void OnTriggerExit2D()
     {
         _pressNow = false;

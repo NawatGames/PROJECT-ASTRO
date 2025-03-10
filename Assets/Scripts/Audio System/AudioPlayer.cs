@@ -11,11 +11,11 @@ namespace Audio_System
     {
         [SerializeField] private AudioClip clip;
         [SerializeField] private float minDistance = 1f;
-        [SerializeField] private float maxDistance = 10f;
+        //[SerializeField] private float maxDistance = 10f;
         [SerializeField] private bool playOnStart = false;
 
         private AudioSource _source;
-        private List<PlayerController> _players;
+        private List<GameObject> _players;
         
         private void Awake()
         {
@@ -25,12 +25,16 @@ namespace Audio_System
 
         private void Start()
         {
-            _players = FindObjectsOfType<PlayerController>().ToList();
+            _players = GameObject.FindGameObjectsWithTag("Player").ToList();
             if(playOnStart) PlayLoop();
         }
 
         private float GetNearestPlayerDistance()
         {
+            if (_players.Count <= 0)
+            {
+                return 0; // Força audio no max
+            }
             return _players.Min(player => Vector2.Distance(player.transform.position, transform.position));
         }
 
@@ -60,6 +64,7 @@ namespace Audio_System
         private void FixedUpdate()
         {
             if (!_source.isPlaying) return;
+            
             float distance = GetNearestPlayerDistance();
             _source.volume = GetVolume(distance);
         }

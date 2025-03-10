@@ -1,101 +1,104 @@
 using System;
 using System.Collections;
+using Audio_System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TaskScript : MonoBehaviour
 {
-    protected PlayerInputAsset inputAsset;
-    protected bool isAstro; // Podera ser usada no futuro para vantagens em task de acordo com o personagem
+    protected PlayerInputController inputController;
+    protected bool isAstro; // Pode ser usada no futuro para vantagens em task de acordo com o personagem
     protected bool isAstroSpecialist;
-    protected bool isTaskInProgress = false;
+    private bool isTaskInProgress = false;
     private TaskController _taskController;
+    protected string taskName;
+    
     [SerializeField] private TasksManager tasksManager;
-    protected String taskName;
+    [SerializeField] private RedSignalController redSignalController; // Atribua o componente via Inspector
+
+    [Header("AUDIO SAMPLES (BASE SCRIPT)")]
+    [SerializeField] private GameObject taskEnteredAudio;
+    [SerializeField] private GameObject taskSuccessAudio;
+    [SerializeField] private GameObject taskMistakeStayAudio;
+    [SerializeField] private GameObject taskMistakeLeaveAudio;
+
+
 
     protected virtual void Awake()
     {
         _taskController = GetComponentInParent<TaskController>();
     }
 
-    public void SetupAndRun(PlayerInputAsset pInputAsset, bool pIsAstro)
+    public void SetupAndRun(PlayerInputController pInputController, bool pIsAstro)
     {
-        inputAsset = pInputAsset;
+        inputController = pInputController;
         isAstro = pIsAstro;
-        inputAsset.Task.Enable();
-        inputAsset.Task.Up.performed += OnUpPerformed;
-        inputAsset.Task.Down.performed += OnDownPerformed;
-        inputAsset.Task.Left.performed += OnLeftPerformed;
-        inputAsset.Task.Right.performed += OnRightPerformed;
+        inputController.input.SwitchCurrentActionMap("Task");
+        inputController.inputAsset.Task.Up.performed += OnUpPerformed;
+        inputController.inputAsset.Task.Down.performed += OnDownPerformed;
+        inputController.inputAsset.Task.Left.performed += OnLeftPerformed;
+        inputController.inputAsset.Task.Right.performed += OnRightPerformed;
         RunTask();
+    }
+
+    protected virtual void RunTask()
+    {
+        taskEnteredAudio.GetComponent<AudioPlayer>().PlayAudio();
+        isTaskInProgress = true;
     }
 
     protected virtual void TaskSuccessful()
     {
         isTaskInProgress = false;
         tasksManager.TaskDoneSuccessfully(_taskController);
-        FindObjectOfType<AudioManager>().Play("TaskSuccess");
+        taskSuccessAudio.GetComponent<AudioPlayer>().PlayAudio();
     }
 
-    protected virtual void TaskMistakeStay() // Player errou, mas continua no estado DoingTask
+    protected virtual void TaskMistakeStay() // Erro, mas o jogador continua na tarefa
     {
         Debug.Log("Task Mistake (stay)");
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
+        taskMistakeStayAudio.GetComponent<AudioPlayer>().PlayAudio();
     }
 
-    protected virtual void TaskMistakeLeave() // Player errou e sai do estado DoingTask
+    protected virtual void TaskMistakeLeave() // Erro crítico: o jogador sai da tarefa
     {
         Debug.Log("Task Mistake (leave)");
         isTaskInProgress = false;
-        _taskController.Mistakes ++;
+        _taskController.Mistakes++;
         tasksManager.KickPlayer(_taskController);
+        taskMistakeLeaveAudio.GetComponent<AudioPlayer>().PlayAudio();
+
+
+        if (redSignalController != null)
+        {
+            redSignalController.StartRedSignal();
+        }
+        else
+        {
+            Debug.LogWarning("RedSignalController not assigned!");
+        }
     }
 
     public virtual void EndTask()
     {
         StopAllCoroutines();
-        inputAsset.Task.Disable();
-        inputAsset.Task.Up.performed -= OnUpPerformed;
-        inputAsset.Task.Down.performed -= OnDownPerformed;
-        inputAsset.Task.Left.performed -= OnLeftPerformed;
-        inputAsset.Task.Right.performed -= OnRightPerformed;
+        inputController.input.SwitchCurrentActionMap("Default");
+        inputController.inputAsset.Task.Up.performed -= OnUpPerformed;
+        inputController.inputAsset.Task.Down.performed -= OnDownPerformed;
+        inputController.inputAsset.Task.Left.performed -= OnLeftPerformed;
+        inputController.inputAsset.Task.Right.performed -= OnRightPerformed;
+        isTaskInProgress = false;
     }
 
-    protected virtual void OnUpPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnDownPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) {}
-    protected virtual void OnRightPerformed(InputAction.CallbackContext value) {}
+    protected virtual void OnUpPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnDownPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnLeftPerformed(InputAction.CallbackContext value) { }
+    protected virtual void OnRightPerformed(InputAction.CallbackContext value) { }
 
-
-    protected virtual void RunTask()
-    {
-        //Debug.Log("Iniciou Task: " + this);
-        FindObjectOfType<AudioManager>().Play("TaskStarted");
-
-    }
-
-    public bool IsAstroSpecialist()
-    {
-        return isAstroSpecialist;
-    }
-
-    public bool IsTaskInProgress()
-    {
-        return isTaskInProgress;
-    }
-
-    public void SetAstroSpecialist(bool isAstroSpecialist)
-    {
-        this.isAstroSpecialist = isAstroSpecialist;
-    }
-
-    public void SetTaskInProgress(bool isTaskInProgress)
-    {
-        this.isTaskInProgress = isTaskInProgress;
-    }
-
-    public String GetTaskName()
-    {
-        return taskName;
-    }
+    public bool IsAstroSpecialist() { return isAstroSpecialist; }
+    public bool IsTaskInProgress() { return isTaskInProgress; }
+    public void SetAstroSpecialist(bool isAstroSpecialist) { this.isAstroSpecialist = isAstroSpecialist; }
+    public void SetTaskInProgress(bool isTaskInProgress) { this.isTaskInProgress = isTaskInProgress; }
+    public string GetTaskName() { return taskName; }
 }

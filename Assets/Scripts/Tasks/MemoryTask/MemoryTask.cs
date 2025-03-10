@@ -13,24 +13,24 @@ namespace Tasks.MemoryTask
         [SerializeField] private List<Color> easyModeColors;
         [SerializeField] private List<Color> hardModeColors;
         [SerializeField] private GameObject tilesHolder;
-        [SerializeField] private GameObject tilesSelector;
 
-        [Header("Task Config")] 
-        [SerializeField] private int gridSize = 2;
-        [SerializeField] private int roundCount = 1;
+        [Header("Task Config")]
+        //[SerializeField] private int roundCount = 1;
         [SerializeField] private float memorizationTime = 2f;
         [SerializeField] private float inputTime = 2f;
         
-        private Vector2Int _selectorPosition = new();
         public UnityEvent onTileDisable;
         private List<MemoryTile> _tiles;
-        
+
+        private int _buttonPressedIndex = -1;
+
         private List<Color> _colors;
         private Color _correctColor;
-        
+        private bool _wasSelected = false;
+
         protected override void Awake()
         {
-            tilesSelector.SetActive(false);
+            base.Awake();
             _tiles = tilesHolder.GetComponentsInChildren<MemoryTile>().ToList();
             // Checks if there are enough colors for task to work properly
             if (easyModeColors.Count < _tiles.Count * 2)
@@ -42,20 +42,19 @@ namespace Tasks.MemoryTask
                 throw new System.Exception("Not enough colors set for hard mode");
             }
         }
-        
+
         protected override void RunTask()
         {
             base.RunTask();
-            _colors = easyModeColors;
-            // TODO: Choose difficulty
-            //if ()
-            //{
-            //    _colors = easyModeColors;
-            //}
-            //else
-            //{
-            //    _colors = hardModeColors;
-            //}
+
+            if (isAstroSpecialist == isAstro)
+            {
+                _colors = easyModeColors;
+            }
+            else
+            {
+                _colors = hardModeColors;
+            }
             RoundSetup();
         }
 
@@ -74,10 +73,11 @@ namespace Tasks.MemoryTask
         public override void EndTask()
         {
             base.EndTask();
-            tilesSelector.SetActive(false);
+            _wasSelected = false;
+            _buttonPressedIndex = 0;
             onTileDisable.Invoke();
         }
-        
+
         private void RoundSetup()
         {
             // Shuffle colors
@@ -98,7 +98,7 @@ namespace Tasks.MemoryTask
 
             // Choose correct color to be memorized
             _correctColor = initialColors[Random.Range(0, initialColors.Count)];
-            
+
             StartCoroutine(Round());
         }
 
@@ -108,7 +108,7 @@ namespace Tasks.MemoryTask
             yield return new WaitForSeconds(memorizationTime);
             onTileDisable.Invoke();
             yield return new WaitForSeconds(2f);
-            
+
             // Assign colors to tiles
             for (int i = 0; i < _tiles.Count; i++)
             {
@@ -116,12 +116,22 @@ namespace Tasks.MemoryTask
             }
             int randomIndex = Random.Range(0, _tiles.Count);
             _tiles[randomIndex].SetColor(_correctColor);
-            tilesSelector.SetActive(true);
-            
+            _wasSelected = true;
+
             // Input Time
             yield return new WaitForSeconds(inputTime);
-            int selectedTileIndex = _selectorPosition.y * gridSize + _selectorPosition.x;
-            Color selectedColor = _tiles[selectedTileIndex].GetCurrentColor();
+        }
+
+        private void VerifyPoint()
+        {
+            Color selectedColor = _tiles[_buttonPressedIndex].GetCurrentColor();
+            for (int i = 0; i < _tiles.Count; i++)
+            {
+                if (i != _buttonPressedIndex)
+                {
+                    _tiles[i].GetComponent<SpriteRenderer>().color = Color.black;
+                }
+            }
             if (selectedColor == _correctColor)
             {
                 TaskSuccessful();
@@ -130,53 +140,36 @@ namespace Tasks.MemoryTask
             {
                 TaskMistakeLeave();
             }
-            tilesSelector.SetActive(false);
         }
 
         // Tile Selection
         protected override void OnUpPerformed(InputAction.CallbackContext value)
         {
-            if (_selectorPosition.y > 0)
-            {
-                _selectorPosition.y--;
-                UpdateSelection();
-            }
-        }
-        
-        protected override void OnDownPerformed(InputAction.CallbackContext value)
-        {
-            if (_selectorPosition.y < gridSize - 1)
-            {
-                _selectorPosition.y++;
-                UpdateSelection();
-            }
-        }
-        
-        protected override void OnLeftPerformed(InputAction.CallbackContext value)
-        {
-            if (_selectorPosition.x > 0)
-            {
-                _selectorPosition.x--;
-                UpdateSelection();
-            }
-        }
-        
-        protected override void OnRightPerformed(InputAction.CallbackContext value)
-        {
-            if (_selectorPosition.x < gridSize - 1)
-            {
-                _selectorPosition.x++;
-                UpdateSelection();
-            }
+            UpdateSelection(0);
         }
 
-        // Sets selector position to the selected tile
-        private void UpdateSelection()
+        protected override void OnDownPerformed(InputAction.CallbackContext value)
         {
-            if(!tilesSelector.activeSelf) return;
-            int index = _selectorPosition.y * gridSize + _selectorPosition.x;
-            Vector3 position = _tiles[index].transform.position;
-            tilesSelector.transform.position = position;
+            UpdateSelection(2);
+        }
+
+        protected override void OnLeftPerformed(InputAction.CallbackContext value)
+        {
+            UpdateSelection(1);
+        }
+
+        protected override void OnRightPerformed(InputAction.CallbackContext value)
+        {
+            UpdateSelection(3);
+        }
+        
+        private void UpdateSelection(int choice)
+        {
+            if (_wasSelected)
+            {
+                _buttonPressedIndex = choice;
+                VerifyPoint();
+            }
         }
     }
 }

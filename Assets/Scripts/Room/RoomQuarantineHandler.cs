@@ -9,7 +9,6 @@ public class RoomQuarantineHandler : MonoBehaviour
     public TaskController task;
 
     public QuarantineManager manager;
-    [SerializeField] private float timerQuarantineDelay;
     [SerializeField] public bool canPressButton;
 
     [SerializeField] public bool isBeingUsed;
@@ -22,12 +21,16 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     private bool _isAlienInside;
     [SerializeField] private GameEvent onAlienAttack;
+    [SerializeField] private GameEvent buttonCooldownEnded;
 
     // public GameObject room;
     public SpriteRenderer roomSprite;
     public SpriteRenderer wallSprite;
-    
-    [SerializeField] [Range(0,1)] private float fadeVel;
+
+    [SerializeField][Range(0, 1)] private float fadeVel = 0.03f;
+
+    // pegar o tempo do alien para a quarentena
+
 
     void Start()
     {
@@ -69,23 +72,24 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (_isAlienInside)
         {
-            roomSprite.color = Color.black;
+            // roomSprite.color = Color.black;
         }
         else if (isRoomQuarantined)
         {
             //Sala quarentenada
-            roomSprite.color = Color.red;
-            if(wallSprite.color.a < 1) wallSprite.color = new Color(0,0,0,wallSprite.color.a+fadeVel);
+            // roomSprite.color = Color.red;
+            if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
-            roomSprite.color = Color.blue;
+            // roomSprite.color = Color.blue;
+            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
         }
         else
         {
-            roomSprite.color = new Color(0.75f, 1, 1 ,0.0275f);
-            if(wallSprite.color.a > 0) wallSprite.color = new Color(0,0,0,wallSprite.color.a-fadeVel);
+            // roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
+            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
         }
     }
 
@@ -95,39 +99,40 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             isRoomQuarantined = true;
             quarantineStarted.Invoke();
-            FindObjectOfType<AudioManager>().Play("DoorClose");
+            manager.DisableQuarantines(this);
         }
         else if (isRoomQuarantined)
         {
-            FindObjectOfType<AudioManager>().Play("DoorOpen");
             if (_isAlienInside)
             {
                 onAlienAttack.Raise();
             }
             isRoomQuarantined = false;
+            canPressButton = false;
             quarantineEnded.Invoke();
+            manager.EnableQuarantines(this);
+
+
         }
         StartCoroutine(QuarantineDelay());
         yield return null;
     }
     private IEnumerator QuarantineDelay()
     {
-        yield return new WaitForSecondsRealtime(timerQuarantineDelay);
+        yield return new WaitForSeconds(manager.getTimerQuarantineDelay());
         canPressButton = true;
+        buttonCooldownEnded.Raise(this);
     }
 
     public void ToggleQuarantine()
     {
         StartCoroutine(QuarantineToggleRoutine());
-        canPressButton = false;
     }
 
     public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
     {
         _isAlienInside = true;
-        FindObjectOfType<AudioManager>().Play("AlienInsideRoom");
         yield return new WaitForSeconds(alienInsideSeconds);
-        FindObjectOfType<AudioManager>().Stop("AlienInsideRoom");
         _isAlienInside = false;
     }
 }

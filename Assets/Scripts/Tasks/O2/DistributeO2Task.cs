@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 
 public class DistributeO2Task : TaskScript
 {
-    [SerializeField] private RectTransform circle;
-    [SerializeField] private RectTransform arrow;
-    [SerializeField] private RectTransform specialZone;
+    [SerializeField] private Transform circle;
+    [SerializeField] private Transform arrow;
+    [SerializeField] private Transform specialZone;
     [SerializeField] private float rotationSpeed = 100f;
-    [SerializeField] private float alignmentThreshold = 10f;
+    [SerializeField] private float alignmentThreshold;
     [SerializeField] private float RequiredAlignments = 7;
+    [SerializeField] private int maxUnsuccessfulAlignments = 3;
+    private int _unsuccessfulAlignments = 0;
     private bool _isRotating = false;
     private int _successfulAlignments = 0;
 
@@ -42,18 +44,21 @@ public class DistributeO2Task : TaskScript
         arrow.RotateAround(circle.position, Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
+    [ContextMenu("CheckAlign")]
     private void CheckAlignment()
     {
-        float angleDifference = Mathf.Abs(Vector3.SignedAngle(arrow.up, specialZone.position - circle.position, Vector3.forward));
+        float angleDifference = Mathf.Abs(arrow.eulerAngles.z - specialZone.eulerAngles.z);
+
         if (angleDifference <= alignmentThreshold)
         {
+
             if (isAstro == isAstroSpecialist)
             {
-                _successfulAlignments+=2;
+                _successfulAlignments += 2;
             }
             else
             {
-                _successfulAlignments ++;
+                _successfulAlignments++;
             }
 
             if (_successfulAlignments >= RequiredAlignments)
@@ -66,23 +71,25 @@ public class DistributeO2Task : TaskScript
                 PositionSpecialZone();
             }
         }
-        else
+        else if(angleDifference > alignmentThreshold)
         {
             TaskMistakeStay();
+            _unsuccessfulAlignments++;
+
+            if (_unsuccessfulAlignments >= maxUnsuccessfulAlignments)
+            {
+                TaskMistakeLeave();
+            }
         }
     }
 
-
     private void PositionSpecialZone()
     {
-        float radius = circle.rect.width / 2;
-        Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        Vector2 tangentialPosition = randomDirection * radius;
+        // Gera um ângulo aleatório entre 0 e 360 graus
+        float randomAngle = Random.Range(0f, 360f);
 
-        specialZone.localPosition = tangentialPosition;
-
-        float angle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg;
-        specialZone.rotation = Quaternion.Euler(0, 0, angle + 90);
+        // Aplica a rotação diretamente na seta
+        specialZone.rotation = Quaternion.Euler(0, 0, randomAngle);
     }
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
@@ -99,6 +106,7 @@ public class DistributeO2Task : TaskScript
         StopRotation();
         StopAllCoroutines();
         _successfulAlignments = 0;
+        _unsuccessfulAlignments = 0; // Reinicia também os erros
     }
 
     protected override void TaskMistakeStay()
@@ -109,6 +117,8 @@ public class DistributeO2Task : TaskScript
     public override void EndTask()
     {
         base.EndTask();
+        _unsuccessfulAlignments = 0;
+        _successfulAlignments = 0;
         StopRotation();
         StopAllCoroutines();
     }

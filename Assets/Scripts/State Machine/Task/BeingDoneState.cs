@@ -1,22 +1,22 @@
 public class BeingDoneState : ITaskState
 {
-        public ITaskState Do(TaskController task)
+    public ITaskState Do(TaskController task)
+    {
+        if (task.wasInterrupted)
         {
-                if (task.wasInterrupted)
-                {
-                        task.wasInterrupted = false;
-                        return task.AvailableState;
-                }
-
-                if (!task.needsToBeDone)
-                {
-                        return task.UnavailableState;
-                }
-                return task.BeingDoneState;
+            task.wasInterrupted = false;
+            return task.AvailableState;
         }
 
-        public void Exit(TaskController task)
+        if (!task.needsToBeDone)
         {
-                task.taskScript.EndTask();
+            return task.UnavailableState;
         }
+        return task.BeingDoneState;
+    }
+
+    public void Exit(TaskController task)
+    {
+        task.taskScript.EndTask();
+    }
 }
