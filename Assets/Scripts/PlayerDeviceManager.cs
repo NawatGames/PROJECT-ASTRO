@@ -6,6 +6,8 @@ public class PlayerDeviceManager : MonoBehaviour
     [Header("Config")]
     [SerializeField] private PlayerInput astroPlayerInput;
     [SerializeField] private PlayerInput alienPlayerInput;
+    [SerializeField] private GameObject astroPrefab;
+    [SerializeField] private GameObject alienPrefab;
     private const string AstroControlScheme = "LeftKeyboard";
     private const string AlienControlScheme = "RightKeyboard";
     
@@ -17,8 +19,12 @@ public class PlayerDeviceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        astroPlayerInput.SwitchCurrentControlScheme(AstroControlScheme, Keyboard.current);
-        alienPlayerInput.SwitchCurrentControlScheme(AlienControlScheme, Keyboard.current);
+        var astro = PlayerInput.Instantiate(prefab:astroPrefab, controlScheme:AstroControlScheme, pairWithDevice:Keyboard.current);
+        astro.transform.position = new Vector3(1.25f, -0.4375f, 0);
+        var alien = PlayerInput.Instantiate(prefab:alienPrefab, controlScheme:AlienControlScheme, pairWithDevice:Keyboard.current);
+        alien.transform.position = new Vector3(3.5625f, -0.5f, 0);
+        /*astroPlayerInput.SwitchCurrentControlScheme(AstroControlScheme, Keyboard.current);
+        alienPlayerInput.SwitchCurrentControlScheme(AlienControlScheme, Keyboard.current);*/
     }
 
     /*

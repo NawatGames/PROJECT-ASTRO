@@ -15,8 +15,8 @@ public class GoToDecontaminationPlayerState : PlayerState
     
     public override void EnterState()
     {
-        if(!pauseController.IsFrozen())
-        {
+        /*if(!pauseController.IsFrozen())
+        {*/
             base.EnterState();
             
             _goToTargetCoroutine = StartCoroutine(playerMovementController.GoToTarget(
@@ -24,12 +24,12 @@ public class GoToDecontaminationPlayerState : PlayerState
                 ()=> {
                     SwitchState(playerStateMachine.decontaminateState);
                 }));
-        }
+        /*}
         else
         {
             //Debug.Log("Impossível iniciar task durante pause");
             SwitchState(playerStateMachine.freeMoveState);
-        }
+        }*/
     }
 
     public override void StateUpdate()

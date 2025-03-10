@@ -15,20 +15,18 @@ namespace Tasks.MemoryTask
         [SerializeField] private GameObject tilesHolder;
 
         [Header("Task Config")]
-        [SerializeField] private int gridSize = 2;
         //[SerializeField] private int roundCount = 1;
         [SerializeField] private float memorizationTime = 2f;
         [SerializeField] private float inputTime = 2f;
-
-        private Vector2Int _selectorPosition = new();
+        
         public UnityEvent onTileDisable;
         private List<MemoryTile> _tiles;
 
-        private int selectedTileIndex = -1;
+        private int _buttonPressedIndex = -1;
 
         private List<Color> _colors;
         private Color _correctColor;
-        private bool wasSelected = false;
+        private bool _wasSelected = false;
 
         protected override void Awake()
         {
@@ -75,8 +73,8 @@ namespace Tasks.MemoryTask
         public override void EndTask()
         {
             base.EndTask();
-            wasSelected = false;
-            selectedTileIndex = 0;
+            _wasSelected = false;
+            _buttonPressedIndex = 0;
             onTileDisable.Invoke();
         }
 
@@ -118,7 +116,7 @@ namespace Tasks.MemoryTask
             }
             int randomIndex = Random.Range(0, _tiles.Count);
             _tiles[randomIndex].SetColor(_correctColor);
-            wasSelected = true;
+            _wasSelected = true;
 
             // Input Time
             yield return new WaitForSeconds(inputTime);
@@ -126,10 +124,10 @@ namespace Tasks.MemoryTask
 
         private void VerifyPoint()
         {
-            Color selectedColor = _tiles[selectedTileIndex].GetCurrentColor();
+            Color selectedColor = _tiles[_buttonPressedIndex].GetCurrentColor();
             for (int i = 0; i < _tiles.Count; i++)
             {
-                if (i != selectedTileIndex)
+                if (i != _buttonPressedIndex)
                 {
                     _tiles[i].GetComponent<SpriteRenderer>().color = Color.black;
                 }
@@ -164,13 +162,12 @@ namespace Tasks.MemoryTask
         {
             UpdateSelection(3);
         }
-
-        // Sets selector position to the selected tile
+        
         private void UpdateSelection(int choice)
         {
-            if (wasSelected)
+            if (_wasSelected)
             {
-                selectedTileIndex = choice;
+                _buttonPressedIndex = choice;
                 VerifyPoint();
             }
         }

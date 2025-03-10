@@ -31,18 +31,18 @@ public class TasksManager : MonoBehaviour
     private bool _hasOneStartingAstroSpecialist;
     private bool _forceOneStartingSpecialist;
 
-    private void Start()
+    private void Start()    
     {
         _taskQueue = new Dictionary<TaskController, Coroutine>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
-        SetupStartingTasks();
+        StartCoroutine(SetupStartingTasks());
     }
 
-    private void SetupStartingTasks()
+    private IEnumerator SetupStartingTasks()
     {
         // Adiciona as primeiras (-1) tasks
-        for (var i = 0; i < startingTasks - 1; i++)
+        for (var i = 1; i <= startingTasks - 1; i++)
         {
             AddNextTaskToQueue();
         }
@@ -53,7 +53,7 @@ public class TasksManager : MonoBehaviour
         AddNextTaskToQueue();
         
         // Adiciona as próximas tasks
-        StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
+        yield return StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
     }
 
     private TaskController AddNextTaskToQueue()

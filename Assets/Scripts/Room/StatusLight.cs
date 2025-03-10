@@ -6,23 +6,14 @@ using UnityEngine.Rendering.Universal;
 public class StatusLight : MonoBehaviour
 {
     [SerializeField] private float warningBlinkInterval;
-    private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
     private string _actualTrigger;
     [SerializeField] private Light2D lightComponent;
     [SerializeField] private Color baseColor;
     [SerializeField] private Color alienColor;
     [SerializeField] private Color astroColor;
-    [SerializeField] private Color warningColor;
     [SerializeField] private Color successColor;
     [SerializeField] private Color failedColor;
-
-    private void Start()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
-        SetColor(baseColor, false);
-    }
 
     private void SetColor(Color color, bool enableLight = true)
     {

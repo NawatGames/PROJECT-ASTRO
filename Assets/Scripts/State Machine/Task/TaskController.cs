@@ -25,15 +25,14 @@ public class TaskController : MonoBehaviour
     public int Mistakes { get => _mistakes; set => _mistakes = value > _maxMistakes ? _maxMistakes : value; }
 
     public Transform playerPositioning;
-    private StatusLight _statusLight;
-    public StatusLight StatusLight { get => _statusLight; private set => _statusLight = value; }
+    [SerializeField] private StatusLight statusLight;
+    public StatusLight StatusLight { get => statusLight; private set => statusLight = value; }
     public GameObject brokenTaskMask;
-
+    
+    
     private void OnEnable()
     {
         AvailableState = new AvailableState(taskBecameAvailable, taskBecameInaccessible);
-        
-        StatusLight = transform.root.GetComponentInChildren<StatusLight>();
 
         currentState = UnavailableState;
         _previousState = currentState;

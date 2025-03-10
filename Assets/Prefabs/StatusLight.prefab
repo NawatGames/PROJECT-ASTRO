@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5851169890223708179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1993534973
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5afdba7696b93ce4e9f97cddcd23a2c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,11 +182,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warningBlinkInterval: 0.5
+  _animator: {fileID: -5632319015564355246}
   lightComponent: {fileID: 2252001235888704138}
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   alienColor: {r: 0.2216981, g: 0.6356883, b: 1, a: 1}
   astroColor: {r: 1, g: 0.7498407, b: 0.21226418, a: 1}
-  warningColor: {r: 1, g: 0.2216981, b: 0.34921643, a: 1}
   successColor: {r: 0.3554299, g: 1, b: 0.2783019, a: 1}
   failedColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
 --- !u!95 &-5632319015564355246

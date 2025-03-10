@@ -29,6 +29,6 @@ public class CreditsManager : MonoBehaviour
     private void OnVideoEnd(VideoPlayer vp)
     {
         screen.gameObject.SetActive(false);
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("StartMenuAnimations");
     }
 }
