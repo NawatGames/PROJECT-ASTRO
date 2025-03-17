@@ -7,7 +7,7 @@ public class MainDoorButtonController : DoorButtonController
     [SerializeField] private List<AdjacentDoorButtonControler> adjacentDoorButtonControlers;
     [SerializeField] private List<DoorControlerRepeater> repeaters;
     private bool isPressed = false;
-    
+    [SerializeField] private AlertButtonLight alertButtonLight;
 
     public override void ToggleDoor()
     {
@@ -16,6 +16,14 @@ public class MainDoorButtonController : DoorButtonController
 
         _roomQuarantineHandler.ToggleQuarantine();
         doorCollider.enabled = !doorCollider.enabled;
+        if (doorCollider.enabled)
+        {
+            alertButtonLight.Quarantine();
+        }
+        else if(!doorCollider.enabled)
+        {
+            alertButtonLight.NotQuarantine();
+        }
         // doorSprite.color = doorCollider.enabled ? Color.red : Color.green;
         isPressed = !isPressed;
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
@@ -69,8 +77,8 @@ public class MainDoorButtonController : DoorButtonController
         // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
         buttonAnimator.SetBool("IsPressed", false);
-
-
+        alertButtonLight.NotQuarantine();
+    
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
             adjacentDoorButtonControler.OpenDoor();
@@ -85,7 +93,7 @@ public class MainDoorButtonController : DoorButtonController
         // doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
         buttonAnimator.SetBool("IsPressed", true);
-
+        alertButtonLight.Quarantine();
 
         foreach (AdjacentDoorButtonControler adjacentDoorButtonControler in adjacentDoorButtonControlers)
         {
