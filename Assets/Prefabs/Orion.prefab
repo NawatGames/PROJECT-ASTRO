@@ -64,6 +64,22 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 7202632629350043298}
+    - target: {fileID: 4442989964417032382, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442989964417032382, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Size.y
+      value: 0.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442989964417032382, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442989964417032382, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3900772
+      objectReference: {fileID: 0}
     - target: {fileID: 4863616636191959239, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: m_Sprite
       value: 
