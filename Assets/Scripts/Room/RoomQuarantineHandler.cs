@@ -86,9 +86,12 @@ public class RoomQuarantineHandler : MonoBehaviour
         {
             //Sala quarentenada
             // roomSprite.color = Color.red;
+            if (_blinkingCoroutine == null)
+            {
+                buttonLight.color = Color.red;
+                buttonLight.intensity = 6;  
+            }
             
-            buttonLight.color = Color.red;
-            buttonLight.intensity = 6;
             
             buttonLight.pointLightOuterRadius = 1;
             if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
@@ -99,8 +102,8 @@ public class RoomQuarantineHandler : MonoBehaviour
             // roomSprite.color = Color.blue;
              
             buttonLight.color = new Color(190, 140, 0);
-            buttonLight.intensity = 0.02f;
-            buttonLight.pointLightOuterRadius = 0.4f;
+            buttonLight.intensity = 0.5f;
+            buttonLight.pointLightOuterRadius = 0.5f;
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
         }
         else
@@ -114,6 +117,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             {
                 StopCoroutine(_blinkingCoroutine);
                 _blinkingCoroutine = null;
+                Debug.Log("Stopping blinking coroutine");
             }
         }
 
@@ -122,19 +126,19 @@ public class RoomQuarantineHandler : MonoBehaviour
     
     private IEnumerator BlinkButtonLight()
     {
-        while (_isAlienInside)
+        while(true)
         {
             buttonLight.color = Color.red;
             buttonLight.intensity = 8;
             buttonLight.pointLightOuterRadius = 1.5f;
             yield return new WaitForSeconds(0.5f); // Light on
 
-            // Simulating turning off
+           
             buttonLight.color = Color.black;
             buttonLight.intensity = 0;
             yield return new WaitForSeconds(0.5f); // Light off
+            
         }
-        
     }
     private IEnumerator QuarantineToggleRoutine()
     {
