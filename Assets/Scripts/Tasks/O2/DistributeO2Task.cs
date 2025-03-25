@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class DistributeO2Task : TaskScript
 {
@@ -11,6 +12,8 @@ public class DistributeO2Task : TaskScript
     [SerializeField] private float alignmentThreshold;
     [SerializeField] private float RequiredAlignments = 7;
     [SerializeField] private int maxUnsuccessfulAlignments = 3;
+    [SerializeField] private Light2D arrowLight;
+    [SerializeField] private Light2D specialZoneLight;
     private int _unsuccessfulAlignments = 0;
     private bool _isRotating = false;
     private int _successfulAlignments = 0;
@@ -26,6 +29,7 @@ public class DistributeO2Task : TaskScript
         base.RunTask();
         StartRotation();
         PositionSpecialZone();
+        SwitchLights();
         StartCoroutine(RotateArrowCoroutine());
     }
 
@@ -92,6 +96,12 @@ public class DistributeO2Task : TaskScript
         specialZone.rotation = Quaternion.Euler(0, 0, randomAngle);
     }
 
+    private void SwitchLights()
+    {
+        arrowLight.enabled = !arrowLight.enabled;
+        specialZoneLight.enabled = !specialZoneLight.enabled;
+    }
+
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
         if (_isRotating)
@@ -120,6 +130,7 @@ public class DistributeO2Task : TaskScript
         _unsuccessfulAlignments = 0;
         _successfulAlignments = 0;
         StopRotation();
+        SwitchLights();
         StopAllCoroutines();
     }
 
