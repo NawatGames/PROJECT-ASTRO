@@ -662,6 +662,7 @@ MonoBehaviour:
   roomSprite: {fileID: 3139318545487454939}
   wallSprite: {fileID: 1071823155146029104}
   fadeVel: 0.03
+  buttonLight: {fileID: 5917873414938117374}
 --- !u!212 &3139318545487454939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1338,6 +1339,7 @@ MonoBehaviour:
   taskEnteredAudio: {fileID: 8282095774600809437}
   taskSuccessAudio: {fileID: 6751989116318316135}
   taskMistakeStayAudio: {fileID: 5316101288808420518}
+  taskMistakeLeaveAudio: {fileID: 0}
   circle: {fileID: 6582382471507078164}
   arrow: {fileID: 1106065122125860448}
   specialZone: {fileID: 3880697617223818538}
@@ -1450,3 +1452,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
   m_PrefabInstance: {fileID: 9137924019221274336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5917873414938117374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3238352011869870622, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 9137924019221274336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

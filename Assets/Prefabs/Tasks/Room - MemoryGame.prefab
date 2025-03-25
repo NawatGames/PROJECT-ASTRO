@@ -665,6 +665,7 @@ MonoBehaviour:
   roomSprite: {fileID: 3126529660733650022}
   wallSprite: {fileID: 5768304866859578944}
   fadeVel: 0.03
+  buttonLight: {fileID: 3524769754353497204}
 --- !u!68 &4580711055082930710
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   _maxMistakes: 7
   _mistakes: 0
   playerPositioning: {fileID: 0}
+  statusLight: {fileID: 0}
   brokenTaskMask: {fileID: 1424594332283717326}
 --- !u!114 &1043685416153137090
 MonoBehaviour:
@@ -884,6 +886,7 @@ MonoBehaviour:
   taskEnteredAudio: {fileID: 8001498352859744122}
   taskSuccessAudio: {fileID: 4636174557570972352}
   taskMistakeStayAudio: {fileID: 6062539532318824449}
+  taskMistakeLeaveAudio: {fileID: 0}
   easyModeColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.34555674, g: 1, b: 0, a: 1}
@@ -903,8 +906,6 @@ MonoBehaviour:
   - {r: 0, g: 0.0627451, b: 0.2509804, a: 1}
   - {r: 0, g: 0.09887638, b: 0.4, a: 1}
   tilesHolder: {fileID: 1351987700985680941}
-  tilesSelector: {fileID: 7906623591129213266}
-  gridSize: 2
   memorizationTime: 2
   inputTime: 2
   onTileDisable:
@@ -1484,6 +1485,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+--- !u!114 &3524769754353497204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3238352011869870622, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 2025089956080987754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6431707117156339925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}

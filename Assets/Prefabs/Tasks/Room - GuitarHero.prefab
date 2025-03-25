@@ -678,6 +678,7 @@ MonoBehaviour:
   roomSprite: {fileID: 8397771273258022846}
   wallSprite: {fileID: 5679639229460658505}
   fadeVel: 0.03
+  buttonLight: {fileID: 7916244324925063564}
 --- !u!61 &1948256379740121026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1125,6 +1126,7 @@ MonoBehaviour:
   _maxMistakes: 7
   _mistakes: 0
   playerPositioning: {fileID: 0}
+  statusLight: {fileID: 0}
   brokenTaskMask: {fileID: 5612117133413019333}
 --- !u!114 &1338657572392848228
 MonoBehaviour:
@@ -1143,6 +1145,7 @@ MonoBehaviour:
   taskEnteredAudio: {fileID: 1380218574074122203}
   taskSuccessAudio: {fileID: 4358232177586549345}
   taskMistakeStayAudio: {fileID: 2886520063024812192}
+  taskMistakeLeaveAudio: {fileID: 0}
   inputBar: {fileID: 195384519426079716}
   maxBlockPoints: 5
   blockSpeed: 1
@@ -2120,6 +2123,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
   m_PrefabInstance: {fileID: 4696350313004702610}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7916244324925063564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3238352011869870622, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 4696350313004702610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7397930564913333452
 PrefabInstance:
   m_ObjectHideFlags: 0
