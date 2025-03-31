@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Audio_System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -11,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Parameters")]
     private int _levelIndex;
-    [SerializeField] private LevelParameters[] levelParams;
+    public LevelParameters[] levelParams;
     private List<List<TaskController>> _allLevelTasks;
     [SerializeField] private List<TaskController> level0Tasks;
     [SerializeField] private List<TaskController> level1Tasks;
@@ -37,6 +35,8 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    #region Getters
+    
     public int GetMaxNumberOfActiveTasks()
     {
         return levelParams[_levelIndex].maxActiveTasks;
@@ -47,14 +47,25 @@ public class LevelManager : MonoBehaviour
         return _allLevelTasks[_levelIndex];
     }
 
-    public void NextLevel() // Chamado por evento
+    public int GetStartingTasks()
     {
-        Debug.Log("passou");
-        SaveManager.IncreaseLevel();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        return levelParams[_levelIndex].startingTasks;
     }
-    [ContextMenu("WinGame")]
-    public void WinGame()
+
+    public float GetTaskTimeWindow()
+    {
+        return levelParams[_levelIndex].taskTimeWindow;
+    }
+
+    public float GetTaskWarningTimeRatio()
+    {
+        return levelParams[_levelIndex].taskWarningTimeRatio;
+    }
+    
+    #endregion
+    
+    [ContextMenu("LevelCompleted")]
+    public void LevelCompleted()
     {
         StartCoroutine(FadeOutWin());
     }
@@ -82,7 +93,14 @@ public class LevelManager : MonoBehaviour
         color.a = 1f;
         fadeImage.color = color;
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Winscreen");
-
+        if (SaveManager.CurrentLevel < levelParams.Length) // Se ainda tiver fases pra passar
+        {
+            SaveManager.IncreaseLevel();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene("Winscreen");
+        }
     }
 }
