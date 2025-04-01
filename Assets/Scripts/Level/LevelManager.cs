@@ -1,38 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
 
     [Header("Parameters")]
     private int _levelIndex;
-    public LevelParameters[] levelParams;
-    private List<List<TaskController>> _allLevelTasks;
-    [SerializeField] private List<TaskController> level0Tasks;
-    [SerializeField] private List<TaskController> level1Tasks;
-    [SerializeField] private List<TaskController> level2Tasks;
-    [SerializeField] private List<TaskController> level3Tasks;
-    [SerializeField] private List<TaskController> level4Tasks;
+    public LevelParameters[] levelParams; // TODO: Tornar essa variavel sem ser lista. Criar uma variavel serialized private para ser a lista e, baseado nela + levelIndex, preencher esta (public, NÃO LISTA)
+    private List<TaskController> _thisLevelTasks;
     [SerializeField] private Image fadeImage;
 
     private void Awake()
     {
+        CheckTaskNumbers();
+        
         fadeImage.gameObject.SetActive(false);
 
         _levelIndex = SaveManager.CurrentLevel - 1;
 
-        _allLevelTasks = new List<List<TaskController>>
+        _thisLevelTasks = new List<TaskController>();
+        foreach (TaskSO taskSO in levelParams[_levelIndex].tasks)
         {
-            level0Tasks,
-            level1Tasks,
-            level2Tasks,
-            level3Tasks,
-            level4Tasks
-        };
+            _thisLevelTasks.Add(GameObject.Find(taskSO.taskControllerCarrierName).GetComponent<TaskController>());
+        }
+    }
 
+    [Conditional("UNITY_EDITOR")]
+    private void CheckTaskNumbers()
+    {
+        if (levelParams[_levelIndex].maxActiveTasks > levelParams[_levelIndex].tasks.Count)
+        {
+            Debug.LogError("ERRO NO SO LevelParameters desta fase (maxActiveTasks > tasks.Count)");
+        }
+
+        if (levelParams[_levelIndex].startingTasks > levelParams[_levelIndex].maxActiveTasks)
+        {
+            Debug.LogError("ERRO NO SO LevelParameters desta fase (startingTasks > maxActiveTasks)");
+        }
     }
 
     #region Getters
@@ -44,7 +53,7 @@ public class LevelManager : MonoBehaviour
 
     public List<TaskController> GetTasksForThisLevel()
     {
-        return _allLevelTasks[_levelIndex];
+        return _thisLevelTasks;
     }
 
     public int GetStartingTasks()
