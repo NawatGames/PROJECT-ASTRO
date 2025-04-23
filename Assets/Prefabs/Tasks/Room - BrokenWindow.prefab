@@ -367,6 +367,7 @@ MonoBehaviour:
   roomSprite: {fileID: 2687104902649753731}
   wallSprite: {fileID: 3748035459583637872}
   fadeVel: 0.03
+  buttonAnimator: {fileID: 6422990062659009567}
   buttonLight: {fileID: 3335211173375517600}
 --- !u!61 &948017297999991739
 BoxCollider2D:
@@ -1001,6 +1002,11 @@ MonoBehaviour:
 --- !u!4 &5179544215205791489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 196437765932120510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6422990062659009567 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6600843793115481505, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
   m_PrefabInstance: {fileID: 196437765932120510}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &397510479497220719

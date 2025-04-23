@@ -662,6 +662,7 @@ MonoBehaviour:
   roomSprite: {fileID: 3139318545487454939}
   wallSprite: {fileID: 1071823155146029104}
   fadeVel: 0.03
+  buttonAnimator: {fileID: 2687106423062272833}
   buttonLight: {fileID: 5917873414938117374}
 --- !u!212 &3139318545487454939
 SpriteRenderer:
@@ -1447,6 +1448,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+--- !u!95 &2687106423062272833 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6600843793115481505, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 9137924019221274336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4289958354835349599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}

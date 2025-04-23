@@ -31,6 +31,9 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     [SerializeField][Range(0, 1)] private float fadeVel = 0.03f;
 
+    [SerializeField] private Animator buttonAnimator;
+
+
     // pegar o tempo do alien para a quarentena
     
     // luz para os bottoes
@@ -95,20 +98,25 @@ public class RoomQuarantineHandler : MonoBehaviour
             
             buttonLight.pointLightOuterRadius = 1;
             if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
+
+            buttonAnimator.SetBool("Unpressable", false);
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
             // roomSprite.color = Color.blue;
-             
-            buttonLight.color = new Color(190, 140, 0);
-            buttonLight.intensity = 0.5f;
-            buttonLight.pointLightOuterRadius = 0.5f;
+            // yellow
+            buttonLight.color = Color.yellow;
+            buttonLight.intensity = 3;
+            buttonLight.pointLightOuterRadius = 0.4f;
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
+
+            buttonAnimator.SetBool("IsPressed", false);
+            buttonAnimator.SetBool("Unpressable", true);
         }
         else
         {
-            
+            buttonAnimator.SetBool("Unpressable", false);
             buttonLight.color = Color.green;
             buttonLight.intensity = 3;
             // roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
@@ -119,6 +127,7 @@ public class RoomQuarantineHandler : MonoBehaviour
                 _blinkingCoroutine = null;
                 Debug.Log("Stopping blinking coroutine");
             }
+            
         }
 
        
