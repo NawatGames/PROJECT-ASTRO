@@ -6562,6 +6562,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 773420858}
     - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
+      propertyPath: canPressButton
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1496059060564389033, guid: cb7648809c16a7345ab9e52590b2c8fd, type: 3}
       propertyPath: quarantineEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773420858}

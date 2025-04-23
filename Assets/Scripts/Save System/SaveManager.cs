@@ -23,7 +23,7 @@ public class SaveManager : MonoBehaviour
         //Debug.Log("Caminho do arquivo:" + _filePath);
         
         ////// RESETAR P LEVEL 1 :
-        SaveLevelData(1);
+        //SaveLevelData(1);
         //////
         
         CurrentLevel = LoadSaveFile();
