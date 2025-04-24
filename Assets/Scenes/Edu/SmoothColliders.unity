@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Intensity: 0.26
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1145,18 +1145,18 @@ PolygonCollider2D:
       - {x: 10, y: 4.34375}
       - {x: 9.75, y: 4.34375}
       - {x: 9.75, y: 2.375}
-      - {x: 7.9375, y: 2.375}
-      - {x: 7.9375, y: 0.875}
+      - {x: 8, y: 2.375}
+      - {x: 8, y: 0.875}
       - {x: 9.15625, y: 0.875}
       - {x: 9.15625, y: 0.46875}
-      - {x: 9.0625, y: 0.46875}
-      - {x: 9.0625, y: -0.65625}
-      - {x: 9.15625, y: -0.65625}
+      - {x: 9.0625, y: 0.375}
+      - {x: 9.0625, y: -0.625}
+      - {x: 9.15625, y: -0.6875}
       - {x: 9.15625, y: -1.25}
       - {x: 8.78125, y: -1.25}
       - {x: 8.78125, y: -1.625}
       - {x: 8.75, y: -1.625}
-      - {x: 8.75, y: -3.125}
+      - {x: 8.75, y: -3.03125}
       - {x: 8.59375, y: -3.15625}
       - {x: 8.59375, y: -4.1875}
       - {x: 8.96875, y: -4.5625}
@@ -1182,16 +1182,15 @@ PolygonCollider2D:
       - {x: 6.625, y: -5.1875}
       - {x: 6.59375, y: -5.1875}
       - {x: 6.59375, y: -5.375}
-      - {x: -8.375, y: -5.375}
+      - {x: -8.34375, y: -5.375}
+      - {x: -8.34375, y: -5.25}
       - {x: -8.1875, y: -4.96875}
       - {x: -8.1875, y: -4.46875}
       - {x: -8.03125, y: -4.3125}
       - {x: -8.03125, y: -4.125}
-      - {x: -7.78125, y: -4.125}
-      - {x: -7.78125, y: -3.5625}
-      - {x: -7.9375, y: -3.5625}
-      - {x: -7.9375, y: -1.875}
-      - {x: -8, y: -1.875}
+      - {x: -7.8125, y: -4.125}
+      - {x: -7.8125, y: -3.5625}
+      - {x: -8, y: -3.5625}
       - {x: -8, y: 0.6875}
       - {x: -7.90625, y: 0.78125}
       - {x: -5.71875, y: 0.78125}
@@ -1208,12 +1207,10 @@ PolygonCollider2D:
       - {x: -1.5, y: 1.375}
       - {x: -1, y: 1.375}
       - {x: -0.71875, y: 1.375}
-      - {x: -0.25, y: 1.84375}
-      - {x: -0.21875, y: 1.84375}
       - {x: -0.21875, y: 1.875}
       - {x: 0.6875, y: 1.875}
-      - {x: 1.8125, y: 1.875}
-      - {x: 1.8125, y: 3.375}
+      - {x: 1.75, y: 1.875}
+      - {x: 1.75, y: 3.375}
       - {x: -4.75, y: 3.375}
       - {x: -4.75, y: 2.625}
       - {x: -9.75, y: 2.625}
@@ -1222,9 +1219,7 @@ PolygonCollider2D:
       - {x: -4.96875, y: 4.375}
       - {x: 10, y: 4.375}
       - {x: 10, y: 5.625}
-    - - {x: -6.5625, y: -3.375}
-      - {x: -6.5625, y: -1.875}
-      - {x: -6.5, y: -1.875}
+    - - {x: -6.5, y: -3.375}
       - {x: -6.5, y: -0.3125}
       - {x: -6.15625, y: 0.03125}
       - {x: -4.75, y: 0.039759636}
@@ -1240,8 +1235,8 @@ PolygonCollider2D:
       - {x: 3.28125, y: -1.9375}
       - {x: 1.6875, y: -1.9375}
       - {x: 1.6875, y: -2.875}
-      - {x: 1.8125, y: -2.875}
-      - {x: 1.8125, y: -4.375}
+      - {x: 1.75, y: -2.875}
+      - {x: 1.75, y: -4.375}
       - {x: -1.5, y: -4.375}
       - {x: -1.5, y: -1.6875}
       - {x: -3.3125, y: -1.6875}
@@ -1250,8 +1245,8 @@ PolygonCollider2D:
       - {x: -4.96875, y: -2.625}
       - {x: -4.96875, y: -2.65625}
       - {x: -4.75, y: -2.875}
-      - {x: -2.9375, y: -2.875}
-      - {x: -2.9375, y: -4.375}
+      - {x: -3, y: -2.875}
+      - {x: -3, y: -4.375}
       - {x: -5.21875, y: -4.375}
       - {x: -5.84375, y: -3.75}
       - {x: -5.84375, y: -3.375}
@@ -1285,8 +1280,8 @@ PolygonCollider2D:
       - {x: 7.1875, y: -0.3125}
       - {x: 7.21875, y: -0.375}
       - {x: 7.21875, y: -1.625}
-      - {x: 7.3125, y: -1.625}
-      - {x: 7.3125, y: -3.125}
+      - {x: 7.25, y: -1.625}
+      - {x: 7.25, y: -3.125}
       - {x: 6.5625, y: -3.125}
       - {x: 6.5625, y: -3.53125}
       - {x: 5.8125, y: -4.28125}
@@ -1744,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4685749661514214120, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780005388850826456, guid: 96384a9b55905514aaa33bd54bdf1b36, type: 3}
       propertyPath: alienCrawlAudio
@@ -2236,7 +2231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0529785, y: 3.5650635}
+  m_AnchoredPosition: {x: -1.0531006, y: 3.5650635}
   m_SizeDelta: {x: 12.093857, y: 21.510206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &788607766 stripped
@@ -2639,7 +2634,7 @@ MonoBehaviour:
   m_Intensity: 0.26
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4114,7 +4109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0529785, y: 3.5651855}
+  m_AnchoredPosition: {x: -1.0531006, y: 3.5651245}
   m_SizeDelta: {x: 12.09375, y: 21.510254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479655644
@@ -4207,7 +4202,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -5987,7 +5982,7 @@ MonoBehaviour:
   m_Intensity: 0.005
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759fdedd276bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759fdedd276
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -6486,7 +6481,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
