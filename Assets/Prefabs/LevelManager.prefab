@@ -114,7 +114,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 451373427750419499}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: WinGame
+        m_MethodName: LevelCompleted
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

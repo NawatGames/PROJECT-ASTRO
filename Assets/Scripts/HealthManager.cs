@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class NewHealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private int health = 3;

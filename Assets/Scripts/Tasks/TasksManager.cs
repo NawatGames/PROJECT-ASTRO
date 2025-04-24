@@ -8,11 +8,8 @@ public class TasksManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
 
     [Space]
-    [SerializeField] private int totalTimeForTaskToFail = 90;
-    [SerializeField] private int shortTimeForTaskToBeCompleted = 30;
     [SerializeField] private int nextTaskMinDelay = 5;
     [SerializeField] private int nextTaskMaxDelay = 10;
-    [SerializeField] private int startingTasks = 3;
     
     [Space]
     [SerializeField] private int astroProbability = 50;
@@ -26,13 +23,18 @@ public class TasksManager : MonoBehaviour
     private List<TaskController> _tasksForThisLevel;
     private Dictionary<TaskController, Coroutine> _taskQueue;
     private TaskController _recentRemovedTask;
-
+    
+    private float _taskTimeWindow;
+    private float _taskWarningTimeWindow;
+    
     private bool _hasOneStartingAlienSpecialist;
     private bool _hasOneStartingAstroSpecialist;
     private bool _forceOneStartingSpecialist;
 
-    private void Start()    
+    private void Start()
     {
+        _taskTimeWindow = levelManager.GetTaskTimeWindow();
+        _taskWarningTimeWindow = _taskTimeWindow * levelManager.GetTaskWarningTimeRatio();
         _taskQueue = new Dictionary<TaskController, Coroutine>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
@@ -42,6 +44,7 @@ public class TasksManager : MonoBehaviour
     private IEnumerator SetupStartingTasks()
     {
         // Adiciona as primeiras (-1) tasks
+        int startingTasks = levelManager.GetStartingTasks();
         for (var i = 1; i <= startingTasks - 1; i++)
         {
             AddNextTaskToQueue();
@@ -125,15 +128,15 @@ public class TasksManager : MonoBehaviour
         DefineSpecialist(task.taskScript);
         
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
-        float timeLeft = totalTimeForTaskToFail;
-        int minutes = totalTimeForTaskToFail / 60;
-        int seconds = totalTimeForTaskToFail - 60 * minutes;
+        float timeLeft = _taskTimeWindow;
+        int minutes = (int) _taskTimeWindow / 60;
+        int seconds = (int) _taskTimeWindow - 60 * minutes;
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         
         if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
         else task.StatusLight.TurnOnOrion();
         
-        while (timeLeft > shortTimeForTaskToBeCompleted)
+        while (timeLeft > _taskWarningTimeWindow)
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
             
@@ -147,9 +150,9 @@ public class TasksManager : MonoBehaviour
 
     private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
     {
-        float timeLeft = shortTimeForTaskToBeCompleted;
-        int minutes = shortTimeForTaskToBeCompleted / 60;
-        int seconds = shortTimeForTaskToBeCompleted - 60 * minutes;
+        float timeLeft = _taskWarningTimeWindow;
+        int minutes = (int) _taskWarningTimeWindow / 60;
+        int seconds = (int) _taskWarningTimeWindow - 60 * minutes;
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         
         task.StatusLight.TurnOnWarning();

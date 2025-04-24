@@ -28,9 +28,24 @@ public class SaveManager : MonoBehaviour
         
         CurrentLevel = LoadSaveFile();
         
-        Debug.Log("Nível: " + CurrentLevel);
+        //Debug.Log("Nível: " + CurrentLevel);
     }
 
+#if UNITY_EDITOR
+    [ContextMenu("Reset Save File")]
+    public void ResetSaveFile()
+    {
+        if (!Application.isPlaying)
+        {
+            Debug.LogWarning("O jogo precisa estar rodando pra chamar essa funcao");
+        }
+        else
+        {
+            SaveLevelData(1);
+        }
+    }
+#endif
+    
     public static void IncreaseLevel()
     {
         CurrentLevel += 1;
