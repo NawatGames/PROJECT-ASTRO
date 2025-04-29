@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class RoomQuarantineHandler : MonoBehaviour
 {
@@ -17,14 +15,14 @@ public class RoomQuarantineHandler : MonoBehaviour
     private UnityEvent<bool> _onIsUsingRoomChanged;
     public UnityEvent quarantineStarted;
     public UnityEvent quarantineEnded;
-    [SerializeField] public bool isRoomQuarantined = false;
+    [SerializeField] public bool isRoomQuarantined;
 
     private bool _isAlienInside;
     [SerializeField] private GameEvent onAlienAttack;
     [SerializeField] private GameEvent buttonCooldownEnded;
 
     // public GameObject room;
-    public SpriteRenderer roomSprite;
+    // public SpriteRenderer roomSprite;
     public SpriteRenderer wallSprite;
 
     [SerializeField][Range(0, 1)] private float fadeVel = 0.03f;
@@ -129,7 +127,7 @@ public class RoomQuarantineHandler : MonoBehaviour
         StartCoroutine(QuarantineToggleRoutine());
     }
 
-    public IEnumerator AlienIsInsideTimer(int alienInsideSeconds)
+    public IEnumerator AlienIsInsideTimer(float alienInsideSeconds)
     {
         _isAlienInside = true;
         yield return new WaitForSeconds(alienInsideSeconds);

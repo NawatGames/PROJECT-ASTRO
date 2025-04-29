@@ -20,7 +20,7 @@ public class DecontaminationPod : MonoBehaviour
         } 
     }
     
-    void Start()
+    void Awake()
     {
         // Apenas para debug:
         WarnIfPositioningIsWrong();

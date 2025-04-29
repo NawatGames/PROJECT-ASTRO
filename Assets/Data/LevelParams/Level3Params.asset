@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d51e85ff67a9b499ef15e9f9d0af8e, type: 3}
   m_Name: Level3Params
   m_EditorClassIdentifier: 
+  tasks:
+  - {fileID: 11400000, guid: ce19fd11da809f842b6132f084981f64, type: 2}
+  - {fileID: 11400000, guid: 6aaa67690e2d97a4c8e86c4252cfb7a0, type: 2}
+  - {fileID: 11400000, guid: bf4dfe28f57d54e4fa423b4b9d284d68, type: 2}
+  - {fileID: 11400000, guid: 2baed6559dc8b3f478f932f8296cbb24, type: 2}
+  - {fileID: 11400000, guid: 4582f3d9c3c76ca4ca93bf96cfbdd855, type: 2}
+  - {fileID: 11400000, guid: ffa2a9f437ad14a42a33b3c257bef957, type: 2}
+  - {fileID: 11400000, guid: 4d1432aeb734d504b9e21ec6a384ba42, type: 2}
+  - {fileID: 11400000, guid: a36e7f7158da5884d9e9c54a3c25af85, type: 2}
   maxActiveTasks: 7
+  startingTasks: 3
+  taskTimeWindow: 60
+  taskWarningTimeRatio: 0.33333334
   alienInactiveAtStartSeconds: 5
   invasionDelaySeconds: 20
   invasionWarningSeconds: 7
