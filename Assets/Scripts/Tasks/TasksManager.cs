@@ -10,7 +10,7 @@ public class TasksManager : MonoBehaviour
     [Space]
     [SerializeField] private int nextTaskMinDelay = 5;
     [SerializeField] private int nextTaskMaxDelay = 10;
-    
+
     [Space]
     [SerializeField] private int astroProbability = 50;
 
@@ -18,7 +18,7 @@ public class TasksManager : MonoBehaviour
     [SerializeField] private GameEvent onTaskFailed;
     [SerializeField] private GameObject taskTimerPrefab;
     [SerializeField] private Transform taskGridLayoutTransform;
-    
+
     private List<TaskController> _tasksNotYetSelected;
     private List<TaskController> _tasksForThisLevel;
     private Dictionary<TaskController, Coroutine> _taskQueue;
@@ -37,7 +37,7 @@ public class TasksManager : MonoBehaviour
         _taskWarningTimeWindow = _taskTimeWindow * levelManager.GetTaskWarningTimeRatio();
         _taskQueue = new Dictionary<TaskController, Coroutine>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
-        _tasksNotYetSelected =  new List<TaskController>(_tasksForThisLevel);
+        _tasksNotYetSelected = new List<TaskController>(_tasksForThisLevel);
         StartCoroutine(SetupStartingTasks());
     }
 
@@ -54,7 +54,7 @@ public class TasksManager : MonoBehaviour
             _forceOneStartingSpecialist = true;
         }
         AddNextTaskToQueue();
-        
+
         // Adiciona as próximas tasks
         yield return StartCoroutine(WaitAndAddTaskToQueue(levelManager.GetMaxNumberOfActiveTasks() - startingTasks));
     }
@@ -71,7 +71,7 @@ public class TasksManager : MonoBehaviour
             var randomTaskNumber = Random.Range(0, _tasksNotYetSelected.Count);
             task = _tasksNotYetSelected[randomTaskNumber];
         }
-        
+
         _tasksNotYetSelected.Remove(task);
         _taskQueue.Add(task, StartCoroutine(StartTaskTimer(task)));
 
@@ -112,7 +112,7 @@ public class TasksManager : MonoBehaviour
     {
         StartCoroutine(KickPlayerRoutine(task));
     }
-    
+
     private IEnumerator KickPlayerRoutine(TaskController task)
     {
         task.needsToBeDone = false;
@@ -123,26 +123,27 @@ public class TasksManager : MonoBehaviour
     private IEnumerator StartTaskTimer(TaskController task)
     {
         task.needsToBeDone = true;
-        task.brokenTaskMask?.SetActive(true);
+        task.taskVisual?.SetIsBroken(true);
 
         DefineSpecialist(task.taskScript);
-        
+
         TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         float timeLeft = _taskTimeWindow;
         int minutes = (int) _taskTimeWindow / 60;
         int seconds = (int) _taskTimeWindow - 60 * minutes;
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
-        
+
         if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
         else task.StatusLight.TurnOnOrion();
         
         while (timeLeft > _taskWarningTimeWindow)
+
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
-            
+
             timeLeft -= Time.deltaTime;
-            minutes = Mathf.FloorToInt(timeLeft/60);
-            seconds = Mathf.FloorToInt(timeLeft%60);
+            minutes = Mathf.FloorToInt(timeLeft / 60);
+            seconds = Mathf.FloorToInt(timeLeft % 60);
             taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         }
         StartCoroutine(TaskShortTime(task, taskTimerTMP));
@@ -154,17 +155,17 @@ public class TasksManager : MonoBehaviour
         int minutes = (int) _taskWarningTimeWindow / 60;
         int seconds = (int) _taskWarningTimeWindow - 60 * minutes;
         taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
-        
+
         task.StatusLight.TurnOnWarning();
         // task.StatusLight.Blink())
-        
+
         while (timeLeft > 0)
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
-            
+
             timeLeft -= Time.deltaTime;
-            minutes = Mathf.FloorToInt(timeLeft/60);
-            seconds = Mathf.FloorToInt(timeLeft%60);
+            minutes = Mathf.FloorToInt(timeLeft / 60);
+            seconds = Mathf.FloorToInt(timeLeft % 60);
             taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
         }
         TaskTimedOut(task, taskTimerTMP);
@@ -184,7 +185,7 @@ public class TasksManager : MonoBehaviour
         task.Mistakes = 0;
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
-        task.brokenTaskMask?.SetActive(false);
+        task.taskVisual?.SetIsBroken(false);
         StartCoroutine(WaitAndAddTaskToQueue());
     }
 
@@ -200,8 +201,8 @@ public class TasksManager : MonoBehaviour
         {
             specialistRng = Random.Range(1, 101);
         }
-        
-        if(specialistRng <= astroProbability)
+
+        if (specialistRng <= astroProbability)
         {
             _hasOneStartingAstroSpecialist = true;
             taskScript.SetAstroSpecialist(true);

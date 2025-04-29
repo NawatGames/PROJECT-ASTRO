@@ -27,7 +27,7 @@ public class TaskController : MonoBehaviour
     public Transform playerPositioning;
     [SerializeField] private StatusLight statusLight;
     public StatusLight StatusLight { get => statusLight; private set => statusLight = value; }
-    public GameObject brokenTaskMask;
+    public TaskView taskVisual;
     
     
     private void OnEnable()
