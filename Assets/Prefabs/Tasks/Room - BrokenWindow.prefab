@@ -400,6 +400,8 @@ MonoBehaviour:
   roomSprite: {fileID: 2687104902649753731}
   wallSprite: {fileID: 3748035459583637872}
   fadeVel: 0.03
+  buttonAnimator: {fileID: 6422990062659009567}
+  buttonLight: {fileID: 3335211173375517600}
 --- !u!61 &948017297999991739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1138,9 +1140,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+--- !u!114 &3335211173375517600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3238352011869870622, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 196437765932120510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5179544215205791489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4996905543879605951, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
+  m_PrefabInstance: {fileID: 196437765932120510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6422990062659009567 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6600843793115481505, guid: aadeb5710bba79f4b9282eca874655f2, type: 3}
   m_PrefabInstance: {fileID: 196437765932120510}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &397510479497220719

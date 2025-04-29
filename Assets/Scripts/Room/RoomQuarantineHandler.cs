@@ -1,6 +1,9 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 public class RoomQuarantineHandler : MonoBehaviour
 {
@@ -27,12 +30,19 @@ public class RoomQuarantineHandler : MonoBehaviour
 
     [SerializeField][Range(0, 1)] private float fadeVel = 0.03f;
 
-    // pegar o tempo do alien para a quarentena
+    [SerializeField] private Animator buttonAnimator;
 
+
+    // pegar o tempo do alien para a quarentena
+    
+    // luz para os bottoes
+    [SerializeField]private Light2D buttonLight;
+    private Coroutine _blinkingCoroutine;
 
     void Start()
     {
         canPressButton = true;
+        
     }
 
     void Update()
@@ -71,26 +81,73 @@ public class RoomQuarantineHandler : MonoBehaviour
         if (_isAlienInside)
         {
             // roomSprite.color = Color.black;
+            if (_blinkingCoroutine == null)
+                _blinkingCoroutine = StartCoroutine(BlinkButtonLight());
         }
         else if (isRoomQuarantined)
         {
             //Sala quarentenada
             // roomSprite.color = Color.red;
+            if (_blinkingCoroutine == null)
+            {
+                buttonLight.color = Color.red;
+                buttonLight.intensity = 6;  
+            }
+            
+            
+            buttonLight.pointLightOuterRadius = 1;
             if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
+
+            buttonAnimator.SetBool("Unpressable", false);
         }
         else if (!canPressButton && !isRoomQuarantined)
         {
             //Sala que nao pode ser quarentenada
             // roomSprite.color = Color.blue;
+            // yellow
+            buttonLight.color = Color.yellow;
+            buttonLight.intensity = 3;
+            buttonLight.pointLightOuterRadius = 0.4f;
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
+
+            buttonAnimator.SetBool("IsPressed", false);
+            buttonAnimator.SetBool("Unpressable", true);
         }
         else
         {
+            buttonAnimator.SetBool("Unpressable", false);
+            buttonLight.color = Color.green;
+            buttonLight.intensity = 3;
             // roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
             if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
+            if (_blinkingCoroutine != null)
+            {
+                StopCoroutine(_blinkingCoroutine);
+                _blinkingCoroutine = null;
+                Debug.Log("Stopping blinking coroutine");
+            }
+            
+        }
+
+       
+    }
+    
+    private IEnumerator BlinkButtonLight()
+    {
+        while(true)
+        {
+            buttonLight.color = Color.red;
+            buttonLight.intensity = 8;
+            buttonLight.pointLightOuterRadius = 1.5f;
+            yield return new WaitForSeconds(0.5f); // Light on
+
+           
+            buttonLight.color = Color.black;
+            buttonLight.intensity = 0;
+            yield return new WaitForSeconds(0.5f); // Light off
+            
         }
     }
-
     private IEnumerator QuarantineToggleRoutine()
     {
         if (!isRoomQuarantined)
