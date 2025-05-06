@@ -238,7 +238,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "LeftKeyboard;RightKeyboard;Gamepad",
+                    "groups": "LeftKeyboard;Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -399,7 +399,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "LeftKeyboard;RightKeyboard;Gamepad",
+                    "groups": "LeftKeyboard;Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -460,7 +460,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "LeftKeyboard;RightKeyboard;Gamepad",
+                    "groups": "LeftKeyboard;Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
