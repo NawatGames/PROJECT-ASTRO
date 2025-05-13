@@ -6,6 +6,9 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine.Localization.SmartFormat.Core.Parsing;
 
 public class DecontaminationTask : MonoBehaviour
 {
@@ -24,7 +27,17 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private GameObject signGameObject;
 
     [SerializeField] private Image vignette;
-    public GameOverManager gameOverManager;
+    // light path wave type
+    [SerializeField] private List<Light2D> lights;
+    [SerializeField] private float waveSpeed = 0.3f;
+    [SerializeField] private int activeLightCount = 3;
+    [SerializeField] private float onIntensity = 1f;
+    [SerializeField] private float offIntensity = 0f;
+
+    [SerializeField] private float fadeLightTime;
+
+    private Coroutine _waveRoutine;
+    private bool _isActive; public GameOverManager gameOverManager;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
     private bool _onePlayerPressed = false;
@@ -36,6 +49,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void Start()
     {
+        StartWave();
         _audioSource = audioPlayer.gameObject.GetComponent<AudioSource>();
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
@@ -75,12 +89,94 @@ public class DecontaminationTask : MonoBehaviour
             _onePlayerPressed = false;
         }
     }
+    public void StartWave()
+    {
+        if (_isActive) return;
+        _isActive = true;
+        _waveRoutine = StartCoroutine(WaveRoutine());
+    }
 
+    // Call to stop wave
+    public void StopWave()
+    {
+        if (!_isActive) return;
+        _isActive = false;
+
+        if (_waveRoutine != null)
+        {
+            StopCoroutine(_waveRoutine);
+            _waveRoutine = null;
+        }
+
+        ResetAllLights();
+    }
+
+    private IEnumerator WaveRoutine()
+    {
+        int currentIndex = 0;
+
+
+        for (int i = 0; i < activeLightCount; i++)
+        {
+            lights[i].intensity = onIntensity;
+        }
+
+
+        while (_isActive)
+        {
+            yield return new WaitForSeconds(waveSpeed);
+
+
+            int oldestLight = currentIndex;
+            int newestLight = (currentIndex + activeLightCount) % lights.Count;
+
+
+            lights[oldestLight].intensity = offIntensity;
+
+
+
+            FadeOnLight(lights[newestLight]);
+            currentIndex = (currentIndex + 1) % lights.Count;
+        }
+    }
+
+    private void FadeOnLight(Light2D light)
+    {
+        StartCoroutine(FadeOnLightCoroutine(light));
+    }
+
+    private IEnumerator FadeOnLightCoroutine(Light2D light)
+    {
+        float duration = fadeLightTime > 0 ? fadeLightTime : 0.1f; // Use fadeLightTime if set, else default to 0.1s
+        float elapsed = 0f;
+        float startIntensity = light.intensity;
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            light.intensity = Mathf.Lerp(startIntensity, onIntensity, elapsed / duration);
+            yield return null;
+        }
+        light.intensity = onIntensity;
+    }
+    // ...
+    private void FadeOffLight(Light2D light)
+    {
+
+    }
+
+    private void ResetAllLights()
+    {
+        foreach (var light in lights)
+        {
+            light.intensity = offIntensity;
+        }
+    }
 
     private IEnumerator CountdownToDecontamination()
     {
         while (_timeRemaining > 0)
         {
+
             _timeRemaining -= Time.deltaTime;
 
             if (_timeRemaining <= 0 && !_decontaminationNeeded)
@@ -92,6 +188,7 @@ public class DecontaminationTask : MonoBehaviour
             yield return null;
         }
     }
+
 
     private void StartDecontaminationWindow()
     {
@@ -135,6 +232,7 @@ public class DecontaminationTask : MonoBehaviour
 
         while (_timeRemaining > 0)
         {
+            StartWave();
             _timeRemaining -= Time.deltaTime;
             float progress = 1 - (_timeRemaining / initialTime);
 
@@ -155,6 +253,8 @@ public class DecontaminationTask : MonoBehaviour
         vignette.color = finalColor;
         _audioSource.volume = 1f;
         audioPlayer.StopAudio();
+        StopWave();
+
     }
 
     private void UpdateCountdownText()
@@ -165,6 +265,10 @@ public class DecontaminationTask : MonoBehaviour
             int seconds = Mathf.FloorToInt(_timeRemaining % 60f);
             countdownText.text = $"Tempo restante para Descontaminação: {minutes:00}:{seconds:00}";
         }
+    }
+    private void StartDecontaminationLightPath()
+    {
+
     }
 
     private void StartDecontaminationProcedure()
