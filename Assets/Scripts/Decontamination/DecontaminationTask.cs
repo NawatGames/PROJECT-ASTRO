@@ -49,7 +49,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void Start()
     {
-        StartWave();
+        //StartWave();
         _audioSource = audioPlayer.gameObject.GetComponent<AudioSource>();
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
@@ -169,6 +169,7 @@ public class DecontaminationTask : MonoBehaviour
         foreach (var light in lights)
         {
             light.intensity = offIntensity;
+        
         }
     }
 
@@ -253,8 +254,10 @@ public class DecontaminationTask : MonoBehaviour
         vignette.color = finalColor;
         _audioSource.volume = 1f;
         audioPlayer.StopAudio();
-        StopWave();
+        ResetAllLights();
 
+        StopWave();
+        
     }
 
     private void UpdateCountdownText()
@@ -278,6 +281,8 @@ public class DecontaminationTask : MonoBehaviour
         _onePlayerPressed = false;
         _twoPlayersPressed = false;
         countdownText.gameObject.SetActive(false);
+        ResetAllLights();
+        StopWave();
         StopAllCoroutines(); // Para interromper DecontaminationWindow()
         StartCoroutine(WaitAndScan());
     }
@@ -327,6 +332,8 @@ public class DecontaminationTask : MonoBehaviour
         _audioSource.volume = 0f;
         _audioSource.Stop();
         audioPlayer.StopAudio();
+        ResetAllLights();
+        StopWave();
 
         this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
 
