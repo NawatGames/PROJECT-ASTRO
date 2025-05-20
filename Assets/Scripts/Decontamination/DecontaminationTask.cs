@@ -211,7 +211,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private IEnumerator DecontaminationWindow()
     {
-        while (_timeRemaining > 0)
+        while (_timeRemaining > 0)+
         {
             _timeRemaining -= Time.deltaTime;
             UpdateCountdownText();
