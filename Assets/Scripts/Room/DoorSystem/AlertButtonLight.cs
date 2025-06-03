@@ -6,23 +6,22 @@ using UnityEngine.Rendering.Universal;
 public class AlertButtonLight : MonoBehaviour
 {
     // Start is called before the first frame update
-    Light2D light;
+    Light2D alertButtonLight;
     void Start()
     {
-        light = GetComponent<Light2D>();
-        light.enabled = false;
+        alertButtonLight = GetComponent<Light2D>();
+        alertButtonLight.enabled = false;
     }
 
     public void Quarantine()
     {
-        light.color = Color.red;
-        light.enabled = true;
+        alertButtonLight.color = Color.red;
+        alertButtonLight.enabled = true;
     }
 
     public void NotQuarantine()
     {
-        light.enabled = false;
+        alertButtonLight.enabled = false;
     }
-   
-   
+    
 }

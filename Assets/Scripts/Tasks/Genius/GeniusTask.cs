@@ -1,22 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class GeniusTask : TaskScript
 {
-    public Button upButton;
-    public Button downButton;
-    public Button leftButton;
-    public Button rightButton;
+    public GeniusMonitor upGeniusMonitor;
+    public GeniusMonitor downGeniusMonitor;
+    public GeniusMonitor leftGeniusMonitor;
+    public GeniusMonitor rightGeniusMonitor;
 
     public SpriteRenderer signalLight;
 
-    private readonly List<Button> _buttons = new List<Button>();
-    public List<Button> computerSequence = new List<Button>();
+    private readonly List<GeniusMonitor> _buttons = new List<GeniusMonitor>();
+    public List<GeniusMonitor> computerSequence = new List<GeniusMonitor>();
 
     private bool _computerTurn;
 
@@ -31,10 +29,10 @@ public class GeniusTask : TaskScript
 
     private void Start()
     {
-        _buttons.Add(upButton);
-        _buttons.Add(downButton);
-        _buttons.Add(leftButton);
-        _buttons.Add(rightButton);
+        _buttons.Add(upGeniusMonitor);
+        _buttons.Add(downGeniusMonitor);
+        _buttons.Add(leftGeniusMonitor);
+        _buttons.Add(rightGeniusMonitor);
         taskName = "Genius task";
     }
 
@@ -69,11 +67,11 @@ public class GeniusTask : TaskScript
         }
     }
 
-    private void OnButtonPress(Button button){
+    private void OnButtonPress(GeniusMonitor geniusMonitor){
         if (_computerTurn) return;
-        if (computerSequence[playerTurn] == button)
+        if (computerSequence[playerTurn] == geniusMonitor)
         {
-            button.StartCoroutine(button.Blink(playerTime));
+            geniusMonitor.StartCoroutine(geniusMonitor.Blink(playerTime));
             playerTurn++;
             if (playerTurn >= computerSequence.Count) NextLevel();
         }
@@ -85,22 +83,22 @@ public class GeniusTask : TaskScript
 
     protected override void OnUpPerformed(InputAction.CallbackContext value)
     {
-        OnButtonPress(upButton);
+        OnButtonPress(upGeniusMonitor);
     }
 
     protected override void OnDownPerformed(InputAction.CallbackContext value)
     {
-        OnButtonPress(downButton);
+        OnButtonPress(downGeniusMonitor);
     }
 
     protected override void OnLeftPerformed(InputAction.CallbackContext value)
     {
-        OnButtonPress(leftButton);
+        OnButtonPress(leftGeniusMonitor);
     }
 
     protected override void OnRightPerformed(InputAction.CallbackContext value)
     {
-        OnButtonPress(rightButton);
+        OnButtonPress(rightGeniusMonitor);
     }
 
     protected override void TaskMistakeLeave()

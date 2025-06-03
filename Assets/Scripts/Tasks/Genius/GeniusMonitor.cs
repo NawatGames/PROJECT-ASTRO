@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
-public class Button : MonoBehaviour
+public class GeniusMonitor : MonoBehaviour
 {
-    [SerializeField] private Light2D light;
+    [SerializeField] private Light2D monitorLight;
     private SpriteRenderer _spriteRenderer;
     public bool running = false;
     private void Start()
@@ -16,12 +17,12 @@ public class Button : MonoBehaviour
     {
         running = true;
         _spriteRenderer.enabled = true;
-        light.enabled = true;
+        monitorLight.enabled = true;
 
         yield return new WaitForSeconds(time);
 
         running = false;
         _spriteRenderer.enabled = false;
-        light.enabled = false;
+        monitorLight.enabled = false;
     }
 }

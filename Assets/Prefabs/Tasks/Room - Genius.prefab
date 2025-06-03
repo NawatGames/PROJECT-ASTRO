@@ -227,7 +227,6 @@ MonoBehaviour:
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   buttonCooldownEnded: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
-  roomSprite: {fileID: 3144316229404686137}
   wallSprite: {fileID: 4940701507381171919}
   fadeVel: 0.03
   buttonAnimator: {fileID: 2322963662852380560}
@@ -521,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e331482de274c541921c08b23856000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1333479530996134222}
+  monitorLight: {fileID: 1333479530996134222}
   running: 0
 --- !u!1 &3795809767485107251
 GameObject:
@@ -1233,7 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e331482de274c541921c08b23856000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 7648931295204516371}
+  monitorLight: {fileID: 7648931295204516371}
   running: 0
 --- !u!1 &8661839609588618066
 GameObject:
@@ -1333,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e331482de274c541921c08b23856000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1688361770811717192}
+  monitorLight: {fileID: 1688361770811717192}
   running: 0
 --- !u!1 &9140403420951496933
 GameObject:
@@ -1433,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e331482de274c541921c08b23856000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1791619069596099271}
+  monitorLight: {fileID: 1791619069596099271}
   running: 0
 --- !u!1001 &2751965648967506778
 PrefabInstance:
@@ -1693,10 +1692,10 @@ MonoBehaviour:
   taskSuccessAudio: {fileID: 6656171775940152646}
   taskMistakeStayAudio: {fileID: 5199985564429594503}
   taskMistakeLeaveAudio: {fileID: 0}
-  upButton: {fileID: 2262007679929140464}
-  downButton: {fileID: 395217087479523052}
-  leftButton: {fileID: 2447163218883170658}
-  rightButton: {fileID: 4468862484531673432}
+  upGeniusMonitor: {fileID: 2262007679929140464}
+  downGeniusMonitor: {fileID: 395217087479523052}
+  leftGeniusMonitor: {fileID: 2447163218883170658}
+  rightGeniusMonitor: {fileID: 4468862484531673432}
   signalLight: {fileID: 0}
   computerSequence: []
   levels: 3
