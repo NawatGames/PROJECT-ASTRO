@@ -15,8 +15,10 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private float maxIntervalUntilDecontamination = 150f;
     [SerializeField] private float decontaminationWindow = 30f;
     [SerializeField] private float delayBeforeAndAfterScan = 2f;
+    [SerializeField] private float delayBeforeDecontaminationEject = .5f;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private GameEvent completedDecontaminationEvent;
+    [SerializeField] private GameEvent startDecontaminationProcedure;
     [SerializeField] private Animator podDoorsAnimator;
     [SerializeField] private Animator scannerAnimator;
     [SerializeField] private Collider2D closedCollider;
@@ -32,7 +34,7 @@ public class DecontaminationTask : MonoBehaviour
     [Header("AUDIO SAMPLES")]
     private AudioSource _audioSource;
     [SerializeField] private AudioPlayer audioPlayer;
-    private BoxCollider2D[] podColliders;
+    private BoxCollider2D[] _podColliders;
 
     private void Start()
     {
@@ -40,8 +42,8 @@ public class DecontaminationTask : MonoBehaviour
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
-        podColliders = GetComponentsInChildren<BoxCollider2D>();
-        foreach (var collider in podColliders)
+        _podColliders = GetComponentsInChildren<BoxCollider2D>();
+        foreach (var collider in _podColliders)
         {
             collider.enabled = false;
         }
@@ -103,9 +105,7 @@ public class DecontaminationTask : MonoBehaviour
         _timeRemaining = decontaminationWindow;
         countdownText.gameObject.SetActive(true);
 
-        StartCoroutine(VignetteAndHeartbeat());
-
-        foreach (var collider in podColliders)
+        foreach (var collider in _podColliders)
         {
             collider.enabled = true;
         }
@@ -114,6 +114,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private IEnumerator DecontaminationWindow()
     {
+        StartCoroutine(VignetteAndHeartbeat());
         while (_timeRemaining > 0)
         {
             _timeRemaining -= Time.deltaTime;
@@ -135,7 +136,6 @@ public class DecontaminationTask : MonoBehaviour
 
         while (_timeRemaining > 0)
         {
-            _timeRemaining -= Time.deltaTime;
             float progress = 1 - (_timeRemaining / initialTime);
 
             // Ajusta o alfa da vinheta
@@ -146,6 +146,7 @@ public class DecontaminationTask : MonoBehaviour
             // Ajusta o volume do áudio
             _audioSource.volume = Mathf.Lerp(0f, 1f, progress);
 
+            _timeRemaining -= Time.deltaTime;
             yield return null;
         }
 
@@ -169,7 +170,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void StartDecontaminationProcedure()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
+        startDecontaminationProcedure.Raise();
         _decontaminationNeeded = false;
         _onePlayerPressed = false;
         _twoPlayersPressed = false;
@@ -191,6 +192,9 @@ public class DecontaminationTask : MonoBehaviour
         signGameObject.SetActive(false);
         yield return new WaitForSeconds(delayBeforeAndAfterScan);
         podDoorsAnimator.SetTrigger("Open");
+        
+        yield return new WaitForSeconds(delayBeforeDecontaminationEject);
+        // Evento abaixo faz os players sairem das portas e depois um GameEvent invoca ResetDecontamination()
         completedDecontaminationEvent.Raise();
 
         float fadeDuration = 2f; // Tempo que o fade-out deve durar
@@ -223,13 +227,6 @@ public class DecontaminationTask : MonoBehaviour
         _audioSource.volume = 0f;
         _audioSource.Stop();
         audioPlayer.StopAudio();
-
-        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-
-        ResetDecontamination();
-
-
-        // Evento acima faz os players sairem das portas e depois um GameEvent invoca ResetDecontamination() 
     }
 
     public void ResetDecontamination()
@@ -237,8 +234,8 @@ public class DecontaminationTask : MonoBehaviour
         podDoorsAnimator.SetTrigger("Close");
         openedCollider.enabled = false;
         closedCollider.enabled = true;
-        podColliders = GetComponentsInChildren<BoxCollider2D>();
-        foreach (var collider in podColliders)
+        _podColliders = GetComponentsInChildren<BoxCollider2D>();
+        foreach (var collider in _podColliders)
         {
             collider.enabled = false;
         }
