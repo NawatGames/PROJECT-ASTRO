@@ -653,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTask: {fileID: 1043685416153137090}
   offColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  light: {fileID: 5024609147385406559}
+  tileLight: {fileID: 5024609147385406559}
 --- !u!1 &7981893867499889913
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +861,6 @@ MonoBehaviour:
   isRoomQuarantined: 0
   onAlienAttack: {fileID: 11400000, guid: f71dcdabc92d0724ebfbe9bc0df2f5d1, type: 2}
   buttonCooldownEnded: {fileID: 11400000, guid: c9da33b8ecc8ae34ba777eb7d9108f9e, type: 2}
-  roomSprite: {fileID: 3126529660733650022}
   wallSprite: {fileID: 5768304866859578944}
   fadeVel: 0.03
   buttonAnimator: {fileID: 5152250881140763595}
@@ -1210,7 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTask: {fileID: 1043685416153137090}
   offColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  light: {fileID: 2500761192876909776}
+  tileLight: {fileID: 2500761192876909776}
 --- !u!1 &8749858624806589789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTask: {fileID: 1043685416153137090}
   offColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  light: {fileID: 7935459462912433202}
+  tileLight: {fileID: 7935459462912433202}
 --- !u!1 &8892683868024636647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTask: {fileID: 1043685416153137090}
   offColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  light: {fileID: 8340871243493348325}
+  tileLight: {fileID: 8340871243493348325}
 --- !u!1 &8959287236493505711
 GameObject:
   m_ObjectHideFlags: 0

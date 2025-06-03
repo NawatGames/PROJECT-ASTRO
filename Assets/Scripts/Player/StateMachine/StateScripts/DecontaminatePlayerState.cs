@@ -12,8 +12,9 @@ public class DecontaminatePlayerState : PlayerState
     [SerializeField] private PlayerCollisionController playerCollisionController;
     [SerializeField] private PlayerAnimationController playerAnimationController;
     [SerializeField] private PlayerMovementController playerMovementController;
-    [SerializeField] private GameEvent startedDecontaminationEvent;
-    [SerializeField] private GameEvent stoppedDecontaminationEvent;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private GameEvent someoneEnteredDecontamination;
+    [SerializeField] private GameEvent someoneLeftDecontamination;
     [SerializeField] private GameEvent playersMovedAwayFromDecontaminationDoors;
 
     protected override void Awake()
@@ -26,7 +27,7 @@ public class DecontaminatePlayerState : PlayerState
     {
         base.EnterState();
         playerAnimationController.ForceIdleWithDirection(Vector2.down);
-        startedDecontaminationEvent.Raise();
+        someoneEnteredDecontamination.Raise();
         _gameEventListener.response.AddListener(OnCompleteDecontaminationHandler);
     }
 
@@ -38,6 +39,12 @@ public class DecontaminatePlayerState : PlayerState
         }
     }
 
+    public void OnStartDecontaminationProcedure()
+    {
+        playerSprite.enabled = false;
+        _isDecontaminating = true;
+    }
+
     protected override void OnInteractHandler(InputAction.CallbackContext ctx)
     {
         if (!_isDecontaminating)
@@ -47,14 +54,16 @@ public class DecontaminatePlayerState : PlayerState
         }
     }
     
-    private void OnCompleteDecontaminationHandler(Component c, object o)
+    public void OnCompleteDecontaminationHandler(Component c, object o)
     {
+        playerSprite.enabled = true;
         playerCollisionController.NearDecontaminationPod.SetOccupied(false);
         StartCoroutine(playerMovementController.GoToTarget(
             playerCollisionController.NearDecontaminationPod.GetDecontaminationOutsidePosition(),
             ()=>
             {
                 playersMovedAwayFromDecontaminationDoors.Raise();
+                _isDecontaminating = false;
                 SwitchState(playerStateMachine.freeMoveState);
             }));
     }
@@ -64,7 +73,7 @@ public class DecontaminatePlayerState : PlayerState
         base.LeaveState();
         if (!_isDecontaminating) // Portanto, saiu pelo OnInteractHandler
         {
-            stoppedDecontaminationEvent.Raise();
+            someoneLeftDecontamination.Raise();
         }
         _isDecontaminating = false;
         _gameEventListener.response.RemoveListener(OnCompleteDecontaminationHandler);

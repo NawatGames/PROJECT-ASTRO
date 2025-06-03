@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Tasks.MemoryTask
 {
@@ -8,7 +9,7 @@ namespace Tasks.MemoryTask
     {
         [SerializeField] private MemoryTask memoryTask;
         [SerializeField] Color offColor = Color.gray;
-        [SerializeField] private Light2D light;
+        [SerializeField] private Light2D tileLight;
 
         private SpriteRenderer _spriteRenderer;
         private Color _currentColor;
@@ -32,15 +33,15 @@ namespace Tasks.MemoryTask
         public void SetColor(Color color)
         {
             _spriteRenderer.color = color;
-            light.color = color;
-            light.enabled = true;
+            tileLight.color = color;
+            tileLight.enabled = true;
             _currentColor = color;
         }
 
         private void OnTileDisable()
         {
             _spriteRenderer.color = offColor;
-            light.enabled = false;
+            tileLight.enabled = false;
             _currentColor = offColor;
         }
 
