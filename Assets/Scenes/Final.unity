@@ -5628,6 +5628,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 7170938495582598517, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.017250001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170938495582598517, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.38300002
+      objectReference: {fileID: 0}
     - target: {fileID: 7752948905543903856, guid: 26c59ee1b7c19d9f782b2930f4f919a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.12
