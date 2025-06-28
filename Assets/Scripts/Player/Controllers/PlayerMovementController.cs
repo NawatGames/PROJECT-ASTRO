@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
         [SerializeField] private PlayerInputController playerInputController;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private PlayerAnimationController playerAnimationController;
+        [SerializeField] private PlayerAudioController playerAudioController;
         [Header("Settings")]
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float driftFactor = 0.05f;
@@ -17,6 +18,8 @@ using UnityEngine.InputSystem;
         private InputAction _movementAction;
         private Vector2 _inputDirection;
         private Vector2 _currentVelocity;
+        private bool _wasMoving;
+        private Coroutine _currentStepsCoroutine;
 
         private void Start()
         {
@@ -57,6 +60,23 @@ using UnityEngine.InputSystem;
                 acceleration * Time.fixedDeltaTime
             );
             rb.velocity = rb.velocity * driftFactor + _currentVelocity * (1 - driftFactor);
+            
+            if (!_wasMoving)
+            {
+                if(direction != Vector2.zero)
+                {
+                    _currentStepsCoroutine = StartCoroutine(playerAudioController.PlayStepsAudioRoutine());
+                    _wasMoving = true;
+                }
+            }
+            else
+            {
+                if (direction == Vector2.zero)
+                {
+                    StopCoroutine(_currentStepsCoroutine);
+                    _wasMoving = false;
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -77,7 +97,7 @@ using UnityEngine.InputSystem;
             while (true)
             {
                 direction = targetPosition - playerPos;
-                playerAnimationController.SetMovementAnimParameters(direction);
+                playerAnimationController.SetMovementAnimParameters(direction.normalized);
                 SetVelocity(direction.normalized);
             
                 if ((rb.velocity).magnitude * Time.fixedDeltaTime >= direction.magnitude)
