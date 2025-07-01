@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: b3134ac0ac98dac40926ed699ab87134, type: 3}
+  clip: {fileID: 8300000, guid: 5e9c9f198a62dca44b4cf22db7c084b0, type: 3}
   minDistance: 1
   playOnStart: 0
 --- !u!1 &2030919259302550735
@@ -513,6 +513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 734f0265162c7ee4b9ef93fdedd732bb, type: 3}
+  clip: {fileID: 8300000, guid: 5e9c9f198a62dca44b4cf22db7c084b0, type: 3}
   minDistance: 1
   playOnStart: 0

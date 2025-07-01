@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: cf416c726e8ac0845bd7c5b04123067f, type: 3}
   minDistance: 1
   playOnStart: 0
 --- !u!1 &5583841613187029965
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 7e4df38dcfba07a48988c0a9ee3401fc, type: 3}
+  clip: {fileID: 8300000, guid: 1e5e8a52e0ae1d1469ac2e07212a621f, type: 3}
   minDistance: 1
   playOnStart: 0
 --- !u!1 &6544072980770797229
@@ -511,7 +511,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -608,6 +608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e972fddb92d34d7b96e13b6aa14ddba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 892b0ea92ab28524c994705aa6ece424, type: 3}
+  clip: {fileID: 8300000, guid: 3b1d086ab8656b140b7bd85ae51f5e9c, type: 3}
   minDistance: 1
   playOnStart: 0

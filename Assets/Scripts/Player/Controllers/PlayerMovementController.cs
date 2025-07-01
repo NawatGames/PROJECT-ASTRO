@@ -104,6 +104,7 @@ using UnityEngine.InputSystem;
                 {
                     rb.velocity = Vector2.zero;
                     rb.MovePosition(targetPosition);
+                    StopCoroutine(_currentStepsCoroutine);
                     break;
                 }
             

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerAudioController : MonoBehaviour
 {
@@ -16,7 +15,8 @@ public class PlayerAudioController : MonoBehaviour
         {
             yield return new WaitForSeconds(stepAudioInterval);
             audioSource.PlayOneShot(stepsAudioClips[_index]);
-            _index = (_index+1)%stepsAudioClips.Count;
+            //_index = (_index+1)%stepsAudioClips.Count;
+            _index = Random.Range(0, stepsAudioClips.Count);
         }
     }
 }

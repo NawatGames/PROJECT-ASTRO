@@ -182,6 +182,8 @@ MonoBehaviour:
   _maxMistakes: 7
   _mistakes: 0
   playerPositioning: {fileID: 0}
+  statusLight: {fileID: 0}
+  taskVisual: {fileID: 0}
 --- !u!1001 &8253202266943531211
 PrefabInstance:
   m_ObjectHideFlags: 0
