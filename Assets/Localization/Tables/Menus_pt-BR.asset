@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5071199256576
-    m_Localized: '[C]ontinuar'
+    m_Localized: Continuar
     m_Metadata:
       m_Items: []
   - m_Id: 5290297114624
@@ -138,6 +138,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 98837970235117568
     m_Localized: '[T]ask: Cozinha'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118822967986409472
+    m_Localized: Cozinha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118824765795127296
+    m_Localized: '[C]ontinuar'
     m_Metadata:
       m_Items: []
   references:
