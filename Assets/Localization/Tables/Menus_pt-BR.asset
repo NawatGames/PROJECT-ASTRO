@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5071199256576
-    m_Localized: Continuar
+    m_Localized: '[C]ontinuar'
     m_Metadata:
       m_Items: []
   - m_Id: 5290297114624
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 59081513125257216
-    m_Localized: Continuar
+    m_Localized: '[C]ontinuar'
     m_Metadata:
       m_Items:
       - rid: 3533078756786962434
@@ -97,7 +97,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 98653155191902208
-    m_Localized: '[C]ontinuar'
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 98653528120053760

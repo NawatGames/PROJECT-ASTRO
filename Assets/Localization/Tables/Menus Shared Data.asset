@@ -92,7 +92,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 98653155191902208
-    m_Key: Pause_ResumeButton
+    m_Key: Pause_Title
     m_Metadata:
       m_Items: []
   - m_Id: 98653528120053760
@@ -133,6 +133,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 98837970235117568
     m_Key: Pause_Tips_Task_GasLeakTip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118782672779399168
+    m_Key: New Entry
     m_Metadata:
       m_Items: []
   m_Metadata:

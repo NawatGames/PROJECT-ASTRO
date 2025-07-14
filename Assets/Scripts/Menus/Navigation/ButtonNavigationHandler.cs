@@ -5,37 +5,55 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonHandler : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class ButtonHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private UnityEngine.UI.Button _currentButton;
-    [SerializeField] private Image backgroundImage;
+    [SerializeField] private bool debugMode = false;
+    [Header("SYSTEM SETTINGS")]
 
-    [SerializeField] private Color selectedColor;
-    [SerializeField] private Color deselectedColor;
-    void OnEnable()
-    {
-        backgroundImage.gameObject.SetActive(false);
-        TextMeshProUGUI text = _currentButton.GetComponentInChildren<TextMeshProUGUI>();
-        text.color = deselectedColor;
-    }
-    void Start()
+    [Header("Selection Colors")]
+    [SerializeField] private Color backgroundSelectedColor;
+    [SerializeField] private Color textSelectedColor;
+    [Header("Unselection Colors")]
+    [SerializeField] private Color backgroundDeselectedColor;
+    [SerializeField] private Color textDeselectedColor;
+    private UnityEngine.UI.Button _currentButton;
+    private Image _backgroundImage;
+    private TextMeshProUGUI _buttonText;
+
+    void Awake()
     {
         _currentButton = GetComponent<UnityEngine.UI.Button>();
-    }
-    public void OnDeselect(BaseEventData eventData)
-    {
-        TextMeshProUGUI text = _currentButton.GetComponentInChildren<TextMeshProUGUI>();
-        text.color = deselectedColor;
-        text.transform.position -= new Vector3(4f, 0f, 0);
-        backgroundImage.gameObject.SetActive(false);
+        _backgroundImage = GetComponentInChildren<Image>();
+        _buttonText = GetComponentInChildren<TextMeshProUGUI>();
+
+        _backgroundImage.color = backgroundDeselectedColor;
+        _buttonText.color = textDeselectedColor;
+
     }
 
-    public void OnSelect(BaseEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
+        if (_currentButton.interactable)
+        {
+            DebugInfo("Pointer entered button area.");
+            _backgroundImage.color = backgroundSelectedColor;
+            _buttonText.color = textSelectedColor;
+        }
+    }
 
-        TextMeshProUGUI text = _currentButton.GetComponentInChildren<TextMeshProUGUI>();
-        text.color = selectedColor;
-        text.transform.position += new Vector3(4f, 0f, 0);
-        backgroundImage.gameObject.SetActive(true);
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (_currentButton.interactable)
+        {
+            DebugInfo("Pointer exited button area.");
+            _backgroundImage.color = backgroundDeselectedColor;
+            _buttonText.color = textDeselectedColor;
+        }
+    }
+    private void DebugInfo(string message)
+    {
+        if (!debugMode) return;
+
+        Debug.Log($"<color=blue>ButtonHandler:</color> {message} - Button: {_currentButton.name}");
     }
 }

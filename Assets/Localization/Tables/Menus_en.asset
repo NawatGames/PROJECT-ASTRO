@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5071199256576
-    m_Localized: Continue
+    m_Localized: '[C]ontinue'
     m_Metadata:
       m_Items: []
   - m_Id: 5290297114624
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 98653155191902208
-    m_Localized: '[R]esume Game'
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 98653528120053760
