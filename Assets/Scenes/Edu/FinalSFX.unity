@@ -765,10 +765,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.26
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759fdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -782,8 +782,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0053798556, y: 0.0052000135, z: 0}
-    m_Extent: {x: 1.4396203, y: 0.3469, z: 0}
+    m_Center: {x: 0.003700018, y: 0.021950006, z: 0}
+    m_Extent: {x: 2.4619, y: 1.35585, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -791,13 +791,13 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0
+  m_ShapeLightFalloffSize: 1
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -1.4342403, y: -0.3407545, z: 0}
-  - {x: 1.4448566, y: -0.3195219, z: 0}
-  - {x: 1.4448565, y: 0.3513713, z: 0}
-  - {x: -1.4289322, y: 0.33544588, z: 0}
+  - {x: -1.457502, y: -0.3329115, z: 0}
+  - {x: 1.4477175, y: -0.3248992, z: 0}
+  - {x: 1.4669626, y: 0.37701654, z: 0}
+  - {x: -1.4575019, y: 0.35670424, z: 0}
 --- !u!1 &319098072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,10 +2770,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.26
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f5947759255fa70efdedd2761faf8a50bdad51a2
+  m_ApplyToSortingLayers: 00000000f5947759fdedd2761faf8a50
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2787,8 +2787,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.50350416, y: -0.001699999, z: 0}
-    m_Extent: {x: 0.9307362, y: 0.33999997, z: 0}
+    m_Center: {x: -0.50185, y: 0.028349996, z: 0}
+    m_Extent: {x: 1.93615, y: 1.34895, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2796,13 +2796,13 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0
+  m_ShapeLightFalloffSize: 1
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -1.4342403, y: -0.3407545, z: 0}
-  - {x: 0.4134183, y: -0.3379407, z: 0}
-  - {x: 0.42723203, y: 0.33755732, z: 0}
-  - {x: -1.4289322, y: 0.33544588, z: 0}
+  - {x: -1.4382575, y: -0.3146181, z: 0}
+  - {x: 0.43412828, y: -0.32147217, z: 0}
+  - {x: 0.43412876, y: 0.37651062, z: 0}
+  - {x: -1.4307582, y: 0.36487532, z: 0}
 --- !u!4 &809379412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8075417091982627246, guid: bd3f616833b464641b1f10b831f5ed09, type: 3}
@@ -3235,6 +3235,10 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 576091132}
+    - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
+      propertyPath: firstDecontaminationDelay
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: maxIntervalUntilDecontamination
       value: 36
@@ -4512,9 +4516,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 245849893
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 71407dfd26335e44ea5aecdb478b5954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5739,8 +5743,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 245849893
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82b60a50edc0f424eaa37db712b62d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
