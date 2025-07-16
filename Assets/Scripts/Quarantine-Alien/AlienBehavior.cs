@@ -104,27 +104,21 @@ public class AlienBehavior : MonoBehaviour
             roomInvaded = roomsToInvadeWeighted[roomIndex];
             RoomQuarantineHandler roomInvadedScript = roomInvaded.GetComponent<RoomQuarantineHandler>();
             alienWarningStartEvent.Raise(roomInvaded.transform);
-            alienCrawlAudio.GetComponent<AudioPlayer>().PlayLoop();
             yield return new WaitForSeconds(_invasionWarningSeconds);
-            alienCrawlAudio.GetComponent<AudioPlayer>().StopAudio();
 
             if (roomInvadedScript.isRoomQuarantined && !roomInvadedScript.isBeingUsed)
             {
                 //Debug.Log("Alien Quarantined");
                 alienQuarantinedEvent.Raise(roomInvaded.transform);
-                alienQuarantinedAudio.GetComponent<AudioPlayer>().PlayLoop();
 
                 yield return StartCoroutine(roomInvadedScript.AlienIsInsideTimer(_alienInsideSeconds));
 
                 roomInvadedScript.task.ResetMistakes();
                 alienWarningEndEvent.Raise(roomInvaded.transform);
-                alienQuarantinedAudio.GetComponent<AudioPlayer>().StopAudio();
             }
             else
             {
                 alienAttackEvent.Raise(roomInvaded.transform);
-                alienOpenVentAudio.GetComponent<AudioPlayer>().PlayAudio();
-
             }
         }
         else
