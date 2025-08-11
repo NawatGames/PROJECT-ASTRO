@@ -10,6 +10,7 @@ using Slider = UnityEngine.UI.Slider;
 public class HarvestCropTask : TaskScript
 {
     private float _modifiedProgressValue;
+    private Animator harvestAnimator;
 
     [Header("AUDIO SAMPLES (HARVEST SCRIPT)")]
     [SerializeField] private GameObject buttonPressedAudio;
