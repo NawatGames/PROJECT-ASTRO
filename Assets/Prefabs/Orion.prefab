@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 2f728c9ebe8c8a74bad2a3032bf49604, type: 2}
+    - target: {fileID: 3618357641996147822, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4266758921371716804, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
       propertyPath: animator
       value: 
@@ -112,6 +116,30 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a32018135e18f2047a4aea02e3492b37, type: 3}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepAudioInterval
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepsAudioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepsAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e0f2570e503f1a45a375da5f2e13fec, type: 3}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepsAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 65628f646423d2b40b3d90840a4b1bdc, type: 3}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepsAudioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: fee4df5bfde3f3247b33a6080c84277f, type: 3}
+    - target: {fileID: 8109169506482912711, guid: 1ea1ec780658bf240b1563088119d790, type: 3}
+      propertyPath: stepsAudioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: a781d73eb5b026a4f8c4075f7f9e6832, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

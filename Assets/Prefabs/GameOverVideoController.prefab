@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 5378409388439401235}
   rawImage: {fileID: 0}
-  jumpscareVideo: {fileID: 32900000, guid: b48faf0b965c404439a08efb3bb2fc55, type: 3}
+  jumpscareVideo: {fileID: 32900000, guid: 2b1404ca4828cc849a24ff1c8fa3bbb5, type: 3}
   renderTexture: {fileID: 8400000, guid: fee89262372d50d48901450c1a57f61c, type: 2}
 --- !u!328 &5378409388439401235
 VideoPlayer:
@@ -57,7 +57,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627253400531055074}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b48faf0b965c404439a08efb3bb2fc55, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 2b1404ca4828cc849a24ff1c8fa3bbb5, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

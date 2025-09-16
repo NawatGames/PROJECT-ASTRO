@@ -1,17 +1,17 @@
-using System;
+using Audio_System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 public class VentManager : MonoBehaviour
 {
-    private SpriteRenderer ventSprite;
     private Animator _animator;
     private string _actualTrigger = "AlienBase";
     [SerializeField] private Transform room;
+    [SerializeField] private AudioPlayer alienShakingVent;
+    [SerializeField] private AudioPlayer alienQuarantinedCrawl;
+    [SerializeField] private AudioPlayer alienOpenedVent;
 
     private void Awake()
     {
-        ventSprite = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         room = transform.parent;
     }
@@ -20,9 +20,9 @@ public class VentManager : MonoBehaviour
     {
         if (sender == room)
         {
-            Debug.Log("InvasionStart");
+            //Debug.Log("InvasionStart");
+            alienShakingVent.PlayLoop();
             _actualTrigger = "AlienInvading";
-            // ventSprite.color = Color.magenta;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -31,9 +31,9 @@ public class VentManager : MonoBehaviour
     {
         if (sender == room)
         {
-            Debug.Log("InvasionEnd");
+            //Debug.Log("InvasionEnd");
+            alienQuarantinedCrawl.StopAudio();
             _actualTrigger = "AlienBase";
-            // ventSprite.color = Color.white;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -41,9 +41,11 @@ public class VentManager : MonoBehaviour
     {
         if (sender == room)
         {
-            Debug.Log("AlienAttack");
+            //Debug.Log("AlienAttack");
+            alienShakingVent.StopAudio();
+            alienQuarantinedCrawl.StopAudio();
+            alienOpenedVent.PlayAudio();
             _actualTrigger = "AlienInvaded";
-            // ventSprite.color = Color.red;
             _animator.SetTrigger(_actualTrigger);
         }
     }
@@ -51,9 +53,10 @@ public class VentManager : MonoBehaviour
     {
         if (sender == room)
         {
-            Debug.Log("AlienQuarantined");
+            //Debug.Log("AlienQuarantined");
+            alienShakingVent.StopAudio();
+            alienQuarantinedCrawl.PlayLoop();
             _actualTrigger = "AlienQuarantined";
-            // ventSprite.color = Color.blue;
             _animator.SetTrigger(_actualTrigger);
         }
     }

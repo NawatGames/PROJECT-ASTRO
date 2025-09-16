@@ -47,16 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverFadeDuration: 1
-  jumpscareFadeDuration: 1
   alien: {fileID: 0}
   gameOverText: {fileID: 0}
   blackScreen: {fileID: 0}
-  preGameOverJumpscare: {fileID: 0}
-  jumpScareImage: {fileID: 0}
-  preGameOverDelay: 3
-  preJumpscareDelay: 1
-  preFadeInDelay: 1
-  preImageDelay: 2
+  preGameOverDelay: 1
+  preJumpscareDelay: 0.3
+  gameOverVideoController: {fileID: 0}
 --- !u!114 &4147919077330600519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +99,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7493853662421199250}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: TriggerDelayedGameOver
+        m_MethodName: StartDelayedGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

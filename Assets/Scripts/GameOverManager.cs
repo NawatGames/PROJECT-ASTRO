@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
-    [Header("AUDIO SAMPLES")]
-    [SerializeField] private GameObject gameOverAudio;
-
     [Header("GAMEOVER CONFIG")]
     [SerializeField] private float gameOverFadeDuration = 1f;
     [SerializeField] private GameObject alien;
@@ -52,8 +49,6 @@ public class GameOverManager : MonoBehaviour
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 1);
 
-        // gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
-
         yield return new WaitForSeconds(preGameOverDelay);
         alien.SetActive(false);
         GameOver();
@@ -77,8 +72,6 @@ public class GameOverManager : MonoBehaviour
         yield return new WaitForSeconds((float)gameOverVideoController.GetVideoPlayer().clip.length);
 
         gameOverVideoController.GetRawImage().color = new Color(1, 1, 1, 0);
-
-        // gameOverAudio.GetComponent<AudioPlayer>().PlayAudio();
 
         yield return new WaitForSeconds(preGameOverDelay);
         alien.SetActive(false);

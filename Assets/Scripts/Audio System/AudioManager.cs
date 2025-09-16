@@ -1,3 +1,8 @@
+
+/*
+ 
+ *******************  DEPRECATED  **************
+ 
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
@@ -46,3 +51,4 @@ public class AudioManager : MonoBehaviour
         sound.source.Stop();
     }
 }
+*/

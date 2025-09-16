@@ -27,32 +27,37 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private Collider2D closedCollider;
     [SerializeField] private Collider2D openedCollider;
     [SerializeField] private GameObject signGameObject;
-
     [SerializeField] private Image vignette;
+    [SerializeField] private GameOverManager gameOverManager;
+    
     // light path wave type
     [SerializeField] private List<Light2D> lights;
     [SerializeField] private float waveSpeed = 0.3f;
     [SerializeField] private int activeLightCount = 3;
     [SerializeField] private float onIntensity = 1f;
     [SerializeField] private float offIntensity = 0f;
-
     [SerializeField] private float fadeLightTime;
-
+    
     private Coroutine _waveRoutine;
-    private bool _isActive; public GameOverManager gameOverManager;
+    private bool _isActive;
     private float _timeRemaining;
     private bool _decontaminationNeeded = false;
     private bool _onePlayerPressed = false;
     private bool _twoPlayersPressed = false;
-    [Header("AUDIO SAMPLES")]
-    private AudioSource _audioSource;
-    [SerializeField] private AudioPlayer audioPlayer;
     private BoxCollider2D[] _podColliders;
-
+    
+    [Header("AUDIO SAMPLES")]
+    private AudioSource _heartbeatAudioSource;
+    [SerializeField] private AudioPlayer heartbeatAudioPlayer;
+    [SerializeField] private AudioPlayer enterPodAudioPlayer;
+    [SerializeField] private AudioPlayer openDoorAudioPlayer;
+    [SerializeField] private AudioPlayer alertAudioPlayer;
+    [SerializeField] private AudioPlayer closeAndScanAudioPlayer;
+    
     private void Start()
     {
         //StartWave();
-        _audioSource = audioPlayer.gameObject.GetComponent<AudioSource>();
+        _heartbeatAudioSource = heartbeatAudioPlayer.gameObject.GetComponent<AudioSource>();
         Time.timeScale = 1f;
         _timeRemaining = firstDecontaminationDelay;
         countdownText.gameObject.SetActive(false);
@@ -68,6 +73,8 @@ public class DecontaminationTask : MonoBehaviour
     // função chamada pelo GameEvent SomeoneEnteredDecontamination
     public void SomeoneEnteredDecontamination()
     {
+        enterPodAudioPlayer.PlayAudio();
+        
         if (!_onePlayerPressed)
         {
             _onePlayerPressed = true;
@@ -197,6 +204,8 @@ public class DecontaminationTask : MonoBehaviour
     {
         signGameObject.SetActive(true);
         podDoorsAnimator.SetTrigger("Open");
+        openDoorAudioPlayer.PlayAudio();
+        alertAudioPlayer.PlayLoop();
         closedCollider.enabled = false;
         openedCollider.enabled = true;
         _decontaminationNeeded = true;
@@ -229,7 +238,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private IEnumerator VignetteAndHeartbeat()
     {
-        audioPlayer.PlayLoop();
+        heartbeatAudioPlayer.PlayLoop();
         float initialTime = _timeRemaining;
 
         while (_timeRemaining > 0)
@@ -243,9 +252,9 @@ public class DecontaminationTask : MonoBehaviour
             vignette.color = color;
 
             // Ajusta o volume do áudio
-            _audioSource.volume = Mathf.Lerp(0f, 1f, progress);
+            _heartbeatAudioSource.volume = Mathf.Lerp(0f, 1f, progress);
 
-            _timeRemaining -= Time.deltaTime;
+            //_timeRemaining -= Time.deltaTime;
             yield return null;
         }
 
@@ -253,9 +262,8 @@ public class DecontaminationTask : MonoBehaviour
         var finalColor = vignette.color;
         finalColor.a = 1f;
         vignette.color = finalColor;
-        _audioSource.volume = 1f;
-        audioPlayer.StopAudio();
-        ResetAllLights();
+        _heartbeatAudioSource.volume = 1f;
+        heartbeatAudioPlayer.StopAudio();
 
         StopWave();
         
@@ -277,6 +285,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private void StartDecontaminationProcedure()
     {
+        alertAudioPlayer.StopAudio();
         startDecontaminationProcedure.Raise();
         _decontaminationNeeded = false;
         _onePlayerPressed = false;
@@ -290,6 +299,7 @@ public class DecontaminationTask : MonoBehaviour
 
     private IEnumerator WaitAndScan()
     {
+        closeAndScanAudioPlayer.PlayAudio();
         podDoorsAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(delayBeforeAndAfterScan);
         scannerAnimator.SetTrigger("StartScan");
@@ -310,7 +320,7 @@ public class DecontaminationTask : MonoBehaviour
         float elapsedTime = 0f;
 
         float initialAlpha = vignette.color.a;
-        float initialVolume = _audioSource.volume;
+        float initialVolume = _heartbeatAudioSource.volume;
 
         while (elapsedTime < fadeDuration)
         {
@@ -323,7 +333,7 @@ public class DecontaminationTask : MonoBehaviour
             vignette.color = color;
 
             // Ajusta o volume do áudio suavemente
-            _audioSource.volume = Mathf.Lerp(initialVolume, 0f, progress);
+            _heartbeatAudioSource.volume = Mathf.Lerp(initialVolume, 0f, progress);
 
             yield return null;
         }
@@ -333,9 +343,9 @@ public class DecontaminationTask : MonoBehaviour
         finalColor.a = 0f;
         vignette.color = finalColor;
 
-        _audioSource.volume = 0f;
-        _audioSource.Stop();
-        audioPlayer.StopAudio();
+        _heartbeatAudioSource.volume = 0f;
+        _heartbeatAudioSource.Stop();
+        heartbeatAudioPlayer.StopAudio();
         ResetAllLights();
         StopWave();
 
