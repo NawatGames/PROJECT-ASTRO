@@ -254,7 +254,7 @@ public class DecontaminationTask : MonoBehaviour
             // Ajusta o volume do áudio
             _heartbeatAudioSource.volume = Mathf.Lerp(0f, 1f, progress);
 
-            _timeRemaining -= Time.deltaTime;
+            //_timeRemaining -= Time.deltaTime;
             yield return null;
         }
 
@@ -264,7 +264,6 @@ public class DecontaminationTask : MonoBehaviour
         vignette.color = finalColor;
         _heartbeatAudioSource.volume = 1f;
         heartbeatAudioPlayer.StopAudio();
-        ResetAllLights();
 
         StopWave();
         

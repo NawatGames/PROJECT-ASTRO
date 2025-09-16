@@ -8,6 +8,7 @@ public class GameOverVideoController : MonoBehaviour
     [SerializeField] private RawImage rawImage;
     [SerializeField] private VideoClip jumpscareVideo;
     [SerializeField] private RenderTexture renderTexture;
+    [SerializeField] private AudioListener audioListener;
 
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class GameOverVideoController : MonoBehaviour
 
         videoPlayer.clip = jumpscareVideo;
         videoPlayer.isLooping = false;
+
+        audioListener.enabled = false;
         videoPlayer.Play();
     }
 

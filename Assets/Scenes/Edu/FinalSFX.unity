@@ -1599,6 +1599,10 @@ PrefabInstance:
       propertyPath: rawImage
       value: 
       objectReference: {fileID: 1643645863}
+    - target: {fileID: 5866916124014997199, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 789865642}
     - target: {fileID: 8203912259803760977, guid: bb37c0b358b3f3742874a3a817096b27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7874093
@@ -3027,6 +3031,10 @@ PrefabInstance:
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 576091132}
+    - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
+      propertyPath: decontaminationWindow
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8230690206460885616, guid: d85128964b626e34f949b015dd43a152, type: 3}
       propertyPath: maxIntervalUntilDecontamination
       value: 36
