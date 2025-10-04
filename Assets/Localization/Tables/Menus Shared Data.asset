@@ -91,6 +91,62 @@ MonoBehaviour:
     m_Key: WinScreenCaps
     m_Metadata:
       m_Items: []
+  - m_Id: 98653155191902208
+    m_Key: Pause_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653528120053760
+    m_Key: Pause_OptionsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653729283067904
+    m_Key: Pause_HowToPlayButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98831077269786624
+    m_Key: Pause_QuitGameButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98832511684005888
+    m_Key: Pause_Settings_GameSettingsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833449584906240
+    m_Key: Pause_Settings_SoundSettingsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833722600542208
+    m_Key: Pause_Settings_ControllerSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833985956696064
+    m_Key: Pause_BackButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837432219160576
+    m_Key: Pause_Tips_ QuarantineTipButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837661853110272
+    m_Key: Pause_Tips_DecontaminationTip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837970235117568
+    m_Key: Pause_Tips_Task_GasLeakTip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118782672779399168
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118822967986409472
+    m_Key: taskDisplay1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118824765795127296
+    m_Key: Pause_ResumeButton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

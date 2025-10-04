@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: pt-BR
   m_SharedData: {fileID: 11400000, guid: 94cc90466430f6346ab1dba191d419f5, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3533078756786962434
   m_TableData:
   - m_Id: 224701956096
     m_Localized: Novo Jogo
@@ -75,9 +76,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 59081513125257216
-    m_Localized: Continuar
+    m_Localized: '[C]ontinuar'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 3533078756786962434
   - m_Id: 59144931861569536
     m_Localized: Fim de Jogo
     m_Metadata:
@@ -94,6 +96,64 @@ MonoBehaviour:
     m_Localized: "Parab\xE9ns, \nvoc\xEAs venceram!"
     m_Metadata:
       m_Items: []
+  - m_Id: 98653155191902208
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653528120053760
+    m_Localized: "[O]p\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653729283067904
+    m_Localized: '[C]omo Jogar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98831077269786624
+    m_Localized: '[S]air do jogo'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98832511684005888
+    m_Localized: '[J]ogabilidade'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833449584906240
+    m_Localized: '[S]om'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833722600542208
+    m_Localized: '[C]ontroles'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833985956696064
+    m_Localized: '[V]oltar'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837432219160576
+    m_Localized: '[Q]uarentenando Salas'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837661853110272
+    m_Localized: "[D]escontamina\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837970235117568
+    m_Localized: '[T]ask: Cozinha'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118822967986409472
+    m_Localized: Cozinha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118824765795127296
+    m_Localized: '[C]ontinuar'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3533078756786962434
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 59081513125257216

@@ -94,6 +94,58 @@ MonoBehaviour:
     m_Localized: Congrats, you won!
     m_Metadata:
       m_Items: []
+  - m_Id: 98653155191902208
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653528120053760
+    m_Localized: '[O]ptions'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98653729283067904
+    m_Localized: '[H]ow To Play'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98831077269786624
+    m_Localized: '[Q]uit Game'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98832511684005888
+    m_Localized: '[G]ameplay'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833449584906240
+    m_Localized: '[S]ound'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833722600542208
+    m_Localized: '[C]ontrollers'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98833985956696064
+    m_Localized: '[B]ack'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837432219160576
+    m_Localized: '[Q]uaratine Rooms'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837661853110272
+    m_Localized: '[D]econtamination'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98837970235117568
+    m_Localized: '[T]ask: Gas Leak'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118822967986409472
+    m_Localized: Kitchen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118824765795127296
+    m_Localized: '[C]ontinue'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

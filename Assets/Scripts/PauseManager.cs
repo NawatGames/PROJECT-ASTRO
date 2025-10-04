@@ -10,7 +10,15 @@ public class PauseManager : MonoBehaviour
     
     private bool _isPaused;
     private float _lastPauseTime;
-    
+
+    void Update()
+    {
+        // mock call to Pause() for testing purposes
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
     public void Pause() // called by inputtedPause GameEvent
     {
         if (Time.unscaledTime >= _lastPauseTime + repeatedPauseDelay)
@@ -23,7 +31,7 @@ public class PauseManager : MonoBehaviour
                 pauseMenuGameObject.SetActive(true);
                 Time.timeScale = 0f;
                 pauseToggled.Raise(true);
-            
+
             }
             else
             {
