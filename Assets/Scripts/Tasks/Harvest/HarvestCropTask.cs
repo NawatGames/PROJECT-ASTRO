@@ -22,14 +22,19 @@ public class HarvestCropTask : TaskScript
     [SerializeField] private Slider timeSlider;
     [SerializeField] private float progressValue;
     [SerializeField] private float decayValue;
+    [SerializeField] private Animator harvestDamage;
 
     protected override void Awake()
     {
         base.Awake();
         taskName = "Harvest task";
+
     }
     protected override void RunTask()
     {
+        //make animator play breaking animation
+        harvestDamage.SetBool("isBroken", true);
+
         base.RunTask();
         UI.gameObject.SetActive(true);
         progressSlider.value = 0;
@@ -60,6 +65,8 @@ public class HarvestCropTask : TaskScript
         base.TaskSuccessful();
         UI.gameObject.SetActive(false);
         Debug.Log("Colheita bem sucedida");
+        //make animator play fixing animation
+        harvestDamage.SetBool("isBroken", false);
     }
     public override void EndTask()
     {
@@ -94,4 +101,5 @@ public class HarvestCropTask : TaskScript
 
         }
     }
+
 }
