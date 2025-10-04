@@ -1142,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5506847568442600001
 Transform:
   m_ObjectHideFlags: 0
@@ -1170,8 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07b80717e5da340bd5b66eb2be0727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInputController: {fileID: 3919350631093693447}
-  inputtedPause: {fileID: 11400000, guid: f37e3621d0f829d44bc5894ba60b5253, type: 2}
+  view: {fileID: 5960823210608464139, guid: 52f42832bb3159f40aa9e857f27b791b, type: 3}
 --- !u!114 &4001616297722186537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1190,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8285373848522648739}
         m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
         m_MethodName: PauseToggledHandler
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
