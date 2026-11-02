@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class QuarantineManager : MonoBehaviour
@@ -11,96 +9,92 @@ public class QuarantineManager : MonoBehaviour
     public List<GameObject> roomsBeingUsed;
     [SerializeField] private int timerQuarantineDelay;
 
-
-    [SerializeField] private List<GameObject> linkedRooms;
-
     [SerializeField] private GameEvent quarantineActivated;
     [SerializeField] private GameEvent quarantineDeactivated;
-    
-    private int closedDoors;
 
-    private int notQuarantinableRoomsCount;
-    // public UnityEvent roomQuarantined;
-    
-   
-    
+    private MainDoorButtonController[] _doorButtons; // Mesmo índice de 'rooms'
+    private readonly List<RoomQuarantineHandler> _openRooms = new List<RoomQuarantineHandler>();
+
     private void Start()
     {
         roomToTask = new Dictionary<GameObject, TaskController>();
-        foreach (GameObject room in rooms)
+        roomsScript.Clear();
+        _doorButtons = new MainDoorButtonController[rooms.Count];
+        for (int i = 0; i < rooms.Count; i++)
         {
-            RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
+            RoomQuarantineHandler script = rooms[i].GetComponent<RoomQuarantineHandler>();
             roomsScript.Add(script);
-            roomToTask.Add(room, script.task);
+            roomToTask.Add(rooms[i], script.task);
+            _doorButtons[i] = rooms[i].GetComponentInChildren<MainDoorButtonController>();
         }
-
-        
     }
-    
+
+    // Mantém o estado das salas coerente com as portas a cada frame:
+    // - porta principal fechada => sala em quarentena (e todas as portas dela fechadas)
+    // - só uma sala pode ficar em quarentena; uma segunda sala fechada é reaberta
+    // - enquanto houver quarentena, as salas abertas não podem ser quarentenadas
     private void Update()
     {
-        List<GameObject> roomsInUse = new List<GameObject>();
-        closedDoors = 0;
-        notQuarantinableRoomsCount = 0;
-        List<RoomQuarantineHandler> roomNotQuarantinable = new List<RoomQuarantineHandler>();
-        foreach (GameObject room in rooms)
+        List<GameObject> roomsInUse = new List<GameObject>(); // Nova lista: o AlienBehavior guarda a referência
+        int closedDoors = 0;
+        int notQuarantinableRoomsCount = 0;
+        _openRooms.Clear();
+
+        for (int i = 0; i < rooms.Count; i++)
         {
-            RoomQuarantineHandler script = room.GetComponent<RoomQuarantineHandler>();
-            MainDoorButtonController doorButton = room.GetComponentInChildren<MainDoorButtonController>();
-            if (script.isBeingUsed && !roomsInUse.Contains(room))
+            GameObject room = rooms[i];
+            RoomQuarantineHandler script = roomsScript[i];
+            MainDoorButtonController doorButton = _doorButtons[i];
+
+            if (script.isBeingUsed)
             {
                 roomsInUse.Add(room);
             }
-            
+
             if (!doorButton.IsDoorOpen())
             {
                 closedDoors++;
                 script.isRoomQuarantined = true;
                 doorButton.CloseAllRoomDoors();
-                
             }
+
             if (!script.canPressButton && !script.isRoomQuarantined)
             {
                 notQuarantinableRoomsCount++;
             }
-            
-            if (doorButton.IsDoorOpen() )//&& adjacentDoorButton.IsDoorOpen())
+
+            if (doorButton.IsDoorOpen())
             {
-                roomNotQuarantinable.Add(script);
+                _openRooms.Add(script);
             }
 
-            if (notQuarantinableRoomsCount >= 8)
+            // Failsafe: se nenhuma sala está quarentenada nem pode ser, reabre as portas
+            if (notQuarantinableRoomsCount >= rooms.Count)
             {
                 doorButton.OpenAllRoomDoors();
                 notQuarantinableRoomsCount = 0;
-                
             }
+
             if (closedDoors > 1)
             {
-                
                 doorButton.OpenAllRoomDoors();
                 script.isRoomQuarantined = false;
                 script.canPressButton = false;
                 script.quarantineEnded.Invoke();
                 closedDoors = 1;
             }
-            
         }
 
         if (closedDoors >= 1)
         {
-            foreach (RoomQuarantineHandler rooms1 in roomNotQuarantinable)
+            foreach (RoomQuarantineHandler openRoom in _openRooms)
             {
-                
-                rooms1.isRoomQuarantined = false;
-                rooms1.canPressButton = false;
-                
+                openRoom.isRoomQuarantined = false;
+                openRoom.canPressButton = false;
             }
-
         }
-        roomNotQuarantinable.Clear();
 
-        this.roomsBeingUsed = roomsInUse;
+        roomsBeingUsed = roomsInUse;
     }
 
     // Ativa a quarentena (desabilita a opção de quarentenar)
@@ -116,8 +110,8 @@ public class QuarantineManager : MonoBehaviour
         }
         quarantineActivated.Raise();
     }
-    
-    // Desativa a quarentena (habilita a opção de quarentenar) 
+
+    // Desativa a quarentena (habilita a opção de quarentenar)
     public void EnableQuarantines(RoomQuarantineHandler openedRoomScript)
     {
         foreach (RoomQuarantineHandler script in roomsScript)
@@ -130,10 +124,9 @@ public class QuarantineManager : MonoBehaviour
         }
         quarantineDeactivated.Raise();
     }
-    
+
     public float getTimerQuarantineDelay()
     {
         return timerQuarantineDelay;
     }
-    
 }

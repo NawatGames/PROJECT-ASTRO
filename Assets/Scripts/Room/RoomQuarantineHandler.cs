@@ -13,7 +13,7 @@ public class RoomQuarantineHandler : MonoBehaviour
     [SerializeField] public bool canPressButton;
 
     [SerializeField] public bool isBeingUsed;
-    private bool _isBeingUsedTwice;
+    private int _playersInside; // Contador de colliders "Player" dentro da sala (funciona com qualquer número)
 
     private UnityEvent<bool> _onIsUsingRoomChanged;
     public UnityEvent quarantineStarted;
@@ -56,12 +56,8 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (isBeingUsed)
-                _isBeingUsedTwice = true;
-            else
-            {
-                isBeingUsed = true;
-            }
+            _playersInside++;
+            isBeingUsed = true;
         }
     }
 
@@ -69,12 +65,8 @@ public class RoomQuarantineHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (_isBeingUsedTwice)
-                _isBeingUsedTwice = false;
-            else
-            {
-                isBeingUsed = false;
-            }
+            _playersInside = Mathf.Max(0, _playersInside - 1);
+            isBeingUsed = _playersInside > 0;
         }
     }
 
