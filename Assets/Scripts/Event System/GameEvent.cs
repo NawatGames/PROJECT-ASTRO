@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameEvent : ScriptableObject
 {
 
-    public List<GameEventListener> listeners = new List<GameEventListener>();
+    // Só existe em runtime: não serializar referências de cena dentro do asset
+    [System.NonSerialized] private readonly List<GameEventListener> listeners = new List<GameEventListener>();
 
     // Raise event through different method signatures
     // ############################################################
