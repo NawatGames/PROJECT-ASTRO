@@ -47,8 +47,10 @@ public class TaskScript : MonoBehaviour
         isTaskInProgress = true;
     }
 
+    // Os guards abaixo evitam resultado duplicado (ex: coroutine de timer rodando mais um passo antes do EndTask)
     protected virtual void TaskSuccessful()
     {
+        if (!isTaskInProgress) return;
         isTaskInProgress = false;
         tasksManager.TaskDoneSuccessfully(_taskController);
         taskSuccessAudio.GetComponent<AudioPlayer>().PlayAudio();
@@ -56,6 +58,7 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void TaskMistakeStay() // Erro, mas o jogador continua na tarefa
     {
+        if (!isTaskInProgress) return;
         Debug.Log("Task Mistake (stay)");
         _taskController.Mistakes++;
         taskMistakeStayAudio.GetComponent<AudioPlayer>().PlayAudio();
@@ -63,6 +66,7 @@ public class TaskScript : MonoBehaviour
 
     protected virtual void TaskMistakeLeave() // Erro crítico: o jogador sai da tarefa
     {
+        if (!isTaskInProgress) return;
         Debug.Log("Task Mistake (leave)");
         isTaskInProgress = false;
         _taskController.Mistakes++;

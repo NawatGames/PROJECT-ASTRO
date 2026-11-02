@@ -78,12 +78,16 @@ public class DistributeO2Task : TaskScript
         }
         else if(angleDifference > alignmentThreshold)
         {
-            TaskMistakeStay();
             _unsuccessfulAlignments++;
 
+            // O último erro conta só como "leave" (antes contava stay + leave)
             if (_unsuccessfulAlignments >= maxUnsuccessfulAlignments)
             {
                 TaskMistakeLeave();
+            }
+            else
+            {
+                TaskMistakeStay();
             }
         }
     }
