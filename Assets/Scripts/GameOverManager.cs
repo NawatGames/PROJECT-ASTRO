@@ -94,6 +94,6 @@ public class GameOverManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOverScreen");
+        SceneManager.LoadScene(SceneNames.GameOver);
     }
 }

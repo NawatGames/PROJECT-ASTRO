@@ -7,6 +7,6 @@ public class StartMenuButton : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene("StartMenuAnimations");
+        SceneManager.LoadScene(SceneNames.StartMenu);
     }
 }
