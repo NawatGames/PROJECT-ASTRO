@@ -36,7 +36,7 @@ public class AdjacentDoorButtonControler : DoorButtonController
             buttonAnimator.SetBool("IsPressed", true);
 
         }
-        else if (!doorSprite.enabled)
+        else
         {
             doorAnimator.SetBool("IsOpen", true);
             buttonAnimator.SetBool("IsPressed", false);

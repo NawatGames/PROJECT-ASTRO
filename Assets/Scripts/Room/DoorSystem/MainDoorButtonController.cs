@@ -71,8 +71,10 @@ public class MainDoorButtonController : DoorButtonController
 
     }
 
+    // isPressed acompanha o estado real da porta, senão IsDoorOpen() fica dessincronizado
     public void OpenAllRoomDoors()
     {
+        isPressed = false;
         doorCollider.enabled = false;
         // doorSprite.color = Color.green;
         doorAnimator.SetBool("IsOpen", true);
@@ -89,6 +91,7 @@ public class MainDoorButtonController : DoorButtonController
 
     public void CloseAllRoomDoors()
     {
+        isPressed = true;
         doorCollider.enabled = true;
         // doorSprite.color = Color.red;
         doorAnimator.SetBool("IsOpen", false);
