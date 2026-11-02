@@ -29,6 +29,8 @@ public class RoomQuarantineHandler : MonoBehaviour
     public SpriteRenderer wallSprite;
 
     [SerializeField][Range(0, 1)] private float fadeVel = 0.03f;
+    // fadeVel foi ajustado a 60 FPS; escalar por deltaTime mantém a mesma velocidade em qualquer framerate
+    private float FadeStep => fadeVel * Time.deltaTime * 60f;
 
     [SerializeField] private Animator buttonAnimator;
 
@@ -96,7 +98,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             
             
             buttonLight.pointLightOuterRadius = 1;
-            if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + fadeVel);
+            if (wallSprite.color.a < 1) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a + FadeStep);
 
             buttonAnimator.SetBool("Unpressable", false);
         }
@@ -108,7 +110,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             buttonLight.color = Color.yellow;
             buttonLight.intensity = 3;
             buttonLight.pointLightOuterRadius = 0.4f;
-            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
+            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - FadeStep);
 
             buttonAnimator.SetBool("IsPressed", false);
             buttonAnimator.SetBool("Unpressable", true);
@@ -119,7 +121,7 @@ public class RoomQuarantineHandler : MonoBehaviour
             buttonLight.color = Color.green;
             buttonLight.intensity = 3;
             // roomSprite.color = new Color(0.75f, 1, 1, 0.0275f);
-            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - fadeVel);
+            if (wallSprite.color.a > 0) wallSprite.color = new Color(0, 0, 0, wallSprite.color.a - FadeStep);
             if (_blinkingCoroutine != null)
             {
                 StopCoroutine(_blinkingCoroutine);
