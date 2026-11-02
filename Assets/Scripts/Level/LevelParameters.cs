@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Scriptable Objects/LevelParameters")]
 public class LevelParameters : ScriptableObject
 {
+    #region Level
+
+    [Header("Level")]
+    [Tooltip("Tempo (s) sobrevivendo até vencer a fase")]
+    public float levelDurationSeconds = 540;
+
+    #endregion
+
     #region Tasks
 
     [Header("Tasks")]

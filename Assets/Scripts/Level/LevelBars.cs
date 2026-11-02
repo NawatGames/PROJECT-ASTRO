@@ -25,13 +25,17 @@ public class LevelBars : MonoBehaviour
     [SerializeField] private int percent100 = 100;
 
     [Header("Configuração do Timer")]
-    [SerializeField] private int countdownTillVictory = 120;
+    [SerializeField] private LevelManager levelManager;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameEvent levelCompleted;
+
+    private float countdownTillVictory; // Vem de LevelParameters.levelDurationSeconds da fase atual
 
     private void Start()
     {
         if (spriteRenderer == null) return;
+        if (levelManager == null) levelManager = FindObjectOfType<LevelManager>();
+        countdownTillVictory = levelManager.GetLevelParameters().levelDurationSeconds;
         StartCoroutine(UpdateTimer());
     }
 
