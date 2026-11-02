@@ -14,20 +14,38 @@ public class SaveManager : MonoBehaviour
         }
     }
     
-    public static int CurrentLevel { get; private set; }
-    private static string _filePath;
+    private static int _currentLevel;
+    private static bool _isLoaded;
+
+    // Carrega o save na primeira leitura, para não depender da ordem dos Awake entre cenas/objetos
+    public static int CurrentLevel
+    {
+        get
+        {
+            if (!_isLoaded)
+            {
+                _currentLevel = LoadSaveFile();
+                _isLoaded = true;
+            }
+            return _currentLevel;
+        }
+        private set
+        {
+            _currentLevel = value;
+            _isLoaded = true;
+        }
+    }
+
+    private static string FilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
 
     private void Awake()
     {
-        _filePath = Path.Combine(Application.persistentDataPath, "saveData.json");
-        //Debug.Log("Caminho do arquivo:" + _filePath);
-        
         ////// RESETAR P LEVEL 1 :
         //SaveLevelData(1);
         //////
-        
+
         CurrentLevel = LoadSaveFile();
-        
+
         //Debug.Log("Nível: " + CurrentLevel);
     }
 
@@ -60,16 +78,16 @@ public class SaveManager : MonoBehaviour
 
     private static void SaveLevelData(int level)
     {
-        Debug.Log("path:   " + _filePath);
-        File.WriteAllText(_filePath, JsonUtility.ToJson(new SaveData(level)));
+        Debug.Log("path:   " + FilePath);
+        File.WriteAllText(FilePath, JsonUtility.ToJson(new SaveData(level)));
         Debug.Log("Value saved: " + level);
     }
 
     private static int LoadSaveFile()
     {
-        if(File.Exists(_filePath))
+        if(File.Exists(FilePath))
         {
-            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(_filePath));
+            SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(FilePath));
             Debug.Log("LOAD: " + saveData.data);
             return saveData.data;
         }

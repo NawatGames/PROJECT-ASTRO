@@ -17,11 +17,12 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        CheckTaskNumbers();
-        
-        fadeImage.gameObject.SetActive(false);
+        // Clamp evita índice inválido ao abrir a cena sem save (CurrentLevel = 0) ou com save de mais fases
+        _levelIndex = Mathf.Clamp(SaveManager.CurrentLevel, 1, levelParams.Length) - 1;
 
-        _levelIndex = SaveManager.CurrentLevel - 1;
+        CheckTaskNumbers();
+
+        fadeImage.gameObject.SetActive(false);
 
         _thisLevelTasks = new List<TaskController>();
         foreach (TaskSO taskSO in levelParams[_levelIndex].tasks)
@@ -45,7 +46,12 @@ public class LevelManager : MonoBehaviour
     }
 
     #region Getters
-    
+
+    public LevelParameters GetLevelParameters()
+    {
+        return levelParams[_levelIndex];
+    }
+
     public int GetMaxNumberOfActiveTasks()
     {
         return levelParams[_levelIndex].maxActiveTasks;
@@ -109,7 +115,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Winscreen");
+            SceneManager.LoadScene(SceneNames.WinScreen);
         }
     }
 }
