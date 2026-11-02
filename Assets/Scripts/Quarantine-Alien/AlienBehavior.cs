@@ -27,7 +27,7 @@ public class AlienBehavior : MonoBehaviour
     [SerializeField] private GameEvent alienWarningEndEvent;
     [SerializeField] private GameEvent alienQuarantinedEvent;
     
-    private int _levelIndex;
+    private LevelParameters _levelParams;
     private float _timerInvasionDelay;
     private float _invasionWarningSeconds;
     private float _alienInsideSeconds;
@@ -41,10 +41,10 @@ public class AlienBehavior : MonoBehaviour
 
     void Start()
     {
-        _levelIndex = SaveManager.CurrentLevel - 1;
-        _timerInvasionDelay = levelManager.levelParams[_levelIndex].invasionDelaySeconds;
-        _invasionWarningSeconds = levelManager.levelParams[_levelIndex].invasionWarningSeconds;
-        _alienInsideSeconds = levelManager.levelParams[_levelIndex].alienInsideSeconds;
+        _levelParams = levelManager.GetLevelParameters();
+        _timerInvasionDelay = _levelParams.invasionDelaySeconds;
+        _invasionWarningSeconds = _levelParams.invasionWarningSeconds;
+        _alienInsideSeconds = _levelParams.alienInsideSeconds;
         
         StartCoroutine(WaitAndActivateAlien());
     }
@@ -62,7 +62,7 @@ public class AlienBehavior : MonoBehaviour
 
     private IEnumerator WaitAndActivateAlien()
     {
-        yield return new WaitForSeconds(levelManager.levelParams[_levelIndex].alienInactiveAtStartSeconds);
+        yield return new WaitForSeconds(_levelParams.alienInactiveAtStartSeconds);
         Debug.Log("Alien awoke");
         _canCheckRooms = true;
     }

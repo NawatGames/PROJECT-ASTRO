@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
-using UnityEngine.Localization.SmartFormat.Core.Parsing;
+using UnityEngine.Localization;
 
 public class DecontaminationTask : MonoBehaviour
 {
@@ -20,6 +20,8 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private float delayBeforeAndAfterScan = 2f;
     [SerializeField] private float delayBeforeDecontaminationEject = .5f;
     [SerializeField] private TextMeshProUGUI countdownText;
+    [Tooltip("Opcional: texto localizado antes do tempo. Se vazio, usa o texto em português")]
+    [SerializeField] private LocalizedString countdownLabel;
     [SerializeField] private GameEvent completedDecontaminationEvent;
     [SerializeField] private GameEvent startDecontaminationProcedure;
     [SerializeField] private Animator podDoorsAnimator;
@@ -45,6 +47,7 @@ public class DecontaminationTask : MonoBehaviour
     private bool _onePlayerPressed = false;
     private bool _twoPlayersPressed = false;
     private BoxCollider2D[] _podColliders;
+    private string _countdownLabelText = "Tempo restante para Descontaminação";
     
     [Header("AUDIO SAMPLES")]
     private AudioSource _heartbeatAudioSource;
@@ -54,6 +57,27 @@ public class DecontaminationTask : MonoBehaviour
     [SerializeField] private AudioPlayer alertAudioPlayer;
     [SerializeField] private AudioPlayer closeAndScanAudioPlayer;
     
+    private void OnEnable()
+    {
+        if (countdownLabel != null && !countdownLabel.IsEmpty)
+        {
+            countdownLabel.StringChanged += OnCountdownLabelChanged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (countdownLabel != null && !countdownLabel.IsEmpty)
+        {
+            countdownLabel.StringChanged -= OnCountdownLabelChanged;
+        }
+    }
+
+    private void OnCountdownLabelChanged(string label)
+    {
+        _countdownLabelText = label;
+    }
+
     private void Start()
     {
         //StartWave();
@@ -275,7 +299,7 @@ public class DecontaminationTask : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(_timeRemaining / 60f);
             int seconds = Mathf.FloorToInt(_timeRemaining % 60f);
-            countdownText.text = $"Tempo restante para Descontaminação: {minutes:00}:{seconds:00}";
+            countdownText.text = $"{_countdownLabelText}: {minutes:00}:{seconds:00}";
         }
     }
     private void StartDecontaminationLightPath()

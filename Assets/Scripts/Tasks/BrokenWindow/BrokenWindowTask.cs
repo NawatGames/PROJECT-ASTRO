@@ -20,7 +20,8 @@ public class BrokenWindowTask : TaskScript
     private Dictionary<DirectionEnum, GameObject> _arrowsMapping;
     [SerializeField] private int totalSequence;
     private int currentSequence;
-    
+    private Coroutine _timerCoroutine;
+
     private enum DirectionEnum
     {
         Up,
@@ -56,7 +57,14 @@ public class BrokenWindowTask : TaskScript
         
         CreateNewSequence();
         ShowNewSequence();
-        StartCoroutine(timerBarScript.StartTimer());
+        RestartTimer();
+    }
+
+    // Para o timer anterior antes de iniciar outro (senão os dois descontam o mesmo tempo)
+    private void RestartTimer()
+    {
+        if (_timerCoroutine != null) StopCoroutine(_timerCoroutine);
+        _timerCoroutine = StartCoroutine(timerBarScript.StartTimer());
     }
 
 
@@ -104,7 +112,7 @@ public class BrokenWindowTask : TaskScript
                     
                     CreateNewSequence();
                     ShowNewSequence();
-                    StartCoroutine(timerBarScript.StartTimer());
+                    RestartTimer();
                     
                 }
             }

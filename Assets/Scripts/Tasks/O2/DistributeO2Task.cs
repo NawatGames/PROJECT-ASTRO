@@ -51,7 +51,8 @@ public class DistributeO2Task : TaskScript
     [ContextMenu("CheckAlign")]
     private void CheckAlignment()
     {
-        float angleDifference = Mathf.Abs(arrow.eulerAngles.z - specialZone.eulerAngles.z);
+        // DeltaAngle considera a volta (ex: 359° e 1° estão a 2° de distância, não 358°)
+        float angleDifference = Mathf.Abs(Mathf.DeltaAngle(arrow.eulerAngles.z, specialZone.eulerAngles.z));
 
         if (angleDifference <= alignmentThreshold)
         {
@@ -77,12 +78,16 @@ public class DistributeO2Task : TaskScript
         }
         else if(angleDifference > alignmentThreshold)
         {
-            TaskMistakeStay();
             _unsuccessfulAlignments++;
 
+            // O último erro conta só como "leave" (antes contava stay + leave)
             if (_unsuccessfulAlignments >= maxUnsuccessfulAlignments)
             {
                 TaskMistakeLeave();
+            }
+            else
+            {
+                TaskMistakeStay();
             }
         }
     }

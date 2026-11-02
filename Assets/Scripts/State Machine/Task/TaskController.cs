@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class TaskController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class TaskController : MonoBehaviour
 
     public TaskScript taskScript;
     public string taskName; // Para ser exibido na UI
+    [Tooltip("Opcional: quando preenchido, substitui taskName pelo texto do idioma atual")]
+    [SerializeField] private LocalizedString localizedTaskName;
 
     public bool needsToBeDone = false;
     public bool wasStarted;
@@ -40,6 +43,25 @@ public class TaskController : MonoBehaviour
         {
             Debug.LogWarning("Há um objeto task Sem script! Criar componente e associar no TaskController");
         }
+
+        // StringChanged dispara ao assinar e a cada troca de idioma
+        if (localizedTaskName != null && !localizedTaskName.IsEmpty)
+        {
+            localizedTaskName.StringChanged += OnTaskNameChanged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (localizedTaskName != null && !localizedTaskName.IsEmpty)
+        {
+            localizedTaskName.StringChanged -= OnTaskNameChanged;
+        }
+    }
+
+    private void OnTaskNameChanged(string localizedName)
+    {
+        taskName = localizedName;
     }
 
     private void Update()

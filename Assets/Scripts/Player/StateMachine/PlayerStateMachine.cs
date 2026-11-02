@@ -27,6 +27,12 @@ namespace Player.StateMachine
         public bool GameIsOver { get; private set; }
         #endregion
 
+        // Chamado pelo GameOverManager; cada estado troca para o gameOverState no próprio StateUpdate
+        public void SetGameOver()
+        {
+            GameIsOver = true;
+        }
+
         private void Awake()
         {
             /*walkState = GetComponentInChildren<WalkPlayerState>();

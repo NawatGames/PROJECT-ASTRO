@@ -21,7 +21,14 @@ public class TasksManager : MonoBehaviour
 
     private List<TaskController> _tasksNotYetSelected;
     private List<TaskController> _tasksForThisLevel;
-    private Dictionary<TaskController, Coroutine> _taskQueue;
+    private Dictionary<TaskController, ActiveTask> _taskQueue;
+
+    // Timer e texto de UI de uma task ativa (removidos juntos ao sair da fila)
+    private class ActiveTask
+    {
+        public Coroutine timer;
+        public TextMeshProUGUI timerText;
+    }
     private TaskController _recentRemovedTask;
     
     private float _taskTimeWindow;
@@ -35,7 +42,7 @@ public class TasksManager : MonoBehaviour
     {
         _taskTimeWindow = levelManager.GetTaskTimeWindow();
         _taskWarningTimeWindow = _taskTimeWindow * levelManager.GetTaskWarningTimeRatio();
-        _taskQueue = new Dictionary<TaskController, Coroutine>();
+        _taskQueue = new Dictionary<TaskController, ActiveTask>();
         _tasksForThisLevel = levelManager.GetTasksForThisLevel();
         _tasksNotYetSelected = new List<TaskController>(_tasksForThisLevel);
         StartCoroutine(SetupStartingTasks());
@@ -73,7 +80,9 @@ public class TasksManager : MonoBehaviour
         }
 
         _tasksNotYetSelected.Remove(task);
-        _taskQueue.Add(task, StartCoroutine(StartTaskTimer(task)));
+        var activeTask = new ActiveTask();
+        _taskQueue.Add(task, activeTask);
+        activeTask.timer = StartCoroutine(StartTaskTimer(task, activeTask));
 
         if (_tasksNotYetSelected.Count == 0)
         {
@@ -103,8 +112,10 @@ public class TasksManager : MonoBehaviour
 
     public void TaskDoneSuccessfully(TaskController task)
     {
+        if (!_taskQueue.TryGetValue(task, out ActiveTask activeTask)) return; // Já saiu da fila (sucesso duplicado)
+
         task.StatusLight.TurnOnSuccess();
-        StopCoroutine(_taskQueue[task]);
+        StopCoroutine(activeTask.timer);
         RemoveTaskFromQueue(task);
     }
 
@@ -120,61 +131,48 @@ public class TasksManager : MonoBehaviour
         task.needsToBeDone = true;
     }
 
-    private IEnumerator StartTaskTimer(TaskController task)
+    // Uma única coroutine por task (tempo normal + warning), para que TaskDoneSuccessfully consiga pará-la
+    private IEnumerator StartTaskTimer(TaskController task, ActiveTask activeTask)
     {
         task.needsToBeDone = true;
         task.taskVisual?.SetIsBroken(true);
 
         DefineSpecialist(task.taskScript);
 
-        TextMeshProUGUI taskTimerTMP = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
+        activeTask.timerText = Instantiate(taskTimerPrefab, taskGridLayoutTransform).GetComponent<TextMeshProUGUI>();
         float timeLeft = _taskTimeWindow;
-        int minutes = (int) _taskTimeWindow / 60;
-        int seconds = (int) _taskTimeWindow - 60 * minutes;
-        taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
+        UpdateTimerText(task, activeTask.timerText, timeLeft);
 
         if (task.taskScript.IsAstroSpecialist()) task.StatusLight.TurnOnAstro();
         else task.StatusLight.TurnOnOrion();
-        
-        while (timeLeft > _taskWarningTimeWindow)
 
-        {
-            yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
-
-            timeLeft -= Time.deltaTime;
-            minutes = Mathf.FloorToInt(timeLeft / 60);
-            seconds = Mathf.FloorToInt(timeLeft % 60);
-            taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
-        }
-        StartCoroutine(TaskShortTime(task, taskTimerTMP));
-    }
-
-    private IEnumerator TaskShortTime(TaskController task, TextMeshProUGUI taskTimerTMP)
-    {
-        float timeLeft = _taskWarningTimeWindow;
-        int minutes = (int) _taskWarningTimeWindow / 60;
-        int seconds = (int) _taskWarningTimeWindow - 60 * minutes;
-        taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
-
-        task.StatusLight.TurnOnWarning();
-        // task.StatusLight.Blink())
-
+        bool isOnWarning = false;
         while (timeLeft > 0)
         {
             yield return new WaitUntil(() => task.taskScript.IsTaskInProgress() == false);
 
             timeLeft -= Time.deltaTime;
-            minutes = Mathf.FloorToInt(timeLeft / 60);
-            seconds = Mathf.FloorToInt(timeLeft % 60);
-            taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
+            if (!isOnWarning && timeLeft <= _taskWarningTimeWindow)
+            {
+                isOnWarning = true;
+                task.StatusLight.TurnOnWarning();
+            }
+            UpdateTimerText(task, activeTask.timerText, timeLeft);
         }
-        TaskTimedOut(task, taskTimerTMP);
+        TaskTimedOut(task);
     }
 
-    private void TaskTimedOut(TaskController task, TextMeshProUGUI taskTimerTMP)
+    private void UpdateTimerText(TaskController task, TextMeshProUGUI taskTimerTMP, float timeLeft)
+    {
+        timeLeft = Mathf.Max(timeLeft, 0);
+        int minutes = Mathf.FloorToInt(timeLeft / 60);
+        int seconds = Mathf.FloorToInt(timeLeft % 60);
+        taskTimerTMP.text = $"{task.taskName}: {minutes,2}:{seconds:00}";
+    }
+
+    private void TaskTimedOut(TaskController task)
     {
         task.StatusLight.TurnOnFailed();
-        Destroy(taskTimerTMP.gameObject);
         onTaskFailed.Raise();
         RemoveTaskFromQueue(task);
     }
@@ -183,6 +181,10 @@ public class TasksManager : MonoBehaviour
     {
         _recentRemovedTask = task;
         task.Mistakes = 0;
+        if (_taskQueue.TryGetValue(task, out ActiveTask activeTask) && activeTask.timerText != null)
+        {
+            Destroy(activeTask.timerText.gameObject);
+        }
         _taskQueue.Remove(task);
         task.needsToBeDone = false;
         task.taskVisual?.SetIsBroken(false);
