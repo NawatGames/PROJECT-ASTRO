@@ -42,6 +42,7 @@ using UnityEngine.InputSystem;
             rb.velocity = Vector2.zero;
             _inputDirection = Vector2.zero;
             _currentVelocity = Vector2.zero;
+            StopStepsAudio(); // Desabilitar o componente não para coroutines
             _movementAction.performed -= OnMovement;
             _movementAction.canceled -= OnMovement;
         }
@@ -73,10 +74,19 @@ using UnityEngine.InputSystem;
             {
                 if (direction == Vector2.zero)
                 {
-                    StopCoroutine(_currentStepsCoroutine);
-                    _wasMoving = false;
+                    StopStepsAudio();
                 }
             }
+        }
+
+        private void StopStepsAudio()
+        {
+            if (_currentStepsCoroutine != null)
+            {
+                StopCoroutine(_currentStepsCoroutine);
+                _currentStepsCoroutine = null;
+            }
+            _wasMoving = false;
         }
 
         private void FixedUpdate()
@@ -104,7 +114,7 @@ using UnityEngine.InputSystem;
                 {
                     rb.velocity = Vector2.zero;
                     rb.MovePosition(targetPosition);
-                    StopCoroutine(_currentStepsCoroutine);
+                    StopStepsAudio();
                     break;
                 }
             
