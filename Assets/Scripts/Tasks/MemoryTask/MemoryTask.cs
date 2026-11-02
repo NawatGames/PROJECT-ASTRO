@@ -37,7 +37,7 @@ namespace Tasks.MemoryTask
             {
                 throw new System.Exception("Not enough colors set for easy mode");
             }
-            if (_tiles.Count >= hardModeColors.Count * 2)
+            if (hardModeColors.Count < _tiles.Count * 2)
             {
                 throw new System.Exception("Not enough colors set for hard mode");
             }
