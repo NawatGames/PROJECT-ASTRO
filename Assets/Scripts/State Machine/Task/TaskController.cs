@@ -7,6 +7,8 @@ public class TaskController : MonoBehaviour
     private ITaskState _previousState;
 
     public TaskScript taskScript;
+    [Tooltip("Identifica esta task nos LevelParameters (substitui a busca pelo nome do objeto)")]
+    public TaskSO taskSO;
     public string taskName; // Para ser exibido na UI
     [Tooltip("Opcional: quando preenchido, substitui taskName pelo texto do idioma atual")]
     [SerializeField] private LocalizedString localizedTaskName;

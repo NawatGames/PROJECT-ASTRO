@@ -24,12 +24,62 @@ public class LevelManager : MonoBehaviour
 
         fadeImage.gameObject.SetActive(false);
 
+        TaskController[] sceneTasks = FindObjectsOfType<TaskController>();
         _thisLevelTasks = new List<TaskController>();
         foreach (TaskSO taskSO in levelParams[_levelIndex].tasks)
         {
-            _thisLevelTasks.Add(GameObject.Find(taskSO.taskControllerCarrierName).GetComponent<TaskController>());
+            TaskController task = FindTaskController(sceneTasks, taskSO);
+            if (task == null)
+            {
+                Debug.LogError($"Nenhum TaskController em cena para o TaskSO '{taskSO.name}'");
+                continue;
+            }
+            _thisLevelTasks.Add(task);
         }
     }
+
+    // Prioriza a referência TaskController.taskSO; o nome do objeto fica só como fallback
+    private static TaskController FindTaskController(TaskController[] sceneTasks, TaskSO taskSO)
+    {
+        foreach (TaskController task in sceneTasks)
+        {
+            if (task.taskSO == taskSO) return task;
+        }
+        foreach (TaskController task in sceneTasks)
+        {
+            if (task.gameObject.name == taskSO.taskControllerCarrierName)
+            {
+                Debug.LogWarning($"'{task.name}' encontrado pelo nome. Use 'Vincular TaskSOs pelo nome' no LevelManager e salve a cena.");
+                return task;
+            }
+        }
+        return null;
+    }
+
+#if UNITY_EDITOR
+    // Preenche TaskController.taskSO uma vez, a partir dos nomes atuais; depois os objetos podem ser renomeados
+    [ContextMenu("Vincular TaskSOs pelo nome")]
+    private void LinkTaskSOsByName()
+    {
+        TaskController[] sceneTasks = FindObjectsOfType<TaskController>(true);
+        var linked = new HashSet<TaskSO>();
+        foreach (LevelParameters level in levelParams)
+        {
+            foreach (TaskSO taskSO in level.tasks)
+            {
+                if (!linked.Add(taskSO)) continue;
+                foreach (TaskController task in sceneTasks)
+                {
+                    if (task.gameObject.name != taskSO.taskControllerCarrierName) continue;
+                    UnityEditor.Undo.RecordObject(task, "Vincular TaskSO");
+                    task.taskSO = taskSO;
+                    UnityEditor.EditorUtility.SetDirty(task);
+                    Debug.Log($"{task.name} -> {taskSO.name}");
+                }
+            }
+        }
+    }
+#endif
 
     [Conditional("UNITY_EDITOR")]
     private void CheckTaskNumbers()
