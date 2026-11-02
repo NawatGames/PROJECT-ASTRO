@@ -1,5 +1,6 @@
 using System.Collections;
 using Audio_System;
+using Player.StateMachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,8 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private float preJumpscareDelay;
     [SerializeField] private GameOverVideoController gameOverVideoController;
 
+    private bool _isGameOver;
+
     private void Start()
     {
         blackScreen.color = new Color(0, 0, 0, 0);
@@ -25,13 +28,28 @@ public class GameOverManager : MonoBehaviour
     [ContextMenu("Forçar game over")]
     public void StartGameOver()
     {
+        if (!TryBeginGameOver()) return;
         StartCoroutine(GameOverSequence());
     }
 
     [ContextMenu("Forçar game over com delay")]
     public void StartDelayedGameOver()
     {
+        if (!TryBeginGameOver()) return;
         StartCoroutine(DelayedGameOverSequence());
+    }
+
+    // Garante uma única sequência de game over e coloca os players no GameOverPlayerState
+    private bool TryBeginGameOver()
+    {
+        if (_isGameOver) return false;
+        _isGameOver = true;
+
+        foreach (PlayerStateMachine player in FindObjectsOfType<PlayerStateMachine>())
+        {
+            player.SetGameOver();
+        }
+        return true;
     }
 
     private IEnumerator GameOverSequence()
@@ -94,6 +112,7 @@ public class GameOverManager : MonoBehaviour
 
     public void GameOver()
     {
+        TryBeginGameOver(); // Chamado direto pela descontaminação, sem passar pelas sequências
         SceneManager.LoadScene(SceneNames.GameOver);
     }
 }
